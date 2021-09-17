@@ -91,30 +91,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_HHID, form.getHhid());
         values.put(FormsTable.COLUMN_USERNAME, form.getUserName());
         values.put(FormsTable.COLUMN_SYSDATE, form.getSysDate());
-        values.put(FormsTable.COLUMN_SH1, form.sH1toString());
-
-        /* values.put(FormsTable.COLUMN_SH2A, form.getsH2a());*/
-        values.put(FormsTable.COLUMN_SH2B, form.sH2btoString());
-/*
-        values.put(FormsTable.COLUMN_SH2d, form.getsH2d());
-        values.put(FormsTable.COLUMN_SH2c, form.getsH2c());
-*/
-        values.put(FormsTable.COLUMN_SH3A, form.sH3atoString());
-        values.put(FormsTable.COLUMN_SH3B, form.sH3btoString());
-        values.put(FormsTable.COLUMN_SH4, form.sH4toString());
-        values.put(FormsTable.COLUMN_SH5, form.sH5toString());
-        values.put(FormsTable.COLUMN_SH6, form.sH6toString());
-        values.put(FormsTable.COLUMN_SH7, form.sH7toString());
-
-        values.put(FormsTable.COLUMN_SW1A, form.sW1atoString());
-        /*values.put(FormsTable.COLUMN_SW1B, form.sW1b());*/
-        values.put(FormsTable.COLUMN_SW2, form.sW2toString());
-        values.put(FormsTable.COLUMN_SW3, form.sW3toString());
-        values.put(FormsTable.COLUMN_SW4, form.sW4toString());
-
-        values.put(FormsTable.COLUMN_SC1, form.sC1toString());
-        values.put(FormsTable.COLUMN_SC2, form.sC2toString());
-        values.put(FormsTable.COLUMN_SC3, form.sC3toString());
+        values.put(FormsTable.COLUMN_SHA, form.sHAtoString());
+        values.put(FormsTable.COLUMN_SPA, form.sPAtoString());
+        values.put(FormsTable.COLUMN_SPB, form.sH3atoString());
+        values.put(FormsTable.COLUMN_SPC, form.sPBtoString());
 
 
         values.put(FormsTable.COLUMN_ISTATUS, form.getiStatus());
@@ -600,7 +580,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public List<String> getLMS(int age, int gender, String catA, String catB) {
+    /*public List<String> getLMS(int age, int gender, String catA, String catB) {
         SQLiteDatabase db = this.getReadableDatabase();
         Log.d(TAG, "getLMS: " + age + " | " + gender + " | " + catA + " | " + catB);
         Cursor c = db.rawQuery("SELECT l,m,s " +
@@ -624,9 +604,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         }
         return lms;
-    }
+    }*/
 
-    public List<String> getWHLMS(Double height, int gender, String catA) {
+/*    public List<String> getWHLMS(Double height, int gender, String catA) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery("SELECT l,m,s " +
                         "FROM " + ZScoreTable.TABLE_NAME +
@@ -647,11 +627,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         c.close();
         return whlms;
-    }
+    }*/
 
 
     //get Distinct Districts
-    public Collection<Clusters> getAllDistricts() {
+    /*public Collection<Clusters> getAllDistricts() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {ClustersTable.COLUMN_DISTRICT_CODE, ClustersTable.COLUMN_DISTRICT_NAME};
@@ -693,10 +673,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return allDistricts;
-    }
+    }*/
 
     //get Distinct cities
-    public Collection<Clusters> getCitiesByDistrict(String dist_code) {
+    /*public Collection<Clusters> getCitiesByDistrict(String dist_code) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {ClustersTable.COLUMN_CITY_CODE, ClustersTable.COLUMN_CITY_NAME};
@@ -737,7 +717,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return allCities;
-    }
+    }*/
 
     public RandomHH checkHousehold(String cluster_no, String hh_no) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -946,7 +926,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    public String getWraName(String uid) throws JSONException {
+    /*public String getWraName(String uid) throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {FormsTable.COLUMN_SW1A};
@@ -987,9 +967,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return form.getW100Name();
-    }
+    }*/
 
-    public String getChildName(String uid) throws JSONException {
+    /*public String getChildName(String uid) throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {FormsTable.COLUMN_SC1};
@@ -1030,6 +1010,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return form.getC100Name();
-    }
+    }*/
 
 }

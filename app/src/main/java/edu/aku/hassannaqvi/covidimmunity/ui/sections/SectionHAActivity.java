@@ -30,7 +30,7 @@ public class SectionHAActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_pc);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_ha);
         bi.setCallback(this);
         if (form == null) form = new Form();
         bi.setForm(form);
@@ -70,7 +70,7 @@ public class SectionHAActivity extends AppCompatActivity {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = 0;
         try {
-            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SH1, form.sH1toString());
+            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SHA, form.sHAtoString());
         } catch (JSONException e) {
             Toast.makeText(this, R.string.upd_db + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
