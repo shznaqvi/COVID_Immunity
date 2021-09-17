@@ -55,39 +55,18 @@ public class SectionPCActivity extends AppCompatActivity {
     }
 
 
-    private boolean insertNewRecord() {
-        if (!form.getUid().equals("")) return true;
-        long rowId = 0;
+    private boolean updateDB() {
+        db = MainApp.appInfo.getDbHelper();
+        long updcount = 0;
         try {
-            rowId = db.addForm(form);
+            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SC2, form.sC2toString());
         } catch (JSONException e) {
             e.printStackTrace();
-            Toast.makeText(this, R.string.db_excp_error, Toast.LENGTH_SHORT).show();
-            return false;
+            Log.d(TAG, R.string.upd_db_form + e.getMessage());
+            Toast.makeText(this, R.string.upd_db_form + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        form.setId(String.valueOf(rowId));
-        if (rowId > 0) {
-            form.setUid(form.getDeviceId() + form.getId());
-            db.updatesFormColumn(TableContracts.FormsTable.COLUMN_UID, form.getUid());
-            return true;
-        } else {
-            Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
-            return false;
-        }
-    }
-
-
-    private boolean updateDB() {
-        DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = 0;
-        try {
-            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SH1, form.sH1toString());
-        } catch (JSONException e) {
-            Toast.makeText(this, R.string.upd_db + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-        if (updcount == 1) {
-            return true;
-        } else {
+        if (updcount > 0) return true;
+        else {
             Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -96,20 +75,11 @@ public class SectionPCActivity extends AppCompatActivity {
 
     public void btnContinue(View view) {
         if (!formValidation()) return;
-        if (!insertNewRecord()) return;
         saveDraft();
         if (updateDB()) {
-            Intent i;
-/*            if (bi.h111a.isChecked()) {
-                i = new Intent(this, EndingActivity.class).putExtra("complete", true);
-            } else {
-                i = new Intent(this, EndingActivity.class).putExtra("complete", false);
-            }
             finish();
-            startActivity(i);*/
-        } else {
-            Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
-        }
+            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+        } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 
 

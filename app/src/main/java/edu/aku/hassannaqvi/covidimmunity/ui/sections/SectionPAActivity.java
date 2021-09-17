@@ -65,7 +65,7 @@ public class SectionPAActivity extends AppCompatActivity {
         saveDraft();
         if (updateDB()) {
             finish();
-            // startActivity(new Intent(this, SectionC3Activity.class).putExtra("complete", true));
+            startActivity(new Intent(this, SectionPBActivity.class).putExtra("complete", true));
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 

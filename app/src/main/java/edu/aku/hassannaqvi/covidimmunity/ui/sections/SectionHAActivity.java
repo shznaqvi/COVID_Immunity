@@ -88,14 +88,8 @@ public class SectionHAActivity extends AppCompatActivity {
         if (!insertNewRecord()) return;
         saveDraft();
         if (updateDB()) {
-            Intent i;
-/*            if (bi.h111a.isChecked()) {
-                i = new Intent(this, EndingActivity.class).putExtra("complete", true);
-            } else {
-                i = new Intent(this, EndingActivity.class).putExtra("complete", false);
-            }
             finish();
-            startActivity(i);*/
+            startActivity(new Intent(this, SectionPAActivity.class).putExtra("complete", true));
         } else {
             Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
         }
