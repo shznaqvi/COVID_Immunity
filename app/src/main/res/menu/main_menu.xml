@@ -57,7 +57,7 @@
                 android:title="Sections">
 
                 <menu>
-                    <group android:id="@+id/lists">
+                    <!--<group android:id="@+id/lists">
 
                         <item
                             android:id="@+id/mwraList"
@@ -65,13 +65,13 @@
                         <item
                             android:id="@+id/childList"
                             android:title="@string/childtitle" />
-                    </group>
+                    </group>-->
 
                     <group android:id="@+id/secH">
                         <item
                             android:id="@+id/secH1"
                             android:title="@string/sech1title" />
-                        <item
+                        <!--<item
                             android:id="@+id/secH2b"
                             android:title="@string/sec2btitle" />
                         <item
@@ -92,9 +92,9 @@
                             android:title="@string/sech7title" />
                         <item
                             android:id="@+id/sech6"
-                            android:title="@string/sech6title" />
+                            android:title="@string/sech6title" />-->
                     </group>
-                    <group android:id="@+id/secW">
+                    <!--<group android:id="@+id/secW">
 
 
                         <item
@@ -127,7 +127,7 @@
                             android:id="@+id/secC3"
                             android:title="@string/secc3title" />
 
-                    </group>
+                    </group>-->
 
 
                 </menu>

@@ -844,42 +844,9 @@ public class Form extends BaseObservable implements Observable {
     private String c323dx = StringUtils.EMPTY;
 
 
-/*
-    private synchronized void notifyChange(int propertyId) {
-        if (propertyChangeRegistry == null) {
-            propertyChangeRegistry = new PropertyChangeRegistry();
-        }
-        propertyChangeRegistry.notifyChange(this, propertyId);
-    }
-
-    @Override
-    public synchronized void addOnPropertyChangedCallback(OnPropertyChangedCallback callback) {
-        if (propertyChangeRegistry == null) {
-            propertyChangeRegistry = new PropertyChangeRegistry();
-        }
-        propertyChangeRegistry.add(callback);
-
-    }
-
-    @Override
-    public synchronized void removeOnPropertyChangedCallback(OnPropertyChangedCallback callback) {
-        if (propertyChangeRegistry != null) {
-            propertyChangeRegistry.remove(callback);
-        }
-    }*/
-
-
     public Form() {
 
     }
-
-/*    public PropertyChangeRegistry getPropertyChangeRegistry() {
-        return propertyChangeRegistry;
-    }
-
-    public void setPropertyChangeRegistry(PropertyChangeRegistry propertyChangeRegistry) {
-        this.propertyChangeRegistry = propertyChangeRegistry;
-    }*/
 
     public String getProjectName() {
         return projectName;
@@ -1205,36 +1172,7 @@ public class Form extends BaseObservable implements Observable {
         notifyPropertyChanged(BR.h106);
     }
 
-/*    @Bindable
-    public String getH107m() {
-        return h107m;
-    }
 
-    public void setH107m(String h107m) {
-        this.h107m = h107m;
-        notifyPropertyChanged(BR.h107m);
-    }*/
-
-    /*  @Bindable
-      public String getH106m() {
-          return h106m;
-      }
-
-      public void setH106m(String h106m) {
-          this.h106m = h106m;
-          notifyPropertyChanged(BR.h106m);
-      }
-
-      @Bindable
-      public String getH106y() {
-          return h106y;
-      }
-
-      public void setH106y(String h106y) {
-          this.h106y = h106y;
-          notifyPropertyChanged(BR.h106y);
-      }
-  */
     @Bindable
     public String getH107() {
         return h107;
