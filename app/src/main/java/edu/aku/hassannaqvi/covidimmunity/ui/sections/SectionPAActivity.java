@@ -4,6 +4,7 @@ import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.form;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -12,7 +13,10 @@ import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
+import org.json.JSONException;
+
 import edu.aku.hassannaqvi.covidimmunity.R;
+import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionPaBinding;
@@ -45,13 +49,13 @@ public class SectionPAActivity extends AppCompatActivity {
     private boolean updateDB() {
         db = MainApp.appInfo.getDbHelper();
         long updcount = 0;
-      /*  try {
-            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SC1, form.sC1toString());
+        try {
+            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SPB, form.sPBtoString());
         } catch (JSONException e) {
             e.printStackTrace();
             Log.d(TAG, R.string.upd_db_form + e.getMessage());
             Toast.makeText(this, R.string.upd_db_form + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }*/
+        }
         if (updcount > 0) return true;
         else {
             Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();

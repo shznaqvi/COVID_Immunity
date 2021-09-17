@@ -59,7 +59,7 @@ public class SectionPCActivity extends AppCompatActivity {
         db = MainApp.appInfo.getDbHelper();
         long updcount = 0;
         try {
-            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SC2, form.sC2toString());
+            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SPC, form.sPCtoString());
         } catch (JSONException e) {
             e.printStackTrace();
             Log.d(TAG, R.string.upd_db_form + e.getMessage());

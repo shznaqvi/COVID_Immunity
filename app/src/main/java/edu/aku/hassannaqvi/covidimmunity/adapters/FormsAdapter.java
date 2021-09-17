@@ -72,7 +72,7 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
         int stoolStatus = 0;
         stoolStatus = db.checkStool(fc.get(position).getUid());
 
-        String motherName = "";
+        /*String motherName = "";
         try {
             motherName = db.getWraName(fc.get(position).getUid());
         } catch (JSONException e) {
@@ -86,7 +86,7 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(c, "JSONException(Form): " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
+        }*/
 
         String iStatus = "Status  Unknown";
         int iColor = 0;
@@ -131,7 +131,7 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
         holder.cluster.setText(fc.get(position).getCluster());
         holder.cluster.setText(fc.get(position).getCluster());
         holder.istatus.setText(iStatus);
-        holder.fatherName.setText(motherName + " / " + childName);
+//        holder.fatherName.setText(motherName + " / " + childName);
         holder.secStatusAnthro.setText(anthroStatus == 2 ? "  Done   " : " Pending ");
         holder.secStatusBlood.setText(bloodStatus == 2 ? "  Done   " : " Pending ");
         holder.secStatusStool.setText(stoolStatus == 2 ? "  Done   " : " Pending ");
