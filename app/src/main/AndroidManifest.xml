@@ -61,15 +61,15 @@
 
         <activity
             android:name=".ui.sections.SectionPAActivity"
-            android:theme="@style/AppThemeEnglish1"
+            android:theme="@style/AppThemeUrdu"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".ui.sections.SectionPBActivity"
-            android:theme="@style/AppThemeEnglish1"
+            android:theme="@style/AppThemeUrdu"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".ui.sections.SectionPCActivity"
-            android:theme="@style/AppThemeEnglish1"
+            android:theme="@style/AppThemeUrdu"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
