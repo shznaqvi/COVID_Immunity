@@ -21,7 +21,6 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -407,7 +406,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void settingCountryCode() {
 
-        bi.countrySwitch.setChecked(sharedPref.getString("lang", "1").equals("1"));
+      /*  bi.countrySwitch.setChecked(sharedPref.getString("lang", "1").equals("1"));
 
         bi.countrySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -419,7 +418,7 @@ public class LoginActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
             }
-        });
+        });*/
 
     }
 
