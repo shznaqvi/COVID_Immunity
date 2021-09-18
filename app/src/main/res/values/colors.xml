@@ -22,6 +22,7 @@
     <color name="redLight">#d6ef0000</color>
     <color name="gray">#757575</color>
     <color name="green">#009900</color>
+    <color name="greenOverlay">#7f009900</color>
     <color name="redOverlay">#7f990000</color>
     <color name="blackOverlay">#7f000000</color>
     <color name="whiteOverlay">#7fffffff</color>

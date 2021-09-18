@@ -33,7 +33,7 @@ public class SectionPAActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_pa);
-        bi.setCallback(this);
+       // bi.setCallback(this);
         bi.setForm(form);
        /* form.setC100Name(MainApp.child.getH229());
         form.setCuid(MainApp.child.getUid());*/

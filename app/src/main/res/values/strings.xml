@@ -245,7 +245,7 @@
     <string name="sectionpa_mainheading">سیکشن -پی اے: بنیادی معلومات</string>
     <string name="sectionpb_mainheading">پی بی :  صحت اور خطرے کے عوامل کی تشخیں</string>
     <string name="sectionpc_mainheading">سیکشن پی سی: کووڈ ویکسینیشن</string>
-    <string name="app_name">  </string>
+    <string name="app_name">COVID Immunisation</string>
     <string name="btnSync">Download Data</string>
     <string name="btnUpload">Upload Data</string>
     <string name="prompt_email">Email</string>

@@ -1,6 +1,5 @@
 package edu.aku.hassannaqvi.covidimmunity.models;
 
-import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.util.Log;
 
@@ -8,12 +7,12 @@ import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.Observable;
 import androidx.databinding.PropertyChangeRegistry;
-import androidx.databinding.library.baseAdapters.BR;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import edu.aku.hassannaqvi.covidimmunity.BR;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 
@@ -21,7 +20,7 @@ import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 public class Form extends BaseObservable implements Observable {
 
     private final String TAG = "Form";
-    private final transient PropertyChangeRegistry propertyChangeRegistry = new PropertyChangeRegistry();
+    private transient PropertyChangeRegistry propertyChangeRegistry = new PropertyChangeRegistry();
     // APP VARIABLES
     private String projectName = MainApp.PROJECT_NAME;
     // APP VARIABLES
@@ -111,7 +110,6 @@ public class Form extends BaseObservable implements Observable {
     private String pc08 = StringUtils.EMPTY;
 
 
-
     private String h107 = StringUtils.EMPTY;
     private String h108 = StringUtils.EMPTY;
     private String h109 = StringUtils.EMPTY;
@@ -156,7 +154,6 @@ public class Form extends BaseObservable implements Observable {
 
     public void setCluster(String cluster) {
         this.cluster = cluster;
-        notifyPropertyChanged(BR.cluster);
     }
 
     @Bindable
@@ -166,7 +163,6 @@ public class Form extends BaseObservable implements Observable {
 
     public void setHhid(String hhid) {
         this.hhid = hhid;
-        notifyPropertyChanged(BR.hhid);
     }
 
     public String getUserName() {
@@ -287,98 +283,6 @@ public class Form extends BaseObservable implements Observable {
 
     public void setsPC(String sPC) {
         this.sPC = sPC;
-    }
-
-
-    @Bindable
-    public String getH107() {
-        return h107;
-    }
-
-    public void setH107(String h107) {
-        this.h107 = h107;
-        notifyPropertyChanged(BR.h107);
-    }
-
-    @Bindable
-    public String getH108() {
-        return h108;
-    }
-
-    public void setH108(String h108) {
-        this.h108 = h108;
-        notifyPropertyChanged(BR.h108);
-    }
-
-    @Bindable
-    public String getH109() {
-        return h109;
-    }
-
-    public void setH109(String h109) {
-        this.h109 = h109;
-        notifyPropertyChanged(BR.h109);
-    }
-
-    @Bindable
-    public String getH110() {
-        return h110;
-    }
-
-    public void setH110(String h110) {
-        this.h110 = h110;
-        notifyPropertyChanged(BR.h110);
-    }
-
-    @Bindable
-    public String getH111() {
-        return h111;
-    }
-
-    public void setH111(String h111) {
-        this.h111 = h111;
-        notifyPropertyChanged(BR.h111);
-    }
-
-    @Bindable
-    public String getH112() {
-        return h112;
-    }
-
-    public void setH112(String h112) {
-        this.h112 = h112;
-        notifyPropertyChanged(BR.h112);
-    }
-
-    @Bindable
-    public String getH11296x() {
-        return h11296x;
-    }
-
-    public void setH11296x(String h11296x) {
-        this.h11296x = h11296x;
-        notifyPropertyChanged(BR.h11296x);
-    }
-
-
-    @Bindable
-    public String getWuid() {
-        return wuid;
-    }
-
-    public void setWuid(String wuid) {
-        this.wuid = wuid;
-        notifyPropertyChanged(BR.wuid);
-    }
-
-    @Bindable
-    public String getCuid() {
-        return cuid;
-    }
-
-    public void setCuid(String cuid) {
-        this.cuid = cuid;
-        notifyPropertyChanged(BR.cuid);
     }
 
 
@@ -524,5 +428,698 @@ public class Form extends BaseObservable implements Observable {
         json.put(FormsTable.COLUMN_SPC, new JSONObject(sPCtoString()));
 
         return json;
+    }
+
+    @Bindable
+    public String getHa01() {
+        return ha01;
+    }
+
+    public void setHa01(String ha01) {
+        this.ha01 = ha01;
+        notifyPropertyChanged(BR.ha01);
+    }
+
+    @Bindable
+    public String getHa02() {
+        return ha02;
+    }
+
+    public void setHa02(String ha02) {
+        this.ha02 = ha02;
+        notifyChange(BR.ha02);
+    }
+
+    @Bindable
+    public String getHa08() {
+        return ha08;
+    }
+
+    public void setHa08(String ha08) {
+        this.ha08 = ha08;
+        notifyChange(BR.ha08);
+    }
+
+    @Bindable
+    public String getHa09() {
+        return ha09;
+    }
+
+    public void setHa09(String ha09) {
+        this.ha09 = ha09;
+        notifyChange(BR.ha09);
+    }
+
+    @Bindable
+    public String getHa10() {
+        return ha10;
+    }
+
+    public void setHa10(String ha10) {
+        this.ha10 = ha10;
+        notifyChange(BR.ha10);
+    }
+
+    @Bindable
+    public String getHa11() {
+        return ha11;
+    }
+
+    public void setHa11(String ha11) {
+        this.ha11 = ha11;
+        notifyChange(BR.ha11);
+    }
+
+    @Bindable
+    public String getHa12() {
+        return ha12;
+    }
+
+    public void setHa12(String ha12) {
+        this.ha12 = ha12;
+        notifyChange(BR.ha12);
+    }
+
+    @Bindable
+    public String getHa12a() {
+        return ha12a;
+    }
+
+    public void setHa12a(String ha12a) {
+        this.ha12a = ha12a;
+        notifyChange(BR.ha12a);
+    }
+
+    @Bindable
+    public String getHa13() {
+        return ha13;
+    }
+
+    public void setHa13(String ha13) {
+        this.ha13 = ha13;
+        notifyChange(BR.ha13);
+    }
+
+    @Bindable
+    public String getPa01() {
+        return pa01;
+    }
+
+    public void setPa01(String pa01) {
+        this.pa01 = pa01;
+        notifyChange(BR.pa01);
+    }
+
+    @Bindable
+    public String getPa01a() {
+        return pa01a;
+    }
+
+    public void setPa01a(String pa01a) {
+        this.pa01a = pa01a;
+        notifyChange(BR.pa01a);
+    }
+
+    @Bindable
+    public String getPa01b() {
+        return pa01b;
+    }
+
+    public void setPa01b(String pa01b) {
+        this.pa01b = pa01b;
+        notifyChange(BR.pa01b);
+    }
+
+    @Bindable
+    public String getPa01c() {
+        return pa01c;
+    }
+
+    public void setPa01c(String pa01c) {
+        this.pa01c = pa01c;
+        notifyChange(BR.pa01c);
+    }
+
+    @Bindable
+    public String getPa02() {
+        return pa02;
+    }
+
+    public void setPa02(String pa02) {
+        this.pa02 = pa02;
+        notifyChange(BR.pa02);
+    }
+
+    @Bindable
+    public String getPa03a() {
+        return pa03a;
+    }
+
+    public void setPa03a(String pa03a) {
+        this.pa03a = pa03a;
+        notifyChange(BR.pa03a);
+    }
+
+    @Bindable
+    public String getPa03b() {
+        return pa03b;
+    }
+
+    public void setPa03b(String pa03b) {
+        this.pa03b = pa03b;
+        notifyChange(BR.pa03b);
+    }
+
+    @Bindable
+    public String getPa04() {
+        return pa04;
+    }
+
+    public void setPa04(String pa04) {
+        this.pa04 = pa04;
+        notifyChange(BR.pa04);
+    }
+
+    @Bindable
+    public String getPa05() {
+        return pa05;
+    }
+
+    public void setPa05(String pa05) {
+        this.pa05 = pa05;
+        notifyChange(BR.pa05);
+    }
+
+    @Bindable
+    public String getPa05a() {
+        return pa05a;
+    }
+
+    public void setPa05a(String pa05a) {
+        this.pa05a = pa05a;
+        notifyChange(BR.pa05a);
+    }
+
+    @Bindable
+    public String getPa06a() {
+        return pa06a;
+    }
+
+    public void setPa06a(String pa06a) {
+        this.pa06a = pa06a;
+        notifyChange(BR.pa06a);
+    }
+
+    @Bindable
+    public String getPa06b() {
+        return pa06b;
+    }
+
+    public void setPa06b(String pa06b) {
+        this.pa06b = pa06b;
+        notifyChange(BR.pa06b);
+    }
+
+    @Bindable
+    public String getPa07() {
+        return pa07;
+    }
+
+    public void setPa07(String pa07) {
+        this.pa07 = pa07;
+        notifyChange(BR.pa07);
+    }
+
+    @Bindable
+    public String getPa08() {
+        return pa08;
+    }
+
+    public void setPa08(String pa08) {
+        this.pa08 = pa08;
+        notifyChange(BR.pa08);
+    }
+
+    @Bindable
+    public String getPb01a() {
+        return pb01a;
+    }
+
+    public void setPb01a(String pb01a) {
+        this.pb01a = pb01a;
+        notifyChange(BR.pb01a);
+    }
+
+    @Bindable
+    public String getPb01b() {
+        return pb01b;
+    }
+
+    public void setPb01b(String pb01b) {
+        this.pb01b = pb01b;
+        notifyChange(BR.pb01b);
+    }
+
+    @Bindable
+    public String getPb01c() {
+        return pb01c;
+    }
+
+    public void setPb01c(String pb01c) {
+        this.pb01c = pb01c;
+        notifyChange(BR.pb01c);
+    }
+
+    @Bindable
+    public String getPb01d() {
+        return pb01d;
+    }
+
+    public void setPb01d(String pb01d) {
+        this.pb01d = pb01d;
+        notifyChange(BR.pb01d);
+    }
+
+    @Bindable
+    public String getPb01e() {
+        return pb01e;
+    }
+
+    public void setPb01e(String pb01e) {
+        this.pb01e = pb01e;
+        notifyChange(BR.pb01e);
+    }
+
+    @Bindable
+    public String getPb01f() {
+        return pb01f;
+    }
+
+    public void setPb01f(String pb01f) {
+        this.pb01f = pb01f;
+        notifyChange(BR.pb01f);
+    }
+
+    @Bindable
+    public String getPb01g() {
+        return pb01g;
+    }
+
+    public void setPb01g(String pb01g) {
+        this.pb01g = pb01g;
+        notifyChange(BR.pb01g);
+    }
+
+    @Bindable
+    public String getPb01h() {
+        return pb01h;
+    }
+
+    public void setPb01h(String pb01h) {
+        this.pb01h = pb01h;
+        notifyChange(BR.pb01h);
+    }
+
+    @Bindable
+    public String getPb01j() {
+        return pb01j;
+    }
+
+    public void setPb01j(String pb01j) {
+        this.pb01j = pb01j;
+        notifyChange(BR.pb01j);
+    }
+
+    @Bindable
+    public String getPb01k() {
+        return pb01k;
+    }
+
+    public void setPb01k(String pb01k) {
+        this.pb01k = pb01k;
+        notifyChange(BR.pb01k);
+    }
+
+    @Bindable
+    public String getPb01m() {
+        return pb01m;
+    }
+
+    public void setPb01m(String pb01m) {
+        this.pb01m = pb01m;
+        notifyChange(BR.pb01m);
+    }
+
+    @Bindable
+    public String getPb01n() {
+        return pb01n;
+    }
+
+    public void setPb01n(String pb01n) {
+        this.pb01n = pb01n;
+        notifyChange(BR.pb01n);
+    }
+
+    @Bindable
+    public String getPb01p() {
+        return pb01p;
+    }
+
+    public void setPb01p(String pb01p) {
+        this.pb01p = pb01p;
+        notifyChange(BR.pb01p);
+    }
+
+    @Bindable
+    public String getPb01q() {
+        return pb01q;
+    }
+
+    public void setPb01q(String pb01q) {
+        this.pb01q = pb01q;
+        notifyChange(BR.pb01q);
+    }
+
+    @Bindable
+    public String getPb02a() {
+        return pb02a;
+    }
+
+    public void setPb02a(String pb02a) {
+        this.pb02a = pb02a;
+        notifyChange(BR.pb02a);
+    }
+
+    @Bindable
+    public String getPb02b() {
+        return pb02b;
+    }
+
+    public void setPb02b(String pb02b) {
+        this.pb02b = pb02b;
+        notifyChange(BR.pb02b);
+    }
+
+    @Bindable
+    public String getPb02c() {
+        return pb02c;
+    }
+
+    public void setPb02c(String pb02c) {
+        this.pb02c = pb02c;
+        notifyChange(BR.pb02c);
+    }
+
+    @Bindable
+    public String getPb02d() {
+        return pb02d;
+    }
+
+    public void setPb02d(String pb02d) {
+        this.pb02d = pb02d;
+        notifyChange(BR.pb02d);
+    }
+
+    @Bindable
+    public String getPb02e() {
+        return pb02e;
+    }
+
+    public void setPb02e(String pb02e) {
+        this.pb02e = pb02e;
+        notifyChange(BR.pb02e);
+    }
+
+    @Bindable
+    public String getPb02f() {
+        return pb02f;
+    }
+
+    public void setPb02f(String pb02f) {
+        this.pb02f = pb02f;
+        notifyChange(BR.pb02f);
+    }
+
+    @Bindable
+    public String getPb02g() {
+        return pb02g;
+    }
+
+    public void setPb02g(String pb02g) {
+        this.pb02g = pb02g;
+        notifyChange(BR.pb02g);
+    }
+
+    @Bindable
+    public String getPb02h() {
+        return pb02h;
+    }
+
+    public void setPb02h(String pb02h) {
+        this.pb02h = pb02h;
+        notifyChange(BR.pb02h);
+    }
+
+    @Bindable
+    public String getPb02j96() {
+        return pb02j96;
+    }
+
+    public void setPb02j96(String pb02j96) {
+        this.pb02j96 = pb02j96;
+        notifyChange(BR.pb02j96);
+    }
+
+    @Bindable
+    public String getPb03() {
+        return pb03;
+    }
+
+    public void setPb03(String pb03) {
+        this.pb03 = pb03;
+        notifyChange(BR.pb03);
+    }
+
+    @Bindable
+    public String getPb05() {
+        return pb05;
+    }
+
+    public void setPb05(String pb05) {
+        this.pb05 = pb05;
+        notifyChange(BR.pb05);
+    }
+
+    @Bindable
+    public String getPb06() {
+        return pb06;
+    }
+
+    public void setPb06(String pb06) {
+        this.pb06 = pb06;
+        notifyChange(BR.pb06);
+    }
+
+    @Bindable
+    public String getPb07() {
+        return pb07;
+    }
+
+    public void setPb07(String pb07) {
+        this.pb07 = pb07;
+        notifyChange(BR.pb07);
+    }
+
+    @Bindable
+    public String getPb08() {
+        return pb08;
+    }
+
+    public void setPb08(String pb08) {
+        this.pb08 = pb08;
+        notifyChange(BR.pb08);
+    }
+
+    @Bindable
+    public String getPc01() {
+        return pc01;
+    }
+
+    public void setPc01(String pc01) {
+        this.pc01 = pc01;
+        notifyChange(BR.pc01);
+    }
+
+    @Bindable
+    public String getPc0196x() {
+        return pc0196x;
+    }
+
+    public void setPc0196x(String pc0196x) {
+        this.pc0196x = pc0196x;
+        notifyChange(BR.pc0196x);
+    }
+
+    @Bindable
+    public String getPc02() {
+        return pc02;
+    }
+
+    public void setPc02(String pc02) {
+        this.pc02 = pc02;
+        notifyChange(BR.pc02);
+    }
+
+    @Bindable
+    public String getPc03() {
+        return pc03;
+    }
+
+    public void setPc03(String pc03) {
+        this.pc03 = pc03;
+        notifyChange(BR.pc03);
+    }
+
+    @Bindable
+    public String getPc04() {
+        return pc04;
+    }
+
+    public void setPc04(String pc04) {
+        this.pc04 = pc04;
+        notifyChange(BR.pc04);
+    }
+
+    @Bindable
+    public String getPc05() {
+        return pc05;
+    }
+
+    public void setPc05(String pc05) {
+        this.pc05 = pc05;
+        notifyChange(BR.pc05);
+    }
+
+    @Bindable
+    public String getPc06() {
+        return pc06;
+    }
+
+    public void setPc06(String pc06) {
+        this.pc06 = pc06;
+        notifyChange(BR.pc06);
+    }
+
+    @Bindable
+    public String getPc07() {
+        return pc07;
+    }
+
+    public void setPc07(String pc07) {
+        this.pc07 = pc07;
+        notifyChange(BR.pc07);
+    }
+
+    @Bindable
+    public String getPc08() {
+        return pc08;
+    }
+
+    public void setPc08(String pc08) {
+        this.pc08 = pc08;
+        notifyChange(BR.pc08);
+    }
+
+    @Bindable
+    public String getH107() {
+        return h107;
+    }
+
+    public void setH107(String h107) {
+        this.h107 = h107;
+        notifyChange(BR.h107);
+    }
+
+    @Bindable
+    public String getH108() {
+        return h108;
+    }
+
+    public void setH108(String h108) {
+        this.h108 = h108;
+        notifyChange(BR.h108);
+    }
+
+    @Bindable
+    public String getH109() {
+        return h109;
+    }
+
+    public void setH109(String h109) {
+        this.h109 = h109;
+        notifyChange(BR.h109);
+    }
+
+    @Bindable
+    public String getH110() {
+        return h110;
+    }
+
+    public void setH110(String h110) {
+        this.h110 = h110;
+        notifyChange(BR.h110);
+    }
+
+    @Bindable
+    public String getH111() {
+        return h111;
+    }
+
+    public void setH111(String h111) {
+        this.h111 = h111;
+        notifyChange(BR.h111);
+    }
+
+    @Bindable
+    public String getH112() {
+        return h112;
+    }
+
+    public void setH112(String h112) {
+        this.h112 = h112;
+        notifyChange(BR.h112);
+    }
+
+    @Bindable
+    public String getH11296x() {
+        return h11296x;
+    }
+
+    public void setH11296x(String h11296x) {
+        this.h11296x = h11296x;
+        notifyChange(BR.h11296x);
+    }
+
+    private synchronized void notifyChange(int propertyId) {
+        if (propertyChangeRegistry == null) {
+            propertyChangeRegistry = new PropertyChangeRegistry();
+        }
+        propertyChangeRegistry.notifyChange(this, propertyId);
+    }
+
+    @Override
+    public synchronized void addOnPropertyChangedCallback(OnPropertyChangedCallback callback) {
+        if (propertyChangeRegistry == null) {
+            propertyChangeRegistry = new PropertyChangeRegistry();
+        }
+        propertyChangeRegistry.add(callback);
+
+    }
+
+    @Override
+    public synchronized void removeOnPropertyChangedCallback(OnPropertyChangedCallback callback) {
+        if (propertyChangeRegistry != null) {
+            propertyChangeRegistry.remove(callback);
+        }
     }
 }

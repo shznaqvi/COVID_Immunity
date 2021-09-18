@@ -41,11 +41,11 @@ public class SectionPCActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_pc);
-        bi.setCallback(this);
+       // bi.setCallback(this);
         if (form == null) form = new Form();
         bi.setForm(form);
         setupSkips();
-        setSupportActionBar(bi.toolbar);
+        //setSupportActionBar(bi.toolbar);
         db = MainApp.appInfo.dbHelper;
     }
 
