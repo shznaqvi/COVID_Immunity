@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.covidimmunity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -54,27 +55,34 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
 
             case R.id.openForm:
+                MainApp.idType = 1;
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionHAActivity.class));
                 break;
+
             case R.id.secha:
                 MainApp.form = new Form();
-                startActivity(new Intent(this, SectionPAActivity.class));
+                startActivity(new Intent(this, SectionHAActivity.class));
                 break;
 
             case R.id.secpa:
                 MainApp.form = new Form();
+                startActivity(new Intent(this, SectionPAActivity.class));
+                break;
+
+            case R.id.secpb:
+                MainApp.form = new Form();
                 startActivity(new Intent(this, SectionPBActivity.class));
                 break;
-            case R.id.secpb:
+
+            case R.id.secpc:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionPCActivity.class));
                 break;
+
             case R.id.dbManager:
                 startActivity(new Intent(this, AndroidDatabaseManager.class));
                 break;
-
-
         }
     }
 
@@ -107,10 +115,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-/*    @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.item_menu, menu);
         return super.onCreateOptionsMenu(menu);
-    }*/
+    }
 
 }

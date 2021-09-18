@@ -241,7 +241,7 @@ public class DataDownWorkerALL extends Worker {
         NotificationCompat.Builder notification = new NotificationCompat.Builder(getApplicationContext(), "scrlog")
                 .setContentTitle(title)
                 .setContentText(task)
-                .setSmallIcon(R.drawable.app_icon)
+                .setSmallIcon(R.drawable.appicon)
                 .setSmallIcon(R.mipmap.ic_launcher);
 
         final int maxProgress = 100;

@@ -56,8 +56,8 @@ android {
             applicationId "edu.aku.hassannaqvi.covidimmunity"
             versionCode versionBuild
             versionName "${versionNumber}.${versionPatch}${versionType}"
-            minSdkVersion 31
-            targetSdkVersion 31
+            minSdkVersion 29
+            targetSdkVersion 29
         }
 
         applicationVariants.all { variant ->

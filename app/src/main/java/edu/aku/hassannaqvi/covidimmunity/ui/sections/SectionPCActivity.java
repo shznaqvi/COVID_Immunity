@@ -21,6 +21,7 @@ import org.json.JSONException;
 
 import java.util.Calendar;
 
+import edu.aku.hassannaqvi.covidimmunity.MainActivity;
 import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
@@ -89,7 +90,7 @@ public class SectionPCActivity extends AppCompatActivity {
 
     public void btnEnd(View view) {
         finish();
-        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+        startActivity(new Intent(this, MainActivity.class));
     }
 
 

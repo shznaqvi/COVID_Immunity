@@ -49,12 +49,17 @@
                             android:text="@string/ha01" />
                     </LinearLayout>
 
-                    <EditText
+                    <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
                         android:id="@+id/ha01"
+                        style="@style/textInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/ha01"
-                        android:text="@={form.ha01}" />
+                        android:gravity="center"
+                        android:hint="YYYY-MM-DD"
+                        android:text="@={form.ha01}"
+                        app:dateFormat="yyyy-MM-dd"
+                        app:maxDate="CR_DATE"
+                        app:theme="@style/DatePickerEditTextDialogTheme" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -87,11 +92,11 @@
                             android:text="@string/ha02" />
                     </LinearLayout>
 
-                    <EditText
+                    <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
                         android:id="@+id/ha02"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/ha02"
+                        android:hint="HH:MM"
                         android:text="@={form.ha02}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -125,16 +130,13 @@
                             android:text="@string/ha08" />
                     </LinearLayout>
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
+                    <EditText
                         android:id="@+id/ha08"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:hint="@string/ha08"
-                        android:inputType="number"
-
-
-                        android:text="@={form.ha08}"
-                        app:type="range" />
+                        android:text="@={form.ha08}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -170,28 +172,32 @@
                     <RadioGroup
                         android:id="@+id/ha09"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/ha0901"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:checked="@{form.ha09.equals(`1`)}"
                             android:onClick="@{()->form.setHa09(`1`)}"
                             android:text="@string/ha0901" />
 
                         <RadioButton
                             android:id="@+id/ha0902"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:checked="@{form.ha09.equals(`2`)}"
                             android:onClick="@{()->form.setHa09(`2`)}"
                             android:text="@string/ha0902" />
 
                         <RadioButton
                             android:id="@+id/ha0903"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:checked="@{form.ha09.equals(`3`)}"
                             android:onClick="@{()->form.setHa09(`3`)}"
                             android:text="@string/ha0903" />
@@ -199,7 +205,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- ha10  CheckBox   -->
+            <!-- ha10  Input   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVha10"
                 style="@style/cardView">
@@ -227,10 +233,18 @@
                             android:layout_weight="1"
                             android:text="@string/ha10" />
                     </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/ha10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        android:hint="@string/ha10"
+                        android:text="@={form.ha10}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- ha11  CheckBox   -->
+            <!-- ha11  Input   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVha11"
                 style="@style/cardView">
@@ -258,10 +272,17 @@
                             android:layout_weight="1"
                             android:text="@string/ha11" />
                     </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/ha11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/ha11"
+                        android:text="@={form.ha11}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- ha12  CheckBox   -->
+            <!-- ha12  Input   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVha12"
                 style="@style/cardView">
@@ -289,10 +310,22 @@
                             android:layout_weight="1"
                             android:text="@string/ha12" />
                     </LinearLayout>
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/ha12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/ha12"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:text="@={form.ha12}"
+                        app:maxValue="9999"
+                        app:minValue="1"
+                        app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- ha12a  CheckBox   -->
+            <!-- ha12a  Input   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVha12a"
                 style="@style/cardView">
@@ -320,6 +353,14 @@
                             android:layout_weight="1"
                             android:text="@string/ha12a" />
                     </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/ha12a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        android:hint="@string/ha12a"
+                        android:text="@={form.ha12a}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -358,12 +399,14 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/ha13"
                         android:inputType="number"
-
-
                         android:text="@={form.ha13}"
+                        app:maxValue="99999999999"
+                        app:minValue="1"
                         app:type="range" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView><!--EndButton LinearLayout-->
+            </androidx.cardview.widget.CardView>
+
+            <!--EndButton LinearLayout-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

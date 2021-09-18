@@ -15,6 +15,7 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 
+import edu.aku.hassannaqvi.covidimmunity.MainActivity;
 import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
@@ -35,8 +36,6 @@ public class SectionPAActivity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_pa);
        // bi.setCallback(this);
         bi.setForm(form);
-       /* form.setC100Name(MainApp.child.getH229());
-        form.setCuid(MainApp.child.getUid());*/
         setupSkips();
 
     }
@@ -81,7 +80,7 @@ public class SectionPAActivity extends AppCompatActivity {
 
     public void btnEnd(View view) {
         finish();
-        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+        startActivity(new Intent(this, MainActivity.class));
     }
 
 
