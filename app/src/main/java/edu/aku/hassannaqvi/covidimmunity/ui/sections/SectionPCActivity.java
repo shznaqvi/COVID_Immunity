@@ -5,21 +5,15 @@ import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.form;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.MenuCompat;
 import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
-
-import java.util.Calendar;
 
 import edu.aku.hassannaqvi.covidimmunity.MainActivity;
 import edu.aku.hassannaqvi.covidimmunity.R;
@@ -29,7 +23,6 @@ import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionPcBinding;
 import edu.aku.hassannaqvi.covidimmunity.models.Form;
 import edu.aku.hassannaqvi.covidimmunity.ui.EndingActivity;
-import edu.aku.hassannaqvi.covidimmunity.ui.SyncActivity;
 
 
 public class SectionPCActivity extends AppCompatActivity {
@@ -42,7 +35,7 @@ public class SectionPCActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_pc);
-       // bi.setCallback(this);
+        // bi.setCallback(this);
         if (form == null) form = new Form();
         bi.setForm(form);
         setupSkips();
