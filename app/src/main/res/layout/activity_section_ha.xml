@@ -311,17 +311,13 @@
                             android:text="@string/ha12" />
                     </LinearLayout>
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
+                    <EditText
                         android:id="@+id/ha12"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/ha12"
-                        android:inputType="number"
                         android:maxLength="4"
-                        android:text="@={form.ha12}"
-                        app:maxValue="9999"
-                        app:minValue="1"
-                        app:type="range" />
+                        android:text="@={form.ha12}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -399,6 +395,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/ha13"
                         android:inputType="number"
+                        android:maxLength="11"
                         android:text="@={form.ha13}"
                         app:maxValue="99999999999"
                         app:minValue="1"

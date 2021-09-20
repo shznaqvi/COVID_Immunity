@@ -411,6 +411,9 @@
     <string name="pb02h">کینسر کے بے قاعدگی سے نشو نما پانے والے خلیات </string>
     <string name="pb02h1">ہاں  </string>
     <string name="pb02h2">نہیں </string>
+    <string name="pb02j">یگر وضاحت</string>
+    <string name="pb02j1">ہاں</string>
+    <string name="pb02j2">نہیں</string>
     <string name="pb02j96">دیگر وضاحت کریں: </string>
     <string name="pb03">ازدواجی حیثیت        </string>
     <string name="pb031"> شادی شدہ</string>
@@ -421,7 +424,7 @@
     <string name="pb05t">(صرف خواتین سے پوچھیں)</string>
     <string name="pb051">ہاں  </string>
     <string name="pb052">نہیں </string>
-    <string name="pb06"></string>
+    <string name="pb06">حمل کی سہ ماہی </string>
     <string name="pb061">پہلی</string>
     <string name="pb062">دوسری</string>
     <string name="pb063">تیسری</string>
@@ -497,6 +500,7 @@
     <string name='Q_pb02f'>pb02f</string>
     <string name='Q_pb02g'>pb02g</string>
     <string name='Q_pb02h'>pb02h</string>
+    <string name='Q_pb02j'>pb02j</string>
     <string name='Q_pb02j96'>pb02j96</string>
     <string name='Q_pb02t'>pb02t</string>
     <string name='Q_pb03'>pb03</string>

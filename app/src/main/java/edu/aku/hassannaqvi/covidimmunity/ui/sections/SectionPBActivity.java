@@ -21,7 +21,6 @@ import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionPbBinding;
-import edu.aku.hassannaqvi.covidimmunity.ui.EndingActivity;
 
 
 public class SectionPBActivity extends AppCompatActivity {
@@ -34,8 +33,13 @@ public class SectionPBActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_pb);
-       // bi.setCallback(this);
+        // bi.setCallback(this);
         bi.setForm(form);
+        setupSkips();
+    }
+
+    private void setupSkips() {
+
     }
 
 

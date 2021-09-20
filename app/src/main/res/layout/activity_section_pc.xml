@@ -203,16 +203,12 @@
                             android:text="@string/pc03" />
                     </LinearLayout>
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
+                    <EditText
                         android:id="@+id/pc03"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/pc03"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="99"
-                        app:minValue="1"
-                        app:type="range" />
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                        android:hint="@string/pc03" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

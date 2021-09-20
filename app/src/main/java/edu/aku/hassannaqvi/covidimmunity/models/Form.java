@@ -26,8 +26,8 @@ public class Form extends BaseObservable implements Observable {
     // APP VARIABLES
     private String id = StringUtils.EMPTY;
     private String uid = StringUtils.EMPTY;
-    private String wuid = StringUtils.EMPTY;
-    private String cuid = StringUtils.EMPTY;
+    private final String wuid = StringUtils.EMPTY;
+    private final String cuid = StringUtils.EMPTY;
     private String userName = StringUtils.EMPTY;
     private String sysDate = StringUtils.EMPTY;
     private String cluster = StringUtils.EMPTY;
@@ -93,6 +93,7 @@ public class Form extends BaseObservable implements Observable {
     private String pb02f = StringUtils.EMPTY;
     private String pb02g = StringUtils.EMPTY;
     private String pb02h = StringUtils.EMPTY;
+    private String pb02j = StringUtils.EMPTY;
     private String pb02j96 = StringUtils.EMPTY;
     private String pb03 = StringUtils.EMPTY;
     private String pb05 = StringUtils.EMPTY;
@@ -881,6 +882,17 @@ public class Form extends BaseObservable implements Observable {
     }
 
     @Bindable
+    public String getPb02j() {
+        return pb02j;
+    }
+
+    public void setPb02j(String pb02j) {
+        this.pb02j = pb02j;
+        setPb02j96(pb02j.equals("1") ? this.pb02j96 : ""); // for all skips, mention all skipped questions
+        notifyChange(BR.pb02j);
+    }
+
+    @Bindable
     public String getPb02j96() {
         return pb02j96;
     }
@@ -907,6 +919,8 @@ public class Form extends BaseObservable implements Observable {
 
     public void setPb05(String pb05) {
         this.pb05 = pb05;
+
+        setPb06(pb05.equals("1") ? this.pb06 : "");
         notifyChange(BR.pb05);
     }
 
