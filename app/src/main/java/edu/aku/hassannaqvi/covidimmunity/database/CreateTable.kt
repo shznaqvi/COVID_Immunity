@@ -27,7 +27,7 @@ object CreateTable {
             + FormsTable.COLUMN_SHA + " TEXT,"
             + FormsTable.COLUMN_SPA + " TEXT,"
             + FormsTable.COLUMN_SPB + " TEXT,"
-            + FormsTable.COLUMN_SPC + " TEXT,"
+            + FormsTable.COLUMN_SPC + " TEXT"
             + " );"
             )
 

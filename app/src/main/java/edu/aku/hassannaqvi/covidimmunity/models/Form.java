@@ -970,6 +970,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setPc01(String pc01) {
         this.pc01 = pc01;
+        setPc0196x(pc01.equals("96") ? this.pc0196x : "");
         notifyChange(BR.pc01);
     }
 
