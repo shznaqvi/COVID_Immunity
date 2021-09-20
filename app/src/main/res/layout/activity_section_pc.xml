@@ -433,6 +433,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/pc08"
+                            android:onClick="scanQR"
                             android:text="@={form.pc08}" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
