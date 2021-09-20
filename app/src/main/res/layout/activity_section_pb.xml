@@ -820,22 +820,11 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- pb02t  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVpb02t"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/pb02t" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            <TextView
+                style="@style/labelsHead"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pb02t" />
 
             <!-- pb02a  Radio   -->
             <androidx.cardview.widget.CardView
@@ -1392,6 +1381,11 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <TextView
+                style="@style/labelsHead"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pb05t" />
             <!-- pb05  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVpb05"
@@ -1448,22 +1442,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- pb05t  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVpb05t"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/pb05t" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
 
             <!-- pb06  Radio   -->
             <androidx.cardview.widget.CardView
