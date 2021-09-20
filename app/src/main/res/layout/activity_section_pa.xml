@@ -580,7 +580,6 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 android:text="@={form.pa06a}"
-                                app:defaultValue="77"
                                 app:maxValue="16"
                                 app:minValue="1"
                                 app:type="range" />

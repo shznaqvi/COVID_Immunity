@@ -40,9 +40,7 @@ import java.util.concurrent.TimeUnit;
 
 import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.adapters.SyncListAdapter;
-import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.ClustersTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.FormsTable;
-import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.RandomTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.VersionTable;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
@@ -152,8 +150,6 @@ public class SyncActivity extends AppCompatActivity {
                 boolean sync_flag = getIntent().getBooleanExtra("login", false);
                 if (sync_flag) {
                     downloadTables.add(new SyncModel(UsersTable.TABLE_NAME));
-                    downloadTables.add(new SyncModel(ClustersTable.TABLE_NAME));
-                    downloadTables.add(new SyncModel(RandomTable.TABLE_NAME));
                     downloadTables.add(new SyncModel(VersionTable.TABLE_NAME));
                 } else {
                     // Set tables to DOWNLOAD
@@ -237,24 +233,10 @@ public class SyncActivity extends AppCompatActivity {
                                         jsonArray = new JSONArray(result);
                                         insertCount = db.syncUser(jsonArray);
                                         break;
-                                    case ClustersTable.TABLE_NAME:
-                                        jsonArray = new JSONArray(result);
-                                        insertCount = db.syncClusters(jsonArray);
-                                        break;
-                                    case RandomTable.TABLE_NAME:
-                                        jsonArray = new JSONArray(result);
-                                        insertCount = db.syncRandom(jsonArray);
-                                        break;
                                     case VersionTable.TABLE_NAME:
                                         insertCount = db.syncVersionApp(new JSONObject(result));
                                         if (insertCount == 1) jsonArray.put("1");
                                         break;
-                          /*          case Camps.TableCamp.TABLE_NAME:
-                                        jsonArray = new JSONArray(result);
-                                        insertCount = db.syncCamp(jsonArray);
-                                        Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
-                                        break;*/
-
                                 }
 
                                 downloadTables.get(position).setmessage("Received: " + jsonArray.length() + ", Saved: " + insertCount);

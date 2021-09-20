@@ -2,9 +2,7 @@ package edu.aku.hassannaqvi.covidimmunity.database;
 
 import static edu.aku.hassannaqvi.covidimmunity.database.CreateTable.DATABASE_NAME;
 import static edu.aku.hassannaqvi.covidimmunity.database.CreateTable.DATABASE_VERSION;
-import static edu.aku.hassannaqvi.covidimmunity.database.CreateTable.SQL_CREATE_CLUSTERS;
 import static edu.aku.hassannaqvi.covidimmunity.database.CreateTable.SQL_CREATE_FORMS;
-import static edu.aku.hassannaqvi.covidimmunity.database.CreateTable.SQL_CREATE_RANDOM;
 import static edu.aku.hassannaqvi.covidimmunity.database.CreateTable.SQL_CREATE_USERS;
 import static edu.aku.hassannaqvi.covidimmunity.database.CreateTable.SQL_CREATE_VERSIONAPP;
 
@@ -25,17 +23,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.AnthroTable;
-import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.ClustersTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.FormsTable;
-import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.RandomTable;
-import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.SamplesTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.VersionTable;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
-import edu.aku.hassannaqvi.covidimmunity.models.Clusters;
 import edu.aku.hassannaqvi.covidimmunity.models.Form;
-import edu.aku.hassannaqvi.covidimmunity.models.RandomHH;
 import edu.aku.hassannaqvi.covidimmunity.models.Users;
 import edu.aku.hassannaqvi.covidimmunity.models.VersionApp;
 
@@ -58,8 +50,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_USERS);
-        db.execSQL(SQL_CREATE_CLUSTERS);
-        db.execSQL(SQL_CREATE_RANDOM);
         db.execSQL(SQL_CREATE_FORMS);
 
         db.execSQL(SQL_CREATE_VERSIONAPP);
@@ -394,67 +384,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return insertCount;
     }
 
-    public int syncClusters(JSONArray clusterList) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(ClustersTable.TABLE_NAME, null, null);
-        int insertCount = 0;
-        try {
-            for (int i = 0; i < clusterList.length(); i++) {
-
-                JSONObject json = clusterList.getJSONObject(i);
-
-                Clusters cluster = new Clusters();
-                cluster.sync(json);
-                ContentValues values = new ContentValues();
-
-                values.put(ClustersTable.COLUMN_DISTRICT_NAME, cluster.getDistrictName());
-                values.put(ClustersTable.COLUMN_DISTRICT_CODE, cluster.getDistrictCode());
-                values.put(ClustersTable.COLUMN_CITY_NAME, cluster.getCityName());
-                values.put(ClustersTable.COLUMN_CITY_CODE, cluster.getCityCode());
-                values.put(ClustersTable.COLUMN_CLUSTER_NO, cluster.getClusterNo());
-                long rowID = db.insert(ClustersTable.TABLE_NAME, null, values);
-                if (rowID != -1) insertCount++;
-            }
-
-        } catch (Exception e) {
-            Log.d(TAG, "syncClusters(e): " + e);
-            db.close();
-        } finally {
-            db.close();
-        }
-        return insertCount;
-    }
-
-    public int syncRandom(JSONArray list) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(RandomTable.TABLE_NAME, null, null);
-        int insertCount = 0;
-        try {
-            for (int i = 0; i < list.length(); i++) {
-
-                JSONObject json = list.getJSONObject(i);
-
-                RandomHH ran = new RandomHH();
-                ran.sync(json);
-                ContentValues values = new ContentValues();
-                values.put(RandomTable.COLUMN_ID, ran.getID());
-                values.put(RandomTable.COLUMN_SNO, ran.getSno());
-                values.put(RandomTable.COLUMN_CLUSTER_NO, ran.getClusterNo());
-                values.put(RandomTable.COLUMN_HH_NO, ran.getHhno());
-                values.put(RandomTable.COLUMN_HEAD_HH, ran.getHeadhh());
-                long rowID = db.insert(RandomTable.TABLE_NAME, null, values);
-                if (rowID != -1) insertCount++;
-            }
-
-        } catch (Exception e) {
-            Log.d(TAG, "syncRandom(e): " + e);
-            db.close();
-        } finally {
-            db.close();
-        }
-        return insertCount;
-    }
-
 
     //get UnSyncedTables
     public JSONArray getUnsyncedForms() {
@@ -578,182 +507,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    /*public List<String> getLMS(int age, int gender, String catA, String catB) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Log.d(TAG, "getLMS: " + age + " | " + gender + " | " + catA + " | " + catB);
-        Cursor c = db.rawQuery("SELECT l,m,s " +
-                        "FROM " + ZScoreTable.TABLE_NAME + " " +
-                        "WHERE " + ZScoreTable.COLUMN_AGE + "=? " +
-                        "AND "
-                        + ZScoreTable.COLUMN_SEX + "=?" +
-                        "AND "
-                        + ZScoreTable.COLUMN_CAT + " IN (?,?)"
-                ,
-                new String[]{String.valueOf(age), String.valueOf(gender), catA, catB});
-        List<String> lms = null;
-        while (c.moveToNext()) {
-            lms = new ArrayList<>();
-            lms.add(c.getString(c.getColumnIndex(ZScoreTable.COLUMN_L)));
-            Log.d(TAG, "getLMS: L -> " + c.getString(c.getColumnIndex(ZScoreTable.COLUMN_L)));
-            lms.add(c.getString(c.getColumnIndex(ZScoreTable.COLUMN_M)));
-            Log.d(TAG, "getLMS: M -> " + c.getString(c.getColumnIndex(ZScoreTable.COLUMN_M)));
-            lms.add(c.getString(c.getColumnIndex(ZScoreTable.COLUMN_S)));
-            Log.d(TAG, "getLMS: S -> " + c.getString(c.getColumnIndex(ZScoreTable.COLUMN_S)));
-
-        }
-        return lms;
-    }*/
-
-/*    public List<String> getWHLMS(Double height, int gender, String catA) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.rawQuery("SELECT l,m,s " +
-                        "FROM " + ZScoreTable.TABLE_NAME +
-                        " WHERE " + ZScoreTable.COLUMN_MEASURE + "=?" +
-                        " AND " + ZScoreTable.COLUMN_SEX + "=?" +
-                        " AND " + ZScoreTable.COLUMN_CAT + "=?"
-                ,
-                new String[]{String.valueOf(height), String.valueOf(gender), catA});
-        List<String> whlms = new ArrayList<>();
-        Log.d(TAG, "getWHLMS: height " + height);
-        Log.d(TAG, "getWHLMS: " + c.getCount());
-        while (c.moveToNext()) {
-            whlms = new ArrayList<>();
-            whlms.add(c.getString(c.getColumnIndex(ZScoreTable.COLUMN_L)));
-            whlms.add(c.getString(c.getColumnIndex(ZScoreTable.COLUMN_M)));
-            whlms.add(c.getString(c.getColumnIndex(ZScoreTable.COLUMN_S)));
-
-        }
-        c.close();
-        return whlms;
-    }*/
-
-
-    //get Distinct Districts
-    /*public Collection<Clusters> getAllDistricts() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = null;
-        String[] columns = {ClustersTable.COLUMN_DISTRICT_CODE, ClustersTable.COLUMN_DISTRICT_NAME};
-
-        String orderBy = ClustersTable.COLUMN_DISTRICT_NAME + " ASC";
-
-        Collection<Clusters> allDistricts = new ArrayList<>();
-        try {
-            c = db.query(
-                    true,
-                    ClustersTable.TABLE_NAME,  // The table to query
-                    columns,
-                    null,
-                    null,
-                    null,
-                    null,
-                    orderBy,
-                    "5000"
-
-                    // The sort order
-            );
-            while (c.moveToNext()) {
-
-
-                Log.d(TAG, "getUnsyncedPreg: " + c.getCount());
-                Clusters cluster = new Clusters();
-                cluster.setDistrictCode(c.getString(c.getColumnIndex(ClustersTable.COLUMN_DISTRICT_CODE)));
-                cluster.setDistrictName(c.getString(c.getColumnIndex(ClustersTable.COLUMN_DISTRICT_NAME)));
-                allDistricts.add(cluster);
-
-            }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
-
-        return allDistricts;
-    }*/
-
-    //get Distinct cities
-    /*public Collection<Clusters> getCitiesByDistrict(String dist_code) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = null;
-        String[] columns = {ClustersTable.COLUMN_CITY_CODE, ClustersTable.COLUMN_CITY_NAME};
-        String selection = ClustersTable.COLUMN_DISTRICT_CODE + "= ?";
-        String[] selectionArgs = {dist_code};
-        String orderBy = ClustersTable.COLUMN_CITY_NAME + " ASC";
-
-        Collection<Clusters> allCities = new ArrayList<>();
-        try {
-            c = db.query(
-                    true,
-                    ClustersTable.TABLE_NAME,  // The table to query
-                    columns,
-                    selection,
-                    selectionArgs,
-                    null,
-                    null,
-                    orderBy,
-                    "5000"
-
-                    // The sort order
-            );
-            while (c.moveToNext()) {
-
-                Log.d(TAG, "getUnsyncedPreg: " + c.getCount());
-                Clusters cluster = new Clusters();
-                cluster.setCityCode(c.getString(c.getColumnIndex(ClustersTable.COLUMN_CITY_CODE)));
-                cluster.setCityName(c.getString(c.getColumnIndex(ClustersTable.COLUMN_CITY_NAME)));
-                allCities.add(cluster);
-            }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
-
-        return allCities;
-    }*/
-
-    public RandomHH checkHousehold(String cluster_no, String hh_no) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = null;
-        String[] columns = null;
-        String selection = RandomTable.COLUMN_CLUSTER_NO + "= ? AND "
-                + RandomTable.COLUMN_HH_NO + "= ? ";
-        String[] selectionArgs = {cluster_no, hh_no};
-
-        int cCount;
-        RandomHH hh = null;
-        try {
-            c = db.query(
-                    RandomTable.TABLE_NAME,
-                    columns,
-                    selection,
-                    selectionArgs,
-                    null,
-                    null,
-                    null
-            );
-            while (c.moveToNext()) {
-
-                hh = new RandomHH().hydrate(c);
-
-            }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
-
-        return hh;
-
-    }
 
     public Form getFormByClusterHHNo(String cluster_no, String hh_no) throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -890,38 +643,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return allFC;
-    }
-
-    public int checkAnthro(String UID) {
-        String countQuery = "SELECT  * FROM " + AnthroTable.TABLE_NAME +
-                " WHERE " + AnthroTable.COLUMN_UUID + " = '" + UID + "'";
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(countQuery, null);
-        int count = cursor.getCount();
-        cursor.close();
-        return count;
-    }
-
-    public int checkBlood(String UID) {
-        String countQuery = "SELECT  * FROM " + SamplesTable.TABLE_NAME +
-                " WHERE " + SamplesTable.COLUMN_UUID + " = '" + UID + "' AND " +
-                SamplesTable.COLUMN_SAMPLE_TYPE + " = '3'  ";
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(countQuery, null);
-        int count = cursor.getCount();
-        cursor.close();
-        return count;
-    }
-
-    public int checkStool(String UID) {
-        String countQuery = "SELECT  * FROM " + SamplesTable.TABLE_NAME +
-                " WHERE " + SamplesTable.COLUMN_UUID + " = '" + UID + "' AND " +
-                SamplesTable.COLUMN_SAMPLE_TYPE + " = '4'  ";
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(countQuery, null);
-        int count = cursor.getCount();
-        cursor.close();
-        return count;
     }
 
     /*public String getWraName(String uid) throws JSONException {

@@ -63,14 +63,14 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
         int cardChild = 0;
         cardChild = db.getChildrenCardCheck(fc.get(position).get_UID());*/
 
-        int anthroStatus = 0;
+/*        int anthroStatus = 0;
         anthroStatus = db.checkAnthro(fc.get(position).getUid());
 
         int bloodStatus = 0;
         bloodStatus = db.checkBlood(fc.get(position).getUid());
 
         int stoolStatus = 0;
-        stoolStatus = db.checkStool(fc.get(position).getUid());
+        stoolStatus = db.checkStool(fc.get(position).getUid());*/
 
         /*String motherName = "";
         try {
@@ -132,12 +132,12 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
         holder.cluster.setText(fc.get(position).getCluster());
         holder.istatus.setText(iStatus);
 //        holder.fatherName.setText(motherName + " / " + childName);
-        holder.secStatusAnthro.setText(anthroStatus == 2 ? "  Done   " : " Pending ");
+        /*holder.secStatusAnthro.setText(anthroStatus == 2 ? "  Done   " : " Pending ");
         holder.secStatusBlood.setText(bloodStatus == 2 ? "  Done   " : " Pending ");
         holder.secStatusStool.setText(stoolStatus == 2 ? "  Done   " : " Pending ");
         holder.secStatusAnthro.setTextColor(anthroStatus == 2 ? Color.GREEN : Color.RED);
         holder.secStatusBlood.setTextColor(bloodStatus == 2 ? Color.GREEN : Color.RED);
-        holder.secStatusStool.setTextColor(stoolStatus == 2 ? Color.GREEN : Color.RED);
+        holder.secStatusStool.setTextColor(stoolStatus == 2 ? Color.GREEN : Color.RED);*/
 
         holder.sysdate.setText(fc.get(position).getSysDate());
         holder.istatus.setTextColor(iColor);

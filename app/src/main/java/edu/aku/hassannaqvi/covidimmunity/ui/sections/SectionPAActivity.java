@@ -4,6 +4,8 @@ import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.form;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -36,12 +38,32 @@ public class SectionPAActivity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_pa);
         // bi.setCallback(this);
         bi.setForm(form);
-        setupSkips();
-
+        setUIListener();
     }
 
 
-    private void setupSkips() {
+    private void setUIListener() {
+
+        bi.pa06a.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                if (s.toString().equals("77") || s.toString().equals("88")) {
+                    bi.pa06a.setDefaultvalue(s.toString());
+                }
+            }
+        });
+
     }
 
 
