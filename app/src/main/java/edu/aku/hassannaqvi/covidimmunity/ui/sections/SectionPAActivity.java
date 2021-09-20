@@ -34,7 +34,7 @@ public class SectionPAActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_pa);
-       // bi.setCallback(this);
+        // bi.setCallback(this);
         bi.setForm(form);
         setupSkips();
 
@@ -49,7 +49,7 @@ public class SectionPAActivity extends AppCompatActivity {
         db = MainApp.appInfo.getDbHelper();
         long updcount = 0;
         try {
-            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SPB, form.sPBtoString());
+            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SPA, form.sPAtoString());
         } catch (JSONException e) {
             e.printStackTrace();
             Log.d(TAG, R.string.upd_db_form + e.getMessage());
@@ -67,8 +67,14 @@ public class SectionPAActivity extends AppCompatActivity {
         if (!formValidation()) return;
         saveDraft();
         if (updateDB()) {
+            Intent i;
+            if (bi.pa041.isChecked() && bi.pa052.isChecked()) {
+                i = new Intent(this, SectionPBActivity.class).putExtra("complete", true);
+            } else {
+                i = new Intent(this, EndingActivity.class).putExtra("complete", false);
+            }
             finish();
-            startActivity(new Intent(this, SectionPBActivity.class).putExtra("complete", true));
+            startActivity(i);
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 
@@ -85,10 +91,7 @@ public class SectionPAActivity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-        if (!Validator.emptyCheckingContainer(this, bi.GrpName))
-            return false;
-
-        return true;
+        return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
     @Override

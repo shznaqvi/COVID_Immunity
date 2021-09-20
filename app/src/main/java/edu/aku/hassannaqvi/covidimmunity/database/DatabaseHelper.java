@@ -24,7 +24,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.AnthroTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.ClustersTable;
@@ -33,7 +32,6 @@ import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.RandomTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.SamplesTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.VersionTable;
-import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.ZScoreTable;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.models.Clusters;
 import edu.aku.hassannaqvi.covidimmunity.models.Form;
@@ -93,8 +91,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_SYSDATE, form.getSysDate());
         values.put(FormsTable.COLUMN_SHA, form.sHAtoString());
         values.put(FormsTable.COLUMN_SPA, form.sPAtoString());
-        values.put(FormsTable.COLUMN_SPB, form.sH3atoString());
-        values.put(FormsTable.COLUMN_SPC, form.sPBtoString());
+        values.put(FormsTable.COLUMN_SPB, form.sPBtoString());
+        values.put(FormsTable.COLUMN_SPC, form.sPCtoString());
 
 
         values.put(FormsTable.COLUMN_ISTATUS, form.getiStatus());

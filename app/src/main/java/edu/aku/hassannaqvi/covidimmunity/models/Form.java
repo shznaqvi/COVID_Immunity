@@ -50,7 +50,7 @@ public class Form extends BaseObservable implements Observable {
 
     private String ha01 = StringUtils.EMPTY;
     private String ha02 = StringUtils.EMPTY;
-//    private String ha08 = StringUtils.EMPTY;
+    //    private String ha08 = StringUtils.EMPTY;
     private String ha09 = StringUtils.EMPTY;
     private String ha10 = StringUtils.EMPTY;
     private String ha11 = StringUtils.EMPTY;
@@ -315,46 +315,90 @@ public class Form extends BaseObservable implements Observable {
 
             JSONObject json = null;
             json = new JSONObject(string);
-             /*   this.h106m = json.getString("h106m");
-                this.h106y = json.getString("h106y");*/
-            this.h107 = json.getString("h107");
-            /*  this.h107m = json.getString("h107m");*/
-            this.h108 = json.getString("h108");
-            this.h109 = json.getString("h109");
-            this.h110 = json.getString("h110");
-            this.h111 = json.getString("h111");
-            this.h112 = json.getString("h112");
-            this.h11296x = json.getString("h11296x");
-
+            this.ha01 = json.getString("ha01");
+            this.ha02 = json.getString("ha02");
+            this.ha09 = json.getString("ha09");
+            this.ha10 = json.getString("ha10");
+            this.ha11 = json.getString("ha11");
+            this.ha12 = json.getString("ha12");
+            this.ha12a = json.getString("ha12a");
+            this.ha13 = json.getString("ha13");
         }
     }
 
     public void sPAHydrate(String string) throws JSONException {
-        Log.d(TAG, "sH2bHydrate: " + string);
+        Log.d(TAG, "sPAHydrate: " + string);
         if (string != null) {
 
             JSONObject json = null;
             json = new JSONObject(string);
-/*            this.h209t = json.getString("h209t");
-            this.h209m = json.getString("h209m");*/
+            this.pa01 = json.getString("pa01");
+            this.pa01a = json.getString("pa01a");
+            this.pa01b = json.getString("pa01b");
+            this.pa01c = json.getString("pa01c");
+            this.pa02 = json.getString("pa02");
+            this.pa03a = json.getString("pa03a");
+            this.pa03b = json.getString("pa03b");
+            this.pa04 = json.getString("pa04");
+            this.pa05 = json.getString("pa05");
+            this.pa05a = json.getString("pa05a");
+            this.pa06a = json.getString("pa06a");
+            this.pa07 = json.getString("pa07");
+            this.pa08 = json.getString("pa08");
 
         }
     }
 
     public void sPBHydrate(String string) throws JSONException {
-        Log.d(TAG, "sH3aHydrate: " + string);
+        Log.d(TAG, "sPBHydrate: " + string);
         if (string != null) {
             JSONObject json = null;
             json = new JSONObject(string);
-
+            this.pb01a = json.getString("pb01a");
+            this.pb01b = json.getString("pb01b");
+            this.pb01c = json.getString("pb01c");
+            this.pb01d = json.getString("pb01d");
+            this.pb01e = json.getString("pb01e");
+            this.pb01f = json.getString("pb01f");
+            this.pb01g = json.getString("pb01g");
+            this.pb01h = json.getString("pb01h");
+            this.pb01j = json.getString("pb01j");
+            this.pb01k = json.getString("pb01k");
+            this.pb01m = json.getString("pb01m");
+            this.pb01n = json.getString("pb01n");
+            this.pb01p = json.getString("pb01p");
+            this.pb01q = json.getString("pb01q");
+            this.pb02a = json.getString("pb02a");
+            this.pb02b = json.getString("pb02b");
+            this.pb02c = json.getString("pb02c");
+            this.pb02d = json.getString("pb02d");
+            this.pb02e = json.getString("pb02e");
+            this.pb02f = json.getString("pb02f");
+            this.pb02g = json.getString("pb02g");
+            this.pb02h = json.getString("pb02h");
+            this.pb02j = json.getString("pb02j");
+            this.pb03 = json.getString("pb03");
+            this.pb05 = json.getString("pb05");
+            this.pb06 = json.getString("pb06");
+            this.pb07 = json.getString("pb07");
+            this.pb08 = json.getString("pb08");
         }
     }
 
     public void sPCHydrate(String string) throws JSONException {
-        Log.d(TAG, "sH3bHydrate: " + string);
+        Log.d(TAG, "sPCHydrate: " + string);
         if (string != null) {
             JSONObject json = null;
             json = new JSONObject(string);
+            this.pc01 = json.getString("pc01");
+            this.pc0196x = json.getString("pc0196x");
+            this.pc02 = json.getString("pc02");
+            this.pc03 = json.getString("pc03");
+            this.pc04 = json.getString("pc04");
+            this.pc05 = json.getString("pc05");
+            this.pc06 = json.getString("pc06");
+            this.pc07 = json.getString("pc07");
+            this.pc08 = json.getString("pc08");
 
         }
     }
@@ -364,36 +408,67 @@ public class Form extends BaseObservable implements Observable {
         Log.d(TAG, "sHAtoString: ");
         JSONObject json = new JSONObject();
 
-        json.put("h108", h108)
-                .put("h109", h109)
-                .put("h110", h110)
-                .put("h111", h111)
-                .put("h112", h112)
-                .put("h11296x", h11296x);
-
+        json.put("ha01", ha01)
+                .put("ha02", ha02)
+                .put("ha09", ha09)
+                .put("ha10", ha10)
+                .put("ha11", ha11)
+                .put("ha12", ha12)
+                .put("ha12a", ha12a)
+                .put("ha13", ha13);
         return json.toString();
     }
 
     public String sPAtoString() throws JSONException {
         Log.d(TAG, "sPAtoString: ");
         JSONObject json = new JSONObject();
-//        json.put();
-
-        return json.toString();
-    }
-
-    public String sH3atoString() throws JSONException {
-        Log.d(TAG, "sH3atoString: ");
-        JSONObject json = new JSONObject();
-//        json.put();
-
+        json.put("pa01", pa01)
+                .put("pa01a", pa01a)
+                .put("pa01b", pa01b)
+                .put("pa01c", pa01c)
+                .put("pa02", pa02)
+                .put("pa03a", pa03a)
+                .put("pa03b", pa03b)
+                .put("pa04", pa04)
+                .put("pa05", pa05)
+                .put("pa05a", pa05a)
+                .put("pa06a", pa06a)
+                .put("pa07", pa07)
+                .put("pa08", pa08);
         return json.toString();
     }
 
     public String sPBtoString() throws JSONException {
         Log.d(TAG, "sPBtoString: ");
         JSONObject json = new JSONObject();
-//        json.put();
+        json.put("pb01a", pb01a)
+                .put("pb01b", pb01b)
+                .put("pb01c", pb01c)
+                .put("pb01d", pb01d)
+                .put("pb01e", pb01e)
+                .put("pb01f", pb01f)
+                .put("pb01g", pb01g)
+                .put("pb01h", pb01h)
+                .put("pb01j", pb01j)
+                .put("pb01k", pb01k)
+                .put("pb01m", pb01m)
+                .put("pb01n", pb01n)
+                .put("pb01p", pb01p)
+                .put("pb01q", pb01q)
+                .put("pb02a", pb02a)
+                .put("pb02b", pb02b)
+                .put("pb02c", pb02c)
+                .put("pb02d", pb02d)
+                .put("pb02e", pb02e)
+                .put("pb02f", pb02f)
+                .put("pb02g", pb02g)
+                .put("pb02h", pb02h)
+                .put("pb02j", pb02j)
+                .put("pb03", pb03)
+                .put("pb05", pb05)
+                .put("pb06", pb06)
+                .put("pb07", pb07)
+                .put("pb08", pb08);
 
         return json.toString();
     }
@@ -401,7 +476,15 @@ public class Form extends BaseObservable implements Observable {
     public String sPCtoString() throws JSONException {
         Log.d(TAG, "sPCtoString: ");
         JSONObject json = new JSONObject();
-//        json.put();
+        json.put("pc01", pc01)
+                .put("pc0196x", pc0196x)
+                .put("pc02", pc02)
+                .put("pc03", pc03)
+                .put("pc04", pc04)
+                .put("pc05", pc05)
+                .put("pc06", pc06)
+                .put("pc07", pc07)
+                .put("pc08", pc08);
 
         return json.toString();
     }
@@ -1055,6 +1138,7 @@ public class Form extends BaseObservable implements Observable {
         this.pc08 = pc08;
         notifyChange(BR.pc08);
     }
+
 
     @Bindable
     public String getH107() {
