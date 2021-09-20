@@ -598,6 +598,11 @@ public class Form extends BaseObservable implements Observable {
 
     public void setPa04(String pa04) {
         this.pa04 = pa04;
+        setPa05(pa04.equals("1") ? this.pa05 : "");
+        setPa05a(pa04.equals("1") ? this.pa05a : "");
+        setPa06a(pa04.equals("1") ? this.pa06a : "");
+        setPa07(pa04.equals("1") ? this.pa07 : "");
+        setPa08(pa04.equals("1") ? this.pa08 : "");
         notifyChange(BR.pa04);
     }
 
@@ -608,6 +613,10 @@ public class Form extends BaseObservable implements Observable {
 
     public void setPa05(String pa05) {
         this.pa05 = pa05;
+        setPa05a(pa05.equals("2") ? this.pa05a : "");
+        setPa06a(pa05.equals("2") ? this.pa06a : "");
+        setPa07(pa05.equals("2") ? this.pa07 : "");
+        setPa08(pa05.equals("2") ? this.pa08 : "");
         notifyChange(BR.pa05);
     }
 
