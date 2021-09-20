@@ -919,7 +919,6 @@ public class Form extends BaseObservable implements Observable {
 
     public void setPb05(String pb05) {
         this.pb05 = pb05;
-
         setPb06(pb05.equals("1") ? this.pb06 : "");
         notifyChange(BR.pb05);
     }
@@ -941,6 +940,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setPb07(String pb07) {
         this.pb07 = pb07;
+        setPb08(pb07.equals("1") ? this.pb08 : "");
         notifyChange(BR.pb07);
     }
 
