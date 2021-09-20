@@ -50,7 +50,7 @@ public class Form extends BaseObservable implements Observable {
 
     private String ha01 = StringUtils.EMPTY;
     private String ha02 = StringUtils.EMPTY;
-    private String ha08 = StringUtils.EMPTY;
+//    private String ha08 = StringUtils.EMPTY;
     private String ha09 = StringUtils.EMPTY;
     private String ha10 = StringUtils.EMPTY;
     private String ha11 = StringUtils.EMPTY;
@@ -451,7 +451,7 @@ public class Form extends BaseObservable implements Observable {
         notifyChange(BR.ha02);
     }
 
-    @Bindable
+/*    @Bindable
     public String getHa08() {
         return ha08;
     }
@@ -459,7 +459,7 @@ public class Form extends BaseObservable implements Observable {
     public void setHa08(String ha08) {
         this.ha08 = ha08;
         notifyChange(BR.ha08);
-    }
+    }*/
 
     @Bindable
     public String getHa09() {
