@@ -4,6 +4,8 @@ import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.form;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -17,9 +19,9 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 
-import edu.aku.hassannaqvi.covidimmunity.MainActivity;
 import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
+import edu.aku.hassannaqvi.covidimmunity.core.DateUtilsKt;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionPcBinding;
@@ -47,6 +49,32 @@ public class SectionPCActivity extends AppCompatActivity {
 
 
     private void setupSkips() {
+
+        bi.pc02.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+
+                if (editable.toString().isEmpty()) return;
+
+                bi.pc05.setText(null);
+
+                String convertDate = DateUtilsKt.convertDateFormat("yyyy-MM-dd", "dd/MM/yyyy", editable.toString());
+
+                bi.pc05.setMinDate(convertDate);
+
+            }
+        });
 
     }
 
@@ -85,7 +113,7 @@ public class SectionPCActivity extends AppCompatActivity {
 
     public void btnEnd(View view) {
         finish();
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
     }
 
 

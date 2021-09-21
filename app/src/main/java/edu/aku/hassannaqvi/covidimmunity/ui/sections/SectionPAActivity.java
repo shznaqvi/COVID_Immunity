@@ -17,7 +17,6 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 
-import edu.aku.hassannaqvi.covidimmunity.MainActivity;
 import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
@@ -59,7 +58,7 @@ public class SectionPAActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
 
                 if (s.toString().equals("77") || s.toString().equals("88")) {
-                    bi.pa06a.setDefaultvalue(s.toString());
+                    bi.pa06a.setRangedefaultvalue(Float.parseFloat(s.toString()));
                 }
             }
         });
@@ -108,7 +107,7 @@ public class SectionPAActivity extends AppCompatActivity {
 
     public void btnEnd(View view) {
         finish();
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
     }
 
 

@@ -15,12 +15,12 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 
-import edu.aku.hassannaqvi.covidimmunity.MainActivity;
 import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionPbBinding;
+import edu.aku.hassannaqvi.covidimmunity.ui.EndingActivity;
 
 
 public class SectionPBActivity extends AppCompatActivity {
@@ -33,13 +33,23 @@ public class SectionPBActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_pb);
-       // bi.setCallback(this);
+        // bi.setCallback(this);
         bi.setForm(form);
         setupSkips();
+        form.getPa02();
     }
 
     private void setupSkips() {
 
+        if (form.getPa02().equals("1")) {
+            bi.fldGrpCVpb05.setVisibility(View.GONE);
+            bi.fldGrpCVpb06.setVisibility(View.GONE);
+            bi.fldGrpCVpb05sub.setVisibility(View.GONE);
+        } else {
+            bi.fldGrpCVpb05.setVisibility(View.VISIBLE);
+            bi.fldGrpCVpb06.setVisibility(View.VISIBLE);
+            bi.fldGrpCVpb05sub.setVisibility(View.VISIBLE);
+        }
     }
 
 
@@ -66,7 +76,7 @@ public class SectionPBActivity extends AppCompatActivity {
         saveDraft();
         if (updateDB()) {
             finish();
-             startActivity(new Intent(this, SectionPCActivity.class).putExtra("complete", true));
+            startActivity(new Intent(this, SectionPCActivity.class).putExtra("complete", true));
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 
@@ -77,7 +87,7 @@ public class SectionPBActivity extends AppCompatActivity {
 
     public void btnEnd(View view) {
         finish();
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
     }
 
 

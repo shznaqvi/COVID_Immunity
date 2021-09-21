@@ -326,7 +326,7 @@
                                 android:maxLength="2"
                                 android:text="@={form.pa03b}"
                                 app:maxValue="11"
-                                app:minValue="1"
+                                app:minValue="0"
                                 app:type="range" />
                         </LinearLayout>
                     </LinearLayout>
@@ -737,6 +737,14 @@
                                     android:checked="@{form.pa07.equals(`15`)}"
                                     android:onClick="@{()->form.setPa07(`15`)}"
                                     android:text="@string/pa0715" />
+
+                                <RadioButton
+                                    android:id="@+id/pa0796"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{form.pa07.equals(`96`)}"
+                                    android:onClick="@{()->form.setPa07(`96`)}"
+                                    android:text="@string/pa0796" />
                             </RadioGroup>
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>

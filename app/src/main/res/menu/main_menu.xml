@@ -67,11 +67,11 @@
                             android:title="@string/childtitle" />
                     </group>-->
 
-                    <group android:id="@+id/secH">
-                        <item
+                    <!--<group android:id="@+id/secH">
+&lt;!&ndash;                        <item
                             android:id="@+id/secH1"
-                            android:title="@string/sech1title" />
-                        <!--<item
+                            android:title="@string/sech1title" />&ndash;&gt;
+                        &lt;!&ndash;<item
                             android:id="@+id/secH2b"
                             android:title="@string/sec2btitle" />
                         <item
@@ -92,8 +92,8 @@
                             android:title="@string/sech7title" />
                         <item
                             android:id="@+id/sech6"
-                            android:title="@string/sech6title" />-->
-                    </group>
+                            android:title="@string/sech6title" />&ndash;&gt;
+                    </group>-->
                     <!--<group android:id="@+id/secW">
 
 
