@@ -561,11 +561,29 @@
                                     android:text="@string/pa06" />
                             </LinearLayout>
 
-                            <TextView
+
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="12dp"
-                                android:text="@string/pa06t" />
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bottom"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/sub_labels"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:layout_marginTop="12dp"
+                                    android:text="@string/pa06t" />
+
+                                <TextView
+                                    style="@style/sub_labels"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/pa06bt" />
+                            </LinearLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -583,12 +601,6 @@
                                 app:maxValue="16"
                                 app:minValue="1"
                                 app:type="range" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="12dp"
-                                android:text="@string/pa06bt" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 

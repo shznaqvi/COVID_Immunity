@@ -93,6 +93,7 @@
                             android:text="@string/ha02" />
 
                         <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
+                            style="@style/textInput"
                             android:id="@+id/ha02"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
