@@ -35,11 +35,12 @@ public class SectionHAActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_ha);
-       // bi.setCallback(this);
+        // bi.setCallback(this);
         if (form == null) form = new Form();
         bi.setForm(form);
         setupSkips();
-//        setSupportActionBar(bi.toolbar);
+        setSupportActionBar(bi.toolbar);
+        setTitle(R.string.sectionha_mainheading);
         db = MainApp.appInfo.dbHelper;
     }
 
