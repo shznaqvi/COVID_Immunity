@@ -7,17 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.json.JSONException;
 
 import java.util.Collections;
 import java.util.List;
 
 import edu.aku.hassannaqvi.covidimmunity.R;
-import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.models.Form;
 
@@ -126,10 +122,10 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
 
         }
 
-        holder.hhno.setText(fc.get(position).getHhid());
+/*        holder.hhno.setText(fc.get(position).getHhid());
         holder.cluster.setText(fc.get(position).getCluster());
         holder.cluster.setText(fc.get(position).getCluster());
-        holder.cluster.setText(fc.get(position).getCluster());
+        holder.cluster.setText(fc.get(position).getCluster());*/
         holder.istatus.setText(iStatus);
 //        holder.fatherName.setText(motherName + " / " + childName);
         /*holder.secStatusAnthro.setText(anthroStatus == 2 ? "  Done   " : " Pending ");
@@ -168,7 +164,7 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
         return fc.size();
     }
 
-    private void editHousehold(int position) {
+/*    private void editHousehold(int position) {
         MainApp.form = new Form();
         try {
             MainApp.form = db.getFormByClusterHHNo(fc.get(position).getCluster(), fc.get(position).getHhid());
@@ -176,7 +172,7 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
             Log.d(TAG, c.getString(R.string.hh_exists_form) + e.getMessage());
             Toast.makeText(c, c.getString(R.string.hh_exists_form) + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and

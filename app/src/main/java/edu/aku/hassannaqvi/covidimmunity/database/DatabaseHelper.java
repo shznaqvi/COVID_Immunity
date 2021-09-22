@@ -75,8 +75,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(FormsTable.COLUMN_PROJECT_NAME, form.getProjectName());
         values.put(FormsTable.COLUMN_UID, form.getUid());
-        values.put(FormsTable.COLUMN_CLUSTER, form.getCluster());
-        values.put(FormsTable.COLUMN_HHID, form.getHhid());
         values.put(FormsTable.COLUMN_USERNAME, form.getUserName());
         values.put(FormsTable.COLUMN_SYSDATE, form.getSysDate());
         values.put(FormsTable.COLUMN_SHA, form.sHAtoString());
@@ -508,7 +506,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Form getFormByClusterHHNo(String cluster_no, String hh_no) throws JSONException {
+/*    public Form getFormByClusterHHNo(String cluster_no, String hh_no) throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = null;
@@ -547,7 +545,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return form;
-    }
+    }*/
 
 
     public Collection<Form> getTodayForms(String sysdate) {
@@ -580,8 +578,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 fc.setId(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
                 fc.setUid(c.getString(c.getColumnIndex(FormsTable.COLUMN_UID)));
                 fc.setSysDate(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYSDATE)));
-                fc.setCluster(c.getString(c.getColumnIndex(FormsTable.COLUMN_CLUSTER)));
-                fc.setHhid(c.getString(c.getColumnIndex(FormsTable.COLUMN_HHID)));
                 fc.setiStatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
                 fc.setSynced(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYNCED)));
                 allFC.add(fc);
@@ -628,8 +624,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 fc.setId(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
                 fc.setUid(c.getString(c.getColumnIndex(FormsTable.COLUMN_UID)));
                 fc.setSysDate(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYSDATE)));
-                fc.setCluster(c.getString(c.getColumnIndex(FormsTable.COLUMN_CLUSTER)));
-                fc.setHhid(c.getString(c.getColumnIndex(FormsTable.COLUMN_HHID)));
                 fc.setiStatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
                 fc.setSynced(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYNCED)));
                 allFC.add(fc);
