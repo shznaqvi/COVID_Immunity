@@ -14,6 +14,10 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
@@ -97,6 +101,11 @@ public class SectionHAActivity extends AppCompatActivity {
 
 
     private void saveDraft() {
+
+        MainApp.form.setUserName(MainApp.user.getUserName());
+        MainApp.form.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
+        MainApp.form.setDeviceId(MainApp.deviceid);
+        MainApp.form.setAppver(MainApp.versionName + "." + MainApp.versionCode);
     }
 
 
