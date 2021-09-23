@@ -47,7 +47,7 @@ public class SectionPCActivity extends AppCompatActivity {
         if (form == null) form = new Form();
         bi.setForm(form);
         setupSkips();
-        //setSupportActionBar(bi.toolbar);
+        setSupportActionBar(bi.toolbar);
         db = MainApp.appInfo.dbHelper;
     }
 

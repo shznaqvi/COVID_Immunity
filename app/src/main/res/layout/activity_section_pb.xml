@@ -1,4 +1,5 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -9,1233 +10,1254 @@
             type="edu.aku.hassannaqvi.covidimmunity.models.Form" />
     </data>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/app_bg_gray"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/GrpName"
+
+        <!-- CUSTOM TOOLBAR -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@null"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/CustomToolbarTheme"
+            app:popupTheme="@style/CustomPopupTheme"
+            app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
+            app:title="@string/sectionpb_mainheading"
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <!-- pb01t  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVpb01t"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_pb01a" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/pb01t" />
-                    </LinearLayout>
-
-
-
-            <!-- pb01a  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb01a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb01a" />
-
-                <RadioButton
-                    android:id="@+id/pb01a1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01a.equals(`1`)}"
-                    android:onClick="@{()->form.setPb01a(`1`)}"
-                    android:text="@string/pb01a1" />
-
-                <RadioButton
-                    android:id="@+id/pb01a2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01a.equals(`2`)}"
-                    android:onClick="@{()->form.setPb01a(`2`)}"
-                    android:text="@string/pb01a2" />
-            </RadioGroup>
-
-            <!-- pb01b  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb01b"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb01b" />
-
-                <RadioButton
-                    android:id="@+id/pb01b1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01b.equals(`1`)}"
-                    android:onClick="@{()->form.setPb01b(`1`)}"
-                    android:text="@string/pb01b1" />
-
-                <RadioButton
-                    android:id="@+id/pb01b2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01b.equals(`2`)}"
-                    android:onClick="@{()->form.setPb01b(`2`)}"
-                    android:text="@string/pb01b2" />
-            </RadioGroup>
-
-            <!-- pb01c  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb01c"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb01c" />
-
-                <RadioButton
-                    android:id="@+id/pb01c1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01c.equals(`1`)}"
-                    android:onClick="@{()->form.setPb01c(`1`)}"
-                    android:text="@string/pb01c1" />
-
-                <RadioButton
-                    android:id="@+id/pb01c2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01c.equals(`2`)}"
-                    android:onClick="@{()->form.setPb01c(`2`)}"
-                    android:text="@string/pb01c2" />
-            </RadioGroup>
-
-            <!-- pb01d  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb01d"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb01d" />
-
-                <RadioButton
-                    android:id="@+id/pb01d1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01d.equals(`1`)}"
-                    android:onClick="@{()->form.setPb01d(`1`)}"
-                    android:text="@string/pb01d1" />
-
-                <RadioButton
-                    android:id="@+id/pb01d2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01d.equals(`2`)}"
-                    android:onClick="@{()->form.setPb01d(`2`)}"
-                    android:text="@string/pb01d2" />
-            </RadioGroup>
-
-            <!-- pb01e  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb01e"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb01e" />
-
-                <RadioButton
-                    android:id="@+id/pb01e1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01e.equals(`1`)}"
-                    android:onClick="@{()->form.setPb01e(`1`)}"
-                    android:text="@string/pb01e1" />
-
-                <RadioButton
-                    android:id="@+id/pb01e2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01e.equals(`2`)}"
-                    android:onClick="@{()->form.setPb01e(`2`)}"
-                    android:text="@string/pb01e2" />
-            </RadioGroup>
-
-            <!-- pb01f  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb01f"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb01f" />
-
-                <RadioButton
-                    android:id="@+id/pb01f1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01f.equals(`1`)}"
-                    android:onClick="@{()->form.setPb01f(`1`)}"
-                    android:text="@string/pb01f1" />
-
-                <RadioButton
-                    android:id="@+id/pb01f2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01f.equals(`2`)}"
-                    android:onClick="@{()->form.setPb01f(`2`)}"
-                    android:text="@string/pb01f2" />
-            </RadioGroup>
-
-            <!-- pb01g  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb01g"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb01g" />
-
-                <RadioButton
-                    android:id="@+id/pb01g1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01g.equals(`1`)}"
-                    android:onClick="@{()->form.setPb01g(`1`)}"
-                    android:text="@string/pb01g1" />
-
-                <RadioButton
-                    android:id="@+id/pb01g2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01g.equals(`2`)}"
-                    android:onClick="@{()->form.setPb01g(`2`)}"
-                    android:text="@string/pb01g2" />
-            </RadioGroup>
-
-            <!-- pb01h  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb01h"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb01h" />
-
-                <RadioButton
-                    android:id="@+id/pb01h1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01h.equals(`1`)}"
-                    android:onClick="@{()->form.setPb01h(`1`)}"
-                    android:text="@string/pb01h1" />
-
-                <RadioButton
-                    android:id="@+id/pb01h2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01h.equals(`2`)}"
-                    android:onClick="@{()->form.setPb01h(`2`)}"
-                    android:text="@string/pb01h2" />
-            </RadioGroup>
-
-            <!-- pb01j  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb01j"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb01j" />
-
-                <RadioButton
-                    android:id="@+id/pb01j1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01j.equals(`1`)}"
-                    android:onClick="@{()->form.setPb01j(`1`)}"
-                    android:text="@string/pb01j1" />
-
-                <RadioButton
-                    android:id="@+id/pb01j2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01j.equals(`2`)}"
-                    android:onClick="@{()->form.setPb01j(`2`)}"
-                    android:text="@string/pb01j2" />
-            </RadioGroup>
-
-            <!-- pb01k  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb01k"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb01k" />
-
-                <RadioButton
-                    android:id="@+id/pb01k1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01k.equals(`1`)}"
-                    android:onClick="@{()->form.setPb01k(`1`)}"
-                    android:text="@string/pb01k1" />
-
-                <RadioButton
-                    android:id="@+id/pb01k2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01k.equals(`2`)}"
-                    android:onClick="@{()->form.setPb01k(`2`)}"
-                    android:text="@string/pb01k2" />
-            </RadioGroup>
-
-            <!-- pb01m  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb01m"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb01m" />
-
-                <RadioButton
-                    android:id="@+id/pb01m1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01m.equals(`1`)}"
-                    android:onClick="@{()->form.setPb01m(`1`)}"
-                    android:text="@string/pb01m1" />
-
-                <RadioButton
-                    android:id="@+id/pb01m2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01m.equals(`2`)}"
-                    android:onClick="@{()->form.setPb01m(`2`)}"
-                    android:text="@string/pb01m2" />
-            </RadioGroup>
-
-            <!-- pb01n  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb01n"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb01n" />
-
-                <RadioButton
-                    android:id="@+id/pb01n1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01n.equals(`1`)}"
-                    android:onClick="@{()->form.setPb01n(`1`)}"
-                    android:text="@string/pb01n1" />
-
-                <RadioButton
-                    android:id="@+id/pb01n2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01n.equals(`2`)}"
-                    android:onClick="@{()->form.setPb01n(`2`)}"
-                    android:text="@string/pb01n2" />
-            </RadioGroup>
-
-            <!-- pb01p  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb01p"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb01p" />
-
-                <RadioButton
-                    android:id="@+id/pb01p1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01p.equals(`1`)}"
-                    android:onClick="@{()->form.setPb01p(`1`)}"
-                    android:text="@string/pb01p1" />
-
-                <RadioButton
-                    android:id="@+id/pb01p2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01p.equals(`2`)}"
-                    android:onClick="@{()->form.setPb01p(`2`)}"
-                    android:text="@string/pb01p2" />
-            </RadioGroup>
-
-            <!-- pb01q  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb01q"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb01q" />
-
-                <RadioButton
-                    android:id="@+id/pb01q1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01q.equals(`1`)}"
-                    android:onClick="@{()->form.setPb01q(`1`)}"
-                    android:text="@string/pb01q1" />
-
-                <RadioButton
-                    android:id="@+id/pb01q2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb01q.equals(`2`)}"
-                    android:onClick="@{()->form.setPb01q(`2`)}"
-                    android:text="@string/pb01q2" />
-            </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <!-- pb02 -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVpb02a"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_pb02a" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/pb02t" />
-                    </LinearLayout>
-
-
-            <!-- pb02a  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb02a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb02a" />
-
-                <RadioButton
-                    android:id="@+id/pb02a1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb02a.equals(`1`)}"
-                    android:onClick="@{()->form.setPb02a(`1`)}"
-                    android:text="@string/pb02a1" />
-
-                <RadioButton
-                    android:id="@+id/pb02a2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb02a.equals(`2`)}"
-                    android:onClick="@{()->form.setPb02a(`2`)}"
-                    android:text="@string/pb02a2" />
-            </RadioGroup>
-
-
-            <!-- pb02b  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb02b"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb02b" />
-
-                <RadioButton
-                    android:id="@+id/pb02b1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb02b.equals(`1`)}"
-                    android:onClick="@{()->form.setPb02b(`1`)}"
-                    android:text="@string/pb02b1" />
-
-                <RadioButton
-                    android:id="@+id/pb02b2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb02b.equals(`2`)}"
-                    android:onClick="@{()->form.setPb02b(`2`)}"
-                    android:text="@string/pb02b2" />
-            </RadioGroup>
-
-            <!-- pb02c  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb02c"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb02c" />
-
-                <RadioButton
-                    android:id="@+id/pb02c1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb02c.equals(`1`)}"
-                    android:onClick="@{()->form.setPb02c(`1`)}"
-                    android:text="@string/pb02c1" />
-
-                <RadioButton
-                    android:id="@+id/pb02c2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb02c.equals(`2`)}"
-                    android:onClick="@{()->form.setPb02c(`2`)}"
-                    android:text="@string/pb02c2" />
-            </RadioGroup>
-
-            <!-- pb02d  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb02d"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb02d" />
-
-                <RadioButton
-                    android:id="@+id/pb02d1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb02d.equals(`1`)}"
-                    android:onClick="@{()->form.setPb02d(`1`)}"
-                    android:text="@string/pb02d1" />
-
-                <RadioButton
-                    android:id="@+id/pb02d2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb02d.equals(`2`)}"
-                    android:onClick="@{()->form.setPb02d(`2`)}"
-                    android:text="@string/pb02d2" />
-            </RadioGroup>
-
-            <!-- pb02e  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb02e"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb02e" />
-
-                <RadioButton
-                    android:id="@+id/pb02e1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb02e.equals(`1`)}"
-                    android:onClick="@{()->form.setPb02e(`1`)}"
-                    android:text="@string/pb02e1" />
-
-                <RadioButton
-                    android:id="@+id/pb02e2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb02e.equals(`2`)}"
-                    android:onClick="@{()->form.setPb02e(`2`)}"
-                    android:text="@string/pb02e2" />
-            </RadioGroup>
-
-            <!-- pb02f  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb02f"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb02f" />
-
-                <RadioButton
-                    android:id="@+id/pb02f1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb02f.equals(`1`)}"
-                    android:onClick="@{()->form.setPb02f(`1`)}"
-                    android:text="@string/pb02f1" />
-
-                <RadioButton
-                    android:id="@+id/pb02f2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb02f.equals(`2`)}"
-                    android:onClick="@{()->form.setPb02f(`2`)}"
-                    android:text="@string/pb02f2" />
-            </RadioGroup>
-
-            <!--   pb02g  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb02g"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb02g" />
-
-                <RadioButton
-                    android:id="@+id/pb02g1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb02g.equals(`1`)}"
-                    android:onClick="@{()->form.setPb02g(`1`)}"
-                    android:text="@string/pb02g1" />
-
-                <RadioButton
-                    android:id="@+id/pb02g2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb02g.equals(`2`)}"
-                    android:onClick="@{()->form.setPb02g(`2`)}"
-                    android:text="@string/pb02g2" />
-            </RadioGroup>
-
-            <!-- pb02h  Radio   -->
-            <RadioGroup
-                android:id="@+id/pb02h"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/sub_labels"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="@string/pb02h" />
-
-                <RadioButton
-                    android:id="@+id/pb02h1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb02h.equals(`1`)}"
-                    android:onClick="@{()->form.setPb02h(`1`)}"
-                    android:text="@string/pb02h1" />
-
-                <RadioButton
-                    android:id="@+id/pb02h2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="@{form.pb02h.equals(`2`)}"
-                    android:onClick="@{()->form.setPb02h(`2`)}"
-                    android:text="@string/pb02h2" />
-            </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <!-- pb02j  Radio   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVpb02j"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_pb02j" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/pb02j" />
-                    </LinearLayout>
-
-                    <RadioGroup
-                        android:id="@+id/pb02j"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <RadioButton
-                            android:id="@+id/pb02j1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.pb02j.equals(`1`)}"
-                            android:onClick="@{()->form.setPb02j(`1`)}"
-                            android:text="@string/pb02j1" />
-
-                        <RadioButton
-                            android:id="@+id/pb02j2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.pb02j.equals(`2`)}"
-                            android:onClick="@{()->form.setPb02j(`2`)}"
-                            android:text="@string/pb02j2" />
-
-                        <EditText
-                            android:id="@+id/pb02j96"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/pb02j96"
-                            android:tag="pb02j1"
-                            android:text="@={form.pb02j96}"
-                            android:visibility='@{pb02j1.checked? View.VISIBLE : View.GONE}' />
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-
-            <!-- pb03  Radio   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVpb03"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_pb03" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/pb03" />
-                    </LinearLayout>
-
-                    <RadioGroup
-                        android:id="@+id/pb03"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <RadioButton
-                            android:id="@+id/pb031"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.pb03.equals(`1`)}"
-                            android:onClick="@{()->form.setPb03(`1`)}"
-                            android:text="@string/pb031" />
-
-                        <RadioButton
-                            android:id="@+id/pb032"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.pb03.equals(`2`)}"
-                            android:onClick="@{()->form.setPb03(`2`)}"
-                            android:text="@string/pb032" />
-
-                        <RadioButton
-                            android:id="@+id/pb033"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.pb03.equals(`3`)}"
-                            android:onClick="@{()->form.setPb03(`3`)}"
-                            android:text="@string/pb033" />
-
-                        <RadioButton
-                            android:id="@+id/pb034"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.pb03.equals(`4`)}"
-                            android:onClick="@{()->form.setPb03(`4`)}"
-                            android:text="@string/pb034" />
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:id="@+id/fldGrpCVpb05sub"
-                style="@style/labelsHead"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="@string/pb05t" />
-
-            <!-- pb05  Radio   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVpb05"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_pb05" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/pb05" />
-                    </LinearLayout>
-
-                    <RadioGroup
-                        android:id="@+id/pb05"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onCheckedChanged="@{()-> pb06.clearCheck()}"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/pb051"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:checked="@{form.pb05.equals(`1`)}"
-                            android:onClick="@{()->form.setPb05(`1`)}"
-                            android:text="@string/pb051" />
-
-                        <RadioButton
-                            android:id="@+id/pb052"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:checked="@{form.pb05.equals(`2`)}"
-                            android:onClick="@{()->form.setPb05(`2`)}"
-                            android:text="@string/pb052" />
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-
-            <!-- pb06  Radio   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVpb06"
-                style="@style/cardView"
-                android:visibility="@{form.pb05.equals(`1`) ? View.VISIBLE : View.GONE}">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_pb06" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/pb06" />
-                    </LinearLayout>
-
-                    <RadioGroup
-                        android:id="@+id/pb06"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/pb061"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:checked="@{form.pb06.equals(`1`)}"
-                            android:onClick="@{()->form.setPb06(`1`)}"
-                            android:text="@string/pb061" />
-
-                        <RadioButton
-                            android:id="@+id/pb062"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:checked="@{form.pb06.equals(`2`)}"
-                            android:onClick="@{()->form.setPb06(`2`)}"
-                            android:text="@string/pb062" />
-
-                        <RadioButton
-                            android:id="@+id/pb063"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:checked="@{form.pb06.equals(`3`)}"
-                            android:onClick="@{()->form.setPb06(`3`)}"
-                            android:text="@string/pb063" />
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- pb07  Radio   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVpb07"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_pb07" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/pb07" />
-                    </LinearLayout>
-
-                    <RadioGroup
-                        android:id="@+id/pb07"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/pb071"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:checked="@{form.pb07.equals(`1`)}"
-                            android:onClick="@{()->form.setPb07(`1`)}"
-                            android:text="@string/pb071" />
-
-                        <RadioButton
-                            android:id="@+id/pb072"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:checked="@{form.pb07.equals(`2`)}"
-                            android:onClick="@{()->form.setPb07(`2`)}"
-                            android:text="@string/pb072" />
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- pb08  Radio   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVpb08"
-                style="@style/cardView"
-                android:visibility="@{form.pb07.equals(`1`) ? View.VISIBLE : View.GONE}">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_pb08" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/pb08" />
-                    </LinearLayout>
-
-                    <RadioGroup
-                        android:id="@+id/pb08"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/pb081"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:checked="@{form.pb08.equals(`1`)}"
-                            android:onClick="@{()->form.setPb08(`1`)}"
-                            android:text="@string/pb081" />
-
-                        <RadioButton
-                            android:id="@+id/pb082"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:checked="@{form.pb08.equals(`2`)}"
-                            android:onClick="@{()->form.setPb08(`2`)}"
-                            android:text="@string/pb082" />
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!--EndButton LinearLayout-->
             <LinearLayout
+                android:id="@+id/GrpName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginTop="24dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btn_End"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:background="@color/redOverlay"
-                    android:onClick="btnEnd"
-                    android:text="Cancel"
-                    android:textColor="@color/white" />
+                <!-- pb01t  Title   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVpb01t"
+                    style="@style/cardView">
 
-                <Button
-                    android:id="@+id/btn_Continue"
-                    android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_pb01a" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/pb01t" />
+                        </LinearLayout>
+
+
+                        <!-- pb01a  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb01a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb01a" />
+
+                            <RadioButton
+                                android:id="@+id/pb01a1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01a.equals(`1`)}"
+                                android:onClick="@{()->form.setPb01a(`1`)}"
+                                android:text="@string/pb01a1" />
+
+                            <RadioButton
+                                android:id="@+id/pb01a2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01a.equals(`2`)}"
+                                android:onClick="@{()->form.setPb01a(`2`)}"
+                                android:text="@string/pb01a2" />
+                        </RadioGroup>
+
+                        <!-- pb01b  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb01b"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb01b" />
+
+                            <RadioButton
+                                android:id="@+id/pb01b1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01b.equals(`1`)}"
+                                android:onClick="@{()->form.setPb01b(`1`)}"
+                                android:text="@string/pb01b1" />
+
+                            <RadioButton
+                                android:id="@+id/pb01b2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01b.equals(`2`)}"
+                                android:onClick="@{()->form.setPb01b(`2`)}"
+                                android:text="@string/pb01b2" />
+                        </RadioGroup>
+
+                        <!-- pb01c  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb01c"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb01c" />
+
+                            <RadioButton
+                                android:id="@+id/pb01c1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01c.equals(`1`)}"
+                                android:onClick="@{()->form.setPb01c(`1`)}"
+                                android:text="@string/pb01c1" />
+
+                            <RadioButton
+                                android:id="@+id/pb01c2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01c.equals(`2`)}"
+                                android:onClick="@{()->form.setPb01c(`2`)}"
+                                android:text="@string/pb01c2" />
+                        </RadioGroup>
+
+                        <!-- pb01d  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb01d"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb01d" />
+
+                            <RadioButton
+                                android:id="@+id/pb01d1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01d.equals(`1`)}"
+                                android:onClick="@{()->form.setPb01d(`1`)}"
+                                android:text="@string/pb01d1" />
+
+                            <RadioButton
+                                android:id="@+id/pb01d2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01d.equals(`2`)}"
+                                android:onClick="@{()->form.setPb01d(`2`)}"
+                                android:text="@string/pb01d2" />
+                        </RadioGroup>
+
+                        <!-- pb01e  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb01e"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb01e" />
+
+                            <RadioButton
+                                android:id="@+id/pb01e1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01e.equals(`1`)}"
+                                android:onClick="@{()->form.setPb01e(`1`)}"
+                                android:text="@string/pb01e1" />
+
+                            <RadioButton
+                                android:id="@+id/pb01e2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01e.equals(`2`)}"
+                                android:onClick="@{()->form.setPb01e(`2`)}"
+                                android:text="@string/pb01e2" />
+                        </RadioGroup>
+
+                        <!-- pb01f  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb01f"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb01f" />
+
+                            <RadioButton
+                                android:id="@+id/pb01f1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01f.equals(`1`)}"
+                                android:onClick="@{()->form.setPb01f(`1`)}"
+                                android:text="@string/pb01f1" />
+
+                            <RadioButton
+                                android:id="@+id/pb01f2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01f.equals(`2`)}"
+                                android:onClick="@{()->form.setPb01f(`2`)}"
+                                android:text="@string/pb01f2" />
+                        </RadioGroup>
+
+                        <!-- pb01g  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb01g"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb01g" />
+
+                            <RadioButton
+                                android:id="@+id/pb01g1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01g.equals(`1`)}"
+                                android:onClick="@{()->form.setPb01g(`1`)}"
+                                android:text="@string/pb01g1" />
+
+                            <RadioButton
+                                android:id="@+id/pb01g2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01g.equals(`2`)}"
+                                android:onClick="@{()->form.setPb01g(`2`)}"
+                                android:text="@string/pb01g2" />
+                        </RadioGroup>
+
+                        <!-- pb01h  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb01h"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb01h" />
+
+                            <RadioButton
+                                android:id="@+id/pb01h1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01h.equals(`1`)}"
+                                android:onClick="@{()->form.setPb01h(`1`)}"
+                                android:text="@string/pb01h1" />
+
+                            <RadioButton
+                                android:id="@+id/pb01h2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01h.equals(`2`)}"
+                                android:onClick="@{()->form.setPb01h(`2`)}"
+                                android:text="@string/pb01h2" />
+                        </RadioGroup>
+
+                        <!-- pb01j  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb01j"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb01j" />
+
+                            <RadioButton
+                                android:id="@+id/pb01j1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01j.equals(`1`)}"
+                                android:onClick="@{()->form.setPb01j(`1`)}"
+                                android:text="@string/pb01j1" />
+
+                            <RadioButton
+                                android:id="@+id/pb01j2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01j.equals(`2`)}"
+                                android:onClick="@{()->form.setPb01j(`2`)}"
+                                android:text="@string/pb01j2" />
+                        </RadioGroup>
+
+                        <!-- pb01k  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb01k"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb01k" />
+
+                            <RadioButton
+                                android:id="@+id/pb01k1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01k.equals(`1`)}"
+                                android:onClick="@{()->form.setPb01k(`1`)}"
+                                android:text="@string/pb01k1" />
+
+                            <RadioButton
+                                android:id="@+id/pb01k2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01k.equals(`2`)}"
+                                android:onClick="@{()->form.setPb01k(`2`)}"
+                                android:text="@string/pb01k2" />
+                        </RadioGroup>
+
+                        <!-- pb01m  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb01m"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb01m" />
+
+                            <RadioButton
+                                android:id="@+id/pb01m1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01m.equals(`1`)}"
+                                android:onClick="@{()->form.setPb01m(`1`)}"
+                                android:text="@string/pb01m1" />
+
+                            <RadioButton
+                                android:id="@+id/pb01m2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01m.equals(`2`)}"
+                                android:onClick="@{()->form.setPb01m(`2`)}"
+                                android:text="@string/pb01m2" />
+                        </RadioGroup>
+
+                        <!-- pb01n  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb01n"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb01n" />
+
+                            <RadioButton
+                                android:id="@+id/pb01n1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01n.equals(`1`)}"
+                                android:onClick="@{()->form.setPb01n(`1`)}"
+                                android:text="@string/pb01n1" />
+
+                            <RadioButton
+                                android:id="@+id/pb01n2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01n.equals(`2`)}"
+                                android:onClick="@{()->form.setPb01n(`2`)}"
+                                android:text="@string/pb01n2" />
+                        </RadioGroup>
+
+                        <!-- pb01p  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb01p"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb01p" />
+
+                            <RadioButton
+                                android:id="@+id/pb01p1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01p.equals(`1`)}"
+                                android:onClick="@{()->form.setPb01p(`1`)}"
+                                android:text="@string/pb01p1" />
+
+                            <RadioButton
+                                android:id="@+id/pb01p2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01p.equals(`2`)}"
+                                android:onClick="@{()->form.setPb01p(`2`)}"
+                                android:text="@string/pb01p2" />
+                        </RadioGroup>
+
+                        <!-- pb01q  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb01q"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb01q" />
+
+                            <RadioButton
+                                android:id="@+id/pb01q1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01q.equals(`1`)}"
+                                android:onClick="@{()->form.setPb01q(`1`)}"
+                                android:text="@string/pb01q1" />
+
+                            <RadioButton
+                                android:id="@+id/pb01q2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb01q.equals(`2`)}"
+                                android:onClick="@{()->form.setPb01q(`2`)}"
+                                android:text="@string/pb01q2" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <!-- pb02 -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVpb02a"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_pb02a" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/pb02t" />
+                        </LinearLayout>
+
+
+                        <!-- pb02a  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb02a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb02a" />
+
+                            <RadioButton
+                                android:id="@+id/pb02a1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb02a.equals(`1`)}"
+                                android:onClick="@{()->form.setPb02a(`1`)}"
+                                android:text="@string/pb02a1" />
+
+                            <RadioButton
+                                android:id="@+id/pb02a2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb02a.equals(`2`)}"
+                                android:onClick="@{()->form.setPb02a(`2`)}"
+                                android:text="@string/pb02a2" />
+                        </RadioGroup>
+
+
+                        <!-- pb02b  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb02b"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb02b" />
+
+                            <RadioButton
+                                android:id="@+id/pb02b1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb02b.equals(`1`)}"
+                                android:onClick="@{()->form.setPb02b(`1`)}"
+                                android:text="@string/pb02b1" />
+
+                            <RadioButton
+                                android:id="@+id/pb02b2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb02b.equals(`2`)}"
+                                android:onClick="@{()->form.setPb02b(`2`)}"
+                                android:text="@string/pb02b2" />
+                        </RadioGroup>
+
+                        <!-- pb02c  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb02c"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb02c" />
+
+                            <RadioButton
+                                android:id="@+id/pb02c1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb02c.equals(`1`)}"
+                                android:onClick="@{()->form.setPb02c(`1`)}"
+                                android:text="@string/pb02c1" />
+
+                            <RadioButton
+                                android:id="@+id/pb02c2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb02c.equals(`2`)}"
+                                android:onClick="@{()->form.setPb02c(`2`)}"
+                                android:text="@string/pb02c2" />
+                        </RadioGroup>
+
+                        <!-- pb02d  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb02d"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb02d" />
+
+                            <RadioButton
+                                android:id="@+id/pb02d1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb02d.equals(`1`)}"
+                                android:onClick="@{()->form.setPb02d(`1`)}"
+                                android:text="@string/pb02d1" />
+
+                            <RadioButton
+                                android:id="@+id/pb02d2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb02d.equals(`2`)}"
+                                android:onClick="@{()->form.setPb02d(`2`)}"
+                                android:text="@string/pb02d2" />
+                        </RadioGroup>
+
+                        <!-- pb02e  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb02e"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb02e" />
+
+                            <RadioButton
+                                android:id="@+id/pb02e1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb02e.equals(`1`)}"
+                                android:onClick="@{()->form.setPb02e(`1`)}"
+                                android:text="@string/pb02e1" />
+
+                            <RadioButton
+                                android:id="@+id/pb02e2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb02e.equals(`2`)}"
+                                android:onClick="@{()->form.setPb02e(`2`)}"
+                                android:text="@string/pb02e2" />
+                        </RadioGroup>
+
+                        <!-- pb02f  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb02f"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb02f" />
+
+                            <RadioButton
+                                android:id="@+id/pb02f1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb02f.equals(`1`)}"
+                                android:onClick="@{()->form.setPb02f(`1`)}"
+                                android:text="@string/pb02f1" />
+
+                            <RadioButton
+                                android:id="@+id/pb02f2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb02f.equals(`2`)}"
+                                android:onClick="@{()->form.setPb02f(`2`)}"
+                                android:text="@string/pb02f2" />
+                        </RadioGroup>
+
+                        <!--   pb02g  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb02g"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb02g" />
+
+                            <RadioButton
+                                android:id="@+id/pb02g1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb02g.equals(`1`)}"
+                                android:onClick="@{()->form.setPb02g(`1`)}"
+                                android:text="@string/pb02g1" />
+
+                            <RadioButton
+                                android:id="@+id/pb02g2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb02g.equals(`2`)}"
+                                android:onClick="@{()->form.setPb02g(`2`)}"
+                                android:text="@string/pb02g2" />
+                        </RadioGroup>
+
+                        <!-- pb02h  Radio   -->
+                        <RadioGroup
+                            android:id="@+id/pb02h"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:gravity="center"
+                                android:text="@string/pb02h" />
+
+                            <RadioButton
+                                android:id="@+id/pb02h1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb02h.equals(`1`)}"
+                                android:onClick="@{()->form.setPb02h(`1`)}"
+                                android:text="@string/pb02h1" />
+
+                            <RadioButton
+                                android:id="@+id/pb02h2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb02h.equals(`2`)}"
+                                android:onClick="@{()->form.setPb02h(`2`)}"
+                                android:text="@string/pb02h2" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <!-- pb02j  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVpb02j"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_pb02j" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/pb02j" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/pb02j"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/pb02j1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.pb02j.equals(`1`)}"
+                                android:onClick="@{()->form.setPb02j(`1`)}"
+                                android:text="@string/pb02j1" />
+
+                            <RadioButton
+                                android:id="@+id/pb02j2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.pb02j.equals(`2`)}"
+                                android:onClick="@{()->form.setPb02j(`2`)}"
+                                android:text="@string/pb02j2" />
+
+                            <EditText
+                                android:id="@+id/pb02j96"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/pb02j96"
+                                android:tag="pb02j1"
+                                android:text="@={form.pb02j96}"
+                                android:visibility='@{pb02j1.checked? View.VISIBLE : View.GONE}' />
+                        </RadioGroup>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- pb03  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVpb03"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_pb03" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/pb03" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/pb03"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/pb031"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.pb03.equals(`1`)}"
+                                android:onClick="@{()->form.setPb03(`1`)}"
+                                android:text="@string/pb031" />
+
+                            <RadioButton
+                                android:id="@+id/pb032"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.pb03.equals(`2`)}"
+                                android:onClick="@{()->form.setPb03(`2`)}"
+                                android:text="@string/pb032" />
+
+                            <RadioButton
+                                android:id="@+id/pb033"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.pb03.equals(`3`)}"
+                                android:onClick="@{()->form.setPb03(`3`)}"
+                                android:text="@string/pb033" />
+
+                            <RadioButton
+                                android:id="@+id/pb034"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.pb03.equals(`4`)}"
+                                android:onClick="@{()->form.setPb03(`4`)}"
+                                android:text="@string/pb034" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/fldGrpCVpb05sub"
+                    style="@style/labelsHead"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:background="@color/greenOverlay"
-                    android:onClick="btnContinue"
-                    android:text="Save"
-                    android:textColor="@color/white" />
+                    android:layout_marginTop="24dp"
+                    android:text="@string/pb05t" />
+
+                <!-- pb05  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVpb05"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_pb05" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/pb05" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/pb05"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:onCheckedChanged="@{()-> pb06.clearCheck()}"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/pb051"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb05.equals(`1`)}"
+                                android:onClick="@{()->form.setPb05(`1`)}"
+                                android:text="@string/pb051" />
+
+                            <RadioButton
+                                android:id="@+id/pb052"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb05.equals(`2`)}"
+                                android:onClick="@{()->form.setPb05(`2`)}"
+                                android:text="@string/pb052" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- pb06  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVpb06"
+                    style="@style/cardView"
+                    android:visibility="@{form.pb05.equals(`1`) ? View.VISIBLE : View.GONE}">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_pb06" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/pb06" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/pb06"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/pb061"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb06.equals(`1`)}"
+                                android:onClick="@{()->form.setPb06(`1`)}"
+                                android:text="@string/pb061" />
+
+                            <RadioButton
+                                android:id="@+id/pb062"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb06.equals(`2`)}"
+                                android:onClick="@{()->form.setPb06(`2`)}"
+                                android:text="@string/pb062" />
+
+                            <RadioButton
+                                android:id="@+id/pb063"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb06.equals(`3`)}"
+                                android:onClick="@{()->form.setPb06(`3`)}"
+                                android:text="@string/pb063" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- pb07  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVpb07"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_pb07" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/pb07" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/pb07"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/pb071"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb07.equals(`1`)}"
+                                android:onClick="@{()->form.setPb07(`1`)}"
+                                android:text="@string/pb071" />
+
+                            <RadioButton
+                                android:id="@+id/pb072"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb07.equals(`2`)}"
+                                android:onClick="@{()->form.setPb07(`2`)}"
+                                android:text="@string/pb072" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- pb08  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVpb08"
+                    style="@style/cardView"
+                    android:visibility="@{form.pb07.equals(`1`) ? View.VISIBLE : View.GONE}">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_pb08" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/pb08" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/pb08"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/pb081"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb08.equals(`1`)}"
+                                android:onClick="@{()->form.setPb08(`1`)}"
+                                android:text="@string/pb081" />
+
+                            <RadioButton
+                                android:id="@+id/pb082"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb08.equals(`2`)}"
+                                android:onClick="@{()->form.setPb08(`2`)}"
+                                android:text="@string/pb082" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!--EndButton LinearLayout-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="24dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_End"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:background="@color/redOverlay"
+                        android:onClick="btnEnd"
+                        android:text="Cancel"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/btn_Continue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:background="@color/greenOverlay"
+                        android:onClick="btnContinue"
+                        android:text="Save"
+                        android:textColor="@color/white" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+        </ScrollView>
+    </LinearLayout>
 </layout>

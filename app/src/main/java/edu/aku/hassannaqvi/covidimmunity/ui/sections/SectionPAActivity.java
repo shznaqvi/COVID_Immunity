@@ -36,6 +36,8 @@ public class SectionPAActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_pa);
         // bi.setCallback(this);
+        setSupportActionBar(bi.toolbar);
+
         bi.setForm(form);
         setUIListener();
     }

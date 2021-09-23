@@ -10,357 +10,40 @@
             type="edu.aku.hassannaqvi.covidimmunity.models.Form" />
     </data>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/app_bg_gray"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/GrpName"
+
+        <!-- CUSTOM TOOLBAR -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@null"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/CustomToolbarTheme"
+            app:popupTheme="@style/CustomPopupTheme"
+            app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
+            app:title="@string/sectionpc_mainheading"
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
 
-            <!-- pc01  Radio   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVpc01"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_pc01" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/pc01" />
-                    </LinearLayout>
-
-                    <RadioGroup
-                        android:id="@+id/pc01"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <RadioButton
-                            android:id="@+id/pc011"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.pc01.equals(`1`)}"
-                            android:onClick="@{()->form.setPc01(`1`)}"
-                            android:text="@string/pc011" />
-
-                        <RadioButton
-                            android:id="@+id/pc012"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.pc01.equals(`2`)}"
-                            android:onClick="@{()->form.setPc01(`2`)}"
-                            android:text="@string/pc012" />
-
-                        <RadioButton
-                            android:id="@+id/pc013"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.pc01.equals(`3`)}"
-                            android:onClick="@{()->form.setPc01(`3`)}"
-                            android:text="@string/pc013" />
-
-                        <RadioButton
-                            android:id="@+id/pc014"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.pc01.equals(`4`)}"
-                            android:onClick="@{()->form.setPc01(`4`)}"
-                            android:text="@string/pc014" />
-
-                        <RadioButton
-                            android:id="@+id/pc015"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.pc01.equals(`5`)}"
-                            android:onClick="@{()->form.setPc01(`5`)}"
-                            android:text="@string/pc015" />
-
-                        <RadioButton
-                            android:id="@+id/pc016"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.pc01.equals(`6`)}"
-                            android:onClick="@{()->form.setPc01(`6`)}"
-                            android:text="@string/pc016" />
-
-                        <RadioButton
-                            android:id="@+id/pc017"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.pc01.equals(`7`)}"
-                            android:onClick="@{()->form.setPc01(`7`)}"
-                            android:text="@string/pc017" />
-
-                        <RadioButton
-                            android:id="@+id/pc0196"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.pc01.equals(`96`)}"
-                            android:onClick="@{()->form.setPc01(`96`)}"
-                            android:text="@string/pc0196" />
-
-                        <EditText
-                            android:id="@+id/pc0196x"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
-                            android:hint="@string/pc0196"
-                            android:tag="pc0196"
-                            android:text="@={form.pc0196x}"
-                            android:visibility='@{pc0196.checked? View.VISIBLE : View.GONE}' />
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- pc02  Input   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVpc02"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_pc02" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/pc02" />
-                    </LinearLayout>
-
-                    <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
-                        android:id="@+id/pc02"
-                        style="@style/textInput"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:hint="YYYY-MM-DD"
-                        android:text="@={form.pc02}"
-                        app:dateFormat="yyyy-MM-dd"
-                        app:maxDate="CR_DATE"
-                        app:theme="@style/DatePickerEditTextDialogTheme" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- pc03  Input   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVpc03"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_pc03" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/pc03" />
-                    </LinearLayout>
-
-                    <EditText
-                        android:id="@+id/pc03"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-                        android:text="@={form.pc03}"
-
-                        android:hint="@string/pc03" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- pc04  Input   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVpc04"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_pc04" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/pc04" />
-                    </LinearLayout>
-
-                    <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
-                        android:id="@+id/pc04"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@={form.pc04}"
-                        android:hint="HH:MM" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- pc05  Input   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVpc05"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_pc05" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/pc05" />
-                    </LinearLayout>
-
-                    <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
-                        android:id="@+id/pc05"
-                        style="@style/textInput"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:hint="YYYY-MM-DD"
-                        android:text="@={form.pc05}"
-                        app:dateFormat="yyyy-MM-dd"
-                        app:theme="@style/DatePickerEditTextDialogTheme" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- pc06  Radio   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVpc06"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_pc06" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/pc06" />
-                    </LinearLayout>
-
-                    <RadioGroup
-                        android:id="@+id/pc06"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/pc061"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:checked="@{form.pc06.equals(`1`)}"
-                            android:onClick="@{()->form.setPc06(`1`)}"
-                            android:text="@string/pc061" />
-
-                        <RadioButton
-                            android:id="@+id/pc062"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:checked="@{form.pc06.equals(`2`)}"
-                            android:onClick="@{()->form.setPc06(`2`)}"
-                            android:text="@string/pc062" />
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:id="@+id/fldGrpCVpc0602"
+                android:id="@+id/GrpName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="@{form.pc06.equals(`1`) ? View.VISIBLE : View.GONE}">
+                android:orientation="vertical">
 
-                <!-- pc07  Input-Numeric   -->
+                <!-- pc01  Radio   -->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVpc07"
+                    android:id="@+id/fldGrpCVpc01"
                     style="@style/cardView">
 
                     <LinearLayout
@@ -378,35 +61,100 @@
                                 style="@style/quesNum"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="@string/Q_pc07" />
+                                android:text="@string/Q_pc01" />
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:text="@string/pc07" />
+                                android:text="@string/pc01" />
                         </LinearLayout>
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/pc07"
+                        <RadioGroup
+                            android:id="@+id/pc01"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:hint="#.##"
-                            android:inputType="number"
-                            android:maxLength="3"
-                            android:text="@={form.pc07}"
-                            app:mask="#.##"
-                            app:maxValue="9.00"
-                            app:minValue="1.00"
-                            app:pattern="^(\\d{1,1}\\.\\d{2,2})$"
-                            app:type="range" />
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/pc011"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.pc01.equals(`1`)}"
+                                android:onClick="@{()->form.setPc01(`1`)}"
+                                android:text="@string/pc011" />
+
+                            <RadioButton
+                                android:id="@+id/pc012"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.pc01.equals(`2`)}"
+                                android:onClick="@{()->form.setPc01(`2`)}"
+                                android:text="@string/pc012" />
+
+                            <RadioButton
+                                android:id="@+id/pc013"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.pc01.equals(`3`)}"
+                                android:onClick="@{()->form.setPc01(`3`)}"
+                                android:text="@string/pc013" />
+
+                            <RadioButton
+                                android:id="@+id/pc014"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.pc01.equals(`4`)}"
+                                android:onClick="@{()->form.setPc01(`4`)}"
+                                android:text="@string/pc014" />
+
+                            <RadioButton
+                                android:id="@+id/pc015"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.pc01.equals(`5`)}"
+                                android:onClick="@{()->form.setPc01(`5`)}"
+                                android:text="@string/pc015" />
+
+                            <RadioButton
+                                android:id="@+id/pc016"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.pc01.equals(`6`)}"
+                                android:onClick="@{()->form.setPc01(`6`)}"
+                                android:text="@string/pc016" />
+
+                            <RadioButton
+                                android:id="@+id/pc017"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.pc01.equals(`7`)}"
+                                android:onClick="@{()->form.setPc01(`7`)}"
+                                android:text="@string/pc017" />
+
+                            <RadioButton
+                                android:id="@+id/pc0196"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.pc01.equals(`96`)}"
+                                android:onClick="@{()->form.setPc01(`96`)}"
+                                android:text="@string/pc0196" />
+
+                            <EditText
+                                android:id="@+id/pc0196x"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                                android:hint="@string/pc0196"
+                                android:tag="pc0196"
+                                android:text="@={form.pc0196x}"
+                                android:visibility='@{pc0196.checked? View.VISIBLE : View.GONE}' />
+                        </RadioGroup>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- pc08  Input   -->
+                <!-- pc02  Input   -->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVpc08"
+                    android:id="@+id/fldGrpCVpc02"
                     style="@style/cardView">
 
                     <LinearLayout
@@ -424,73 +172,347 @@
                                 style="@style/quesNum"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="@string/Q_pc08" />
+                                android:text="@string/Q_pc02" />
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:text="@string/pc08" />
+                                android:text="@string/pc02" />
                         </LinearLayout>
+
+                        <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
+                            android:id="@+id/pc02"
+                            style="@style/textInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:hint="YYYY-MM-DD"
+                            android:text="@={form.pc02}"
+                            app:dateFormat="yyyy-MM-dd"
+                            app:maxDate="CR_DATE"
+                            app:theme="@style/DatePickerEditTextDialogTheme" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- pc03  Input   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVpc03"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:background="@drawable/bottom"
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/pc08"
-                                style="@style/textInput"
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_pc03" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/pc03" />
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/pc03"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                            android:text="@={form.pc03}"
+
+                            android:hint="@string/pc03" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- pc04  Input   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVpc04"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_pc04" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/pc04" />
+                        </LinearLayout>
+
+                        <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
+                            android:id="@+id/pc04"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@={form.pc04}"
+                            android:hint="HH:MM" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- pc05  Input   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVpc05"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_pc05" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/pc05" />
+                        </LinearLayout>
+
+                        <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
+                            android:id="@+id/pc05"
+                            style="@style/textInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:hint="YYYY-MM-DD"
+                            android:text="@={form.pc05}"
+                            app:dateFormat="yyyy-MM-dd"
+                            app:theme="@style/DatePickerEditTextDialogTheme" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- pc06  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVpc06"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_pc06" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/pc06" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/pc06"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/pc061"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:gravity="center"
-                                android:text="@={form.pc08}"
-                                android:textColor="@color/redDark" />
+                                android:checked="@{form.pc06.equals(`1`)}"
+                                android:onClick="@{()->form.setPc06(`1`)}"
+                                android:text="@string/pc061" />
 
-                            <ImageButton
-                                android:id="@+id/scanQrPC"
-                                android:layout_width="56dp"
-                                android:layout_height="56dp"
-                                android:layout_alignParentEnd="true"
-                                android:layout_centerInParent="true"
-                                android:layout_margin="8dp"
-                                android:onClick="scanQR"
-                                android:src="@drawable/ic_qrcode" />
-                        </LinearLayout>
+                            <RadioButton
+                                android:id="@+id/pc062"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pc06.equals(`2`)}"
+                                android:onClick="@{()->form.setPc06(`2`)}"
+                                android:text="@string/pc062" />
+                        </RadioGroup>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-            </LinearLayout>
 
-            <!--EndButton LinearLayout-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginTop="24dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btn_End"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/fldGrpCVpc0602"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:background="@color/redOverlay"
-                    android:onClick="btnEnd"
-                    android:text="Cancel"
-                    android:textColor="@color/white" />
+                    android:orientation="vertical"
+                    android:visibility="@{form.pc06.equals(`1`) ? View.VISIBLE : View.GONE}">
 
-                <Button
-                    android:id="@+id/btn_Continue"
-                    android:layout_width="wrap_content"
+                    <!-- pc07  Input-Numeric   -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/fldGrpCVpc07"
+                        style="@style/cardView">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bottom"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/quesNum"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/Q_pc07" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:text="@string/pc07" />
+                            </LinearLayout>
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/pc07"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:hint="#.##"
+                                android:inputType="number"
+                                android:maxLength="3"
+                                android:text="@={form.pc07}"
+                                app:mask="#.##"
+                                app:maxValue="9.00"
+                                app:minValue="1.00"
+                                app:pattern="^(\\d{1,1}\\.\\d{2,2})$"
+                                app:type="range" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- pc08  Input   -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/fldGrpCVpc08"
+                        style="@style/cardView">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bottom"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/quesNum"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/Q_pc08" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:text="@string/pc08" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/pc08"
+                                    style="@style/textInput"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@={form.pc08}"
+                                    android:textColor="@color/redDark" />
+
+                                <ImageButton
+                                    android:id="@+id/scanQrPC"
+                                    android:layout_width="56dp"
+                                    android:layout_height="56dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_margin="8dp"
+                                    android:onClick="scanQR"
+                                    android:src="@drawable/ic_qrcode" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <!--EndButton LinearLayout-->
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:background="@color/greenOverlay"
-                    android:onClick="btnContinue"
-                    android:text="Save"
-                    android:textColor="@color/white" />
+                    android:layout_gravity="end"
+                    android:layout_marginTop="24dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_End"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:background="@color/redOverlay"
+                        android:onClick="btnEnd"
+                        android:text="Cancel"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/btn_Continue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:background="@color/greenOverlay"
+                        android:onClick="btnContinue"
+                        android:text="Save"
+                        android:textColor="@color/white" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+        </ScrollView>
+    </LinearLayout>
 </layout>

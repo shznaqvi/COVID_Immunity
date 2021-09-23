@@ -36,6 +36,8 @@ public class SectionPBActivity extends AppCompatActivity {
         // bi.setCallback(this);
         bi.setForm(form);
         setupSkips();
+        setSupportActionBar(bi.toolbar);
+
         form.getPa02();
     }
 

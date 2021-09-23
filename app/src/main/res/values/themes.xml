@@ -48,6 +48,7 @@
         <item name="android:buttonStyle">@style/button</item>
         <item name="android:textColorHint">@color/grayLight</item>
         <item name="android:typeface">sans</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:fillAfter">true</item>
         <item name="android:enterFadeDuration">600</item>
         <item name="android:exitFadeDuration">200</item>
@@ -81,6 +82,7 @@
         <item name="android:buttonStyle">@style/button</item>
         <item name="android:textColorHint">@color/grayLight</item>
         <item name="android:typeface">sans</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:fillAfter">true</item>
         <item name="android:enterFadeDuration">600</item>
         <item name="android:exitFadeDuration">200</item>
@@ -96,7 +98,6 @@
     <style name="labels" parent="@android:style/TextAppearance.Widget.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">16sp</item>
         <item name="android:layout_marginTop">24dp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:gravity">center_vertical</item>
@@ -354,13 +355,12 @@
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">20sp</item>
         <item name="android:letterSpacing">0.15</item>
-        <item name="android:textStyle">bold|italic</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:background">@null</item>
     </style>
 
     <style name="Toolbar.SubtitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
         <item name="android:textSize">11sp</item>
-        <item name="android:textStyle">italic</item>
         <item name="android:background">@null</item>
     </style>
 
