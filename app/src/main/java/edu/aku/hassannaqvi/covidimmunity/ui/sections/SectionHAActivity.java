@@ -42,6 +42,12 @@ public class SectionHAActivity extends AppCompatActivity {
         setSupportActionBar(bi.toolbar);
         setTitle(R.string.sectionha_mainheading);
         db = MainApp.appInfo.dbHelper;
+
+        MainApp.form.setUserName(MainApp.user.getUserName());
+        MainApp.form.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
+        MainApp.form.setDeviceId(MainApp.deviceid);
+        MainApp.form.setAppver(MainApp.versionName + "." + MainApp.versionCode);
+
     }
 
     private void setupSkips() {
@@ -102,11 +108,6 @@ public class SectionHAActivity extends AppCompatActivity {
 
 
     private void saveDraft() {
-
-        MainApp.form.setUserName(MainApp.user.getUserName());
-        MainApp.form.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
-        MainApp.form.setDeviceId(MainApp.deviceid);
-        MainApp.form.setAppver(MainApp.versionName + "." + MainApp.versionCode);
     }
 
 

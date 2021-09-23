@@ -245,6 +245,7 @@
 
                     <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
                         android:id="@+id/pc04"
+                        style="@style/TimePickerEditTextDialogTheme"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
