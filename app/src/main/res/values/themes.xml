@@ -458,6 +458,14 @@
         <item name="android:colorAccent">@color/colorPrimaryDark</item>
     </style>
 
+    <style name="TimePickerEditTextDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <!-- this is new -->
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:datePickerStyle">@style/DatePickerEditTextStyle</item>
+        <item name="android:colorAccent">@color/colorPrimaryDark</item>
+    </style>
+
     <style name="DatePickerEditTextStyle" parent="@android:style/Widget.Material.Light.DatePicker">
         <item name="android:headerBackground">@color/colorPrimary</item>
         <item name="android:calendarTextColor">@color/colorPrimaryDark</item>
