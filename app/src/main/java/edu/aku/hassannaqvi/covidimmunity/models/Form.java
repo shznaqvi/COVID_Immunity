@@ -1,5 +1,6 @@
 package edu.aku.hassannaqvi.covidimmunity.models;
 
+import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.util.Log;
 
@@ -11,6 +12,10 @@ import androidx.databinding.PropertyChangeRegistry;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import edu.aku.hassannaqvi.covidimmunity.BR;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.FormsTable;
@@ -119,6 +124,11 @@ public class Form extends BaseObservable implements Observable {
 
 
     public Form() {
+
+        userName = MainApp.user.getUserName();
+        sysDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime());
+        deviceId = MainApp.deviceid;
+        appver = MainApp.versionName + "." + MainApp.versionCode;
 
     }
 
@@ -267,6 +277,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
 
+    @SuppressLint("Range")
     public Form Hydrate(Cursor cursor) throws JSONException {
         this.id = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UID));

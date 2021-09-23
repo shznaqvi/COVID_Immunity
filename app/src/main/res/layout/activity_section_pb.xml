@@ -48,8 +48,7 @@
                             android:text="@string/pb01t" />
                     </LinearLayout>
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+
 
             <!-- pb01a  Radio   -->
             <RadioGroup
@@ -59,8 +58,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/pb01a" />
@@ -92,8 +92,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/pb01b" />
@@ -125,8 +126,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/pb01c" />
@@ -158,8 +160,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/pb01d" />
@@ -191,8 +194,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/pb01e" />
@@ -224,8 +228,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/pb01f" />
@@ -257,8 +262,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/pb01g" />
@@ -290,8 +296,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/pb01h" />
@@ -323,8 +330,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/pb01j" />
@@ -356,8 +364,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/pb01k" />
@@ -389,8 +398,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/pb01m" />
@@ -422,8 +432,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/pb01n" />
@@ -455,8 +466,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/pb01p" />
@@ -488,8 +500,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/pb01q" />
@@ -512,7 +525,8 @@
                     android:onClick="@{()->form.setPb01q(`2`)}"
                     android:text="@string/pb01q2" />
             </RadioGroup>
-
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
             <!-- pb02 -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVpb02a"
@@ -541,8 +555,7 @@
                             android:layout_weight="1"
                             android:text="@string/pb02t" />
                     </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+
 
             <!-- pb02a  Radio   -->
             <RadioGroup
@@ -552,8 +565,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/pb02a" />
@@ -586,6 +600,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
@@ -619,6 +634,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
@@ -652,6 +668,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
@@ -685,6 +702,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
@@ -718,6 +736,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
@@ -751,6 +770,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
@@ -784,6 +804,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/sub_labels"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
@@ -808,7 +829,8 @@
                     android:onClick="@{()->form.setPb02h(`2`)}"
                     android:text="@string/pb02h2" />
             </RadioGroup>
-
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
             <!-- pb02j  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVpb02j"
@@ -946,6 +968,7 @@
                 style="@style/labelsHead"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
                 android:text="@string/pb05t" />
 
             <!-- pb05  Radio   -->

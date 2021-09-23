@@ -20,7 +20,7 @@ android {
         versionProps['VERSION_BUILD'] = "0"
         versionProps['VERSION_NUMBER'] = "0"
 
-        Writer writer = new FileWriter(versionPropsFile, false)
+        //Writer writer = new FileWriter(versionPropsFile, false)
         versionProps.store(versionPropsFile.newWriter(), null)
     }
 
@@ -57,7 +57,7 @@ android {
             versionCode versionBuild
             versionName "${versionNumber}.${versionPatch}${versionType}"
             minSdkVersion 29
-            targetSdkVersion 29
+            targetSdkVersion 31
         }
 
         applicationVariants.all { variant ->
@@ -130,7 +130,7 @@ dependencies {
     // WorkManager(Java only)
     implementation "androidx.work:work-runtime:$work_version"
 
-    // Permissions Handeling
+    // Permissions Handling
     implementation 'com.karumi:dexter:6.2.3'
 
     //

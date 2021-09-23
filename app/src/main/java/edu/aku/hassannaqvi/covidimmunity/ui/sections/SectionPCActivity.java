@@ -19,9 +19,13 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
-import edu.aku.hassannaqvi.covidimmunity.core.DateUtilsKt;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionPcBinding;
@@ -67,11 +71,30 @@ public class SectionPCActivity extends AppCompatActivity {
 
                 if (editable.toString().isEmpty()) return;
 
-                bi.pc05.setText(null);
+              /*  bi.pc05.setText(null);
 
                 String convertDate = DateUtilsKt.convertDateFormat("yyyy-MM-dd", "dd/MM/yyyy", editable.toString());
 
-                bi.pc05.setMinDate(convertDate);
+                bi.pc05.setMinDate(convertDate);*/
+                Calendar cal = Calendar.getInstance();
+
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+                try {
+                    cal.setTime(sdf.parse(form.getPc02()));// all done
+
+                    sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+
+                    // Set MinDob date to 50 years back from DOV
+                    cal.add(Calendar.DAY_OF_MONTH, +1);
+                    String minDob = sdf.format(cal.getTime());
+
+                    // Set minDate for 2nd Dose
+                    bi.pc05.setMinDate(minDob);
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    Toast.makeText(SectionPCActivity.this, "PC02: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

@@ -33,30 +33,25 @@
     </style>
 
     <style name="AppThemeEnglish1" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowFullscreen">true</item>
-
         <item name="fontFamily">@font/roboto</item>
+        <item name="android:layoutDirection">ltr</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:spinnerStyle">@style/spinner</item>
-        <item name="spinnerStyle">@style/spinner</item>
-        <item name="android:actionBarStyle">@style/ToolbarTheme</item>
-        <item name="android:toolbarStyle">@style/CustomToolbarTheme</item>
+        <item name="android:actionBarStyle">@style/topBarStyle</item>
         <item name="android:textViewStyle">@style/labels</item>
-        <item name="android:editTextStyle">@style/textInput</item>
+        <item name="editTextStyle">@style/textInput</item>
         <item name="radioButtonStyle">@style/radiobutton</item>
         <item name="checkboxStyle">@style/checkbox</item>
         <item name="hintEnabled">false</item>
-        <item name="toolbarStyle">@style/ToolbarTheme</item>
         <item name="android:buttonStyle">@style/button</item>
         <item name="android:textColorHint">@color/grayLight</item>
         <item name="android:typeface">sans</item>
         <item name="android:fillAfter">true</item>
         <item name="android:enterFadeDuration">600</item>
         <item name="android:exitFadeDuration">200</item>
-        <item name="android:layoutDirection">ltr</item>
-        <item name="android:animateLayoutChanges">false</item>
+        <item name="android:animateLayoutChanges">true</item>
     </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
@@ -64,27 +59,22 @@
     </style>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowFullscreen">true</item>
-
         <item name="fontFamily">@font/roboto</item>
         <item name="android:layoutDirection">ltr</item>
         <item name="android:actionBarStyle">@style/topBarStyle</item>
     </style>
 
     <style name="AppThemeUrdu" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowFullscreen">true</item>
 
-        <item name="android:fontFamily">@font/urdu_nastaleeq</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/jameel_noori_nastaleeq</item>
+        <item name="android:layoutDirection">rtl</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="spinnerStyle">@style/spinnerStyle</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:scrollViewStyle">@style/BackgroundStyle</item>
-        <item name="android:spinnerStyle">@style/spinnerStyle</item>
+        <item name="android:spinnerStyle">@style/spinner</item>
         <item name="android:actionBarStyle">@style/topBarStyle</item>
         <item name="android:textViewStyle">@style/labels</item>
-        <item name="android:editTextStyle">@style/textInput</item>
+        <item name="editTextStyle">@style/textInput</item>
         <item name="radioButtonStyle">@style/radiobutton</item>
         <item name="checkboxStyle">@style/checkbox</item>
         <item name="hintEnabled">false</item>
@@ -94,11 +84,9 @@
         <item name="android:fillAfter">true</item>
         <item name="android:enterFadeDuration">600</item>
         <item name="android:exitFadeDuration">200</item>
-        <item name="android:layoutDirection">rtl</item>
-        <item name="android:animateLayoutChanges">false</item>
+        <item name="android:animateLayoutChanges">true</item>
 
     </style>
-
     <style name="BackgroundStyle" parent="android:Widget.ScrollView">
         <item name="android:background">@drawable/app_bg_gray</item>
         <item name="android:padding">24dp</item>
@@ -111,7 +99,6 @@
         <item name="android:textSize">16sp</item>
         <item name="android:layout_marginTop">24dp</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:fontFamily">@font/roboto</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingStart">15dp</item>
         <item name="android:paddingEnd">4dp</item>
@@ -329,7 +316,7 @@
         <item name="android:textColorSecondary">@color/white</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:typeface">sans</item>
-        <item name="android:fontFamily">@font/urdu_nastaleeq</item>
+        <item name="android:fontFamily">@font/jameel_noori_nastaleeq</item>
         <item name="android:maxHeight">@dimen/abc_action_bar_default_height_material</item>
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="titleTextAppearance">@style/Widget.AppCompat.Toolbar</item>
@@ -351,7 +338,7 @@
         <item name="android:textColorSecondary">@color/white</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:typeface">sans</item>
-        <item name="android:fontFamily">@font/urdu_nastaleeq</item>
+        <item name="android:fontFamily">@font/jameel_noori_nastaleeq</item>
         <item name="android:maxHeight">@dimen/abc_action_bar_default_height_material</item>
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="titleTextAppearance">@style/Toolbar.TitleText</item>
@@ -455,7 +442,7 @@
 
     <style name="CustomPopupTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColorPrimary">@color/colorPrimary</item>
-        <item name="android:textSize">16dp</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="Theme.splashscreen" parent="Theme.MaterialComponents.NoActionBar">

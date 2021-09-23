@@ -146,10 +146,10 @@
     <string name="pa05a3">کیمپ</string>
     <string name="pa05a4">گھر</string>
     <string name="pa06">آپ کی زیادہ سے زیادہ تعلیم کتنی ہے؟</string>
-    <string name="pa06t">اگرغیر تعلیم یافتہ ہیں تو 77 لکھیں </string>
+    <string name="pa06t"> اگرغیر تعلیم یافتہ ہیں تو &quot;77&quot; لکھیں. کسی بھی قسم کی مذہبی تعلیم کے لئے &quot;88&quot; لکھیں۔ </string>
     <string name="pa06a">تعلیمی گریڈ</string>
     <string name="pa06b">مذہبی تعلیم</string>
-    <string name="pa06bt">کسی بھی قسم کی مذہبی تعلیم کے لئے &quot; 88 &quot;لکھیں۔</string>
+    <string name="pa06bt"></string>
     <string name="pa07">آپ کا پیشہ کیا ہے؟</string>
     <string name="pa0701">کاروبار </string>
     <string name="pa0702">ڈرائیور </string>
