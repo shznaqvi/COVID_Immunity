@@ -64,18 +64,13 @@ public class SectionPCActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
 
-
                 if (editable.toString().isEmpty()) return;
 
                 bi.pc05.setText(null);
 
-                String convertDate = DateUtilsKt.convertDateFormat("yyyy-MM-dd", "dd/MM/yyyy", editable.toString());
-
-                bi.pc05.setMinDate(convertDate);
-
+                bi.pc05.setMinDate(DateUtilsKt.getDaysBack(DateUtilsKt.getCalendarDate("yyyy-MM-dd", bi.pc02.getText().toString()), "dd/MM/yyyy", 1));
             }
         });
-
     }
 
 

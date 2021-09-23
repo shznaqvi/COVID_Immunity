@@ -104,6 +104,12 @@ fun getDaysBack(format: String, day: Int): String {
     return SimpleDateFormat(format, Locale.ENGLISH).format(cal.time) //"dd-MM-yyyy HH:mm"
 }
 
+fun getDaysBack(cal: Calendar, format: String, day: Int): String {
+    cal.time = cal.time
+    cal.add(Calendar.DAY_OF_YEAR, day)
+    return SimpleDateFormat(format, Locale.ENGLISH).format(cal.time) //"dd-MM-yyyy HH:mm"
+}
+
 fun calculatedDate(date: String, dateFormat: String, q: Int, period: String): String? {
     // q = quantity or add (substract)
     // p = period :: d=day, m=month, y=year
@@ -138,8 +144,8 @@ fun getAgeInYears(year: Int): Int {
     return currentYear - year
 }
 
-fun getCalendarDate(value: String): Calendar {
-    val sdf = SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH)
+fun getCalendarDate(format: String, value: String): Calendar {
+    val sdf = SimpleDateFormat(format, Locale.ENGLISH)
     val calendar = Calendar.getInstance()
     try {
         val date = sdf.parse(value)
@@ -165,7 +171,7 @@ fun getDate(value: String): Calendar {
 }
 
 fun ageInYearByDOB(dateStr: String): Long {
-    val cal = getCalendarDate(dateStr)
+    val cal = getCalendarDate("yyyy/MM/dd", dateStr)
     val dob = cal.time
     val today = Date()
     val diff = today.time - dob.time

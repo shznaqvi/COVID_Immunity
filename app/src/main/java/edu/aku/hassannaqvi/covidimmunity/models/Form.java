@@ -355,6 +355,7 @@ public class Form extends BaseObservable implements Observable {
             this.pb02g = json.getString("pb02g");
             this.pb02h = json.getString("pb02h");
             this.pb02j = json.getString("pb02j");
+            this.pb02j96 = json.getString("pb02j96");
             this.pb03 = json.getString("pb03");
             this.pb05 = json.getString("pb05");
             this.pb06 = json.getString("pb06");
@@ -442,6 +443,7 @@ public class Form extends BaseObservable implements Observable {
                 .put("pb02g", pb02g)
                 .put("pb02h", pb02h)
                 .put("pb02j", pb02j)
+                .put("pb02j96", pb02j96)
                 .put("pb03", pb03)
                 .put("pb05", pb05)
                 .put("pb06", pb06)
@@ -478,8 +480,8 @@ public class Form extends BaseObservable implements Observable {
         json.put(FormsTable.COLUMN_DEVICEID, this.deviceId);
         json.put(FormsTable.COLUMN_DEVICETAGID, this.deviceTag);
         json.put(FormsTable.COLUMN_ISTATUS, this.iStatus);
-        //  json.put(FormsTable.COLUMN_SYNCED, this.synced);
-        //  json.put(FormsTable.COLUMN_SYNCED_DATE, this.syncDate);
+        json.put(FormsTable.COLUMN_SYNCED, this.synced);
+        json.put(FormsTable.COLUMN_SYNCED_DATE, this.syncDate);
 
         // Form
         json.put(FormsTable.COLUMN_SHA, new JSONObject(sHAtoString()));
@@ -977,6 +979,8 @@ public class Form extends BaseObservable implements Observable {
 
     public void setPb03(String pb03) {
         this.pb03 = pb03;
+        setPb05(pb03.equals("1") ? this.pb05 : "");
+        setPb06(pb03.equals("1") ? this.pb06 : "");
         notifyChange(BR.pb03);
     }
 
