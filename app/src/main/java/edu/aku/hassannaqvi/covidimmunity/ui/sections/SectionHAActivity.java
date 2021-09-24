@@ -112,8 +112,15 @@ public class SectionHAActivity extends AppCompatActivity {
 
 
     public void btnEnd(View view) {
-        finish();
-        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+        // if (!formValidation()) return;
+        if (!insertNewRecord()) return;
+        saveDraft();
+        if (updateDB()) {
+            finish();
+            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+        } else {
+            Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
+        }
     }
 
 
