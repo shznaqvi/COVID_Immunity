@@ -35,8 +35,8 @@ import edu.aku.hassannaqvi.covidimmunity.ui.EndingActivity;
 
 public class SectionPCActivity extends AppCompatActivity {
     private static final String TAG = "SectionPCActivity";
-    ActivitySectionPcBinding bi;
     private DatabaseHelper db;
+    ActivitySectionPcBinding bi;
 
 
     @Override
