@@ -141,7 +141,13 @@ public class SectionPCActivity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpName);
+        if (!Validator.emptyCheckingContainer(this, bi.GrpName))
+            return false;
+
+        if (bi.pc08.getText().toString().equals("")) {
+            return Validator.emptyCustomTextBox(this, bi.pc08, "Scan QR");
+        }
+        return true;
     }
 
 

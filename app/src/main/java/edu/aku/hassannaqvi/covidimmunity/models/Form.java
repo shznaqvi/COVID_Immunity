@@ -88,8 +88,8 @@ public class Form extends BaseObservable implements Observable {
     private String pb01n = StringUtils.EMPTY;
     private String pb01p = StringUtils.EMPTY;
     private String pb01q = StringUtils.EMPTY;
-    private String pb02a = StringUtils.EMPTY;
-    private String pb02b = StringUtils.EMPTY;
+    private String pb02k = StringUtils.EMPTY;
+    private String pb02cc = StringUtils.EMPTY;
     private String pb02c = StringUtils.EMPTY;
     private String pb02d = StringUtils.EMPTY;
     private String pb02e = StringUtils.EMPTY;
@@ -103,6 +103,14 @@ public class Form extends BaseObservable implements Observable {
     private String pb06 = StringUtils.EMPTY;
     private String pb07 = StringUtils.EMPTY;
     private String pb08 = StringUtils.EMPTY;
+    private String pb02aa = StringUtils.EMPTY;
+    private String pb02m = StringUtils.EMPTY;
+    private String pb02n = StringUtils.EMPTY;
+    private String pb02p = StringUtils.EMPTY;
+    private String pb02a = StringUtils.EMPTY;
+    private String pb02b = StringUtils.EMPTY;
+
+
     private String pc01 = StringUtils.EMPTY;
     private String pc0196x = StringUtils.EMPTY;
     private String pc02 = StringUtils.EMPTY;
@@ -357,8 +365,8 @@ public class Form extends BaseObservable implements Observable {
             this.pb01n = json.getString("pb01n");
             this.pb01p = json.getString("pb01p");
             this.pb01q = json.getString("pb01q");
-            this.pb02a = json.getString("pb02a");
-            this.pb02b = json.getString("pb02b");
+            this.pb02k = json.getString("pb02k");
+            this.pb02cc = json.getString("pb02cc");
             this.pb02c = json.getString("pb02c");
             this.pb02d = json.getString("pb02d");
             this.pb02e = json.getString("pb02e");
@@ -367,6 +375,12 @@ public class Form extends BaseObservable implements Observable {
             this.pb02h = json.getString("pb02h");
             this.pb02j = json.getString("pb02j");
             this.pb02j96 = json.getString("pb02j96");
+            this.pb02aa = json.getString("pb02aa");
+            this.pb02m = json.getString("pb02m");
+            this.pb02n = json.getString("pb02n");
+            this.pb02p = json.getString("pb02p");
+            this.pb02a = json.getString("pb02a");
+            this.pb02b = json.getString("pb02b");
             this.pb03 = json.getString("pb03");
             this.pb05 = json.getString("pb05");
             this.pb06 = json.getString("pb06");
@@ -445,8 +459,8 @@ public class Form extends BaseObservable implements Observable {
                 .put("pb01n", pb01n)
                 .put("pb01p", pb01p)
                 .put("pb01q", pb01q)
-                .put("pb02a", pb02a)
-                .put("pb02b", pb02b)
+                .put("pb02k", pb02k)
+                .put("pb02cc", pb02cc)
                 .put("pb02c", pb02c)
                 .put("pb02d", pb02d)
                 .put("pb02e", pb02e)
@@ -455,6 +469,12 @@ public class Form extends BaseObservable implements Observable {
                 .put("pb02h", pb02h)
                 .put("pb02j", pb02j)
                 .put("pb02j96", pb02j96)
+                .put("pb02aa", pb02aa)
+                .put("pb02m", pb02m)
+                .put("pb02n", pb02n)
+                .put("pb02p", pb02p)
+                .put("pb02a", pb02a)
+                .put("pb02b", pb02b)
                 .put("pb03", pb03)
                 .put("pb05", pb05)
                 .put("pb06", pb06)
@@ -883,23 +903,23 @@ public class Form extends BaseObservable implements Observable {
     }
 
     @Bindable
-    public String getPb02a() {
-        return pb02a;
+    public String getPb02k() {
+        return pb02k;
     }
 
-    public void setPb02a(String pb02a) {
-        this.pb02a = pb02a;
-        notifyChange(BR.pb02a);
+    public void setPb02k(String pb02k) {
+        this.pb02k = pb02k;
+        notifyChange(BR.pb02k);
     }
 
     @Bindable
-    public String getPb02b() {
-        return pb02b;
+    public String getPb02cc() {
+        return pb02cc;
     }
 
-    public void setPb02b(String pb02b) {
-        this.pb02b = pb02b;
-        notifyChange(BR.pb02b);
+    public void setPb02cc(String pb02cc) {
+        this.pb02cc = pb02cc;
+        notifyChange(BR.pb02cc);
     }
 
     @Bindable
@@ -982,6 +1002,68 @@ public class Form extends BaseObservable implements Observable {
         this.pb02j96 = pb02j96;
         notifyChange(BR.pb02j96);
     }
+
+
+    @Bindable
+    public String getPb02aa() {
+        return pb02aa;
+    }
+
+    public void setPb02aa(String pb02aa) {
+        this.pb02aa = pb02aa;
+        notifyPropertyChanged(BR.pb02aa);
+    }
+
+    @Bindable
+    public String getPb02m() {
+        return pb02m;
+    }
+
+    public void setPb02m(String pb02m) {
+        this.pb02m = pb02m;
+        notifyPropertyChanged(BR.pb02m);
+    }
+
+    @Bindable
+    public String getPb02n() {
+        return pb02n;
+    }
+
+    public void setPb02n(String pb02n) {
+        this.pb02n = pb02n;
+        notifyPropertyChanged(BR.pb02n);
+    }
+
+    @Bindable
+    public String getPb02p() {
+        return pb02p;
+    }
+
+    public void setPb02p(String pb02p) {
+        this.pb02p = pb02p;
+        notifyPropertyChanged(BR.pb02p);
+    }
+
+    @Bindable
+    public String getPb02a() {
+        return pb02a;
+    }
+
+    public void setPb02a(String pb02a) {
+        this.pb02a = pb02a;
+        notifyPropertyChanged(BR.pb02a);
+    }
+
+    @Bindable
+    public String getPb02b() {
+        return pb02b;
+    }
+
+    public void setPb02b(String pb02b) {
+        this.pb02b = pb02b;
+        notifyPropertyChanged(BR.pb02b);
+    }
+
 
     @Bindable
     public String getPb03() {
