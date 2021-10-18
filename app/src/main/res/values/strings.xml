@@ -295,6 +295,10 @@
     <string name="pc062">نہیں </string>
     <string name="pc07">حاصل کئے گئے خون کے نمونے کی مقدار</string>
     <string name="pc08">خون کےسیمپل کی آئی ڈی </string>
+    <string name="pc09">کیا پی بی ایم سی کے لئے خون کا نمونہ لیا گیا؟</string>
+    <string name="pc0901">ہاں  </string>
+    <string name="pc0902">نہیں </string>
+    <string name="pc10">پی بی ایم سی خون کےسیمپل کی آئی ڈی </string>
 
 
     <string name='Q_ha01'>ha01</string>
@@ -361,6 +365,8 @@
     <string name='Q_pc06'>pc06</string>
     <string name='Q_pc07'>pc07</string>
     <string name='Q_pc08'>pc08</string>
+    <string name='Q_pc09'>pc09</string>
+    <string name='Q_pc10'>pc10</string>
 
 
     <string name='Q_h101'>h101</string>

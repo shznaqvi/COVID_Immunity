@@ -120,6 +120,8 @@ public class Form extends BaseObservable implements Observable {
     private String pc06 = StringUtils.EMPTY;
     private String pc07 = StringUtils.EMPTY;
     private String pc08 = StringUtils.EMPTY;
+    private String pc09 = StringUtils.EMPTY;
+    private String pc10 = StringUtils.EMPTY;
 
 
     private String h107 = StringUtils.EMPTY;
@@ -403,6 +405,8 @@ public class Form extends BaseObservable implements Observable {
             this.pc06 = json.getString("pc06");
             this.pc07 = json.getString("pc07");
             this.pc08 = json.getString("pc08");
+            this.pc09 = json.getString("pc09");
+            this.pc10 = json.getString("pc10");
 
         }
     }
@@ -495,7 +499,9 @@ public class Form extends BaseObservable implements Observable {
                 .put("pc05", pc05)
                 .put("pc06", pc06)
                 .put("pc07", pc07)
-                .put("pc08", pc08);
+                .put("pc08", pc08)
+                .put("pc09", pc09)
+                .put("pc10", pc10);
 
         return json.toString();
     }
@@ -1105,7 +1111,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setPb07(String pb07) {
         this.pb07 = pb07;
-        setPb08(pb07.equals("1") ? this.pb08 : "");
+//        setPb08(pb07.equals("1") ? this.pb08 : "");
         notifyChange(BR.pb07);
     }
 
@@ -1210,6 +1216,26 @@ public class Form extends BaseObservable implements Observable {
     public void setPc08(String pc08) {
         this.pc08 = pc08;
         notifyChange(BR.pc08);
+    }
+
+    @Bindable
+    public String getPc09() {
+        return pc09;
+    }
+
+    public void setPc09(String pc09) {
+        this.pc09 = pc09;
+        notifyPropertyChanged(BR.pc09);
+    }
+
+    @Bindable
+    public String getPc10() {
+        return pc10;
+    }
+
+    public void setPc10(String pc10) {
+        this.pc10 = pc10;
+        notifyPropertyChanged(BR.pc10);
     }
 
 

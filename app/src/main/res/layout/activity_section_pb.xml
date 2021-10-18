@@ -1435,8 +1435,7 @@
                 <!-- pb08  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVpb08"
-                    style="@style/cardView"
-                    android:visibility="@{form.pb07.equals(`1`) ? View.VISIBLE : View.GONE}">
+                    style="@style/cardView">
 
                     <LinearLayout
                         android:layout_width="match_parent"
