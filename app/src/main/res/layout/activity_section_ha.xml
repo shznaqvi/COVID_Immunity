@@ -114,8 +114,8 @@
                                 android:text="@string/ha02" />
 
                             <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
-                                style="@style/textInput"
                                 android:id="@+id/ha02"
+                                style="@style/textInput"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
@@ -422,9 +422,23 @@
                             android:inputType="number"
                             android:maxLength="11"
                             android:text="@={form.ha13}"
+                            app:defaultValue="null"
+                            app:pattern="^[0-9]{11,11}$"
+                            app:required="true"
+                            app:type="equal" />
+
+                        <!--<com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/ha13"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/ha13"
+                            android:inputType="number"
+                            android:maxLength="11"
+                            android:text="@={form.ha13}"
+                            app:mask="###########"
                             app:maxValue="99999999999"
                             app:minValue="1"
-                            app:type="range" />
+                            app:type="range" />-->
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 

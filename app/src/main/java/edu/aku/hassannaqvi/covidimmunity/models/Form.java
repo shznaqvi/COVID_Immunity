@@ -1057,6 +1057,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setPb02a(String pb02a) {
         this.pb02a = pb02a;
+        setPb02b(pb02a.equals("1") ? this.pb02b : "");
         notifyPropertyChanged(BR.pb02a);
     }
 
@@ -1225,6 +1226,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setPc09(String pc09) {
         this.pc09 = pc09;
+        setPc10(pc09.equals("1") ? this.pc10 : "");
         notifyPropertyChanged(BR.pc09);
     }
 

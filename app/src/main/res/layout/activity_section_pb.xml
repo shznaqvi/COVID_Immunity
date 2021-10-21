@@ -1113,7 +1113,8 @@
                 <!-- pb02b  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVpb02b"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.pb02a.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1428,6 +1429,15 @@
                                 android:checked="@{form.pb07.equals(`2`)}"
                                 android:onClick="@{()->form.setPb07(`2`)}"
                                 android:text="@string/pb072" />
+
+                            <RadioButton
+                                android:id="@+id/pb0798"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.pb07.equals(`98`)}"
+                                android:onClick="@{()->form.setPb07(`98`)}"
+                                android:text="@string/pb0798" />
                         </RadioGroup>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>

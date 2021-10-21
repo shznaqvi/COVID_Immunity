@@ -270,7 +270,8 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:hint="HH:MM"
-                            android:text="@={form.pc04}" />
+                            android:text="@={form.pc04}"
+                            app:minDate="CR_DATE" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -471,7 +472,7 @@
                                     android:textColor="@color/redDark" />
 
                                 <ImageButton
-                                    android:id="@+id/scanQrPC"
+                                    android:id="@+id/scanQrPC09"
                                     android:layout_width="56dp"
                                     android:layout_height="56dp"
                                     android:layout_alignParentEnd="true"
@@ -569,12 +570,32 @@
                                 android:text="@string/pc10" />
                         </LinearLayout>
 
-                        <EditText
-                            android:id="@+id/pc10"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/pc10"
-                            android:text="@={form.pc10}" />
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/pc10"
+                                style="@style/textInput"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="@={form.pc10}"
+                                android:textColor="@color/redDark" />
+
+                            <ImageButton
+                                android:id="@+id/scanQrPC10"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerInParent="true"
+                                android:layout_margin="8dp"
+                                android:onClick="scanQR"
+                                android:src="@drawable/ic_qrcode" />
+                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 

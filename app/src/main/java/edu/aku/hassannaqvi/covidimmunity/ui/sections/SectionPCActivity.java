@@ -26,6 +26,7 @@ import java.util.Locale;
 
 import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
+import edu.aku.hassannaqvi.covidimmunity.core.DateUtilsKt;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionPcBinding;
@@ -37,6 +38,7 @@ public class SectionPCActivity extends AppCompatActivity {
     private static final String TAG = "SectionPCActivity";
     private DatabaseHelper db;
     ActivitySectionPcBinding bi;
+    private int pressedButton;
 
 
     @Override
@@ -49,6 +51,9 @@ public class SectionPCActivity extends AppCompatActivity {
         setupSkips();
         setSupportActionBar(bi.toolbar);
         db = MainApp.appInfo.dbHelper;
+
+        //pc05 setMaxDate
+        bi.pc05.setMaxDate(DateUtilsKt.getDaysBack("dd/MM/yyyy", 60));
     }
 
 
@@ -67,7 +72,6 @@ public class SectionPCActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-
 
                 if (editable.toString().isEmpty()) return;
 
@@ -91,14 +95,19 @@ public class SectionPCActivity extends AppCompatActivity {
                     // Set minDate for 2nd Dose
                     bi.pc05.setMinDate(minDob);
 
+
                 } catch (ParseException e) {
                     e.printStackTrace();
                     Toast.makeText(SectionPCActivity.this, "PC02: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 
+        bi.pc09.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.pc0901.getId()) {
+                bi.fldGrpCVpc10.setVisibility(View.VISIBLE);
+            } else bi.fldGrpCVpc10.setVisibility(View.GONE);
+        }));
     }
 
 
@@ -144,8 +153,11 @@ public class SectionPCActivity extends AppCompatActivity {
         if (!Validator.emptyCheckingContainer(this, bi.GrpName))
             return false;
 
-        if (bi.pc08.getText().toString().equals("")) {
+        if (bi.pc061.isChecked() && bi.pc08.getText().toString().equals("")) {
             return Validator.emptyCustomTextBox(this, bi.pc08, "Scan QR");
+        }
+        if (bi.pc0901.isChecked() && bi.pc10.getText().toString().equals("")) {
+            return Validator.emptyCustomTextBox(this, bi.pc10, "Scan QR");
         }
         return true;
     }
@@ -162,18 +174,29 @@ public class SectionPCActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
-            if (result.getContents() == null) {
-                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+            if (pressedButton == bi.scanQrPC09.getId()) {
+                if (result.getContents() == null) {
+                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+                } else {
+                    String strResult = result.getContents();
+                    bi.pc08.setText(strResult);
+                }
             } else {
-                String strResult = result.getContents();
-                bi.pc08.setText(strResult);
+                if (result.getContents() == null) {
+                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+                } else {
+                    String strResult = result.getContents();
+                    bi.pc10.setText(strResult);
+                }
             }
+
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
 
     public void scanQR(View view) {
+        pressedButton = view.getId();
         new IntentIntegrator(this).initiateScan();
     }
 

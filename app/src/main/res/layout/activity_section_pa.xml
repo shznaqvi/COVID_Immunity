@@ -156,9 +156,10 @@
                             android:inputType="number"
                             android:maxLength="11"
                             android:text="@={form.pa01b}"
-                            app:maxValue="99999999999"
-                            app:minValue="1"
-                            app:type="range" />
+                            app:defaultValue="null"
+                            app:pattern="^[0-9]{11,11}$"
+                            app:required="true"
+                            app:type="equal" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -199,9 +200,10 @@
                             android:inputType="number"
                             android:maxLength="11"
                             android:text="@={form.pa01c}"
-                            app:maxValue="99999999999"
-                            app:minValue="1"
-                            app:type="range" />
+                            app:defaultValue="null"
+                            app:pattern="^[0-9]{11,11}$"
+                            app:required="true"
+                            app:type="equal" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
