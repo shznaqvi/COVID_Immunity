@@ -536,7 +536,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setHa01(String ha01) {
         this.ha01 = ha01;
-        notifyPropertyChanged(BR.ha01);
+        notifyChange(BR.ha01);
     }
 
     @Bindable
@@ -1017,7 +1017,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setPb02aa(String pb02aa) {
         this.pb02aa = pb02aa;
-        notifyPropertyChanged(BR.pb02aa);
+        notifyChange(BR.pb02aa);
     }
 
     @Bindable
@@ -1027,7 +1027,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setPb02m(String pb02m) {
         this.pb02m = pb02m;
-        notifyPropertyChanged(BR.pb02m);
+        notifyChange(BR.pb02m);
     }
 
     @Bindable
@@ -1037,7 +1037,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setPb02n(String pb02n) {
         this.pb02n = pb02n;
-        notifyPropertyChanged(BR.pb02n);
+        notifyChange(BR.pb02n);
     }
 
     @Bindable
@@ -1047,7 +1047,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setPb02p(String pb02p) {
         this.pb02p = pb02p;
-        notifyPropertyChanged(BR.pb02p);
+        notifyChange(BR.pb02p);
     }
 
     @Bindable
@@ -1058,7 +1058,7 @@ public class Form extends BaseObservable implements Observable {
     public void setPb02a(String pb02a) {
         this.pb02a = pb02a;
         setPb02b(pb02a.equals("1") ? this.pb02b : "");
-        notifyPropertyChanged(BR.pb02a);
+        notifyChange(BR.pb02a);
     }
 
     @Bindable
@@ -1068,7 +1068,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setPb02b(String pb02b) {
         this.pb02b = pb02b;
-        notifyPropertyChanged(BR.pb02b);
+        notifyChange(BR.pb02b);
     }
 
 
@@ -1227,7 +1227,7 @@ public class Form extends BaseObservable implements Observable {
     public void setPc09(String pc09) {
         this.pc09 = pc09;
         setPc10(pc09.equals("1") ? this.pc10 : "");
-        notifyPropertyChanged(BR.pc09);
+        notifyChange(BR.pc09);
     }
 
     @Bindable
@@ -1237,7 +1237,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setPc10(String pc10) {
         this.pc10 = pc10;
-        notifyPropertyChanged(BR.pc10);
+        notifyChange(BR.pc10);
     }
 
 

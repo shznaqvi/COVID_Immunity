@@ -37,13 +37,13 @@ public class SectionPBActivity extends AppCompatActivity {
         bi.setForm(form);
         setupSkips();
         setSupportActionBar(bi.toolbar);
-
-        form.getPa02();
+        db = MainApp.appInfo.getDbHelper();
+        //form.getPa02();
     }
 
     private void setupSkips() {
 
-        if (form.getPa02().equals("1")) {
+/*        if (form.getPa02().equals("1")) {
             bi.fldGrpCVpb05.setVisibility(View.GONE);
             bi.fldGrpCVpb06.setVisibility(View.GONE);
             bi.fldGrpCVpb05sub.setVisibility(View.GONE);
@@ -51,12 +51,12 @@ public class SectionPBActivity extends AppCompatActivity {
             bi.fldGrpCVpb05.setVisibility(View.VISIBLE);
             bi.fldGrpCVpb06.setVisibility(View.VISIBLE);
             bi.fldGrpCVpb05sub.setVisibility(View.VISIBLE);
-        }
+        }*/
     }
 
 
     private boolean updateDB() {
-        db = MainApp.appInfo.getDbHelper();
+
         long updcount = 0;
         try {
             updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SPB, form.sPBtoString());

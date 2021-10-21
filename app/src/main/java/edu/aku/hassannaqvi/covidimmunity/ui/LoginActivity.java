@@ -121,6 +121,7 @@ public class LoginActivity extends AppCompatActivity {
                         Manifest.permission.READ_EXTERNAL_STORAGE,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
                         Manifest.permission.READ_PHONE_STATE,
+                        Manifest.permission.ACCESS_MEDIA_LOCATION,
                         Manifest.permission.CAMERA
                 ).withListener(new MultiplePermissionsListener() {
             @Override
@@ -140,7 +141,7 @@ public class LoginActivity extends AppCompatActivity {
         bi.setCallback(this);
 
         db = MainApp.appInfo.getDbHelper();
-
+        MainApp.versionApp = db.getVersionApp();
 
         settingCountryCode();
 
