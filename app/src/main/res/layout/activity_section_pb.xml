@@ -1242,7 +1242,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility='@{pb031.checked ? View.VISIBLE : View.GONE}'>
+                    android:visibility='@{form.pb03.equals("1") &amp; form.pa02.equals("2") ? View.VISIBLE : View.GONE}'>
 
                     <TextView
                         android:id="@+id/fldGrpCVpb05sub"

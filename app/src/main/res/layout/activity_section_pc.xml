@@ -544,7 +544,8 @@
                 <!-- pc10  Input   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVpc10"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.pc09.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"

@@ -102,12 +102,6 @@ public class SectionPCActivity extends AppCompatActivity {
                 }
             }
         });
-
-        bi.pc09.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.pc0901.getId()) {
-                bi.fldGrpCVpc10.setVisibility(View.VISIBLE);
-            } else bi.fldGrpCVpc10.setVisibility(View.GONE);
-        }));
     }
 
 
