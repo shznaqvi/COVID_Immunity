@@ -5,9 +5,11 @@
     <data>
 
         <import type="android.view.View" />
-        <!--<variable
-            name="form"
-            type="edu.aku.hassannaqvi.covidimmunitysurvey.models.Form" />-->
+
+        <variable
+            name="fp"
+            type="edu.aku.hassannaqvi.covidimmunity.models.FP" />
+
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.covidimmunity.ui.sections.SectionFPCActivity" />
@@ -61,12 +63,16 @@
                             android:id="@+id/fpc0101"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc01.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc01(`1`)}"
                             android:text="@string/fpc0101" />
 
                         <RadioButton
                             android:id="@+id/fpc0102"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc01.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc01(`2`)}"
                             android:text="@string/fpc0102" />
                     </RadioGroup>
                 </LinearLayout>
@@ -105,7 +111,8 @@
                         android:id="@+id/fpc02"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/fpc02" />
+                        android:hint="@string/fpc02"
+                        android:text="@={fp.fpc02}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -147,12 +154,16 @@
                             android:id="@+id/fpc0301"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc03.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc03(`1`)}"
                             android:text="@string/fpc0301" />
 
                         <RadioButton
                             android:id="@+id/fpc0302"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc03.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc03(`2`)}"
                             android:text="@string/fpc0302" />
                     </RadioGroup>
                 </LinearLayout>
@@ -213,12 +224,16 @@
                             android:id="@+id/fpc04a1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04a.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc04a(`1`)}"
                             android:text="@string/fpc04a1" />
 
                         <RadioButton
                             android:id="@+id/fpc04a2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04a.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc04a(`2`)}"
                             android:text="@string/fpc04a2" />
                     </RadioGroup>
                 </LinearLayout>
@@ -262,12 +277,16 @@
                             android:id="@+id/fpc04b1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04b.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc04b(`1`)}"
                             android:text="@string/fpc04b1" />
 
                         <RadioButton
                             android:id="@+id/fpc04b2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04b.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc04b(`2`)}"
                             android:text="@string/fpc04b2" />
                     </RadioGroup>
                 </LinearLayout>
@@ -311,12 +330,16 @@
                             android:id="@+id/fpc04c1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04c.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc04c(`1`)}"
                             android:text="@string/fpc04c1" />
 
                         <RadioButton
                             android:id="@+id/fpc04c2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04c.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc04c(`2`)}"
                             android:text="@string/fpc04c2" />
                     </RadioGroup>
                 </LinearLayout>
@@ -360,12 +383,16 @@
                             android:id="@+id/fpc04d1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04d.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc04d(`1`)}"
                             android:text="@string/fpc04d1" />
 
                         <RadioButton
                             android:id="@+id/fpc04d2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04d.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc04d(`2`)}"
                             android:text="@string/fpc04d2" />
                     </RadioGroup>
                 </LinearLayout>
@@ -409,12 +436,16 @@
                             android:id="@+id/fpc04e1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04e.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc04e(`1`)}"
                             android:text="@string/fpc04e1" />
 
                         <RadioButton
                             android:id="@+id/fpc04e2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04e.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc04e(`2`)}"
                             android:text="@string/fpc04e2" />
                     </RadioGroup>
                 </LinearLayout>
@@ -458,12 +489,16 @@
                             android:id="@+id/fpc04f1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04f.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc04f(`1`)}"
                             android:text="@string/fpc04f1" />
 
                         <RadioButton
                             android:id="@+id/fpc04f2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04f.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc04f(`2`)}"
                             android:text="@string/fpc04f2" />
                     </RadioGroup>
                 </LinearLayout>
@@ -507,12 +542,16 @@
                             android:id="@+id/fpc04g1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04g.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc04g(`1`)}"
                             android:text="@string/fpc04g1" />
 
                         <RadioButton
                             android:id="@+id/fpc04g2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04g.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc04g(`2`)}"
                             android:text="@string/fpc04g2" />
                     </RadioGroup>
                 </LinearLayout>
@@ -556,12 +595,16 @@
                             android:id="@+id/fpc04h1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04h.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc04h(`1`)}"
                             android:text="@string/fpc04h1" />
 
                         <RadioButton
                             android:id="@+id/fpc04h2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04h.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc04h(`2`)}"
                             android:text="@string/fpc04h2" />
                     </RadioGroup>
                 </LinearLayout>
@@ -605,12 +648,16 @@
                             android:id="@+id/fpc04j1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04j.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc04j(`1`)}"
                             android:text="@string/fpc04j1" />
 
                         <RadioButton
                             android:id="@+id/fpc04j2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04j.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc04j(`2`)}"
                             android:text="@string/fpc04j2" />
                     </RadioGroup>
                 </LinearLayout>
@@ -654,12 +701,16 @@
                             android:id="@+id/fpc04k1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04k.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc04k(`1`)}"
                             android:text="@string/fpc04k1" />
 
                         <RadioButton
                             android:id="@+id/fpc04k2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04k.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc04k(`2`)}"
                             android:text="@string/fpc04k2" />
                     </RadioGroup>
                 </LinearLayout>
@@ -703,12 +754,16 @@
                             android:id="@+id/fpc04m1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04m.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc04m(`1`)}"
                             android:text="@string/fpc04m1" />
 
                         <RadioButton
                             android:id="@+id/fpc04m2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04m.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc04m(`2`)}"
                             android:text="@string/fpc04m2" />
                     </RadioGroup>
                 </LinearLayout>
@@ -752,12 +807,16 @@
                             android:id="@+id/fpc04n1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04n.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc04n(`1`)}"
                             android:text="@string/fpc04n1" />
 
                         <RadioButton
                             android:id="@+id/fpc04n2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04n.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc04n(`2`)}"
                             android:text="@string/fpc04n2" />
                     </RadioGroup>
                 </LinearLayout>
@@ -801,12 +860,16 @@
                             android:id="@+id/fpc04p1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04p.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc04p(`1`)}"
                             android:text="@string/fpc04p1" />
 
                         <RadioButton
                             android:id="@+id/fpc04p2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04p.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc04p(`2`)}"
                             android:text="@string/fpc04p2" />
                     </RadioGroup>
                 </LinearLayout>
@@ -850,18 +913,24 @@
                             android:id="@+id/fpc04q1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04q.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc04q(`1`)}"
                             android:text="@string/fpc04q1" />
 
                         <RadioButton
                             android:id="@+id/fpc04q2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04q.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc04q(`2`)}"
                             android:text="@string/fpc04q2" />
 
                         <RadioButton
                             android:id="@+id/fpc0496"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc04q.equals(`96`)}"
+                            android:onClick="@{()->fp.setFpc04q(`96`)}"
                             android:text="@string/fpc0496" />
 
                         <EditText
@@ -871,7 +940,7 @@
                             android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
                             android:hint="@string/fpc0496"
                             android:tag="fpc0496"
-                            android:text='@{fpc0496.checked ? fpc0496x.getText().toString() : ""}'
+                            android:text="@={fp.fpc0496x}"
                             android:visibility='@{fpc0496.checked? View.VISIBLE : View.GONE}' />
                     </RadioGroup>
                 </LinearLayout>
@@ -915,12 +984,16 @@
                             android:id="@+id/fpc05q1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc05.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc05(`1`)}"
                             android:text="@string/fpc05q1" />
 
                         <RadioButton
                             android:id="@+id/fpc05q2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc05.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc05(`2`)}"
                             android:text="@string/fpc05q2" />
                     </RadioGroup>
                 </LinearLayout>
@@ -963,6 +1036,7 @@
                         android:inputType="number"
 
 
+                        android:text="@={fp.fpc06}"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -1004,6 +1078,7 @@
                         android:inputType="number"
 
 
+                        android:text="@={fp.fpc07}"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -1046,24 +1121,32 @@
                             android:id="@+id/fpc0801"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc08.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpc08(`1`)}"
                             android:text="@string/fpc0801" />
 
                         <RadioButton
                             android:id="@+id/fpc0802"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc08.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpc08(`2`)}"
                             android:text="@string/fpc0802" />
 
                         <RadioButton
                             android:id="@+id/fpc0803"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc08.equals(`3`)}"
+                            android:onClick="@{()->fp.setFpc08(`3`)}"
                             android:text="@string/fpc0803" />
 
                         <RadioButton
                             android:id="@+id/fpc0896"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpc08.equals(`96`)}"
+                            android:onClick="@{()->fp.setFpc08(`96`)}"
                             android:text="@string/fpc0896" />
 
                         <EditText
@@ -1073,7 +1156,7 @@
                             android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
                             android:hint="@string/fpc0896"
                             android:tag="fpc0896"
-                            android:text='@{fpc0896.checked ? fpc0896x.getText().toString() : ""}'
+                            android:text="@={fp.fpc0896x}"
                             android:visibility='@{fpc0896.checked? View.VISIBLE : View.GONE}' />
                     </RadioGroup>
                 </LinearLayout>
@@ -1117,42 +1200,56 @@
                             android:id="@+id/fpa0501"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpa05.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpa05(`1`)}"
                             android:text="@string/fpa0501" />
 
                         <RadioButton
                             android:id="@+id/fpa0502"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpa05.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpa05(`2`)}"
                             android:text="@string/fpa0502" />
 
                         <RadioButton
                             android:id="@+id/fpa0503"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpa05.equals(`3`)}"
+                            android:onClick="@{()->fp.setFpa05(`3`)}"
                             android:text="@string/fpa0503" />
 
                         <RadioButton
                             android:id="@+id/fpa0504"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpa05.equals(`4`)}"
+                            android:onClick="@{()->fp.setFpa05(`4`)}"
                             android:text="@string/fpa0504" />
 
                         <RadioButton
                             android:id="@+id/fpa0505"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpa05.equals(`5`)}"
+                            android:onClick="@{()->fp.setFpa05(`5`)}"
                             android:text="@string/fpa0505" />
 
                         <RadioButton
                             android:id="@+id/fpa0506"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpa05.equals(`6`)}"
+                            android:onClick="@{()->fp.setFpa05(`6`)}"
                             android:text="@string/fpa0506" />
 
                         <RadioButton
                             android:id="@+id/fpa0596"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{fp.fpa05.equals(`96`)}"
+                            android:onClick="@{()->fp.setFpa05(`96`)}"
                             android:text="@string/fpa0596" />
 
                         <EditText
@@ -1162,7 +1259,7 @@
                             android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
                             android:hint="@string/fpa0596"
                             android:tag="fpa0596"
-                            android:text='@{fpa0596.checked ? fpa0596x.getText().toString() : ""}'
+                            android:text="@={fp.fpa0596x}"
                             android:visibility='@{fpa0596.checked? View.VISIBLE : View.GONE}' />
                     </RadioGroup>
                 </LinearLayout>

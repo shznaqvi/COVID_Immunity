@@ -210,6 +210,50 @@
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
+                        <TextView
+                            android:id="@+id/secfha"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:background="@color/colorPrimary"
+                            android:elevation="1dp"
+                            android:onClick="sectionPress"
+                            android:padding="8dp"
+                            android:shadowRadius="8"
+                            android:text="FHA"
+                            android:textColor="@color/colorAccentLight"
+                            android:textSize="14sp" />
+
+
+                        <TextView
+                            android:id="@+id/secfpa"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:background="@color/colorPrimary"
+                            android:elevation="1dp"
+                            android:onClick="sectionPress"
+                            android:padding="8dp"
+                            android:shadowRadius="8"
+                            android:text="FPA"
+                            android:textColor="@color/colorAccentLight"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/secfpc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:background="@color/colorPrimary"
+                            android:elevation="1dp"
+                            android:onClick="sectionPress"
+                            android:padding="8dp"
+                            android:shadowRadius="8"
+                            android:text="FPC"
+                            android:textColor="@color/colorAccentLight"
+                            android:textSize="14sp" />
+
+
 
                     </LinearLayout>
 

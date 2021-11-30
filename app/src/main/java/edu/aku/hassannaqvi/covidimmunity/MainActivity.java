@@ -45,6 +45,9 @@ import edu.aku.hassannaqvi.covidimmunity.ui.SyncActivity;
 import edu.aku.hassannaqvi.covidimmunity.ui.lists.FormsReportCluster;
 import edu.aku.hassannaqvi.covidimmunity.ui.lists.FormsReportDate;
 import edu.aku.hassannaqvi.covidimmunity.ui.lists.FormsReportPending;
+import edu.aku.hassannaqvi.covidimmunity.ui.sections.SectionFHAActivity;
+import edu.aku.hassannaqvi.covidimmunity.ui.sections.SectionFPAActivity;
+import edu.aku.hassannaqvi.covidimmunity.ui.sections.SectionFPCActivity;
 import edu.aku.hassannaqvi.covidimmunity.ui.sections.SectionHAActivity;
 import edu.aku.hassannaqvi.covidimmunity.ui.sections.SectionPAActivity;
 import edu.aku.hassannaqvi.covidimmunity.ui.sections.SectionPBActivity;
@@ -270,6 +273,22 @@ public class MainActivity extends AppCompatActivity {
             case R.id.secpc:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionPCActivity.class));
+                break;
+
+
+            case R.id.secfha:
+                MainApp.form = new Form();
+                startActivity(new Intent(this, SectionFHAActivity.class));
+                break;
+
+            case R.id.secfpa:
+                MainApp.form = new Form();
+                startActivity(new Intent(this, SectionFPAActivity.class));
+                break;
+
+            case R.id.secfpc:
+                MainApp.form = new Form();
+                startActivity(new Intent(this, SectionFPCActivity.class));
                 break;
 
             case R.id.dbManager:
