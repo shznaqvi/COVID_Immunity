@@ -369,6 +369,54 @@
     <string name='Q_pc09'>pc09</string>
     <string name='Q_pc10'>pc10</string>
 
+    <string name='Q_fha01'>fha01</string>
+    <string name='Q_fha02'>fha02</string>
+    <string name='Q_fha09'>fha09</string>
+    <string name='Q_fha10'>fha10</string>
+    <string name='Q_fha11'>fha11</string>
+    <string name='Q_fha12'>fha12</string>
+    <string name='Q_fha12a'>fha12a</string>
+    <string name='Q_fha13'>fha13</string>
+
+
+    <string name='Q_fpa01'>fpa01</string>
+    <string name='Q_fpa01a'>fpa01a</string>
+    <string name='Q_fpa02'>fpa02</string>
+    <string name='Q_fpa021'>fpa021</string>
+    <string name='Q_fpa022'>fpa022</string>
+
+    <string name='Q_fpa03'>fpa03</string>
+    <string name='Q_fpa03y'>fpa03y</string>
+    <string name='Q_fpa03m'>fpa03m</string>
+    <string name='Q_fpa03a'>fpa03a</string>
+    <string name='Q_fpa03c'>fpa03c</string>
+    <string name='Q_fpa04'>fpa04</string>
+
+    <string name='Q_fpa05'>fpa05</string>
+    <string name='Q_fpc01'>fpc01</string>
+    <string name='Q_fpc02'>fpc02</string>
+    <string name='Q_fpc03'>fpc03</string>
+    <string name='Q_fpc04'>fpc04</string>
+    <string name='Q_fpc04a'>fpc04a</string>
+    <string name='Q_fpc04b'>fpc04b</string>
+    <string name='Q_fpc04c'>fpc04c</string>
+    <string name='Q_fpc04d'>fpc04d</string>
+    <string name='Q_fpc04e'>fpc04e</string>
+    <string name='Q_fpc04f'>fpc04f</string>
+    <string name='Q_fpc04g'>fpc04g</string>
+    <string name='Q_fpc04h'>fpc04h</string>
+    <string name='Q_fpc04j'>fpc04j</string>
+    <string name='Q_fpc04k'>fpc04k</string>
+    <string name='Q_fpc04m'>fpc04m</string>
+    <string name='Q_fpc04n'>fpc04n</string>
+    <string name='Q_fpc04p'>fpc04p</string>
+    <string name='Q_fpc04q'>fpc04q</string>
+    <string name='Q_fpc05'>fpc05</string>
+    <string name='Q_fpc06'>fpc06</string>
+    <string name='Q_fpc07'>fpc07</string>
+    <string name='Q_fpc08'>fpc08</string>
+
+
 
     <string name='Q_h101'>h101</string>
     <string name='Q_h102'>h102</string>
@@ -410,6 +458,108 @@
     <string name='Q_noteh2d'>noteh2d</string>
     <string name='Q_noteh7'>noteh7</string>
     <string name='Q_ques'>ques</string>
+
+
+    <string name="ha_mainheading">ایچ اے: گھرانے کی معلومات</string>
+    <string name="pa_mainheading">پی اے: فرد کی معلومات</string>
+    <string name="pc_mainheading">پی سی: کووڈ ویکسینیشن</string>
+    <string name="fha01">انٹرویو کی تاریخ</string>
+    <string name="fha02"> انٹرویو شروع کرنے کا وقت(24 گھنٹوں میں)</string>
+    <string name="fha09">سب ڈسٹرکٹ</string>
+    <string name="fha0901">ہالہ    </string>
+    <string name="fha0902">مٹیاری   </string>
+    <string name="fha0903">سعید آباد  </string>
+    <string name="fha10">شہر/گاؤں</string>
+    <string name="fha11">مقام،گھر کے قریب مشہور جگہ کے ساتھ مکمل پتہ</string>
+    <string name="fha12">گھرانے کا نمبر</string>
+    <string name="fha12a">گھر کے سربراہ کا نام</string>
+    <string name="fha13">گھر کے سربراہ کا موبائل نمبر </string>
+    <string name="fpa01">منتخب فرد کا نام</string>
+    <string name="fpa01a">والد/ شوہر کا نام</string>
+    <string name="fpa02">منتخب فرد کی جنس</string>
+    <string name="fpa021">لڑکا  </string>
+    <string name="fpa022">لڑکی</string>
+    <string name="fpa03">(نام) کی عمر کتنی ہے؟ </string>
+    <string name="fpa03y">عمر مکمل سالوں میں</string>
+    <string name="fpa03m">عمر مکمل مہینوں میں</string>
+    <string name="fpa03a">ہمارے پچھلے وزٹ پر آپ نے جو ہمیں اپنا فون نمبر دیا تھا کیا اب بھی وہی ہے</string>
+    <string name="fpa0301">ہاں</string>
+    <string name="fpa0302">نہیں</string>
+    <string name="fpa03c">نیا فون نمبر</string>
+    <string name="fpa04">راضی  نامہ پڑھ کر اجازت حاصل کر لی گئی ہے؟</string>
+    <string name="fpa041">ہاں، اجازت مل گئی</string>
+    <string name="fpa042">نہیں، اجازت نہیں ملی</string>
+    <string name="fpc01">کیا آپ نے کووڈ19 کے خلاف ویکسین کی دوسری  ڈوز لگوائی ہے؟</string>
+    <string name="fpc0101">ہاں</string>
+    <string name="fpc0102">نہیں</string>
+    <string name="fpc02">ویکسین کی دوسری ڈوز کی تاریخ؟</string>
+    <string name="fpc03">جب سے آپ کو ویکسین کی پہلی ڈوز لگائی گئی صحت کے حوالے سے کیا کوئی مسئلہ درپیش ہوا؟</string>
+    <string name="fpc0301">ہاں</string>
+    <string name="fpc0302">نہیں</string>
+    <string name="fpc04">کیا مسئلہ درپیش ہوا؟</string>
+    <string name="fpc04a">بخار       </string>
+    <string name="fpc04a1">ہاں  </string>
+    <string name="fpc04a2">نہیں </string>
+    <string name="fpc04b">خشک کھانسی  </string>
+    <string name="fpc04b1">ہاں  </string>
+    <string name="fpc04b2">نہیں </string>
+    <string name="fpc04c">تھکاوٹ  </string>
+    <string name="fpc04c1">ہاں  </string>
+    <string name="fpc04c2">نہیں </string>
+    <string name="fpc04d"> کمزوری</string>
+    <string name="fpc04d1">ہاں  </string>
+    <string name="fpc04d2">نہیں </string>
+    <string name="fpc04e">درد اور تکلیف </string>
+    <string name="fpc04e1">ہاں  </string>
+    <string name="fpc04e2">نہیں </string>
+    <string name="fpc04f">گلے کی خرابی یا سوزش </string>
+    <string name="fpc04f1">ہاں  </string>
+    <string name="fpc04f2">نہیں </string>
+    <string name="fpc04g">ڈائریا  یا  اسہال   </string>
+    <string name="fpc04g1">ہاں  </string>
+    <string name="fpc04g2">نہیں </string>
+    <string name="fpc04h">آشوب چشم یا آنکھوں کی بیماری </string>
+    <string name="fpc04h1">ہاں  </string>
+    <string name="fpc04h2">نہیں </string>
+    <string name="fpc04j">سر کا درد </string>
+    <string name="fpc04j1">ہاں  </string>
+    <string name="fpc04j2">نہیں </string>
+    <string name="fpc04k">جلدپرخارش،یا ہاتھ یاپیر کی انگلیوں کابے رنگ ہونا   </string>
+    <string name="fpc04k1">ہاں  </string>
+    <string name="fpc04k2">نہیں </string>
+    <string name="fpc04m">سانس لینے میں دشواری یا دم گھٹنا</string>
+    <string name="fpc04m1">ہاں  </string>
+    <string name="fpc04m2">نہیں </string>
+    <string name="fpc04n">سینے میں درد یا دباؤ  </string>
+    <string name="fpc04n1">ہاں  </string>
+    <string name="fpc04n2">نہیں </string>
+    <string name="fpc04p">بولنے یا حرکت میں کمی سونگھنے کی حس میں کمی </string>
+    <string name="fpc04p1">ہاں  </string>
+    <string name="fpc04p2">نہیں </string>
+    <string name="fpc04q">ذائقہ محسوس ہونے میں کمی</string>
+    <string name="fpc04q1">ہاں  </string>
+    <string name="fpc04q2">نہیں </string>
+    <string name="fpc0496">دیگر وضاحت کریں</string>
+    <string name="fpc05">کیا خون کا نمونہ لیا گیا ہے؟</string>
+    <string name="fpc05q1">ہاں  </string>
+    <string name="fpc05q2">نہیں </string>
+    <string name="fpc06">حاصل کئے گئے خون کے نمونے کی مقدار</string>
+    <string name="fpc07">خون کےسیمپل کی آئی ڈی                               </string>
+    <string name="fpc08">خون کا نمونہ نہ دینے کی وجہ </string>
+    <string name="fpc0801">بیماری کی وجہ سے</string>
+    <string name="fpc0802"> خاندان والوں کا دباؤ</string>
+    <string name="fpc0803">افواہوں کی وجہ سے</string>
+    <string name="fpc0896">دیگر وضاحت کریں</string>
+    <string name="fpa05">گھرانے کے انٹرویوکا نتیجہ:
+نوٹ:  انٹرویو مکمل نہ ہونے  کی صورت میں سپروائزر سے رابطہ کریں۔</string>
+    <string name="fpa0501">مکمل</string>
+    <string name="fpa0502">گھر بند ہے</string>
+    <string name="fpa0503">اینرولڈ ممبر گھر پر موجود نہیں ہے</string>
+    <string name="fpa0504">انکار کر دیا</string>
+    <string name="fpa0505">گھر نہیں ملا</string>
+    <string name="fpa0506">رہائش خالی ہے یا رہائش گاہ نہیں</string>
+    <string name="fpa0596">دیگر وضاحت کریں</string>
+
 
 
     <!--

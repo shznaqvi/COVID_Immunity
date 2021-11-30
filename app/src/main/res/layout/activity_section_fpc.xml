@@ -1,0 +1,1199 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+        <!--<variable
+            name="form"
+            type="edu.aku.hassannaqvi.covidimmunitysurvey.models.Form" />-->
+        <variable
+            name="callback"
+            type="edu.aku.hassannaqvi.covidimmunity.ui.sections.SectionFPCActivity" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/GrpName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- fpc01  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc01"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc01" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc01" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc01"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc0101"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc0101" />
+
+                        <RadioButton
+                            android:id="@+id/fpc0102"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc0102" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc02  Input   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc02"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc02" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc02" />
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/fpc02"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/fpc02" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc03  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc03"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc03" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc03" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc03"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc0301"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc0301" />
+
+                        <RadioButton
+                            android:id="@+id/fpc0302"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc0302" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc04  Title   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc04"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fpc04" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc04a  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc04a"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc04a" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc04a" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc04a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc04a1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04a1" />
+
+                        <RadioButton
+                            android:id="@+id/fpc04a2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04a2" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc04b  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc04b"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc04b" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc04b" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc04b"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc04b1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04b1" />
+
+                        <RadioButton
+                            android:id="@+id/fpc04b2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04b2" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc04c  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc04c"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc04c" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc04c" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc04c"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc04c1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04c1" />
+
+                        <RadioButton
+                            android:id="@+id/fpc04c2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04c2" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc04d  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc04d"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc04d" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc04d" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc04d"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc04d1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04d1" />
+
+                        <RadioButton
+                            android:id="@+id/fpc04d2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04d2" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc04e  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc04e"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc04e" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc04e" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc04e"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc04e1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04e1" />
+
+                        <RadioButton
+                            android:id="@+id/fpc04e2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04e2" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc04f  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc04f"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc04f" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc04f" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc04f"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc04f1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04f1" />
+
+                        <RadioButton
+                            android:id="@+id/fpc04f2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04f2" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc04g  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc04g"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc04g" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc04g" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc04g"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc04g1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04g1" />
+
+                        <RadioButton
+                            android:id="@+id/fpc04g2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04g2" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc04h  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc04h"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc04h" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc04h" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc04h"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc04h1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04h1" />
+
+                        <RadioButton
+                            android:id="@+id/fpc04h2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04h2" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc04j  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc04j"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc04j" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc04j" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc04j"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc04j1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04j1" />
+
+                        <RadioButton
+                            android:id="@+id/fpc04j2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04j2" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc04k  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc04k"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc04k" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc04k" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc04k"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc04k1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04k1" />
+
+                        <RadioButton
+                            android:id="@+id/fpc04k2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04k2" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc04m  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc04m"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc04m" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc04m" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc04m"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc04m1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04m1" />
+
+                        <RadioButton
+                            android:id="@+id/fpc04m2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04m2" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc04n  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc04n"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc04n" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc04n" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc04n"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc04n1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04n1" />
+
+                        <RadioButton
+                            android:id="@+id/fpc04n2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04n2" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc04p  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc04p"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc04p" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc04p" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc04p"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc04p1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04p1" />
+
+                        <RadioButton
+                            android:id="@+id/fpc04p2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04p2" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc04q  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc04q"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc04q" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc04q" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc04q"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc04q1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04q1" />
+
+                        <RadioButton
+                            android:id="@+id/fpc04q2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc04q2" />
+
+                        <RadioButton
+                            android:id="@+id/fpc0496"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc0496" />
+
+                        <EditText
+                            android:id="@+id/fpc0496x"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                            android:hint="@string/fpc0496"
+                            android:tag="fpc0496"
+                            android:text='@{fpc0496.checked ? fpc0496x.getText().toString() : ""}'
+                            android:visibility='@{fpc0496.checked? View.VISIBLE : View.GONE}' />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc05  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc05"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc05" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc05" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc05"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc05q1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc05q1" />
+
+                        <RadioButton
+                            android:id="@+id/fpc05q2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc05q2" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc06  Input-Numeric   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc06"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc06" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc06" />
+                    </LinearLayout>
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/fpc06"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/fpc06"
+                        android:inputType="number"
+
+
+                        app:type="range" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc07  Input-Numeric   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc07"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc07" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc07" />
+                    </LinearLayout>
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/fpc07"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/fpc07"
+                        android:inputType="number"
+
+
+                        app:type="range" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpc08  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpc08"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpc08" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpc08" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpc08"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpc0801"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc0801" />
+
+                        <RadioButton
+                            android:id="@+id/fpc0802"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc0802" />
+
+                        <RadioButton
+                            android:id="@+id/fpc0803"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc0803" />
+
+                        <RadioButton
+                            android:id="@+id/fpc0896"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpc0896" />
+
+                        <EditText
+                            android:id="@+id/fpc0896x"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                            android:hint="@string/fpc0896"
+                            android:tag="fpc0896"
+                            android:text='@{fpc0896.checked ? fpc0896x.getText().toString() : ""}'
+                            android:visibility='@{fpc0896.checked? View.VISIBLE : View.GONE}' />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- fpa05  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpa05"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpa05" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpa05" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpa05"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpa0501"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpa0501" />
+
+                        <RadioButton
+                            android:id="@+id/fpa0502"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpa0502" />
+
+                        <RadioButton
+                            android:id="@+id/fpa0503"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpa0503" />
+
+                        <RadioButton
+                            android:id="@+id/fpa0504"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpa0504" />
+
+                        <RadioButton
+                            android:id="@+id/fpa0505"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpa0505" />
+
+                        <RadioButton
+                            android:id="@+id/fpa0506"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpa0506" />
+
+                        <RadioButton
+                            android:id="@+id/fpa0596"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fpa0596" />
+
+                        <EditText
+                            android:id="@+id/fpa0596x"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                            android:hint="@string/fpa0596"
+                            android:tag="fpa0596"
+                            android:text='@{fpa0596.checked ? fpa0596x.getText().toString() : ""}'
+                            android:visibility='@{fpa0596.checked? View.VISIBLE : View.GONE}' />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView><!--EndButton LinearLayout-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_End"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:background="@color/redOverlay"
+                    android:onClick="@{() -> callback.BtnEnd()}"
+                    android:text="Cancel"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/btn_Continue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:background="@color/greenOverlay"
+                    android:onClick="@{() -> callback.BtnContinue()}"
+                    android:text="Save"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>
