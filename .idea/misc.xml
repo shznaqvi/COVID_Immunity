@@ -22,7 +22,7 @@
         <entry key="..\:/Android/COVIDImmunity/app/src/main/res/layout/activity_main.xml" value="0.4625" />
         <entry key="..\:/Android/COVIDImmunity/app/src/main/res/layout/activity_section_ha.xml" value="0.56328125" />
         <entry key="..\:/Android/COVIDImmunity/app/src/main/res/layout/activity_section_pa.xml" value="0.56328125" />
-        <entry key="..\:/Android/COVIDImmunity/app/src/main/res/layout/activity_section_pb.xml" value="0.278372591006424" />
+        <entry key="..\:/Android/COVIDImmunity/app/src/main/res/layout/activity_section_pb.xml" value="0.56328125" />
         <entry key="..\:/Android/COVIDImmunity/app/src/main/res/layout/activity_section_pc.xml" value="0.54125" />
         <entry key="..\:/Android/COVIDImmunity/app/src/main/res/layout/fragment_blank.xml" value="0.37552083333333336" />
         <entry key="..\:/Android/COVIDImmunity/app/src/main/res/menu/main_menu.xml" value="0.21145833333333333" />
@@ -45,7 +45,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
