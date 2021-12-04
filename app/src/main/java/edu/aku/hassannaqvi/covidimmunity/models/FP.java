@@ -1,21 +1,17 @@
 package edu.aku.hassannaqvi.covidimmunity.models;
 
-import android.database.Cursor;
-
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.Observable;
 import androidx.databinding.PropertyChangeRegistry;
 
 import org.apache.commons.lang3.StringUtils;
-import org.json.JSONException;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 import edu.aku.hassannaqvi.covidimmunity.BR;
-import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 
 public class FP extends BaseObservable implements Observable {
@@ -508,6 +504,7 @@ public class FP extends BaseObservable implements Observable {
 
     public void setFpa03a(String fpa03a) {
         this.fpa03a = fpa03a;
+        setFpa03c(fpa03a.equals("1") ? "" : this.fpa03c);
         notifyPropertyChanged(BR.fpa03a);
     }
 
@@ -667,6 +664,8 @@ public class FP extends BaseObservable implements Observable {
         this.fpa0596x = fpa0596x;
         notifyPropertyChanged(BR.fpa0596x);
     }
+
+
 
 
 }

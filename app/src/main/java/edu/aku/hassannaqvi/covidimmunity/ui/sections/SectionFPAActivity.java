@@ -1,12 +1,12 @@
 package edu.aku.hassannaqvi.covidimmunity.ui.sections;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
@@ -15,7 +15,6 @@ import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionFpaBinding;
-import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionHaBinding;
 import edu.aku.hassannaqvi.covidimmunity.ui.EndingActivity;
 
 public class SectionFPAActivity extends AppCompatActivity {
@@ -27,10 +26,12 @@ public class SectionFPAActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_fpa);
+        bi.setFp(MainApp.fp);
         setupSkips();
         setSupportActionBar(bi.toolbar);
         setTitle(R.string.sectionpa_mainheading);
         db = MainApp.appInfo.dbHelper;
+
     }
 
 

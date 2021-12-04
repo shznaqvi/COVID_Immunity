@@ -7,12 +7,13 @@ import android.os.Build;
 import android.provider.Settings;
 import android.view.View;
 
+import com.edittextpicker.aliazaz.BuildConfig;
+
 import org.json.JSONArray;
 
 import java.io.File;
 import java.util.List;
 
-import edu.aku.hassannaqvi.covidimmunity.BuildConfig;
 import edu.aku.hassannaqvi.covidimmunity.models.FP;
 import edu.aku.hassannaqvi.covidimmunity.models.Form;
 import edu.aku.hassannaqvi.covidimmunity.models.Users;

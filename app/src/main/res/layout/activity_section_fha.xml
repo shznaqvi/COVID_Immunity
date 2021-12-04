@@ -78,9 +78,8 @@
                         <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
                             android:id="@+id/fha01"
                             style="@style/textInput"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2"
                             android:gravity="center"
                             android:hint="YYYY-MM-DD"
                             android:text="@={fp.fha01}"
@@ -122,9 +121,8 @@
                         <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
                             android:id="@+id/fha02"
                             style="@style/textInput"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2"
                             android:gravity="center"
                             android:hint="HH:MM"
                             android:text="@={fp.fha02}" />
@@ -230,6 +228,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/fha10"
+                            android:inputType="text"
                             android:text="@={fp.fha10}" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -405,7 +404,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:background="@color/redOverlay"
-                        android:onClick="@{() -> callback.BtnEnd()}"
+                        android:onClick="BtnEnd"
                         android:text="Cancel"
                         android:textColor="@color/white" />
 
@@ -415,7 +414,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:background="@color/greenOverlay"
-                        android:onClick="@{() -> callback.BtnContinue()}"
+                        android:onClick="BtnContinue"
                         android:text="Save"
                         android:textColor="@color/white" />
                 </LinearLayout>

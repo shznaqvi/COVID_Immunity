@@ -1,26 +1,22 @@
 package edu.aku.hassannaqvi.covidimmunity.ui.sections;
 
-import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.form;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.validatorcrawler.aliazaz.Validator;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
-import org.json.JSONException;
+import com.validatorcrawler.aliazaz.Validator;
 
 import edu.aku.hassannaqvi.covidimmunity.MainActivity;
 import edu.aku.hassannaqvi.covidimmunity.R;
-import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionFhaBinding;
-import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionHaBinding;
 import edu.aku.hassannaqvi.covidimmunity.ui.EndingActivity;
 
 public class SectionFHAActivity extends AppCompatActivity {
@@ -35,6 +31,7 @@ public class SectionFHAActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_fha);
+        bi.setFp(MainApp.fp);
         setupSkips();
         setSupportActionBar(bi.toolbar);
         setTitle(R.string.sectionha_mainheading);

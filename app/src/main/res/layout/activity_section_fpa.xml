@@ -184,7 +184,8 @@
                 <!-- fpa03  Title   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVfpa03"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    >
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -265,7 +266,7 @@
                                     android:maxLength="2"
                                     android:text="@={fp.fpa03m}"
                                     app:maxValue="11"
-                                    app:minValue="1"
+                                    app:minValue="0"
                                     app:type="range" />
 
                             </LinearLayout>
@@ -314,8 +315,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{fp.fpa03a.equals(``)}"
-                                android:onClick="@{()->fp.setFpa03a(``)}"
+                                android:checked="@{fp.fpa03a.equals(`1`)}"
+                                android:onClick="@{()->fp.setFpa03a(`1`)}"
                                 android:text="@string/fpa0301" />
 
                             <RadioButton
@@ -323,8 +324,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{fp.fpa03a.equals(``)}"
-                                android:onClick="@{()->fp.setFpa03a(``)}"
+                                android:checked="@{fp.fpa03a.equals(`2`)}"
+                                android:onClick="@{()->fp.setFpa03a(`2`)}"
                                 android:text="@string/fpa0302" />
                         </RadioGroup>
                     </LinearLayout>
@@ -333,7 +334,8 @@
                 <!-- fpa03c  Input-Numeric   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVfpa03c"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{fp.fpa03a.equals(`1`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -442,7 +444,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:background="@color/redOverlay"
-                        android:onClick="@{() -> callback.BtnEnd()}"
+                        android:onClick="BtnEnd"
                         android:text="Cancel"
                         android:textColor="@color/white" />
 
@@ -452,7 +454,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:background="@color/greenOverlay"
-                        android:onClick="@{() -> callback.BtnContinue()}"
+                        android:onClick="BtnContinue"
                         android:text="Save"
                         android:textColor="@color/white" />
                 </LinearLayout>

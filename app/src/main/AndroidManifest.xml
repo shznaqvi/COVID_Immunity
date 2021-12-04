@@ -48,6 +48,7 @@
         <activity
             android:name=".ui.sections.SectionFHAActivity"
             android:theme="@style/AppThemeUrdu"
+            android:exported="false"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".ui.LoginActivity"

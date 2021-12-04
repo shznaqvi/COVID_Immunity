@@ -188,12 +188,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:checked="@{fp.fpc03.equals(`1`)}"
-                                android:onClick="@{()->fp.setFpc03(`1`) + fpc04a.clearCheck()
-                                + fpc04b.clearCheck() + fpc04c.clearCheck() + fpc04d.clearCheck()
-                                + fpc04e.clearCheck() + fpc04f.clearCheck() + fpc04g.clearCheck()
-                                + fpc04h.clearCheck() + fpc04j.clearCheck() + fpc04k.clearCheck()
-                                + fpc04m.clearCheck() + fpc04n.clearCheck() + fpc04p.clearCheck()
-                                + fpc04q.clearCheck() }"
+                                android:onClick="@{()->fp.setFpc03(`1`) + fpc04a.clearCheck()+ fpc04b.clearCheck() + fpc04c.clearCheck() + fpc04d.clearCheck()+ fpc04e.clearCheck() + fpc04f.clearCheck() + fpc04g.clearCheck()+ fpc04h.clearCheck() + fpc04j.clearCheck() + fpc04k.clearCheck()+ fpc04m.clearCheck() + fpc04n.clearCheck() + fpc04p.clearCheck() + fpc04q.clearCheck() }"
                                 android:text="@string/fpc0301" />
 
                             <RadioButton
@@ -1128,6 +1123,8 @@
                             android:hint="@string/fpc06"
                             android:inputType="number"
                             android:text="@={fp.fpc06}"
+                            app:minValue="0"
+                            app:maxValue="99"
                             app:type="range" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -1169,7 +1166,9 @@
                             android:hint="@string/fpc07"
                             android:inputType="number"
                             android:text="@={fp.fpc07}"
-                            app:type="range" />
+                            app:type="range"
+                            app:minValue="0"
+                            app:maxValue="9999"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -1368,7 +1367,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:background="@color/redOverlay"
-                        android:onClick="@{() -> callback.BtnEnd()}"
+                        android:onClick="BtnEnd"
                         android:text="Cancel"
                         android:textColor="@color/white" />
 
@@ -1378,7 +1377,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:background="@color/greenOverlay"
-                        android:onClick="@{() -> callback.BtnContinue()}"
+                        android:onClick="BtnContinue"
                         android:text="Save"
                         android:textColor="@color/white" />
                 </LinearLayout>
