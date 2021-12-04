@@ -94,7 +94,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.EndingActivity"
-            android:theme="@style/AppThemeEnglish1"
+            android:theme="@style/AppThemeUrdu"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <service android:name=".DownloadFileService" />
