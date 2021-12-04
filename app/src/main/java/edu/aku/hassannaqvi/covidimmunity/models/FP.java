@@ -523,6 +523,7 @@ public class FP extends BaseObservable implements Observable {
 
     public void setFpc01(String fpc01) {
         this.fpc01 = fpc01;
+        setFpc02(fpc01.equals("1") ? this.fpc02 : "");
         notifyPropertyChanged(BR.fpc01);
     }
 
@@ -533,6 +534,21 @@ public class FP extends BaseObservable implements Observable {
 
     public void setFpc03(String fpc03) {
         this.fpc03 = fpc03;
+        setFpc04a(fpc03.equals("1") ? this.fpc04a : "");
+        setFpc04b(fpc03.equals("1") ? this.fpc04b : "");
+        setFpc04c(fpc03.equals("1") ? this.fpc04c : "");
+        setFpc04d(fpc03.equals("1") ? this.fpc04d : "");
+        setFpc04e(fpc03.equals("1") ? this.fpc04e : "");
+        setFpc04f(fpc03.equals("1") ? this.fpc04f : "");
+        setFpc04g(fpc03.equals("1") ? this.fpc04g : "");
+        setFpc04h(fpc03.equals("1") ? this.fpc04h : "");
+        setFpc04j(fpc03.equals("1") ? this.fpc04j : "");
+        setFpc04k(fpc03.equals("1") ? this.fpc04k : "");
+        setFpc04m(fpc03.equals("1") ? this.fpc04m : "");
+        setFpc04n(fpc03.equals("1") ? this.fpc04n : "");
+        setFpc04p(fpc03.equals("1") ? this.fpc04p : "");
+        setFpc04q(fpc03.equals("1") ? this.fpc04q : "");
+        setFpc0496x(fpc03.equals("1") ? this.fpc0496x : "");
         notifyPropertyChanged(BR.fpc03);
     }
 
@@ -603,6 +619,7 @@ public class FP extends BaseObservable implements Observable {
 
     public void setFpc04q(String fpc04q) {
         this.fpc04q = fpc04q;
+        setFpc0496x(fpc04q.equals("96") ? this.fpc0496x : "");
         notifyPropertyChanged(BR.fpc04q);
     }
 
@@ -613,6 +630,9 @@ public class FP extends BaseObservable implements Observable {
 
     public void setFpc05(String fpc05) {
         this.fpc05 = fpc05;
+        setFpc06(fpc05.equals("1") ?  this.fpc06 : "");
+        setFpc07(fpc05.equals("1") ?  this.fpc07 : "");
+        setFpc08(fpc05.equals("2") ? this.fpc08 : "");
         notifyPropertyChanged(BR.fpc05);
     }
 
@@ -628,6 +648,7 @@ public class FP extends BaseObservable implements Observable {
 
     public void setFpc08(String fpc08) {
         this.fpc08 = fpc08;
+        setFpc0896x(fpc08.equals("96") ? this.fpc0896x : "");
         notifyPropertyChanged(BR.fpc08);
     }
 
@@ -638,6 +659,7 @@ public class FP extends BaseObservable implements Observable {
 
     public void setFpa05(String fpa05) {
         this.fpa05 = fpa05;
+        setFpa0596x(fpa05.equals("96") ? this.fpa0596x : "");
         notifyPropertyChanged(BR.fpa05);
     }
 

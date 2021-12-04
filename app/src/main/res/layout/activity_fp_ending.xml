@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="edu.aku.hassannaqvi.covidimmunity.ui.FP_EndingActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="fp"
+            type="edu.aku.hassannaqvi.covidimmunity.models.FP" />
+
+        <variable
+            name="callback"
+            type="edu.aku.hassannaqvi.covidimmunity.ui.FP_EndingActivity" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <!-- CUSTOM TOOLBAR -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ToolbarTheme"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- fpa05  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVfpa05"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/fldGrpFpEnd">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_fpa05" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/fpa05" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/fpa05"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/fpa0501"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="@{fp.fpa05.equals(`1`)}"
+                            android:onClick="@{()->fp.setFpa05(`1`)}"
+                            android:text="@string/fpa0501" />
+
+                        <RadioButton
+                            android:id="@+id/fpa0502"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="@{fp.fpa05.equals(`2`)}"
+                            android:onClick="@{()->fp.setFpa05(`2`)}"
+                            android:text="@string/fpa0502" />
+
+                        <RadioButton
+                            android:id="@+id/fpa0503"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="@{fp.fpa05.equals(`3`)}"
+                            android:onClick="@{()->fp.setFpa05(`3`)}"
+                            android:text="@string/fpa0503" />
+
+                        <RadioButton
+                            android:id="@+id/fpa0504"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="@{fp.fpa05.equals(`4`)}"
+                            android:onClick="@{()->fp.setFpa05(`4`)}"
+                            android:text="@string/fpa0504" />
+
+                        <RadioButton
+                            android:id="@+id/fpa0505"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="@{fp.fpa05.equals(`5`)}"
+                            android:onClick="@{()->fp.setFpa05(`5`)}"
+                            android:text="@string/fpa0505" />
+
+                        <RadioButton
+                            android:id="@+id/fpa0506"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="@{fp.fpa05.equals(`6`)}"
+                            android:onClick="@{()->fp.setFpa05(`6`)}"
+                            android:text="@string/fpa0506" />
+
+                        <RadioButton
+                            android:id="@+id/fpa0596"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="@{fp.fpa05.equals(`96`)}"
+                            android:onClick="@{()->fp.setFpa05(`96`)}"
+                            android:text="@string/fpa0596" />
+
+                        <EditText
+                            android:id="@+id/fpa0596x"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                            android:hint="@string/fpa0596"
+                            android:tag="fpa0596"
+                            android:text="@={fp.fpa0596x}"
+                            android:visibility='@{fp.fpa05.equals(`96`)? View.VISIBLE : View.GONE}' />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView><!--EndButton LinearLayout-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_End"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/greenLight"
+                    android:onClick="BtnEnd"
+                    android:text="Save"
+                    android:textColor="@color/white" />
+
+                <!--<Button
+                    android:id="@+id/btn_Continue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:background="@color/greenOverlay"
+                    android:onClick="@{() -> callback.BtnContinue()}"
+                    android:text="Save"
+                    android:textColor="@color/white" />-->
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+</layout>

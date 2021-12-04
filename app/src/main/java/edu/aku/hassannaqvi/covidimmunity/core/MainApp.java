@@ -13,6 +13,7 @@ import java.io.File;
 import java.util.List;
 
 import edu.aku.hassannaqvi.covidimmunity.BuildConfig;
+import edu.aku.hassannaqvi.covidimmunity.models.FP;
 import edu.aku.hassannaqvi.covidimmunity.models.Form;
 import edu.aku.hassannaqvi.covidimmunity.models.Users;
 import edu.aku.hassannaqvi.covidimmunity.models.VersionApp;
@@ -39,6 +40,7 @@ public class MainApp extends Application {
     public static File sdDir;
     public static String[] downloadData;
     public static Form form;
+    public static FP fp;
 
 
     public static String DeviceURL = "devices.php";

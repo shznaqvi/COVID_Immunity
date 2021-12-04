@@ -39,6 +39,7 @@ import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivityMainBinding;
+import edu.aku.hassannaqvi.covidimmunity.models.FP;
 import edu.aku.hassannaqvi.covidimmunity.models.Form;
 import edu.aku.hassannaqvi.covidimmunity.models.VersionApp;
 import edu.aku.hassannaqvi.covidimmunity.ui.SyncActivity;
@@ -277,17 +278,17 @@ public class MainActivity extends AppCompatActivity {
 
 
             case R.id.secfha:
-                MainApp.form = new Form();
+                MainApp.fp = new FP();
                 startActivity(new Intent(this, SectionFHAActivity.class));
                 break;
 
             case R.id.secfpa:
-                MainApp.form = new Form();
+                MainApp.fp = new FP();
                 startActivity(new Intent(this, SectionFPAActivity.class));
                 break;
 
             case R.id.secfpc:
-                MainApp.form = new Form();
+                MainApp.fp = new FP();
                 startActivity(new Intent(this, SectionFPCActivity.class));
                 break;
 

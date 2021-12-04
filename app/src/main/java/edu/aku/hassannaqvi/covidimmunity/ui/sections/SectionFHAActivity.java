@@ -14,17 +14,19 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 
+import edu.aku.hassannaqvi.covidimmunity.MainActivity;
 import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
+import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionFhaBinding;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionHaBinding;
 import edu.aku.hassannaqvi.covidimmunity.ui.EndingActivity;
 
 public class SectionFHAActivity extends AppCompatActivity {
 
     private static final String TAG = "SectionFHAActivity";
-    ActivitySectionHaBinding bi;
+    ActivitySectionFhaBinding bi;
     private DatabaseHelper db;
 
 
@@ -92,7 +94,7 @@ public class SectionFHAActivity extends AppCompatActivity {
         saveDraft();
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, SectionPAActivity.class).putExtra("complete", true));
+            startActivity(new Intent(this, MainActivity.class).putExtra("complete", true));
         } else {
             Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
         }

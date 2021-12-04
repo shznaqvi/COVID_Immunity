@@ -14,13 +14,14 @@ import edu.aku.hassannaqvi.covidimmunity.MainActivity;
 import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
+import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionFpcBinding;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionHaBinding;
 import edu.aku.hassannaqvi.covidimmunity.ui.EndingActivity;
 
 public class SectionFPCActivity extends AppCompatActivity {
 
     private static final String TAG = "SectionFPCActivity";
-    ActivitySectionHaBinding bi;
+    ActivitySectionFpcBinding bi;
     private DatabaseHelper db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

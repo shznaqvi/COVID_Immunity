@@ -34,6 +34,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.FP_EndingActivity"
+            android:theme="@style/AppThemeUrdu"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
             android:name=".ui.sections.SectionFPCActivity"
             android:theme="@style/AppThemeUrdu"
             android:windowSoftInputMode="adjustResize|stateHidden" />
