@@ -1,17 +1,24 @@
 package edu.aku.hassannaqvi.covidimmunity.models;
 
+import android.annotation.SuppressLint;
+import android.database.Cursor;
+import android.util.Log;
+
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.Observable;
 import androidx.databinding.PropertyChangeRegistry;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 import edu.aku.hassannaqvi.covidimmunity.BR;
+import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 
 public class FP extends BaseObservable implements Observable {
@@ -23,6 +30,7 @@ public class FP extends BaseObservable implements Observable {
     // APP VARIABLES
     private String id = StringUtils.EMPTY;
     private String uid = StringUtils.EMPTY;
+    private String uuid = StringUtils.EMPTY;
     private final String wuid = StringUtils.EMPTY;
     private final String cuid = StringUtils.EMPTY;
     private String userName = StringUtils.EMPTY;
@@ -93,6 +101,28 @@ public class FP extends BaseObservable implements Observable {
         deviceId = MainApp.deviceid;
         appver = MainApp.versionName + "." + MainApp.versionCode;
 
+    }
+
+    public void populateMeta() {
+
+        setSysDate(MainApp.fp.getSysDate());
+        setUserName(MainApp.fp.getUserName());
+        setDeviceId(MainApp.deviceid);
+        setUuid(MainApp.form.getUid());  // not applicable in Form table
+        setAppver(MainApp.appInfo.getAppVersion());
+
+        setProjectName(MainApp.PROJECT_NAME);
+        /*setpsuCode(MainApp.selectedPSU);
+        setHhid(MainApp.selectedHHID);*/
+
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public void setProjectName(String projectName) {
@@ -664,6 +694,215 @@ public class FP extends BaseObservable implements Observable {
         this.fpa0596x = fpa0596x;
         notifyPropertyChanged(BR.fpa0596x);
     }
+
+    @SuppressLint("Range")
+    public FP Hydrate(Cursor cursor) throws JSONException {
+        this.id = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_ID));
+        this.uid = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_UID));
+        this.uuid = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_UID));
+        this.userName = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_USERNAME));
+        this.sysDate = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_SYSDATE));
+        this.deviceId = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_DEVICEID));
+        this.deviceTag = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_DEVICETAGID));
+        this.appver = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_APPVERSION));
+        this.iStatus = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_ISTATUS));
+        this.synced = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_SYNCED));
+        this.syncDate = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_SYNCED_DATE));
+
+        sFHAHydrate(cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_SFHA)));
+        sFPAHydrate(cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_SFPA)));
+        sFPCHydrate(cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_SFPC)));
+
+        return this;
+    }
+
+    public void sFHAHydrate(String string) throws JSONException {
+        Log.d(TAG, "sFHAHydrate: " + string);
+        if (string != null) {
+
+            JSONObject json = null;
+            json = new JSONObject(string);
+            this.fha01 = json.getString("fha01");
+            this.fha02 = json.getString("fha02");
+            this.fha09 = json.getString("fha09");
+            this.fha10 = json.getString("fha10");
+            this.fha11 = json.getString("fha11");
+            this.fha12 = json.getString("fha12");
+            this.fha12a = json.getString("fha12a");
+            this.fha13 = json.getString("fha13");
+
+
+        }
+    }
+
+    public void sFPAHydrate(String string) throws JSONException {
+        Log.d(TAG, "sFPAHydrate: " + string);
+        if (string != null) {
+
+            JSONObject json = null;
+            json = new JSONObject(string);
+            this.fpa01a = json.getString("fpa01a");
+            this.fpa01 = json.getString("fpa01");
+            this.fpa02 = json.getString("fpa02");
+            this.fpa03y = json.getString("fpa03y");
+            this.fpa03m = json.getString("fpa03m");
+            this.fpa03a = json.getString("fpa03a");
+            this.fpa03c = json.getString("fpa03c");
+            this.fpa04 = json.getString("fpa04");
+
+        }
+    }
+
+    public void sFPCHydrate(String string) throws JSONException {
+        Log.d(TAG, "sPCHydrate: " + string);
+        if (string != null) {
+
+            JSONObject json = null;
+            json = new JSONObject(string);
+            this.fpc01 = json.getString("fpc01");
+            this.fpc02 = json.getString("fpc02");
+            this.fpc03 = json.getString("fpc03");
+            this.fpc04a = json.getString("fpc04a");
+            this.fpc04b = json.getString("fpc04b");
+            this.fpc04c = json.getString("fpc04c");
+            this.fpc04d = json.getString("fpc04d");
+            this.fpc04e = json.getString("fpc04e");
+            this.fpc04f = json.getString("fpc04f");
+            this.fpc04g = json.getString("fpc04g");
+            this.fpc04h = json.getString("fpc04h");
+            this.fpc04j = json.getString("fpc04j");
+            this.fpc04k = json.getString("fpc04k");
+            this.fpc04m = json.getString("fpc04m");
+            this.fpc04n = json.getString("fpc04n");
+            this.fpc04p = json.getString("fpc04p");
+            this.fpc04q = json.getString("fpc04q");
+            this.fpc0496x = json.getString("fpc0496x");
+            this.fpc05 = json.getString("fpc05");
+            this.fpc06 = json.getString("fpc06");
+            this.fpc07 = json.getString("fpc07");
+            this.fpc08 = json.getString("fpc08");
+            this.fpc0896x = json.getString("fpc0896x");
+
+
+        }
+    }
+
+    public String sFHAtoString() throws JSONException {
+        Log.d(TAG, "sFHAtoString: ");
+        JSONObject json = new JSONObject();
+
+        json.put("fha01", fha01)
+                .put("fha02", fha02)
+                .put("fha09", fha09)
+                .put("fha10", fha10)
+                .put("fha11", fha11)
+                .put("fha12", fha12)
+                .put("fha12a", fha12a)
+                .put("fha13", fha13);
+
+        return json.toString();
+    }
+
+
+    public String sFPAtoString() throws JSONException {
+        Log.d(TAG, "sFPAtoString: ");
+        JSONObject json = new JSONObject();
+
+        json.put("fpa01a", fpa01a)
+                .put("fpa01", fpa01)
+                .put("fpa02", fpa02)
+                .put("fpa03y", fpa03y)
+                .put("fpa03m", fpa03m)
+                .put("fpa03a", fpa03a)
+                .put("fpa03c", fpa03c)
+                .put("fpa04", fpa04);
+
+        return json.toString();
+    }
+
+
+
+    public String sFPCtoString() throws JSONException {
+        Log.d(TAG, "sFPCtoString: ");
+        JSONObject json = new JSONObject();
+
+        json.put("fpc01", fpc01)
+                .put("fpc02", fpc02)
+                .put("fpc03", fpc03)
+                .put("fpc04a", fpc04a)
+                .put("fpc04b", fpc04b)
+                .put("fpc04c", fpc04c)
+                .put("fpc04d", fpc04d)
+                .put("fpc04e", fpc04e)
+                .put("fpc04f", fpc04f)
+                .put("fpc04g", fpc04g)
+                .put("fpc04h", fpc04h)
+                .put("fpc04j", fpc04j)
+                .put("fpc04k", fpc04k)
+                .put("fpc04m", fpc04m)
+                .put("fpc04n", fpc04n)
+                .put("fpc04p", fpc04p)
+                .put("fpc04q", fpc04q)
+                .put("fpc0496x", fpc0496x)
+                .put("fpc05", fpc05)
+                .put("fpc06", fpc06)
+                .put("fpc07", fpc07)
+                .put("fpc08", fpc08)
+                .put("fpc0896x", fpc0896x);
+
+        return json.toString();
+    }
+
+    public JSONObject toJSONObject() throws JSONException {
+        JSONObject json = new JSONObject();
+
+        json.put(TableContracts.FollowupTable.COLUMN_ID, this.id);
+        json.put(TableContracts.FollowupTable.COLUMN_UID, this.uid);
+        json.put(TableContracts.FollowupTable.COLUMN_UUID, this.uuid);
+        json.put(TableContracts.FollowupTable.COLUMN_USERNAME, this.userName);
+        json.put(TableContracts.FollowupTable.COLUMN_SYSDATE, this.sysDate);
+        json.put(TableContracts.FollowupTable.COLUMN_DEVICEID, this.deviceId);
+        json.put(TableContracts.FollowupTable.COLUMN_DEVICETAGID, this.deviceTag);
+        json.put(TableContracts.FollowupTable.COLUMN_ISTATUS, this.iStatus);
+        json.put(TableContracts.FollowupTable.COLUMN_SYNCED, this.synced);
+        json.put(TableContracts.FollowupTable.COLUMN_SYNCED_DATE, this.syncDate);
+
+        // FP
+        json.put(TableContracts.FollowupTable.COLUMN_SFHA, new JSONObject(sFHAtoString()));
+        json.put(TableContracts.FollowupTable.COLUMN_SFPA, new JSONObject(sFPAtoString()));
+        json.put(TableContracts.FollowupTable.COLUMN_SFPC, new JSONObject(sFPCtoString()));
+
+        return json;
+    }
+    private synchronized void notifyChange(int propertyId) {
+        if (propertyChangeRegistry == null) {
+            propertyChangeRegistry = new PropertyChangeRegistry();
+        }
+        propertyChangeRegistry.notifyChange(this, propertyId);
+    }
+
+    @Override
+    public synchronized void addOnPropertyChangedCallback(OnPropertyChangedCallback callback) {
+        if (propertyChangeRegistry == null) {
+            propertyChangeRegistry = new PropertyChangeRegistry();
+        }
+        propertyChangeRegistry.add(callback);
+
+    }
+
+    @Override
+    public synchronized void removeOnPropertyChangedCallback(OnPropertyChangedCallback callback) {
+        if (propertyChangeRegistry != null) {
+            propertyChangeRegistry.remove(callback);
+        }
+    }
+
+
+
+
+
+
+
 
 
 

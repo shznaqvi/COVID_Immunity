@@ -23,10 +23,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.VersionTable;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
+import edu.aku.hassannaqvi.covidimmunity.models.FP;
 import edu.aku.hassannaqvi.covidimmunity.models.Form;
 import edu.aku.hassannaqvi.covidimmunity.models.Users;
 import edu.aku.hassannaqvi.covidimmunity.models.VersionApp;
@@ -100,6 +102,41 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+
+    //ADDITION in DB
+    public Long addFollowup(FP fp) throws JSONException {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(TableContracts.FollowupTable.COLUMN_PROJECT_NAME, fp.getProjectName());
+        values.put(TableContracts.FollowupTable.COLUMN_UID, fp.getUid());
+        values.put(TableContracts.FollowupTable.COLUMN_UUID, fp.getUuid());
+        values.put(TableContracts.FollowupTable.COLUMN_USERNAME, fp.getUserName());
+        values.put(TableContracts.FollowupTable.COLUMN_SYSDATE, fp.getSysDate());
+        values.put(TableContracts.FollowupTable.COLUMN_SFHA, fp.sFHAtoString());
+        values.put(TableContracts.FollowupTable.COLUMN_SFPA, fp.sFPAtoString());
+        values.put(TableContracts.FollowupTable.COLUMN_SFPC, fp.sFPCtoString());
+
+
+        values.put(TableContracts.FollowupTable.COLUMN_ISTATUS, fp.getiStatus());
+
+        values.put(TableContracts.FollowupTable.COLUMN_DEVICETAGID, fp.getDeviceTag());
+        values.put(TableContracts.FollowupTable.COLUMN_DEVICEID, fp.getDeviceId());
+        values.put(TableContracts.FollowupTable.COLUMN_APPVERSION, fp.getAppver());
+
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                TableContracts.FollowupTable.TABLE_NAME,
+                TableContracts.FollowupTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
     //UPDATE in DB
     public int updatesFormColumn(String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -111,6 +148,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {String.valueOf(MainApp.form.getId())};
 
         return db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+    //UPDATE in DB
+    public int updatesFollowupColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = TableContracts.FollowupTable._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.fp.getId())};
+
+        return db.update(TableContracts.FollowupTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);

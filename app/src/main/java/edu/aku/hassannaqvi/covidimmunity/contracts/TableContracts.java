@@ -47,6 +47,26 @@ public class TableContracts {
 
     }
 
+    public static abstract class FollowupTable implements BaseColumns {
+        public static final String TABLE_NAME = "fp";
+        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
+        public static final String COLUMN_PROJECT_NAME = "projectName";
+        public static final String COLUMN_ID = "_id";
+        public static final String COLUMN_UID = "_uid";
+        public static final String COLUMN_UUID = "_uuid";
+        public static final String COLUMN_USERNAME = "username";
+        public static final String COLUMN_SYSDATE = "sysdate";
+        public static final String COLUMN_SFHA = "sfHA";
+        public static final String COLUMN_SFPA = "sfPA";
+        public static final String COLUMN_SFPC = "sfPC";
+        public static final String COLUMN_DEVICEID = "deviceid";
+        public static final String COLUMN_DEVICETAGID = "devicetagid";
+        public static final String COLUMN_SYNCED = "synced";
+        public static final String COLUMN_SYNCED_DATE = "synced_date";
+        public static final String COLUMN_APPVERSION = "appversion";
+        public static final String COLUMN_ISTATUS = "istatus";
+    }
+
     /*public static abstract class ZScoreTable implements BaseColumns {
         public static final String TABLE_NAME = "zstandards";
         public static final String _ID = "_id";

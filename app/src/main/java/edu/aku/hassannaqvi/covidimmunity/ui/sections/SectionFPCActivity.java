@@ -1,5 +1,7 @@
 package edu.aku.hassannaqvi.covidimmunity.ui.sections;
 
+import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.fp;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +16,7 @@ import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionFpcBinding;
-import edu.aku.hassannaqvi.covidimmunity.ui.EndingActivity;
+import edu.aku.hassannaqvi.covidimmunity.ui.FP_EndingActivity;
 
 public class SectionFPCActivity extends AppCompatActivity {
 
@@ -25,7 +27,7 @@ public class SectionFPCActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_fpc);
-        bi.setFp(MainApp.fp);
+        bi.setFp(fp);
         setupSkips();
         setSupportActionBar(bi.toolbar);
         setTitle(R.string.sectionpc_mainheading);
@@ -43,7 +45,7 @@ public class SectionFPCActivity extends AppCompatActivity {
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = 0;
         try {
-            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SHA, form.sHAtoString());
+            updcount = db.updatesFollowupColumn(TableContracts.FollowupTable.COLUMN_SFHA, MainApp.fp.sFPCtoString());
         } catch (JSONException e) {
             Toast.makeText(this, R.string.upd_db + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -62,7 +64,7 @@ public class SectionFPCActivity extends AppCompatActivity {
         saveDraft();
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+            startActivity(new Intent(this, FP_EndingActivity.class).putExtra("complete", true));
         } else {
             Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
         }
@@ -73,7 +75,7 @@ public class SectionFPCActivity extends AppCompatActivity {
 
     public void BtnEnd(View view) {
         finish();
-        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+        startActivity(new Intent(this, FP_EndingActivity.class).putExtra("complete", false));
     }
 
     private boolean formValidation() {

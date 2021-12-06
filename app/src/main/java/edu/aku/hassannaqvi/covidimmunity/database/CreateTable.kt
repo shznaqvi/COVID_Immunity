@@ -46,4 +46,24 @@ object CreateTable {
             + VersionTable.COLUMN_PATH_NAME + " TEXT "
             + ");"
             )
+
+    const val SQL_CREATE_FOLLOWUPS = ("CREATE TABLE "
+            + FollowupTable.TABLE_NAME + "("
+            + FollowupTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + FollowupTable.COLUMN_PROJECT_NAME + " TEXT,"
+            + FollowupTable.COLUMN_UID + " TEXT,"
+            + FollowupTable.COLUMN_UUID + " TEXT,"
+            + FollowupTable.COLUMN_USERNAME + " TEXT,"
+            + FollowupTable.COLUMN_SYSDATE + " TEXT,"
+            + FollowupTable.COLUMN_ISTATUS + " TEXT,"
+            + FollowupTable.COLUMN_DEVICEID + " TEXT,"
+            + FollowupTable.COLUMN_DEVICETAGID + " TEXT,"
+            + FollowupTable.COLUMN_SYNCED + " TEXT,"
+            + FollowupTable.COLUMN_SYNCED_DATE + " TEXT,"
+            + FollowupTable.COLUMN_APPVERSION + " TEXT,"
+            + FollowupTable.COLUMN_SFHA + " TEXT,"
+            + FollowupTable.COLUMN_SFPA + " TEXT,"
+            + FollowupTable.COLUMN_SFPC + " TEXT"
+            + " );"
+            )
 }

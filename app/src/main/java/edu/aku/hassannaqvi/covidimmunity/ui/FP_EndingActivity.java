@@ -1,14 +1,13 @@
 package edu.aku.hassannaqvi.covidimmunity.ui;
 
-import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.form;
 import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.fp;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
@@ -17,7 +16,6 @@ import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivityFpEndingBinding;
-import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionHaBinding;
 
 public class FP_EndingActivity extends AppCompatActivity {
 
@@ -46,9 +44,20 @@ public class FP_EndingActivity extends AppCompatActivity {
         bi.fpa0596.setEnabled(!check);
     }
 
+    private void saveDraft() {
+        fp.setiStatus(bi.fpa0501.isChecked() ? "1"
+                : bi.fpa0502.isChecked() ? "2"
+                : bi.fpa0503.isChecked() ? "3"
+                : bi.fpa0504.isChecked() ? "4"
+                : bi.fpa0505.isChecked() ? "5"
+                : bi.fpa0506.isChecked() ? "6"
+                : bi.fpa0596.isChecked() ? "96"
+                : "-1");
+    }
+
     public void BtnEnd(View view) {
         if (!formValidation()) return;
-        //saveDraft();
+        saveDraft();
         if (UpdateDB()) {
 
             cleanupProcess();
@@ -65,12 +74,12 @@ public class FP_EndingActivity extends AppCompatActivity {
     }
 
     private void cleanupProcess() {
-        form = null;
+        fp = null;
     }
 
 
     private boolean UpdateDB() {
-        int updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_ISTATUS, form.getiStatus());
+        int updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_ISTATUS, fp.getiStatus());
         return updcount > 0;
     }
 

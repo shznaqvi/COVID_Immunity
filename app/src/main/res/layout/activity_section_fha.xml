@@ -162,7 +162,8 @@
                             android:id="@+id/fha09"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:layoutDirection="rtl">
 
                             <RadioButton
                                 android:id="@+id/fha0901"
@@ -343,7 +344,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/fha12a"
-                            android:text="@={fp.fha12a}" />
+                            android:text="@={fp.fha12a}"
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 

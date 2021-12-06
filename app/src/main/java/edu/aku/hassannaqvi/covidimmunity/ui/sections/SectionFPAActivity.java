@@ -1,5 +1,7 @@
 package edu.aku.hassannaqvi.covidimmunity.ui.sections;
 
+import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.fp;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +16,7 @@ import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionFpaBinding;
-import edu.aku.hassannaqvi.covidimmunity.ui.EndingActivity;
+import edu.aku.hassannaqvi.covidimmunity.ui.FP_EndingActivity;
 
 public class SectionFPAActivity extends AppCompatActivity {
 
@@ -25,7 +27,7 @@ public class SectionFPAActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_fpa);
-        bi.setFp(MainApp.fp);
+        bi.setFp(fp);
         setupSkips();
         setSupportActionBar(bi.toolbar);
         setTitle(R.string.sectionpa_mainheading);
@@ -43,7 +45,7 @@ public class SectionFPAActivity extends AppCompatActivity {
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = 0;
         try {
-            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SHA, form.sHAtoString());
+            updcount = db.updatesFormColumn(TableContracts.FollowupTable.COLUMN_SFHA, MainApp.fp.sFPAtoString());
         } catch (JSONException e) {
             Toast.makeText(this, R.string.upd_db + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -73,7 +75,7 @@ public class SectionFPAActivity extends AppCompatActivity {
 
     public void BtnEnd(View view) {
         finish();
-        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+        startActivity(new Intent(this, FP_EndingActivity.class).putExtra("complete", false));
     }
 
     private boolean formValidation() {

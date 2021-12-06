@@ -1,6 +1,8 @@
 package edu.aku.hassannaqvi.covidimmunity.ui.sections;
 
 
+import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.fp;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +17,7 @@ import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionFhaBinding;
-import edu.aku.hassannaqvi.covidimmunity.ui.EndingActivity;
+import edu.aku.hassannaqvi.covidimmunity.ui.FP_EndingActivity;
 
 public class SectionFHAActivity extends AppCompatActivity {
 
@@ -29,7 +31,7 @@ public class SectionFHAActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_fha);
-        bi.setFp(MainApp.fp);
+        bi.setFp(fp);
         setupSkips();
         setSupportActionBar(bi.toolbar);
         setTitle(R.string.sectionha_mainheading);
@@ -42,19 +44,19 @@ public class SectionFHAActivity extends AppCompatActivity {
     }
 
     private boolean insertNewRecord() {
-        /*if (!form.getUid().equals("")) return true;
+        /*if (!fp.getUid().equals("")) return true;
         long rowId = 0;
         try {
-            rowId = db.addForm(form);
+            rowId = db.addFollowup(fp);
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(this, R.string.db_excp_error, Toast.LENGTH_SHORT).show();
             return false;
         }
-        form.setId(String.valueOf(rowId));
+        fp.setId(String.valueOf(rowId));
         if (rowId > 0) {
-            form.setUid(form.getDeviceId() + form.getId());
-            db.updatesFormColumn(TableContracts.FormsTable.COLUMN_UID, form.getUid());
+            fp.setUid(fp.getDeviceId() + fp.getId());
+            db.updatesFollowupColumn(TableContracts.FollowupTable.COLUMN_UID, fp.getUid());
             return true;
         } else {
             Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
@@ -69,7 +71,7 @@ public class SectionFHAActivity extends AppCompatActivity {
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = 0;
         try {
-            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SHA, form.sHAtoString());
+            updcount = db.updatesFormColumn(TableContracts.FollowupTable.COLUMN_SFHA, fp.sFHAtoString());
         } catch (JSONException e) {
             Toast.makeText(this, R.string.upd_db + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -100,12 +102,12 @@ public class SectionFHAActivity extends AppCompatActivity {
 
 
     public void BtnEnd(View view) {
-        // if (!formValidation()) return;
+         if (!formValidation()) return;
         if (!insertNewRecord()) return;
         saveDraft();
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+            startActivity(new Intent(this, FP_EndingActivity.class).putExtra("complete", false));
         } else {
             Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
         }

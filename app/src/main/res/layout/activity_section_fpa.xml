@@ -158,7 +158,8 @@
                             android:id="@+id/fpa02"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:layoutDirection="rtl">
 
                             <RadioButton
                                 android:id="@+id/fpa021"
@@ -216,7 +217,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:background="@drawable/bottom">
+                            android:background="@drawable/bottom"
+                            android:layoutDirection="rtl">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -308,7 +310,8 @@
                             android:id="@+id/fpa03a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:layoutDirection="rtl">
 
                             <RadioButton
                                 android:id="@+id/fpa0301"
@@ -409,7 +412,8 @@
                             android:id="@+id/fpa04"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:layoutDirection="rtl">
 
                             <RadioButton
                                 android:id="@+id/fpa041"
