@@ -874,6 +874,8 @@ public class FP extends BaseObservable implements Observable {
 
         return json;
     }
+
+
     private synchronized void notifyChange(int propertyId) {
         if (propertyChangeRegistry == null) {
             propertyChangeRegistry = new PropertyChangeRegistry();
