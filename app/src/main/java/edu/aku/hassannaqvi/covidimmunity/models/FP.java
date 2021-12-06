@@ -469,94 +469,94 @@ public class FP extends BaseObservable implements Observable {
 
     public void setFha01(String fha01) {
         this.fha01 = fha01;
-        notifyPropertyChanged(BR.fha01);
+        notifyChange(BR.fha01);
     }
 
     public void setFha02(String fha02) {
         this.fha02 = fha02;
-        notifyPropertyChanged(BR.fha02);
+        notifyChange(BR.fha02);
     }
 
     public void setFha09(String fha09) {
         this.fha09 = fha09;
-        notifyPropertyChanged(BR.fha09);
+        notifyChange(BR.fha09);
     }
 
     public void setFha10(String fha10) {
         this.fha10 = fha10;
-        notifyPropertyChanged(BR.fha10);
+        notifyChange(BR.fha10);
     }
 
     public void setFha11(String fha11) {
         this.fha11 = fha11;
-        notifyPropertyChanged(BR.fha11);
+        notifyChange(BR.fha11);
     }
 
     public void setFha12(String fha12) {
         this.fha12 = fha12;
-        notifyPropertyChanged(BR.fha12);
+        notifyChange(BR.fha12);
     }
 
     public void setFha12a(String fha12a) {
         this.fha12a = fha12a;
-        notifyPropertyChanged(BR.fha12a);
+        notifyChange(BR.fha12a);
     }
 
     public void setFha13(String fha13) {
         this.fha13 = fha13;
-        notifyPropertyChanged(BR.fha13);
+        notifyChange(BR.fha13);
     }
 
     public void setFpa01a(String fpa01a) {
         this.fpa01a = fpa01a;
-        notifyPropertyChanged(BR.fpa01a);
+        notifyChange(BR.fpa01a);
     }
 
     public void setFpa01(String fpa01) {
         this.fpa01 = fpa01;
-        notifyPropertyChanged(BR.fpa01);
+        notifyChange(BR.fpa01);
     }
 
     public void setFpa02(String fpa02) {
         this.fpa02 = fpa02;
-        notifyPropertyChanged(BR.fpa02);
+        notifyChange(BR.fpa02);
     }
 
     public void setFpa03y(String fpa03y) {
         this.fpa03y = fpa03y;
-        notifyPropertyChanged(BR.fpa03y);
+        notifyChange(BR.fpa03y);
     }
 
     public void setFpa03m(String fpa03m) {
         this.fpa03m = fpa03m;
-        notifyPropertyChanged(BR.fpa03m);
+        notifyChange(BR.fpa03m);
     }
 
     public void setFpa03a(String fpa03a) {
         this.fpa03a = fpa03a;
         setFpa03c(fpa03a.equals("1") ? "" : this.fpa03c);
-        notifyPropertyChanged(BR.fpa03a);
+        notifyChange(BR.fpa03a);
     }
 
     public void setFpa03c(String fpa03c) {
         this.fpa03c = fpa03c;
-        notifyPropertyChanged(BR.fpa03c);
+        notifyChange(BR.fpa03c);
     }
 
     public void setFpa04(String fpa04) {
         this.fpa04 = fpa04;
-        notifyPropertyChanged(BR.fpa04);
+        notifyChange(BR.fpa04);
     }
 
     public void setFpc01(String fpc01) {
         this.fpc01 = fpc01;
         setFpc02(fpc01.equals("1") ? this.fpc02 : "");
-        notifyPropertyChanged(BR.fpc01);
+        notifyChange(BR.fpc01);
     }
 
     public void setFpc02(String fpc02) {
         this.fpc02 = fpc02;
-        notifyPropertyChanged(BR.fpc02);
+        notifyChange(BR.fpc02);
     }
 
     public void setFpc03(String fpc03) {
@@ -576,83 +576,83 @@ public class FP extends BaseObservable implements Observable {
         setFpc04p(fpc03.equals("1") ? this.fpc04p : "");
         setFpc04q(fpc03.equals("1") ? this.fpc04q : "");
         setFpc0496x(fpc03.equals("1") ? this.fpc0496x : "");
-        notifyPropertyChanged(BR.fpc03);
+        notifyChange(BR.fpc03);
     }
 
     public void setFpc04a(String fpc04a) {
         this.fpc04a = fpc04a;
-        notifyPropertyChanged(BR.fpc04a);
+        notifyChange(BR.fpc04a);
     }
 
     public void setFpc04b(String fpc04b) {
         this.fpc04b = fpc04b;
-        notifyPropertyChanged(BR.fpc04b);
+        notifyChange(BR.fpc04b);
     }
 
     public void setFpc04c(String fpc04c) {
         this.fpc04c = fpc04c;
-        notifyPropertyChanged(BR.fpc04c);
+        notifyChange(BR.fpc04c);
     }
 
     public void setFpc04d(String fpc04d) {
         this.fpc04d = fpc04d;
-        notifyPropertyChanged(BR.fpc04d);
+        notifyChange(BR.fpc04d);
     }
 
     public void setFpc04e(String fpc04e) {
         this.fpc04e = fpc04e;
-        notifyPropertyChanged(BR.fpc04e);
+        notifyChange(BR.fpc04e);
     }
 
     public void setFpc04f(String fpc04f) {
         this.fpc04f = fpc04f;
-        notifyPropertyChanged(BR.fpc04f);
+        notifyChange(BR.fpc04f);
     }
 
     public void setFpc04g(String fpc04g) {
         this.fpc04g = fpc04g;
-        notifyPropertyChanged(BR.fpc04g);
+        notifyChange(BR.fpc04g);
     }
 
     public void setFpc04h(String fpc04h) {
         this.fpc04h = fpc04h;
-        notifyPropertyChanged(BR.fpc04h);
+        notifyChange(BR.fpc04h);
     }
 
     public void setFpc04j(String fpc04j) {
         this.fpc04j = fpc04j;
-        notifyPropertyChanged(BR.fpc04j);
+        notifyChange(BR.fpc04j);
     }
 
     public void setFpc04k(String fpc04k) {
         this.fpc04k = fpc04k;
-        notifyPropertyChanged(BR.fpc04k);
+        notifyChange(BR.fpc04k);
     }
 
     public void setFpc04m(String fpc04m) {
         this.fpc04m = fpc04m;
-        notifyPropertyChanged(BR.fpc04m);
+        notifyChange(BR.fpc04m);
     }
 
     public void setFpc04n(String fpc04n) {
         this.fpc04n = fpc04n;
-        notifyPropertyChanged(BR.fpc04n);
+        notifyChange(BR.fpc04n);
     }
 
     public void setFpc04p(String fpc04p) {
         this.fpc04p = fpc04p;
-        notifyPropertyChanged(BR.fpc04p);
+        notifyChange(BR.fpc04p);
     }
 
     public void setFpc04q(String fpc04q) {
         this.fpc04q = fpc04q;
         setFpc0496x(fpc04q.equals("96") ? this.fpc0496x : "");
-        notifyPropertyChanged(BR.fpc04q);
+        notifyChange(BR.fpc04q);
     }
 
     public void setFpc0496x(String fpc0496x) {
         this.fpc0496x = fpc0496x;
-        notifyPropertyChanged(BR.fpc0496x);
+        notifyChange(BR.fpc0496x);
     }
 
     public void setFpc05(String fpc05) {
@@ -660,39 +660,39 @@ public class FP extends BaseObservable implements Observable {
         setFpc06(fpc05.equals("1") ?  this.fpc06 : "");
         setFpc07(fpc05.equals("1") ?  this.fpc07 : "");
         setFpc08(fpc05.equals("2") ? this.fpc08 : "");
-        notifyPropertyChanged(BR.fpc05);
+        notifyChange(BR.fpc05);
     }
 
     public void setFpc06(String fpc06) {
         this.fpc06 = fpc06;
-        notifyPropertyChanged(BR.fpc06);
+        notifyChange(BR.fpc06);
     }
 
     public void setFpc07(String fpc07) {
         this.fpc07 = fpc07;
-        notifyPropertyChanged(BR.fpc07);
+        notifyChange(BR.fpc07);
     }
 
     public void setFpc08(String fpc08) {
         this.fpc08 = fpc08;
         setFpc0896x(fpc08.equals("96") ? this.fpc0896x : "");
-        notifyPropertyChanged(BR.fpc08);
+        notifyChange(BR.fpc08);
     }
 
     public void setFpc0896x(String fpc0896x) {
         this.fpc0896x = fpc0896x;
-        notifyPropertyChanged(BR.fpc0896x);
+        notifyChange(BR.fpc0896x);
     }
 
     public void setFpa05(String fpa05) {
         this.fpa05 = fpa05;
         setFpa0596x(fpa05.equals("96") ? this.fpa0596x : "");
-        notifyPropertyChanged(BR.fpa05);
+        notifyChange(BR.fpa05);
     }
 
     public void setFpa0596x(String fpa0596x) {
         this.fpa0596x = fpa0596x;
-        notifyPropertyChanged(BR.fpa0596x);
+        notifyChange(BR.fpa0596x);
     }
 
     @SuppressLint("Range")
