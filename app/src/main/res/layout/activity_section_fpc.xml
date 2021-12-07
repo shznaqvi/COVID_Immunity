@@ -1030,16 +1030,18 @@
                                     android:onClick="@{()->fp.setFpc04q(`96`)}"
                                     android:text="@string/fpc0496" />
 
-                                <EditText
-                                    android:id="@+id/fpc0496x"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
-                                    android:hint="@string/fpc0496"
-                                    android:tag="fpc0496"
-                                    android:text="@={fp.fpc0496x}"
-                                    android:visibility='@{fpc04q.equals(`96`)? View.VISIBLE : View.GONE}' />
+
                             </RadioGroup>
+
+                            <EditText
+                                android:id="@+id/fpc0496x"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                                android:hint="@string/fpc0496"
+                                android:tag="fpc0496"
+                                android:text="@={fp.fpc0496x}"
+                                android:visibility='@{fpc04q.equals(`96`)? View.VISIBLE : View.GONE}' />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
