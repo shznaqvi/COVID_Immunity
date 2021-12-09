@@ -65,6 +65,7 @@ public class TableContracts {
         public static final String COLUMN_SYNCED_DATE = "synced_date";
         public static final String COLUMN_APPVERSION = "appversion";
         public static final String COLUMN_ISTATUS = "istatus";
+
     }
 
     /*public static abstract class ZScoreTable implements BaseColumns {

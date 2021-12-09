@@ -26,8 +26,8 @@ public class MainApp extends Application {
     public static final String DIST_ID = null;
     public static final String SYNC_LOGIN = "sync_login";
     public static final String _IP = "https://vcoe1.aku.edu";// .LIVE server
-    //    public static final String _IP = "http://f38158/prosystem";// .TEST server
-    //public static final String _IP = "http://43.245.131.159:8080";// .TEST server
+
+    //public static final String _IP = "http://cls-pae-fp51764";// .TEST server
     public static final String _HOST_URL = MainApp._IP + "/" + PROJECT_NAME + "/api/";// .TEST server;
     public static final String _SERVER_URL = "sync.php";
     public static final String _SERVER_GET_URL = "getData.php";
