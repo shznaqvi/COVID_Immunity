@@ -40,6 +40,7 @@ import java.util.concurrent.TimeUnit;
 
 import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.adapters.SyncListAdapter;
+import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.FollowupTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.VersionTable;
@@ -151,10 +152,12 @@ public class SyncActivity extends AppCompatActivity {
                 if (sync_flag) {
                     downloadTables.add(new SyncModel(UsersTable.TABLE_NAME));
                     downloadTables.add(new SyncModel(VersionTable.TABLE_NAME));
+                    downloadTables.add(new SyncModel(FollowupTable.TABLE_NAME));
                 } else {
                     // Set tables to DOWNLOAD
                     downloadTables.add(new SyncModel(UsersTable.TABLE_NAME));
                     downloadTables.add(new SyncModel(VersionTable.TABLE_NAME));
+                    downloadTables.add(new SyncModel(FollowupTable.TABLE_NAME));
 
                  /*   String select = " idCamp, camp_no, dist_id, district, ucCode, ucName, area_name, plan_date ";
                     String filter = " camp_status = 'Planned' AND locked = 0 ";
