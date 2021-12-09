@@ -10,6 +10,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.validatorcrawler.aliazaz.Validator;
 
 import edu.aku.hassannaqvi.covidimmunity.R;
@@ -23,6 +25,8 @@ public class SectionFPCActivity extends AppCompatActivity {
     private static final String TAG = "SectionFPCActivity";
     ActivitySectionFpcBinding bi;
     private DatabaseHelper db;
+    private int pressedButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +91,37 @@ public class SectionFPCActivity extends AppCompatActivity {
     public void onBackPressed() {
         // Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
         setResult(RESULT_CANCELED);
+    }
+
+    // Barcode Scanner
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (pressedButton == bi.scanQrFPC09.getId()) {
+                if (result.getContents() == null) {
+                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+                } else {
+                    String strResult = result.getContents();
+                    bi.pc08.setText(strResult);
+                }
+            } else {
+                if (result.getContents() == null) {
+                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+                } else {
+                    String strResult = result.getContents();
+                    bi.pc08.setText(strResult);
+                }
+            }
+
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    public void scanQR(View view) {
+        pressedButton = view.getId();
+        new IntentIntegrator(this).initiateScan();
     }
 
 }
