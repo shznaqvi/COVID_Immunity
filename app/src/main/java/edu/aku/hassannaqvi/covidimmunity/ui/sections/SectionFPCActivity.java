@@ -83,7 +83,15 @@ public class SectionFPCActivity extends AppCompatActivity {
     }
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpName);
+
+        if (!Validator.emptyCheckingContainer(this, bi.GrpName))
+            return false;
+
+        if (bi.fpc05q1.isChecked() && bi.fpc07.getText().toString().equals("")) {
+            return Validator.emptyCustomTextBox(this, bi.fpc07, "Scan QR");
+        }
+        return true;
+
     }
 
 
@@ -98,19 +106,19 @@ public class SectionFPCActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
-            if (pressedButton == bi.scanQrFPC09.getId()) {
+            if (pressedButton == bi.scanQrFPC07.getId()) {
                 if (result.getContents() == null) {
                     Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
                 } else {
                     String strResult = result.getContents();
-                    bi.pc08.setText(strResult);
+                    bi.fpc07.setText(strResult);
                 }
             } else {
                 if (result.getContents() == null) {
                     Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
                 } else {
                     String strResult = result.getContents();
-                    bi.pc08.setText(strResult);
+                    bi.fpc07.setText(strResult);
                 }
             }
 
