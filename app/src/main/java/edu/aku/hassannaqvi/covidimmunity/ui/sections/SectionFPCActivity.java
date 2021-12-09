@@ -14,7 +14,10 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.validatorcrawler.aliazaz.Validator;
 
+import org.json.JSONException;
+
 import edu.aku.hassannaqvi.covidimmunity.R;
+import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionFpcBinding;
@@ -46,10 +49,9 @@ public class SectionFPCActivity extends AppCompatActivity {
 
 
     private boolean updateDB() {
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = 0;
         try {
-            updcount = db.updatesFollowupColumn(TableContracts.FollowupTable.COLUMN_SFHA, MainApp.fp.sFPCtoString());
+            updcount = db.updatesFormColumn(TableContracts.FollowupTable.COLUMN_SFPC, MainApp.fp.sFPCtoString());
         } catch (JSONException e) {
             Toast.makeText(this, R.string.upd_db + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -58,9 +60,7 @@ public class SectionFPCActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
             return false;
-        }*/
-
-        return true;
+        }
     }
 
     public void BtnContinue(View view) {
