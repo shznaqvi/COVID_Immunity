@@ -44,6 +44,7 @@ public class SectionFHAActivity extends AppCompatActivity {
 
     private boolean insertNewRecord() {
         if (!followup.getUid().equals("")) return true;
+        followup.populateMeta();
         long rowId = 0;
         try {
             rowId = db.addFollowup(followup);
@@ -95,8 +96,13 @@ public class SectionFHAActivity extends AppCompatActivity {
 
 
     public void BtnEnd(View view) {
+        if (!insertNewRecord()) return;
+        if (updateDB()) {
             finish();
             startActivity(new Intent(this, FP_EndingActivity.class).putExtra("complete", false));
+        } else {
+            Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
+        }
 
     }
 

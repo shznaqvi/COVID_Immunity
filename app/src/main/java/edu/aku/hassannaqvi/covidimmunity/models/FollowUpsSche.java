@@ -19,20 +19,21 @@ public class FollowUpsSche {
      * fupdate				// fp_date
      */
 
-    String id;
-    String form_colid;
-    String memberid;
-    String fpcode;
-    String fpid;
-    String ha01;
-    String ha09;
-    String ha11;
-    String ha12;
-    String ha12a;
-    String pa01;
-    String pa01a;
-    String pa01b;
-    String fp_date;
+    String id = "";
+    String form_colid = "";
+    String memberid = "";
+    String fpcode = "";
+    String fpid = "";
+    String ha01 = "";
+    String ha09 = "";
+    String ha11 = "";
+    String ha12 = "";
+    String ha12a = "";
+    String pa01 = "";
+    String pa01a = "";
+    String pa01b = "";
+    String fp_date = "";
+    String fupdonedt = "";
 
 
     public FollowUpsSche() {
@@ -95,6 +96,10 @@ public class FollowUpsSche {
         return fp_date;
     }
 
+    public String getFupdonedt() {
+        return fupdonedt;
+    }
+
 
     public void setId(String id) {
         this.id = id;
@@ -152,6 +157,10 @@ public class FollowUpsSche {
         this.fp_date = fp_date;
     }
 
+    public void setFupdonedt(String fupdonedt) {
+        this.fupdonedt = fupdonedt;
+    }
+
 
     public FollowUpsSche Hydrate(Cursor cursor) throws JSONException {
 
@@ -169,6 +178,7 @@ public class FollowUpsSche {
         this.pa01a = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupsScheTable.COLUMN_PA01A));
         this.pa01b = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupsScheTable.COLUMN_PA01B));
         this.fp_date = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupsScheTable.COLUMN_FP_DATE));
+        this.fupdonedt = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupsScheTable.COLUMN_FP_DONE));
 
         return this;
     }
@@ -191,6 +201,7 @@ public class FollowUpsSche {
             json.put(TableContracts.FollowupsScheTable.COLUMN_PA01A, this.pa01a == null ? JSONObject.NULL : this.pa01a);
             json.put(TableContracts.FollowupsScheTable.COLUMN_PA01B, this.pa01b == null ? JSONObject.NULL : this.pa01b);
             json.put(TableContracts.FollowupsScheTable.COLUMN_FP_DATE, this.fp_date == null ? JSONObject.NULL : this.fp_date);
+            json.put(TableContracts.FollowupsScheTable.COLUMN_FP_DONE, this.fupdonedt == null ? JSONObject.NULL : this.fupdonedt);
 
             return json;
         } catch (JSONException e) {

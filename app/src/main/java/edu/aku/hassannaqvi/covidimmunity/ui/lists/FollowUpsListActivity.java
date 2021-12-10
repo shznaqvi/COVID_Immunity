@@ -1,9 +1,13 @@
 package edu.aku.hassannaqvi.covidimmunity.ui.lists;
 
+import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.followup;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,12 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.json.JSONException;
 
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.adapters.FollowupsAdapter;
+import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivityFollowupsListBinding;
@@ -27,7 +31,7 @@ public class FollowUpsListActivity extends AppCompatActivity {
 
     ActivityFollowupsListBinding bi;
     DatabaseHelper db;
-    Collection<FollowUpsSche> fupsSche;
+    List<FollowUpsSche> fupsSche;
     String sysdateToday = new SimpleDateFormat("dd-MM-yy").format(new Date());
     private RecyclerView.Adapter followupsAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -73,6 +77,21 @@ public class FollowUpsListActivity extends AppCompatActivity {
         followupsAdapter = new FollowupsAdapter(this, (List<FollowUpsSche>) fupsSche);
         followupsAdapter.notifyDataSetChanged();
         bi.fcRecyclerView.setAdapter(followupsAdapter);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1002) {
+            if (followup.getiStatus().equals("1")) {
+                db.updatesFollowupsScheColumn(TableContracts.FollowupsScheTable.COLUMN_FP_DONE, followup.getSysDate());
+                fupsSche.get(MainApp.position).setFupdonedt(followup.getSysDate());
+                followupsAdapter.notifyItemChanged(MainApp.position);
+            } else {
+                Toast.makeText(this, "Followup was not recorded.", Toast.LENGTH_SHORT).show();
+            }
+        }
 
     }
 }

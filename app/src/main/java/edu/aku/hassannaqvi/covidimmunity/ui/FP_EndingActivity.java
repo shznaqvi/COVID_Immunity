@@ -60,7 +60,7 @@ public class FP_EndingActivity extends AppCompatActivity {
         saveDraft();
         if (UpdateDB()) {
 
-            cleanupProcess();
+
             finish();
             setResult(RESULT_OK);
             Toast.makeText(this, "Data has been updated.", Toast.LENGTH_SHORT).show();
@@ -70,13 +70,9 @@ public class FP_EndingActivity extends AppCompatActivity {
         }
     }
 
-    private void cleanupProcess() {
-        followup = null;
-    }
-
 
     private boolean UpdateDB() {
-        int updcount = db.updatesFollowupColumn(TableContracts.FormsTable.COLUMN_ISTATUS, followup.getiStatus());
+        int updcount = db.updatesFollowupColumn(TableContracts.FollowupTable.COLUMN_ISTATUS, followup.getiStatus());
         return updcount > 0;
     }
 

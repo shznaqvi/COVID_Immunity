@@ -1,5 +1,7 @@
 package edu.aku.hassannaqvi.covidimmunity.models;
 
+import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.PROJECT_NAME;
+
 import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.util.Log;
@@ -26,7 +28,7 @@ public class Followup extends BaseObservable implements Observable {
     private final String TAG = "Followup";
     private transient PropertyChangeRegistry propertyChangeRegistry = new PropertyChangeRegistry();
     // APP VARIABLES
-    private String projectName = MainApp.PROJECT_NAME;
+    private String projectName = PROJECT_NAME;
     // APP VARIABLES
     private String id = StringUtils.EMPTY;
     private String uid = StringUtils.EMPTY;
@@ -105,15 +107,18 @@ public class Followup extends BaseObservable implements Observable {
 
     public void populateMeta() {
 
-        setSysDate(MainApp.followup.getSysDate());
-        setUserName(MainApp.followup.getUserName());
+
         setDeviceId(MainApp.deviceid);
-        setUuid(MainApp.form.getUid());  // not applicable in Form table
+        //   setUuid(MainApp.form.getUid());  // not applicable in Form table
         setAppver(MainApp.appInfo.getAppVersion());
 
-        setProjectName(MainApp.PROJECT_NAME);
+        setProjectName(PROJECT_NAME);
         /*setpsuCode(MainApp.selectedPSU);
         setHhid(MainApp.selectedHHID);*/
+
+        setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
+        setUserName(MainApp.user.getUserName());
+
 
     }
 

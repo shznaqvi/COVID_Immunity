@@ -166,10 +166,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(column, value);
 
-        String selection = FollowupTable._ID + " =? ";
+        String selection = FollowupTable.COLUMN_ID + " =? ";
         String[] selectionArgs = {String.valueOf(MainApp.followup.getId())};
 
         return db.update(FollowupTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+    public int updatesFollowupsScheColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = FollowupsScheTable.COLUMN_ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.followupsSche.getId())};
+
+        return db.update(FollowupsScheTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -843,7 +858,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             followupsSche.Sync(jsonObjectFollowup);
 
             ContentValues values = new ContentValues();
-            values.put(FollowupsScheTable.COLUMN_ID, followupsSche.getId().trim());
             values.put(FollowupsScheTable.COLUMN_FORM_COLID, followupsSche.getForm_colid().trim());
             values.put(FollowupsScheTable.COLUMN_MEMBER_ID, followupsSche.getMemberid().trim());
             values.put(FollowupsScheTable.COLUMN_FP_CODE, followupsSche.getFpcode().trim());
@@ -857,6 +871,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             values.put(FollowupsScheTable.COLUMN_PA01A, followupsSche.getPa01a().trim());
             values.put(FollowupsScheTable.COLUMN_PA01B, followupsSche.getPa01b().trim());
             values.put(FollowupsScheTable.COLUMN_FP_DATE, followupsSche.getFp_date().trim());
+            values.put(FollowupsScheTable.COLUMN_FP_DONE, "");
 
             long rowID = db.insertOrThrow(FollowupsScheTable.TABLE_NAME, null, values);
 
@@ -881,7 +896,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String groupBy = null;
         String having = null;
 
-        String orderBy = FollowupsScheTable.COLUMN_ID + " DESC";
+        String orderBy = FollowupsScheTable.COLUMN_FORM_COLID + " ASC";
 
         List<FollowUpsSche> allFollowupsSche = new ArrayList<>();
         c = db.query(
@@ -904,7 +919,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allFollowupsSche;
     }
 
-    public Collection<FollowUpsSche> getFollowUpsScheByDistrict(String district) throws JSONException {
+    public List<FollowUpsSche> getFollowUpsScheByDistrict(String district) throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = null;
@@ -935,4 +950,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return allFollowupsSche;
     }
+
+
 }

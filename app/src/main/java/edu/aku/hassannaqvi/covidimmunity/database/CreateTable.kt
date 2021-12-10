@@ -82,6 +82,7 @@ object CreateTable {
             + FollowupsScheTable.COLUMN_PA01 + " TEXT,"
             + FollowupsScheTable.COLUMN_PA01A + " TEXT,"
             + FollowupsScheTable.COLUMN_PA01B + " TEXT,"
+            + FollowupsScheTable.COLUMN_FP_DONE + " TEXT,"
             + FollowupsScheTable.COLUMN_FP_DATE + " TEXT"
             + " );"
             )

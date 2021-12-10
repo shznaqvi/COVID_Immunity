@@ -86,6 +86,7 @@ public class TableContracts {
         public static final String COLUMN_PA01A = "pa01a";
         public static final String COLUMN_PA01B = "pa01b";
         public static final String COLUMN_FP_DATE = "fp_date";
+        public static final String COLUMN_FP_DONE = "fupdonedt";
 
     }
 
