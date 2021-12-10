@@ -66,4 +66,25 @@ object CreateTable {
             + FollowupTable.COLUMN_SFPC + " TEXT"
             + " );"
             )
+
+    const val SQL_CREATE_FOLLOWUPS_SCHE = ("CREATE TABLE "
+            + Followups_sche.TABLE_NAME + "("
+            + Followups_sche.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + Followups_sche.ID + " TEXT,"
+            + Followups_sche.FORM_COLID + " TEXT,"
+            + Followups_sche.MEMBER_ID + " TEXT,"
+            + Followups_sche.FP_CODE + " TEXT,"
+            + Followups_sche.FP_ID + " TEXT,"
+            + Followups_sche.HA01 + " TEXT,"
+            + Followups_sche.HA09 + " TEXT,"
+            + Followups_sche.HA11 + " TEXT,"
+            + Followups_sche.HA12 + " TEXT,"
+            + Followups_sche.HA12A + " TEXT,"
+            + Followups_sche.PA01 + " TEXT,"
+            + Followups_sche.PA01A + " TEXT,"
+            + Followups_sche.PA01B + " TEXT,"
+            + Followups_sche.FP_DATE + " TEXT,"
+            + Followups_sche.FP_LOCK + " TEXT"
+            + " );"
+            )
 }

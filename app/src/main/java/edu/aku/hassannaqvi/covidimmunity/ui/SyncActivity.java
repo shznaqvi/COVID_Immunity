@@ -40,7 +40,7 @@ import java.util.concurrent.TimeUnit;
 
 import edu.aku.hassannaqvi.covidimmunity.R;
 import edu.aku.hassannaqvi.covidimmunity.adapters.SyncListAdapter;
-import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.FollowupTable;
+import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.VersionTable;
@@ -152,12 +152,14 @@ public class SyncActivity extends AppCompatActivity {
                 if (sync_flag) {
                     downloadTables.add(new SyncModel(UsersTable.TABLE_NAME));
                     downloadTables.add(new SyncModel(VersionTable.TABLE_NAME));
-                    downloadTables.add(new SyncModel(FollowupTable.TABLE_NAME));
+                    //downloadTables.add(new SyncModel(FollowupTable.TABLE_NAME));
+                    downloadTables.add(new SyncModel(TableContracts.Followups_sche.TABLE_NAME));
                 } else {
                     // Set tables to DOWNLOAD
                     downloadTables.add(new SyncModel(UsersTable.TABLE_NAME));
                     downloadTables.add(new SyncModel(VersionTable.TABLE_NAME));
-                    downloadTables.add(new SyncModel(FollowupTable.TABLE_NAME));
+                    //downloadTables.add(new SyncModel(FollowupTable.TABLE_NAME));
+                    downloadTables.add(new SyncModel(TableContracts.Followups_sche.TABLE_NAME));
 
                  /*   String select = " idCamp, camp_no, dist_id, district, ucCode, ucName, area_name, plan_date ";
                     String filter = " camp_status = 'Planned' AND locked = 0 ";
@@ -238,6 +240,10 @@ public class SyncActivity extends AppCompatActivity {
                                         break;
                                     case VersionTable.TABLE_NAME:
                                         insertCount = db.syncVersionApp(new JSONObject(result));
+                                        if (insertCount == 1) jsonArray.put("1");
+                                        break;
+                                    case TableContracts.Followups_sche.TABLE_NAME:
+                                        insertCount = db.syncFollowups(new JSONArray(result));
                                         if (insertCount == 1) jsonArray.put("1");
                                         break;
                                 }

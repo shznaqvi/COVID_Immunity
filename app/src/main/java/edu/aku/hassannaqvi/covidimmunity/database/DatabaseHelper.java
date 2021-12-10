@@ -2,6 +2,8 @@ package edu.aku.hassannaqvi.covidimmunity.database;
 
 import static edu.aku.hassannaqvi.covidimmunity.database.CreateTable.DATABASE_NAME;
 import static edu.aku.hassannaqvi.covidimmunity.database.CreateTable.DATABASE_VERSION;
+import static edu.aku.hassannaqvi.covidimmunity.database.CreateTable.SQL_CREATE_FOLLOWUPS;
+import static edu.aku.hassannaqvi.covidimmunity.database.CreateTable.SQL_CREATE_FOLLOWUPS_SCHE;
 import static edu.aku.hassannaqvi.covidimmunity.database.CreateTable.SQL_CREATE_FORMS;
 import static edu.aku.hassannaqvi.covidimmunity.database.CreateTable.SQL_CREATE_USERS;
 import static edu.aku.hassannaqvi.covidimmunity.database.CreateTable.SQL_CREATE_VERSIONAPP;
@@ -14,6 +16,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,6 +32,7 @@ import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.VersionTable;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.models.FP;
+import edu.aku.hassannaqvi.covidimmunity.models.Followups;
 import edu.aku.hassannaqvi.covidimmunity.models.Form;
 import edu.aku.hassannaqvi.covidimmunity.models.Users;
 import edu.aku.hassannaqvi.covidimmunity.models.VersionApp;
@@ -53,6 +57,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_FORMS);
+        db.execSQL(SQL_CREATE_FOLLOWUPS);
+        db.execSQL(SQL_CREATE_FOLLOWUPS_SCHE);
 
         db.execSQL(SQL_CREATE_VERSIONAPP);
 
@@ -406,6 +412,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return (int) count;
     }
 
+
+
     public VersionApp getVersionApp() {
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -443,6 +451,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return versionApp;
     }
+
+
 
     public int syncUser(JSONArray userList) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -815,5 +825,60 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return form.getC100Name();
     }*/
+
+
+    public int syncFollowups(JSONArray followupsList) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.delete(TableContracts.Followups_sche.TABLE_NAME, null, null);
+
+        int insertCount = 0;
+
+        try {
+            for (int i = 0; i < followupsList.length(); i++) {
+
+                JSONObject jsonObjectFollowup = followupsList.getJSONObject(i);
+
+                Followups followups = new Followups();
+                followups.Sync(jsonObjectFollowup);
+
+                /*if (checkFollowup(followups.getMrno().trim(), followups.getFupdt().trim(), followups.getFupweek().trim())) {
+                    continue;
+                }*/
+
+                ContentValues values = new ContentValues();
+                values.put(TableContracts.Followups_sche.ID, followups.getId().trim());
+                values.put(TableContracts.Followups_sche.FORM_COLID, followups.getForm_colid().trim());
+                values.put(TableContracts.Followups_sche.MEMBER_ID, followups.getMemberid().trim());
+                values.put(TableContracts.Followups_sche.FP_CODE, followups.getFpcode().trim());
+                values.put(TableContracts.Followups_sche.FP_ID, followups.getFpid().trim());
+                values.put(TableContracts.Followups_sche.HA01, followups.getHa01().trim());
+                values.put(TableContracts.Followups_sche.HA09, followups.getHa09().trim());
+                values.put(TableContracts.Followups_sche.HA11, followups.getHa11().trim());
+                values.put(TableContracts.Followups_sche.HA12, followups.getHa12().trim());
+                values.put(TableContracts.Followups_sche.HA12A, followups.getHa12a().trim());
+                values.put(TableContracts.Followups_sche.PA01, followups.getPa01().trim());
+                values.put(TableContracts.Followups_sche.PA01A, followups.getPa01a().trim());
+                values.put(TableContracts.Followups_sche.PA01B, followups.getPa01b().trim());
+                values.put(TableContracts.Followups_sche.FP_DATE, followups.getFp_date().trim());
+                values.put(TableContracts.Followups_sche.FP_LOCK, followups.getFp_lock().trim());
+
+
+                long rowID = db.insert(TableContracts.Followups_sche.TABLE_NAME, null, values);
+
+
+                if (rowID != -1) insertCount++;
+            }
+
+        } catch (Exception e) {
+            Log.d(TAG, "syncFollowups(e): " + e);
+            db.close();
+        } finally {
+            db.close();
+        }
+        return insertCount;
+    }
+
 
 }
