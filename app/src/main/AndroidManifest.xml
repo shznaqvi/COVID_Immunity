@@ -96,6 +96,11 @@
             android:name=".ui.EndingActivity"
             android:theme="@style/AppThemeUrdu"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".ui.lists.FollowUpsList"
+            android:label="Forms Report"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeEnglish1" />
 
         <service android:name=".DownloadFileService" />
     </application>
