@@ -24,14 +24,16 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
-import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
+import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.FollowupTable;
+import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.FollowupsScheTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.VersionTable;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
-import edu.aku.hassannaqvi.covidimmunity.models.FP;
-import edu.aku.hassannaqvi.covidimmunity.models.FollowUps;
+import edu.aku.hassannaqvi.covidimmunity.models.FollowUpsSche;
+import edu.aku.hassannaqvi.covidimmunity.models.Followup;
 import edu.aku.hassannaqvi.covidimmunity.models.Form;
 import edu.aku.hassannaqvi.covidimmunity.models.Users;
 import edu.aku.hassannaqvi.covidimmunity.models.VersionApp;
@@ -107,37 +109,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
     //ADDITION in DB
-    public Long addFollowup(FP fp) throws JSONException {
+    public Long addFollowup(Followup followup) throws JSONException {
 
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
 
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(TableContracts.FollowupTable.COLUMN_PROJECT_NAME, fp.getProjectName());
-        values.put(TableContracts.FollowupTable.COLUMN_UID, fp.getUid());
-        values.put(TableContracts.FollowupTable.COLUMN_UUID, fp.getUuid());
-        values.put(TableContracts.FollowupTable.COLUMN_USERNAME, fp.getUserName());
-        values.put(TableContracts.FollowupTable.COLUMN_SYSDATE, fp.getSysDate());
-        values.put(TableContracts.FollowupTable.COLUMN_SFHA, fp.sFHAtoString());
-        values.put(TableContracts.FollowupTable.COLUMN_SFPA, fp.sFPAtoString());
-        values.put(TableContracts.FollowupTable.COLUMN_SFPC, fp.sFPCtoString());
+        values.put(FollowupTable.COLUMN_PROJECT_NAME, followup.getProjectName());
+        values.put(FollowupTable.COLUMN_UID, followup.getUid());
+        values.put(FollowupTable.COLUMN_UUID, followup.getUuid());
+        values.put(FollowupTable.COLUMN_USERNAME, followup.getUserName());
+        values.put(FollowupTable.COLUMN_SYSDATE, followup.getSysDate());
+        values.put(FollowupTable.COLUMN_SFHA, followup.sFHAtoString());
+        values.put(FollowupTable.COLUMN_SFPA, followup.sFPAtoString());
+        values.put(FollowupTable.COLUMN_SFPC, followup.sFPCtoString());
 
 
-        values.put(TableContracts.FollowupTable.COLUMN_ISTATUS, fp.getiStatus());
+        values.put(FollowupTable.COLUMN_ISTATUS, followup.getiStatus());
 
-        values.put(TableContracts.FollowupTable.COLUMN_DEVICETAGID, fp.getDeviceTag());
-        values.put(TableContracts.FollowupTable.COLUMN_DEVICEID, fp.getDeviceId());
-        values.put(TableContracts.FollowupTable.COLUMN_APPVERSION, fp.getAppver());
+        values.put(FollowupTable.COLUMN_DEVICETAGID, followup.getDeviceTag());
+        values.put(FollowupTable.COLUMN_DEVICEID, followup.getDeviceId());
+        values.put(FollowupTable.COLUMN_APPVERSION, followup.getAppver());
 
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
         newRowId = db.insert(
-                TableContracts.FollowupTable.TABLE_NAME,
-                TableContracts.FollowupTable.COLUMN_NAME_NULLABLE,
+                FollowupTable.TABLE_NAME,
+                FollowupTable.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
@@ -165,10 +166,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(column, value);
 
-        String selection = TableContracts.FollowupTable._ID + " =? ";
-        String[] selectionArgs = {String.valueOf(MainApp.fp.getId())};
+        String selection = FollowupTable._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.followup.getId())};
 
-        return db.update(TableContracts.FollowupTable.TABLE_NAME,
+        return db.update(FollowupTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -268,10 +269,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 Form forms = new Form();
-                forms.setId(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
-                forms.setUid(c.getString(c.getColumnIndex(FormsTable.COLUMN_UID)));
-                forms.setSysDate(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYSDATE)));
-                forms.setUserName(c.getString(c.getColumnIndex(FormsTable.COLUMN_USERNAME)));
+                forms.setId(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_ID)));
+                forms.setUid(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_UID)));
+                forms.setSysDate(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_SYSDATE)));
+                forms.setUserName(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_USERNAME)));
                 allForms.add(forms);
             }
         } finally {
@@ -675,11 +676,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 Form fc = new Form();
-                fc.setId(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
-                fc.setUid(c.getString(c.getColumnIndex(FormsTable.COLUMN_UID)));
-                fc.setSysDate(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYSDATE)));
-                fc.setiStatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
-                fc.setSynced(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYNCED)));
+                fc.setId(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_ID)));
+                fc.setUid(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_UID)));
+                fc.setSysDate(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_SYSDATE)));
+                fc.setiStatus(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_ISTATUS)));
+                fc.setSynced(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_SYNCED)));
                 allFC.add(fc);
             }
         } finally {
@@ -721,11 +722,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 Form fc = new Form();
-                fc.setId(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
-                fc.setUid(c.getString(c.getColumnIndex(FormsTable.COLUMN_UID)));
-                fc.setSysDate(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYSDATE)));
-                fc.setiStatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
-                fc.setSynced(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYNCED)));
+                fc.setId(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_ID)));
+                fc.setUid(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_UID)));
+                fc.setSysDate(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_SYSDATE)));
+                fc.setiStatus(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_ISTATUS)));
+                fc.setSynced(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_SYNCED)));
                 allFC.add(fc);
             }
         } finally {
@@ -826,58 +827,112 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }*/
 
 
-    public int syncFollowups(JSONArray followupsList) {
+    public int syncFollowupsSche(JSONArray followupsList) throws JSONException {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        db.delete(TableContracts.Followups_sche.TABLE_NAME, null, null);
+        db.delete(FollowupsScheTable.TABLE_NAME, null, null);
 
         int insertCount = 0;
 
-        try {
-            for (int i = 0; i < followupsList.length(); i++) {
+        for (int i = 0; i < followupsList.length(); i++) {
 
-                JSONObject jsonObjectFollowup = followupsList.getJSONObject(i);
+            JSONObject jsonObjectFollowup = followupsList.getJSONObject(i);
 
-                FollowUps followups = new FollowUps();
-                followups.Sync(jsonObjectFollowup);
+            FollowUpsSche followupsSche = new FollowUpsSche();
+            followupsSche.Sync(jsonObjectFollowup);
 
-                /*if (checkFollowup(followups.getMrno().trim(), followups.getFupdt().trim(), followups.getFupweek().trim())) {
-                    continue;
-                }*/
+            ContentValues values = new ContentValues();
+            values.put(FollowupsScheTable.COLUMN_ID, followupsSche.getId().trim());
+            values.put(FollowupsScheTable.COLUMN_FORM_COLID, followupsSche.getForm_colid().trim());
+            values.put(FollowupsScheTable.COLUMN_MEMBER_ID, followupsSche.getMemberid().trim());
+            values.put(FollowupsScheTable.COLUMN_FP_CODE, followupsSche.getFpcode().trim());
+            values.put(FollowupsScheTable.COLUMN_FP_ID, followupsSche.getFpid().trim());
+            values.put(FollowupsScheTable.COLUMN_HA01, followupsSche.getHa01().trim());
+            values.put(FollowupsScheTable.COLUMN_HA09, followupsSche.getHa09().trim());
+            values.put(FollowupsScheTable.COLUMN_HA11, followupsSche.getHa11().trim());
+            values.put(FollowupsScheTable.COLUMN_HA12, followupsSche.getHa12().trim());
+            values.put(FollowupsScheTable.COLUMN_HA12A, followupsSche.getHa12a().trim());
+            values.put(FollowupsScheTable.COLUMN_PA01, followupsSche.getPa01().trim());
+            values.put(FollowupsScheTable.COLUMN_PA01A, followupsSche.getPa01a().trim());
+            values.put(FollowupsScheTable.COLUMN_PA01B, followupsSche.getPa01b().trim());
+            values.put(FollowupsScheTable.COLUMN_FP_DATE, followupsSche.getFp_date().trim());
 
-                ContentValues values = new ContentValues();
-                values.put(TableContracts.Followups_sche.ID, followups.getId().trim());
-                values.put(TableContracts.Followups_sche.FORM_COLID, followups.getForm_colid().trim());
-                values.put(TableContracts.Followups_sche.MEMBER_ID, followups.getMemberid().trim());
-                values.put(TableContracts.Followups_sche.FP_CODE, followups.getFpcode().trim());
-                values.put(TableContracts.Followups_sche.FP_ID, followups.getFpid().trim());
-                values.put(TableContracts.Followups_sche.HA01, followups.getHa01().trim());
-                values.put(TableContracts.Followups_sche.HA09, followups.getHa09().trim());
-                values.put(TableContracts.Followups_sche.HA11, followups.getHa11().trim());
-                values.put(TableContracts.Followups_sche.HA12, followups.getHa12().trim());
-                values.put(TableContracts.Followups_sche.HA12A, followups.getHa12a().trim());
-                values.put(TableContracts.Followups_sche.PA01, followups.getPa01().trim());
-                values.put(TableContracts.Followups_sche.PA01A, followups.getPa01a().trim());
-                values.put(TableContracts.Followups_sche.PA01B, followups.getPa01b().trim());
-                values.put(TableContracts.Followups_sche.FP_DATE, followups.getFp_date().trim());
-                values.put(TableContracts.Followups_sche.FP_LOCK, followups.getFp_lock().trim());
+            long rowID = db.insertOrThrow(FollowupsScheTable.TABLE_NAME, null, values);
 
-
-                long rowID = db.insert(TableContracts.Followups_sche.TABLE_NAME, null, values);
-
-
-                if (rowID != -1) insertCount++;
-            }
-
-        } catch (Exception e) {
-            Log.d(TAG, "syncFollowups(e): " + e);
-            db.close();
-        } finally {
-            db.close();
+            if (rowID != -1) insertCount++;
         }
+
+        db.close();
+
         return insertCount;
     }
 
 
+    public List<FollowUpsSche> getAllFollowUpsSche() throws JSONException {
+
+        // String sysdate =  spDateT.substring(0, 8).trim()
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+        String whereClause = null;
+        String[] whereArgs = null;
+//        String[] whereArgs = new String[]{"%" + spDateT.substring(0, 8).trim() + "%"};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = FollowupsScheTable.COLUMN_ID + " DESC";
+
+        List<FollowUpsSche> allFollowupsSche = new ArrayList<>();
+        c = db.query(
+                FollowupsScheTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            allFollowupsSche.add(new FollowUpsSche().Hydrate(c));
+        }
+
+        c.close();
+
+        db.close();
+
+        return allFollowupsSche;
+    }
+
+    public Collection<FollowUpsSche> getFollowUpsScheByDistrict(String district) throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+        String whereClause = FollowupsScheTable.COLUMN_HA09 + " =? ";
+        String[] whereArgs = {district};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = FollowupsScheTable.COLUMN_ID + " DESC";
+
+        List<FollowUpsSche> allFollowupsSche = new ArrayList<>();
+        c = db.query(
+                FollowupTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            allFollowupsSche.add(new FollowUpsSche().Hydrate(c));
+        }
+
+        c.close();
+
+        db.close();
+
+        return allFollowupsSche;
+    }
 }

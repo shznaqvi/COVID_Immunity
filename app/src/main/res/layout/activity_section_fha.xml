@@ -1,14 +1,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <import type="android.view.View" />
 
         <variable
-            name="fp"
-            type="edu.aku.hassannaqvi.covidimmunity.models.FP" />
+            name="followup"
+            type="edu.aku.hassannaqvi.covidimmunity.models.Followup" />
 
         <variable
             name="callback"
@@ -82,7 +81,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:hint="YYYY-MM-DD"
-                            android:text="@={fp.fha01}"
+                            android:text="@={followup.fha01}"
                             app:dateFormat="yyyy-MM-dd"
                             app:maxDate="CR_DATE"
                             app:theme="@style/DatePickerEditTextDialogTheme" />
@@ -125,7 +124,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:hint="HH:MM"
-                            android:text="@={fp.fha02}" />
+                            android:text="@={followup.fha02}" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -170,8 +169,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{fp.fha09.equals(`1`)}"
-                                android:onClick="@{()->fp.setFha09(`1`)}"
+                                android:checked="@{followup.fha09.equals(`1`)}"
+                                android:onClick="@{()->followup.setFha09(`1`)}"
                                 android:text="@string/fha0901" />
 
                             <RadioButton
@@ -179,8 +178,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{fp.fha09.equals(`2`)}"
-                                android:onClick="@{()->fp.setFha09(`2`)}"
+                                android:checked="@{followup.fha09.equals(`2`)}"
+                                android:onClick="@{()->followup.setFha09(`2`)}"
                                 android:text="@string/fha0902" />
 
                             <RadioButton
@@ -188,8 +187,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{fp.fha09.equals(`3`)}"
-                                android:onClick="@{()->fp.setFha09(`3`)}"
+                                android:checked="@{followup.fha09.equals(`3`)}"
+                                android:onClick="@{()->followup.setFha09(`3`)}"
                                 android:text="@string/fha0903" />
                         </RadioGroup>
                     </LinearLayout>
@@ -230,7 +229,7 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/fha10"
                             android:inputType="text"
-                            android:text="@={fp.fha10}" />
+                            android:text="@={followup.fha10}" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -268,7 +267,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/fha11"
-                            android:text="@={fp.fha11}" />
+                            android:text="@={followup.fha11}" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -306,7 +305,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/fha12"
-                            android:text="@={fp.fha12}" />
+                            android:text="@={followup.fha12}" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -344,7 +343,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/fha12a"
-                            android:text="@={fp.fha12a}"
+                            android:text="@={followup.fha12a}"
                             android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -385,7 +384,7 @@
                             android:hint="@string/ha13"
                             android:inputType="number"
                             android:maxLength="11"
-                            android:text="@={fp.fha13}"
+                            android:text="@={followup.fha13}"
                             app:defaultValue="null"
                             app:pattern="^[0-9]{11,11}$"
                             app:required="true"

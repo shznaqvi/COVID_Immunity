@@ -21,9 +21,9 @@ import edu.aku.hassannaqvi.covidimmunity.BR;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 
-public class FP extends BaseObservable implements Observable {
+public class Followup extends BaseObservable implements Observable {
 
-    private final String TAG = "FP";
+    private final String TAG = "Followup";
     private transient PropertyChangeRegistry propertyChangeRegistry = new PropertyChangeRegistry();
     // APP VARIABLES
     private String projectName = MainApp.PROJECT_NAME;
@@ -94,7 +94,7 @@ public class FP extends BaseObservable implements Observable {
     private String fpa05 = StringUtils.EMPTY;
     private String fpa0596x = StringUtils.EMPTY;
 
-    public FP() {
+    public Followup() {
 
         userName = MainApp.user.getUserName();
         sysDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime());
@@ -105,8 +105,8 @@ public class FP extends BaseObservable implements Observable {
 
     public void populateMeta() {
 
-        setSysDate(MainApp.fp.getSysDate());
-        setUserName(MainApp.fp.getUserName());
+        setSysDate(MainApp.followup.getSysDate());
+        setUserName(MainApp.followup.getUserName());
         setDeviceId(MainApp.deviceid);
         setUuid(MainApp.form.getUid());  // not applicable in Form table
         setAppver(MainApp.appInfo.getAppVersion());
@@ -696,7 +696,7 @@ public class FP extends BaseObservable implements Observable {
     }
 
     @SuppressLint("Range")
-    public FP Hydrate(Cursor cursor) throws JSONException {
+    public Followup Hydrate(Cursor cursor) throws JSONException {
         this.id = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_UID));
         this.uuid = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_UID));
@@ -867,7 +867,7 @@ public class FP extends BaseObservable implements Observable {
         json.put(TableContracts.FollowupTable.COLUMN_SYNCED, this.synced);
         json.put(TableContracts.FollowupTable.COLUMN_SYNCED_DATE, this.syncDate);
 
-        // FP
+        // Followup
         json.put(TableContracts.FollowupTable.COLUMN_SFHA, new JSONObject(sFHAtoString()));
         json.put(TableContracts.FollowupTable.COLUMN_SFPA, new JSONObject(sFPAtoString()));
         json.put(TableContracts.FollowupTable.COLUMN_SFPC, new JSONObject(sFPCtoString()));

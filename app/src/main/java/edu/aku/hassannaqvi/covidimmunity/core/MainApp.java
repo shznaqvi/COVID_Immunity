@@ -14,7 +14,8 @@ import org.json.JSONArray;
 import java.io.File;
 import java.util.List;
 
-import edu.aku.hassannaqvi.covidimmunity.models.FP;
+import edu.aku.hassannaqvi.covidimmunity.models.FollowUpsSche;
+import edu.aku.hassannaqvi.covidimmunity.models.Followup;
 import edu.aku.hassannaqvi.covidimmunity.models.Form;
 import edu.aku.hassannaqvi.covidimmunity.models.Users;
 import edu.aku.hassannaqvi.covidimmunity.models.VersionApp;
@@ -41,7 +42,8 @@ public class MainApp extends Application {
     public static File sdDir;
     public static String[] downloadData;
     public static Form form;
-    public static FP fp;
+    public static Followup followup;
+    public static List<FollowUpsSche> followupsList;
 
 
     public static String DeviceURL = "devices.php";
@@ -73,6 +75,8 @@ public class MainApp extends Application {
     public static int pregCountComplete = 0;
     public static List<String> subjectNames;
     public static VersionApp versionApp;
+    public static boolean followupComplete = false;
+    public static boolean superuser = false;
 
 
     public static void hideSystemUI(View decorView) {

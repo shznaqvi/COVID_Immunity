@@ -1,6 +1,6 @@
 package edu.aku.hassannaqvi.covidimmunity.ui.sections;
 
-import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.fp;
+import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.followup;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,8 +34,7 @@ public class SectionFPCActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_fpc);
-        bi.setFp(fp);
-        setupSkips();
+        bi.setFollowup(followup);
         setSupportActionBar(bi.toolbar);
         setTitle(R.string.sectionpc_mainheading);
         db = MainApp.appInfo.dbHelper;
@@ -43,15 +42,12 @@ public class SectionFPCActivity extends AppCompatActivity {
 
     }
 
-    private void setupSkips() {
-
-    }
 
 
     private boolean updateDB() {
         int updcount = 0;
         try {
-            updcount = db.updatesFormColumn(TableContracts.FollowupTable.COLUMN_SFPC, MainApp.fp.sFPCtoString());
+            updcount = db.updatesFollowupColumn(TableContracts.FollowupTable.COLUMN_SFPC, MainApp.followup.sFPCtoString());
         } catch (JSONException e) {
             Toast.makeText(this, R.string.upd_db + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -65,7 +61,6 @@ public class SectionFPCActivity extends AppCompatActivity {
 
     public void BtnContinue(View view) {
         if (!formValidation()) return;
-        saveDraft();
         if (updateDB()) {
             finish();
             startActivity(new Intent(this, FP_EndingActivity.class).putExtra("complete", true));
@@ -74,8 +69,7 @@ public class SectionFPCActivity extends AppCompatActivity {
         }
     }
 
-    private void saveDraft() {
-    }
+
 
     public void BtnEnd(View view) {
         finish();
@@ -97,8 +91,8 @@ public class SectionFPCActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
-        setResult(RESULT_CANCELED);
+        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
+        // setResult(RESULT_CANCELED);
     }
 
     // Barcode Scanner

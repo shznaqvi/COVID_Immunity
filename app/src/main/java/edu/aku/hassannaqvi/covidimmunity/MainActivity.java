@@ -39,10 +39,11 @@ import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivityMainBinding;
-import edu.aku.hassannaqvi.covidimmunity.models.FP;
+import edu.aku.hassannaqvi.covidimmunity.models.Followup;
 import edu.aku.hassannaqvi.covidimmunity.models.Form;
 import edu.aku.hassannaqvi.covidimmunity.models.VersionApp;
 import edu.aku.hassannaqvi.covidimmunity.ui.SyncActivity;
+import edu.aku.hassannaqvi.covidimmunity.ui.lists.FollowUpsListActivity;
 import edu.aku.hassannaqvi.covidimmunity.ui.lists.FormsReportCluster;
 import edu.aku.hassannaqvi.covidimmunity.ui.lists.FormsReportDate;
 import edu.aku.hassannaqvi.covidimmunity.ui.lists.FormsReportPending;
@@ -239,13 +240,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void sectionPress(View view) {
 
-        switch (view.getId()) {
+/*        switch (view.getId()) {
             case R.id.openForm:
-                MainApp.idType = 1;
+                break;
+            case R.id.openFollowupList:
                 break;
             default:
                 MainApp.idType = 0;
-        }
+        }*/
 
 
         switch (view.getId()) {
@@ -254,6 +256,11 @@ public class MainActivity extends AppCompatActivity {
                 MainApp.idType = 1;
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionHAActivity.class));
+                break;
+
+            case R.id.openFollowupList:
+                MainApp.followup = new Followup();
+                startActivity(new Intent(this, FollowUpsListActivity.class));
                 break;
 
             case R.id.secha:
@@ -278,17 +285,17 @@ public class MainActivity extends AppCompatActivity {
 
 
             case R.id.secfha:
-                MainApp.fp = new FP();
+                MainApp.followup = new Followup();
                 startActivity(new Intent(this, SectionFHAActivity.class));
                 break;
 
             case R.id.secfpa:
-                MainApp.fp = new FP();
+                MainApp.followup = new Followup();
                 startActivity(new Intent(this, SectionFPAActivity.class));
                 break;
 
             case R.id.secfpc:
-                MainApp.fp = new FP();
+                MainApp.followup = new Followup();
                 startActivity(new Intent(this, SectionFPCActivity.class));
                 break;
 

@@ -6,8 +6,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="fp"
-            type="edu.aku.hassannaqvi.covidimmunity.models.FP" />
+            name="followup"
+            type="edu.aku.hassannaqvi.covidimmunity.models.Followup" />
 
         <variable
             name="callback"
@@ -81,7 +81,7 @@
                             android:layout_height="wrap_content"
                             android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                             android:hint="@string/fpa01a"
-                            android:text="@={fp.fpa01a}" />
+                            android:text="@={followup.fpa01a}" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -120,7 +120,7 @@
                             android:layout_height="wrap_content"
                             android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                             android:hint="@string/fpa01"
-                            android:text="@={fp.fpa01}" />
+                            android:text="@={followup.fpa01}" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -165,8 +165,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{fp.fpa02.equals(`1`)}"
-                                android:onClick="@{()->fp.setFpa02(`1`)}"
+                                android:checked="@{followup.fpa02.equals(`1`)}"
+                                android:onClick="@{()->followup.setFpa02(`1`)}"
                                 android:text="@string/fpa021" />
 
                             <RadioButton
@@ -174,8 +174,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{fp.fpa02.equals(`2`)}"
-                                android:onClick="@{()->fp.setFpa02(`2`)}"
+                                android:checked="@{followup.fpa02.equals(`2`)}"
+                                android:onClick="@{()->followup.setFpa02(`2`)}"
                                 android:text="@string/fpa022" />
                         </RadioGroup>
                     </LinearLayout>
@@ -237,7 +237,7 @@
                                     android:hint="@string/fpa03y"
                                     android:inputType="number"
                                     android:maxLength="2"
-                                    android:text="@={fp.fpa03y}"
+                                    android:text="@={followup.fpa03y}"
                                     app:maxValue="99"
                                     app:minValue="15"
                                     app:type="range" />
@@ -264,7 +264,7 @@
                                     android:hint="@string/fpa03m"
                                     android:inputType="number"
                                     android:maxLength="2"
-                                    android:text="@={fp.fpa03m}"
+                                    android:text="@={followup.fpa03m}"
                                     app:maxValue="11"
                                     app:minValue="0"
                                     app:type="range" />
@@ -316,8 +316,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{fp.fpa03a.equals(`1`)}"
-                                android:onClick="@{()->fp.setFpa03a(`1`)}"
+                                android:checked="@{followup.fpa03a.equals(`1`)}"
+                                android:onClick="@{()->followup.setFpa03a(`1`)}"
                                 android:text="@string/fpa0301" />
 
                             <RadioButton
@@ -325,8 +325,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{fp.fpa03a.equals(`2`)}"
-                                android:onClick="@{()->fp.setFpa03a(`2`)}"
+                                android:checked="@{followup.fpa03a.equals(`2`)}"
+                                android:onClick="@{()->followup.setFpa03a(`2`)}"
                                 android:text="@string/fpa0302" />
                         </RadioGroup>
                     </LinearLayout>
@@ -336,7 +336,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVfpa03c"
                     style="@style/cardView"
-                    android:visibility="@{fp.fpa03a.equals(`1`) ? View.GONE : View.VISIBLE}">
+                    android:visibility="@{followup.fpa03a.equals(`1`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -369,7 +369,7 @@
                             android:hint="@string/fpa03c"
                             android:inputType="number"
                             android:maxLength="11"
-                            android:text="@={fp.fpa03c}"
+                            android:text="@={followup.fpa03c}"
                             app:defaultValue="null"
                             app:pattern="^[0-9]{11,11}$"
                             app:required="true"
@@ -418,8 +418,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{fp.fpa04.equals(`1`)}"
-                                android:onClick="@{()->fp.setFpa04(`1`)}"
+                                android:checked="@{followup.fpa04.equals(`1`)}"
+                                android:onClick="@{()->followup.setFpa04(`1`)}"
                                 android:text="@string/fpa041" />
 
                             <RadioButton
@@ -427,8 +427,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{fp.fpa04.equals(`2`)}"
-                                android:onClick="@{()->fp.setFpa04(`2`)}"
+                                android:checked="@{followup.fpa04.equals(`2`)}"
+                                android:onClick="@{()->followup.setFpa04(`2`)}"
                                 android:text="@string/fpa042" />
                         </RadioGroup>
                     </LinearLayout>

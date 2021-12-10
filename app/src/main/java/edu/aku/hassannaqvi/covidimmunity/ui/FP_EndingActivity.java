@@ -1,6 +1,6 @@
 package edu.aku.hassannaqvi.covidimmunity.ui;
 
-import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.fp;
+import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.followup;
 
 import android.os.Bundle;
 import android.view.View;
@@ -27,7 +27,7 @@ public class FP_EndingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_fp_ending);
-        bi.setFp(fp);
+        bi.setFollowup(followup);
         //setupSkips();
         setSupportActionBar(bi.toolbar);
         db = MainApp.appInfo.dbHelper;
@@ -45,7 +45,7 @@ public class FP_EndingActivity extends AppCompatActivity {
     }
 
     private void saveDraft() {
-        fp.setiStatus(bi.fpa0501.isChecked() ? "1"
+        followup.setiStatus(bi.fpa0501.isChecked() ? "1"
                 : bi.fpa0502.isChecked() ? "2"
                 : bi.fpa0503.isChecked() ? "3"
                 : bi.fpa0504.isChecked() ? "4"
@@ -63,9 +63,6 @@ public class FP_EndingActivity extends AppCompatActivity {
             cleanupProcess();
             finish();
             setResult(RESULT_OK);
-           /* Intent i = new Intent(this, MainActivity.class);
-            startActivity(i);
-           */
             Toast.makeText(this, "Data has been updated.", Toast.LENGTH_SHORT).show();
 
         } else {
@@ -74,12 +71,12 @@ public class FP_EndingActivity extends AppCompatActivity {
     }
 
     private void cleanupProcess() {
-        fp = null;
+        followup = null;
     }
 
 
     private boolean UpdateDB() {
-        int updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_ISTATUS, fp.getiStatus());
+        int updcount = db.updatesFollowupColumn(TableContracts.FormsTable.COLUMN_ISTATUS, followup.getiStatus());
         return updcount > 0;
     }
 

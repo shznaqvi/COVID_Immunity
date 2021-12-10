@@ -1,6 +1,6 @@
 package edu.aku.hassannaqvi.covidimmunity.ui.sections;
 
-import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.fp;
+import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.followup;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,10 @@ import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
+import org.json.JSONException;
+
 import edu.aku.hassannaqvi.covidimmunity.R;
+import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionFpaBinding;
@@ -27,8 +30,7 @@ public class SectionFPAActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_fpa);
-        bi.setFp(fp);
-        setupSkips();
+        bi.setFollowup(followup);
         setSupportActionBar(bi.toolbar);
         setTitle(R.string.sectionpa_mainheading);
         db = MainApp.appInfo.dbHelper;
@@ -36,16 +38,11 @@ public class SectionFPAActivity extends AppCompatActivity {
     }
 
 
-    private void setupSkips() {
-
-    }
-
 
     private boolean updateDB() {
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = 0;
         try {
-            updcount = db.updatesFormColumn(TableContracts.FollowupTable.COLUMN_SFHA, MainApp.fp.sFPAtoString());
+            updcount = db.updatesFollowupColumn(TableContracts.FollowupTable.COLUMN_SFPA, MainApp.followup.sFPAtoString());
         } catch (JSONException e) {
             Toast.makeText(this, R.string.upd_db + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -54,14 +51,14 @@ public class SectionFPAActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
             return false;
-        }*/
+        }
 
-        return true;
     }
 
     public void BtnContinue(View view) {
+
         if (!formValidation()) return;
-        saveDraft();
+        if (!updateDB()) return;
         if (updateDB()) {
             finish();
             startActivity(new Intent(this, SectionFPCActivity.class).putExtra("complete", true));
@@ -70,8 +67,6 @@ public class SectionFPAActivity extends AppCompatActivity {
         }
     }
 
-    private void saveDraft() {
-    }
 
     public void BtnEnd(View view) {
         finish();
@@ -85,8 +80,8 @@ public class SectionFPAActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
-        setResult(RESULT_CANCELED);
+        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
+        //setResult(RESULT_CANCELED);
     }
 
 

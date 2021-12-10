@@ -48,7 +48,7 @@ public class TableContracts {
     }
 
     public static abstract class FollowupTable implements BaseColumns {
-        public static final String TABLE_NAME = "fp";
+        public static final String TABLE_NAME = "followup";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String COLUMN_PROJECT_NAME = "projectName";
         public static final String COLUMN_ID = "_id";
@@ -68,26 +68,24 @@ public class TableContracts {
 
     }
 
-    public static abstract class Followups_sche implements BaseColumns {
+    public static abstract class FollowupsScheTable implements BaseColumns {
         public static final String TABLE_NAME = "followups_sche";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String COLUMN_PROJECT_NAME = "projectName";
-        public static final String COLUMN_ID = "_id";
-        public static final String ID = "id";
-        public static final String FORM_COLID = "form_colid";
-        public static final String MEMBER_ID = "memberid";
-        public static final String FP_CODE = "fpcode";
-        public static final String FP_ID = "fpid";
-        public static final String HA01 = "ha01";
-        public static final String HA09 = "ha09";
-        public static final String HA11 = "ha11";
-        public static final String HA12 = "ha12";
-        public static final String HA12A = "ha12a";
-        public static final String PA01 = "pa01";
-        public static final String PA01A = "pa01a";
-        public static final String PA01B = "pa01b";
-        public static final String FP_DATE = "fp_date";
-        public static final String FP_LOCK = "fp_lock";
+        public static final String COLUMN_ID = "id";
+        public static final String COLUMN_FORM_COLID = "form_colid";
+        public static final String COLUMN_MEMBER_ID = "memberid";
+        public static final String COLUMN_FP_CODE = "fpcode";
+        public static final String COLUMN_FP_ID = "fpid";
+        public static final String COLUMN_HA01 = "ha01";
+        public static final String COLUMN_HA09 = "ha09";
+        public static final String COLUMN_HA11 = "ha11";
+        public static final String COLUMN_HA12 = "ha12";
+        public static final String COLUMN_HA12A = "ha12a";
+        public static final String COLUMN_PA01 = "pa01";
+        public static final String COLUMN_PA01A = "pa01a";
+        public static final String COLUMN_PA01B = "pa01b";
+        public static final String COLUMN_FP_DATE = "fp_date";
 
     }
 

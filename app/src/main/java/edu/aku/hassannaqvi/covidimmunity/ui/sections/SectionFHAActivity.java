@@ -1,7 +1,7 @@
 package edu.aku.hassannaqvi.covidimmunity.ui.sections;
 
 
-import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.fp;
+import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.followup;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,10 @@ import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
+import org.json.JSONException;
+
 import edu.aku.hassannaqvi.covidimmunity.R;
+import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivitySectionFhaBinding;
@@ -31,47 +34,41 @@ public class SectionFHAActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_fha);
-        bi.setFp(fp);
-        setupSkips();
+        bi.setFollowup(followup);
         setSupportActionBar(bi.toolbar);
         setTitle(R.string.sectionha_mainheading);
         db = MainApp.appInfo.dbHelper;
 
     }
 
-    private void setupSkips() {
-
-    }
 
     private boolean insertNewRecord() {
-        /*if (!fp.getUid().equals("")) return true;
+        if (!followup.getUid().equals("")) return true;
         long rowId = 0;
         try {
-            rowId = db.addFollowup(fp);
+            rowId = db.addFollowup(followup);
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(this, R.string.db_excp_error, Toast.LENGTH_SHORT).show();
             return false;
         }
-        fp.setId(String.valueOf(rowId));
+        followup.setId(String.valueOf(rowId));
         if (rowId > 0) {
-            fp.setUid(fp.getDeviceId() + fp.getId());
-            db.updatesFollowupColumn(TableContracts.FollowupTable.COLUMN_UID, fp.getUid());
+            followup.setUid(followup.getDeviceId() + followup.getId());
+            db.updatesFollowupColumn(TableContracts.FollowupTable.COLUMN_UID, followup.getUid());
             return true;
         } else {
             Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
             return false;
-        }*/
+        }
 
-        return true;
     }
 
 
     private boolean updateDB() {
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = 0;
         try {
-            updcount = db.updatesFormColumn(TableContracts.FollowupTable.COLUMN_SFHA, fp.sFHAtoString());
+            updcount = db.updatesFollowupColumn(TableContracts.FollowupTable.COLUMN_SFHA, followup.sFHAtoString());
         } catch (JSONException e) {
             Toast.makeText(this, R.string.upd_db + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -80,15 +77,13 @@ public class SectionFHAActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
             return false;
-        }*/
+        }
 
-        return true;
     }
 
     public void BtnContinue(View view) {
         if (!formValidation()) return;
         if (!insertNewRecord()) return;
-        saveDraft();
         if (updateDB()) {
             finish();
             startActivity(new Intent(this, SectionFPAActivity.class).putExtra("complete", true));
@@ -97,20 +92,12 @@ public class SectionFHAActivity extends AppCompatActivity {
         }
     }
 
-    private void saveDraft() {
-    }
 
 
     public void BtnEnd(View view) {
-         if (!formValidation()) return;
-        if (!insertNewRecord()) return;
-        saveDraft();
-        if (updateDB()) {
             finish();
             startActivity(new Intent(this, FP_EndingActivity.class).putExtra("complete", false));
-        } else {
-            Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
-        }
+
     }
 
     private boolean formValidation() {
@@ -122,6 +109,7 @@ public class SectionFHAActivity extends AppCompatActivity {
     public void onBackPressed() {
         // Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
         setResult(RESULT_CANCELED);
+        finish();
     }
 
 

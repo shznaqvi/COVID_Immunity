@@ -11,74 +11,40 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.Collections;
 import java.util.List;
 
 import edu.aku.hassannaqvi.covidimmunity.R;
-import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
-import edu.aku.hassannaqvi.covidimmunity.models.FollowUps;
+import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
+import edu.aku.hassannaqvi.covidimmunity.models.FollowUpsSche;
+import edu.aku.hassannaqvi.covidimmunity.models.Followup;
 import edu.aku.hassannaqvi.covidimmunity.ui.sections.SectionFHAActivity;
 
-/**
- * Created by hassan.naqvi on 8/1/2016.
- */
+
 public class FollowupsAdapter extends RecyclerView.Adapter<FollowupsAdapter.ViewHolder> {
-    Context c;
-    DatabaseHelper db;
-    private Context context;
-    private List<FollowUps> fups = Collections.emptyList();
+    private static final String TAG = "MWRAAdapter";
+    private final List<FollowUpsSche> fups;
+    private final int mExpandedPosition = -1;
+    private final int completeCount;
+    private final boolean motherPresent = false;
+    private Context mContext;
 
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public FollowupsAdapter(List<FollowUps> fups, Context c) {
+    /**
+     * Initialize the dataset of the Adapter.
+     *
+     * @param fups List<FemaleMembersModel> containing the data to populate views to be used by RecyclerView.
+     */
+    public FollowupsAdapter(Context mContext, List<FollowUpsSche> fups) {
         this.fups = fups;
-        this.c = c;
-        Log.d("TAG:count", String.valueOf(getItemCount()));
+        this.mContext = mContext;
+        completeCount = 0;
+        MainApp.followupComplete = false;
+
     }
 
-    // Create new views (invoked by the layout manager)
+
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent,
-                                         int viewType) {
-        // create a new view
-        View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.followups_list_item, parent, false);
-
-        // set the view's size, margins, paddings and layout parameters
-        db = new DatabaseHelper(c);
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
-    }
-
-    // Replace the contents of a view (invoked by the layout manager)
-    @Override
-    public void onBindViewHolder(final ViewHolder holder, final int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-
-        int childCount = 0;
-        //childCount = db.getChildrenByUUID(form.get(position).get_UID());
-        int photoChild = 0;
-        //photoChild = db.getChildrenPhotoCheck(form.get(position).get_UID());
-        int cardChild = 0;
-        //cardChild = db.getChildrenCardCheck(form.get(position).get_UID());
-
-
-/*        String iStatus = "Status  Unknown";
-        int iColor = 0;
-        switch (fups.get(position).getFupdonedt()) {
-            case "null":
-                iStatus = "Done";
-                iColor = Color.GREEN;
-                break;
-
-            default:
-                iStatus = "Not Done";
-                iColor = Color.RED;
-                break;
-        }*/
-
-        //holder.hhno.setText(form.get(position).getRefno() + " \t\t(" + form.get(position).getA01() + ")");
-        //    holder.hhno.setText(form.get(position).getA05());
+    public void onBindViewHolder(ViewHolder holder, int positionu) {
+        int position = holder.getAdapterPosition();
         Log.d("FollowupsAdapter", "onBindViewHolder: " + fups.get(position).getFpcode() + "/20");
         holder.fupWeek.setText(fups.get(position).getFpcode() + "/20");
         holder.chName.setText(fups.get(position).getPa01());
@@ -92,28 +58,42 @@ public class FollowupsAdapter extends RecyclerView.Adapter<FollowupsAdapter.View
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, SectionFHAActivity.class);
+                Intent intent = new Intent(mContext, SectionFHAActivity.class);
                 intent.putExtra("list", true);
-                ((Activity) context).startActivityForResult(intent, 1002);
+                MainApp.followup = new Followup();
+                // MainApp.followup.setFha01(fups.get(position).getHa01());
+                MainApp.followup.setFha09(fups.get(position).getHa09());
+                MainApp.followup.setFha11(fups.get(position).getHa11());
+                MainApp.followup.setFha12(fups.get(position).getHa12());
+                MainApp.followup.setFha12a(fups.get(position).getHa12a());
+                MainApp.followup.setFpa01(fups.get(position).getPa01());
+                MainApp.followup.setFpa01a(fups.get(position).getPa01a());
+                MainApp.followup.setFha13(fups.get(position).getPa01b());
+                ((Activity) mContext).startActivityForResult(intent, 1002);
             }
         });
 
 
     }
 
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 
-    // Return the size of your dataset (invoked by the layout manager)
+        View v = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.followups_list_item, viewGroup, false);
+
+        return new ViewHolder(v);
+    }
+
     @Override
     public int getItemCount() {
         return fups.size();
     }
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
+    /**
+     * Provide a reference to the type of views that you are using (custom ViewHolder)
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
-
-
         public RecyclerView rv;
         public TextView chName;
         public TextView mName;
@@ -121,20 +101,24 @@ public class FollowupsAdapter extends RecyclerView.Adapter<FollowupsAdapter.View
         public TextView mrno;
         public TextView fupdates;
         public TextView istatus;
-        // each data item is just a string in this case
+
 
         public ViewHolder(View v) {
             super(v);
-//            rv = v.findViewById(R.id.FormsList);
             fupWeek = v.findViewById(R.id.fupWeek);
             chName = v.findViewById(R.id.chname);
             mName = v.findViewById(R.id.mname);
             mrno = v.findViewById(R.id.mrno);
             fupdates = v.findViewById(R.id.fupDates);
             istatus = v.findViewById(R.id.istatus);
-            context = v.getContext();
+            mContext = v.getContext();
+
         }
 
-
+  /*      public TextView getTextView() {
+            return fName;
+        }*/
     }
+
+
 }
