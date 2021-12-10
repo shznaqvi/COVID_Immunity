@@ -5,12 +5,22 @@ import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 
-public class Followups {
+public class FollowUps {
+
+    /**
+     * Fupdonedt			// * not used
+     * Fupweek				// fpcode
+     * ChName				// pa01 <= woman name
+     * mName				// pa01a <= husband name
+     * Studyid				// * not used
+     * getMrno				// memberid
+     * fupdate				// fp_date
+     */
 
     String id;
     String form_colid;
     String memberid;
-    String  fpcode;
+    String fpcode;
     String fpid;
     String ha01;
     String ha09;
@@ -24,8 +34,7 @@ public class Followups {
     String fp_lock;
 
 
-    public Followups()
-    {
+    public FollowUps() {
         // Default Constructor
     }
 
@@ -149,7 +158,7 @@ public class Followups {
         this.fp_lock = fp_lock;
     }
 
-    public Followups Hydrate(JSONObject fup) throws JSONException {
+    public FollowUps Hydrate(JSONObject fup) throws JSONException {
 
         this.id = fup.getString("id");
         this.form_colid = fup.getString("form_colid");
@@ -197,7 +206,7 @@ public class Followups {
         }
     }
 
-    public Followups Sync(JSONObject jsonObject) throws JSONException {
+    public FollowUps Sync(JSONObject jsonObject) throws JSONException {
 
         this.id = jsonObject.getString(TableContracts.Followups_sche.ID);
         this.form_colid = jsonObject.getString(TableContracts.Followups_sche.FORM_COLID);

@@ -16,7 +16,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,7 +31,7 @@ import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts.VersionTable;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.models.FP;
-import edu.aku.hassannaqvi.covidimmunity.models.Followups;
+import edu.aku.hassannaqvi.covidimmunity.models.FollowUps;
 import edu.aku.hassannaqvi.covidimmunity.models.Form;
 import edu.aku.hassannaqvi.covidimmunity.models.Users;
 import edu.aku.hassannaqvi.covidimmunity.models.VersionApp;
@@ -840,7 +839,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                 JSONObject jsonObjectFollowup = followupsList.getJSONObject(i);
 
-                Followups followups = new Followups();
+                FollowUps followups = new FollowUps();
                 followups.Sync(jsonObjectFollowup);
 
                 /*if (checkFollowup(followups.getMrno().trim(), followups.getFupdt().trim(), followups.getFupweek().trim())) {
