@@ -79,6 +79,7 @@ public class MainApp extends Application {
     public static boolean superuser = false;
     public static FollowUpsSche followupsSche;
     public static int position = 0;
+    public static List<FollowUpsSche> fupsSche;
 
 
     public static void hideSystemUI(View decorView) {

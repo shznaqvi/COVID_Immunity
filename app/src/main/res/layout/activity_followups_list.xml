@@ -14,12 +14,17 @@
                   name="callback"
                   type="edu.aku.hassannaqvi.covidimmunity.ui.list_activity.FollowUpsListActivity" />-->
     </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/app_bg_gray"
         android:orientation="vertical">
+
 
         <androidx.cardview.widget.CardView
             style="@style/cardView"
@@ -33,6 +38,8 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:minHeight="56dp"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -50,7 +57,8 @@
                             android:paddingStart="18dp"
                             android:text="Followups"
                             android:textColor="@color/colorPrimaryDark"
-                            android:textSize="28sp"
+                            android:includeFontPadding="false"
+                            android:textSize="24sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -73,18 +81,26 @@
                         android:text="Please select a followup to open followup form"
                         android:textColor="#7f7f7f"
                         android:textSize="14dp"
+                        android:includeFontPadding="false"
+
                         android:textStyle="normal" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginEnd="12dp"
-                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+                    android:minHeight="56dp"
+                    android:padding="8dp"
                     android:orientation="horizontal">
 
-                    <EditText
+                    <TextView
+                        style="@style/labels"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="0dp"
+                        android:text="Sub-District" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
                         android:id="@+id/dtFilter"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -95,15 +111,45 @@
                         android:inputType="numberSigned"
                         android:maxLength="9" />
 
-                    <Button
-                        android:id="@+id/btnsearch"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="0dp"
-                        android:drawableStart="@drawable/search"
-                        android:onClick="filterFollowUps"
-                        android:text="Search" />
+
                 </LinearLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:minHeight="56dp"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+
+                    <EditText
+                        android:id="@+id/memberFilter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="0dp"
+                        android:background="@color/grayLight"
+                        android:hint="Member ID"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:padding="8dp"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="8dp"
+                        android:background="@android:color/transparent"
+                        android:onClick="filterForms"
+                        android:src="@drawable/search"
+                        android:text="" />
+                </RelativeLayout>
 
                 <ProgressBar
                     android:id="@+id/pBar3"
@@ -123,16 +169,68 @@
                     android:textColor="@color/redOverlay"
                     android:textSize="16sp"
                     android:visibility="gone" />
+
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/fc_recycler_view"
-            android:layout_width="match_parent"
+            android:layout_width="360dp"
             android:layout_height="match_parent"
             android:layout_margin="12dp"
+            android:layout_gravity="center_horizontal"
             android:scrollbars="vertical"
+            android:layoutAnimation="@anim/layout_animation"
             tools:listitem="@layout/followups_list_item" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/f1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccentLight"
+            android:onClick="filterNumber"
+            android:padding="4dp"
+            android:text="Follow-up 1"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <Button
+            android:id="@+id/f2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:onClick="filterNumber"
+            android:padding="4dp"
+
+            android:text="Follow-up 2"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <Button
+            android:id="@+id/f3"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccentOverlay"
+            android:onClick="filterNumber"
+            android:padding="4dp"
+
+            android:text="Follow-up 3"
+            android:textColor="@color/colorPrimaryDark" />
+
+    </LinearLayout>
+</RelativeLayout>
 </layout>

@@ -973,7 +973,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String groupBy = null;
         String having = null;
 
-        String orderBy = FollowupsScheTable.COLUMN_FORM_COLID + " ASC";
+        String orderBy = FollowupsScheTable.COLUMN_FP_DATE + " ASC";
 
         List<FollowUpsSche> allFollowupsSche = new ArrayList<>();
         c = db.query(
@@ -1005,11 +1005,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String groupBy = null;
         String having = null;
 
-        String orderBy = FollowupsScheTable.COLUMN_ID + " DESC";
+        String orderBy = FollowupsScheTable.COLUMN_FP_DATE + " ASC";
 
         List<FollowUpsSche> allFollowupsSche = new ArrayList<>();
         c = db.query(
-                FollowupTable.TABLE_NAME,  // The table to query
+                FollowupsScheTable.TABLE_NAME,  // The table to query
                 columns,                   // The columns to return
                 whereClause,               // The columns for the WHERE clause
                 whereArgs,                 // The values for the WHERE clause
@@ -1029,4 +1029,67 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public List<FollowUpsSche> getFollowUpsScheByMemberID(String memberid) throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+        String whereClause = FollowupsScheTable.COLUMN_MEMBER_ID + " like ? ";
+        String[] whereArgs = {"%" + memberid + "%"};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = FollowupsScheTable.COLUMN_ID + " DESC";
+
+        List<FollowUpsSche> allFollowupsSche = new ArrayList<>();
+        c = db.query(
+                FollowupsScheTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            allFollowupsSche.add(new FollowUpsSche().Hydrate(c));
+        }
+
+        c.close();
+
+        db.close();
+
+        return allFollowupsSche;
+    }
+
+    public List<FollowUpsSche> getFollowUpsScheByRound(int round) throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+        String whereClause = FollowupsScheTable.COLUMN_FP_CODE + " = ? ";
+        String[] whereArgs = {String.valueOf(round)};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = FollowupsScheTable.COLUMN_FP_DATE + " ASC";
+
+        List<FollowUpsSche> allFollowupsSche = new ArrayList<>();
+        c = db.query(
+                FollowupsScheTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            allFollowupsSche.add(new FollowUpsSche().Hydrate(c));
+        }
+
+        c.close();
+
+        db.close();
+
+        return allFollowupsSche;
+    }
 }
