@@ -61,7 +61,12 @@ public class SectionFPAActivity extends AppCompatActivity {
         if (!updateDB()) return;
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, SectionFPCActivity.class).putExtra("complete", true));
+            if(bi.fpa041.isChecked()) {
+                startActivity(new Intent(this, SectionFPCActivity.class).putExtra("complete", true));
+            }else{
+                startActivity(new Intent(this, FP_EndingActivity.class).putExtra("complete", false));
+            }
+
         } else {
             Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
         }
