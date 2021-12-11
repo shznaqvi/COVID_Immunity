@@ -556,6 +556,62 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public JSONArray getUnsyncedFollowups() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        //whereClause = null;
+        whereClause = FollowupTable.COLUMN_SYNCED + " is null AND " +
+                FollowupTable.COLUMN_ISTATUS + "!= ''";
+
+        String[] whereArgs = null;
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = FollowupTable.COLUMN_ID + " ASC";
+
+        JSONArray allFollowups = new JSONArray();
+        try {
+            c = db.query(
+                    FollowupTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                /** WorkManager Upload
+                 /*Form fc = new Form();
+                 allFC.add(fc.Hydrate(c));*/
+                Log.d(TAG, "getUnsyncedFollowups: " + c.getCount());
+                Followup fp = new Followup();
+                allFollowups.put(fp.Hydrate(c).toJSONObject());
+
+
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Log.d(TAG, "getUnsyncedFollowups: getUnsyncedFollowups " + e.getMessage()
+            );
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        Log.d(TAG, "getUnsyncedForms: " + allFollowups.toString().length());
+        Log.d(TAG, "getUnsyncedForms: " + allFollowups);
+        return allFollowups;
+    }
+
+
     //update SyncedTables
     public void updateSyncedforms(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -571,6 +627,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         int count = db.update(
                 FormsTable.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+
+
+    public void updateSyncedfollowup(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FollowupTable.COLUMN_SYNCED, true);
+        values.put(FollowupTable.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = FollowupTable.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                FollowupTable.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
