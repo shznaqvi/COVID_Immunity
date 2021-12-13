@@ -133,8 +133,13 @@ public class SyncActivity extends AppCompatActivity {
                 uploadTables.add(new SyncModel(FormsTable.TABLE_NAME));
                 MainApp.uploadData.add(db.getUnsyncedForms());
 
-                uploadTables.add(new SyncModel(TableContracts.FollowupTable.TABLE_NAME));
-                MainApp.uploadData.add(db.getUnsyncedFollowups());
+                try {
+                    uploadTables.add(new SyncModel(TableContracts.FollowupTable.TABLE_NAME));
+                    MainApp.uploadData.add(db.getUnsyncedFollowups());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "JSONException(Folloup): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
 
                 MainApp.downloadData = new String[uploadData.size()];
 

@@ -4,7 +4,6 @@ import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.PROJECT_NAME;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Log;
 
@@ -33,8 +32,7 @@ import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 
 public class DataUpWorkerALL extends Worker {
 
-    private static final Object APP_NAME = PROJECT_NAME;
-    private final String TAG = "DataWorkerEN()";
+    private static final String TAG = "DataUpWorkerALL";
 
     // to be initialised by workParams
     private final Context mContext;
@@ -45,7 +43,6 @@ public class DataUpWorkerALL extends Worker {
     private final int position;
     private final String uploadWhere;
     HttpURLConnection urlConnection;
-    private ProgressDialog pd;
     private int length;
     private Data data;
 
@@ -76,6 +73,40 @@ public class DataUpWorkerALL extends Worker {
      * It will display a notification
      * So that we will understand the work is executed
      * */
+
+    public static void longInfo(String str) {
+        if (str.length() > 4000) {
+            Log.i(TAG, str.substring(0, 4000));
+            longInfo(str.substring(4000));
+        } else
+            Log.i(TAG, str);
+    }
+
+    /*
+     * The method is doing nothing but only generating
+     * a simple notification
+     * If you are confused about it
+     * you should check the Android Notification Tutorial
+     * */
+    private void displayNotification(String title, String task) {
+        NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("scrlog", "BLF", NotificationManager.IMPORTANCE_DEFAULT);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        NotificationCompat.Builder notification = new NotificationCompat.Builder(getApplicationContext(), "scrlog")
+                .setContentTitle(title)
+                .setContentText(task)
+                .setSmallIcon(R.mipmap.ic_launcher);
+
+        final int maxProgress = 100;
+        int curProgress = 0;
+        notification.setProgress(length, curProgress, false);
+
+        notificationManager.notify(1, notification.build());
+    }
 
     @NonNull
     @Override
@@ -133,6 +164,7 @@ public class DataUpWorkerALL extends Worker {
 
 
             //wr.writeBytes(URLEncoder.encode(jsonParam.toString(), "utf-8"));
+            longInfo(jsonParam.toString());
             wr.writeBytes(jsonParam.toString());
             wr.flush();
             wr.close();
@@ -232,31 +264,5 @@ public class DataUpWorkerALL extends Worker {
         }
 
 
-    }
-
-    /*
-     * The method is doing nothing but only generating
-     * a simple notification
-     * If you are confused about it
-     * you should check the Android Notification Tutorial
-     * */
-    private void displayNotification(String title, String task) {
-        NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel("scrlog", "BLF", NotificationManager.IMPORTANCE_DEFAULT);
-            notificationManager.createNotificationChannel(channel);
-        }
-
-        NotificationCompat.Builder notification = new NotificationCompat.Builder(getApplicationContext(), "scrlog")
-                .setContentTitle(title)
-                .setContentText(task)
-                .setSmallIcon(R.mipmap.ic_launcher);
-
-        final int maxProgress = 100;
-        int curProgress = 0;
-        notification.setProgress(length, curProgress, false);
-
-        notificationManager.notify(1, notification.build());
     }
 }

@@ -183,18 +183,17 @@ public class FollowUpsSche {
         return this;
     }
 
-    public JSONObject toJSONObject() {
+    public JSONObject toJSONObject() throws JSONException {
 
         JSONObject json = new JSONObject();
-        try {
-            json.put(TableContracts.FollowupsScheTable.COLUMN_ID, this.id == null ? JSONObject.NULL : this.id);
-            json.put(TableContracts.FollowupsScheTable.COLUMN_FORM_COLID, this.form_colid == null ? JSONObject.NULL : this.form_colid);
-            json.put(TableContracts.FollowupsScheTable.COLUMN_MEMBER_ID, this.memberid == null ? JSONObject.NULL : this.memberid);
-            json.put(TableContracts.FollowupsScheTable.COLUMN_FP_CODE, this.fpcode == null ? JSONObject.NULL : this.fpcode);
-            json.put(TableContracts.FollowupsScheTable.COLUMN_FP_ID, this.fpid == null ? JSONObject.NULL : this.fpid);
-            json.put(TableContracts.FollowupsScheTable.COLUMN_HA01, this.ha01 == null ? JSONObject.NULL : this.ha01);
-            json.put(TableContracts.FollowupsScheTable.COLUMN_HA09, this.ha09 == null ? JSONObject.NULL : this.ha09);
-            json.put(TableContracts.FollowupsScheTable.COLUMN_HA11, this.ha11 == null ? JSONObject.NULL : this.ha11);
+        json.put(TableContracts.FollowupsScheTable.COLUMN_ID, this.id == null ? JSONObject.NULL : this.id);
+        json.put(TableContracts.FollowupsScheTable.COLUMN_FORM_COLID, this.form_colid == null ? JSONObject.NULL : this.form_colid);
+        json.put(TableContracts.FollowupsScheTable.COLUMN_MEMBER_ID, this.memberid == null ? JSONObject.NULL : this.memberid);
+        json.put(TableContracts.FollowupsScheTable.COLUMN_FP_CODE, this.fpcode == null ? JSONObject.NULL : this.fpcode);
+        json.put(TableContracts.FollowupsScheTable.COLUMN_FP_ID, this.fpid == null ? JSONObject.NULL : this.fpid);
+        json.put(TableContracts.FollowupsScheTable.COLUMN_HA01, this.ha01 == null ? JSONObject.NULL : this.ha01);
+        json.put(TableContracts.FollowupsScheTable.COLUMN_HA09, this.ha09 == null ? JSONObject.NULL : this.ha09);
+        json.put(TableContracts.FollowupsScheTable.COLUMN_HA11, this.ha11 == null ? JSONObject.NULL : this.ha11);
             json.put(TableContracts.FollowupsScheTable.COLUMN_HA12, this.ha12 == null ? JSONObject.NULL : this.ha12);
             json.put(TableContracts.FollowupsScheTable.COLUMN_HA12A, this.ha12a == null ? JSONObject.NULL : this.ha12a);
             json.put(TableContracts.FollowupsScheTable.COLUMN_PA01, this.pa01 == null ? JSONObject.NULL : this.pa01);
@@ -204,10 +203,7 @@ public class FollowUpsSche {
             json.put(TableContracts.FollowupsScheTable.COLUMN_FP_DONE, this.fupdonedt == null ? JSONObject.NULL : this.fupdonedt);
 
             return json;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return null;
-        }
+
     }
 
     public FollowUpsSche Sync(JSONObject jsonObject) throws JSONException {

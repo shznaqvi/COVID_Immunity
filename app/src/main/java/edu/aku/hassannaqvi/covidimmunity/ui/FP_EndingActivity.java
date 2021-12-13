@@ -53,6 +53,7 @@ public class FP_EndingActivity extends AppCompatActivity {
                 : bi.fpa0506.isChecked() ? "6"
                 : bi.fpa0596.isChecked() ? "96"
                 : "-1");
+        followup.setiStatus96x(bi.fpa0596x.getText().toString());
     }
 
     public void BtnEnd(View view) {

@@ -119,7 +119,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(FollowupTable.COLUMN_PROJECT_NAME, followup.getProjectName());
         values.put(FollowupTable.COLUMN_UID, followup.getUid());
-        values.put(FollowupTable.COLUMN_UUID, followup.getUuid());
         values.put(FollowupTable.COLUMN_USERNAME, followup.getUserName());
         values.put(FollowupTable.COLUMN_SYSDATE, followup.getSysDate());
         values.put(FollowupTable.COLUMN_SFHA, followup.sFHAtoString());
@@ -556,7 +555,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public JSONArray getUnsyncedFollowups() {
+    public JSONArray getUnsyncedFollowups() throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = null;
@@ -574,7 +573,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = FollowupTable.COLUMN_ID + " ASC";
 
         JSONArray allFollowups = new JSONArray();
-        try {
             c = db.query(
                     FollowupTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -594,20 +592,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Log.d(TAG, "getUnsyncedFollowups: getUnsyncedFollowups " + e.getMessage()
-            );
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
-        Log.d(TAG, "getUnsyncedForms: " + allFollowups.toString().length());
-        Log.d(TAG, "getUnsyncedForms: " + allFollowups);
+
+        c.close();
+
+        db.close();
+
         return allFollowups;
     }
 

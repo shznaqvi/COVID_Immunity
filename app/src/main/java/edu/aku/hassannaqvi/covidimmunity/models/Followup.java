@@ -32,15 +32,11 @@ public class Followup extends BaseObservable implements Observable {
     // APP VARIABLES
     private String id = StringUtils.EMPTY;
     private String uid = StringUtils.EMPTY;
-    private String uuid = StringUtils.EMPTY;
-    private final String wuid = StringUtils.EMPTY;
-    private final String cuid = StringUtils.EMPTY;
     private String userName = StringUtils.EMPTY;
     private String sysDate = StringUtils.EMPTY;
     private String deviceId = StringUtils.EMPTY;
     private String deviceTag = StringUtils.EMPTY;
     private String appver = StringUtils.EMPTY;
-    private String endTime = StringUtils.EMPTY;
     private String iStatus = StringUtils.EMPTY;
     private String iStatus96x = StringUtils.EMPTY;
     private String synced = StringUtils.EMPTY;
@@ -122,13 +118,6 @@ public class Followup extends BaseObservable implements Observable {
 
     }
 
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
 
     public void setProjectName(String projectName) {
         this.projectName = projectName;
@@ -160,10 +149,6 @@ public class Followup extends BaseObservable implements Observable {
 
     public void setAppver(String appver) {
         this.appver = appver;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
     }
 
     public void setiStatus(String iStatus) {
@@ -206,13 +191,6 @@ public class Followup extends BaseObservable implements Observable {
         return uid;
     }
 
-    public String getWuid() {
-        return wuid;
-    }
-
-    public String getCuid() {
-        return cuid;
-    }
 
     public String getUserName() {
         return userName;
@@ -234,9 +212,7 @@ public class Followup extends BaseObservable implements Observable {
         return appver;
     }
 
-    public String getEndTime() {
-        return endTime;
-    }
+
 
     public String getiStatus() {
         return iStatus;
@@ -704,7 +680,6 @@ public class Followup extends BaseObservable implements Observable {
     public Followup Hydrate(Cursor cursor) throws JSONException {
         this.id = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_UID));
-        this.uuid = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_UID));
         this.userName = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_USERNAME));
         this.sysDate = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_SYSDATE));
         this.deviceId = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_DEVICEID));
@@ -863,12 +838,12 @@ public class Followup extends BaseObservable implements Observable {
 
         json.put(TableContracts.FollowupTable.COLUMN_ID, this.id);
         json.put(TableContracts.FollowupTable.COLUMN_UID, this.uid);
-        json.put(TableContracts.FollowupTable.COLUMN_UUID, this.uuid);
         json.put(TableContracts.FollowupTable.COLUMN_USERNAME, this.userName);
         json.put(TableContracts.FollowupTable.COLUMN_SYSDATE, this.sysDate);
         json.put(TableContracts.FollowupTable.COLUMN_DEVICEID, this.deviceId);
         json.put(TableContracts.FollowupTable.COLUMN_DEVICETAGID, this.deviceTag);
         json.put(TableContracts.FollowupTable.COLUMN_ISTATUS, this.iStatus);
+        json.put(TableContracts.FollowupTable.COLUMN_APPVERSION, this.appver);
         json.put(TableContracts.FollowupTable.COLUMN_SYNCED, this.synced);
         json.put(TableContracts.FollowupTable.COLUMN_SYNCED_DATE, this.syncDate);
 
