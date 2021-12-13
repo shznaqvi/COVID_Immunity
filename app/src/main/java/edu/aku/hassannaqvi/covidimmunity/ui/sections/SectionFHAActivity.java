@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -27,6 +29,7 @@ public class SectionFHAActivity extends AppCompatActivity {
     private static final String TAG = "SectionFHAActivity";
     ActivitySectionFhaBinding bi;
     private DatabaseHelper db;
+    private int pressedButton;
 
 
     @Override
@@ -44,7 +47,7 @@ public class SectionFHAActivity extends AppCompatActivity {
                 bi.fha09.setText(getString(R.string.fha0901));
                 break;
             case "2":
-                bi.fha09.setText(getString(R.string.fha0901));
+                bi.fha09.setText(getString(R.string.fha0902));
                 break;
             case "3":
                 bi.fha09.setText(getString(R.string.fha0903));
@@ -101,7 +104,11 @@ public class SectionFHAActivity extends AppCompatActivity {
         if (!insertNewRecord()) return;
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, SectionFPAActivity.class).putExtra("complete", true));
+            if(bi.fpa041.isChecked()) {
+                startActivity(new Intent(this, FP_EndingActivity.class).putExtra("complete", true));
+            }else{
+                startActivity(new Intent(this, FP_EndingActivity.class).putExtra("complete", false));
+            }
         } else {
             Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
         }
@@ -121,7 +128,13 @@ public class SectionFHAActivity extends AppCompatActivity {
     }
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpName);
+        if (!Validator.emptyCheckingContainer(this, bi.GrpName))
+            return false;
+
+        if (bi.fpc05q1.isChecked() && bi.fpc07.getText().toString().equals("")) {
+            return Validator.emptyCustomTextBox(this, bi.fpc07, "Scan QR");
+        }
+        return true;
     }
 
 
@@ -130,6 +143,38 @@ public class SectionFHAActivity extends AppCompatActivity {
         // Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
         setResult(RESULT_CANCELED);
         finish();
+    }
+
+
+    // Barcode Scanner
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (pressedButton == bi.scanQrFPC07.getId()) {
+                if (result.getContents() == null) {
+                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+                } else {
+                    String strResult = result.getContents();
+                    bi.fpc07.setText(strResult);
+                }
+            } else {
+                if (result.getContents() == null) {
+                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+                } else {
+                    String strResult = result.getContents();
+                    bi.fpc07.setText(strResult);
+                }
+            }
+
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    public void scanQR(View view) {
+        pressedButton = view.getId();
+        new IntentIntegrator(this).initiateScan();
     }
 
 

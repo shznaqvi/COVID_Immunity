@@ -53,16 +53,16 @@ public class Followup extends BaseObservable implements Observable {
     private String fha01 = StringUtils.EMPTY;
     private String fha02 = StringUtils.EMPTY;
     private String fha09 = StringUtils.EMPTY;
-    private String fha10 = StringUtils.EMPTY;
+    //private String fha10 = StringUtils.EMPTY;
     private String fha11 = StringUtils.EMPTY;
     private String fha12 = StringUtils.EMPTY;
     private String fha12a = StringUtils.EMPTY;
     private String fha13 = StringUtils.EMPTY;
     private String fpa01a = StringUtils.EMPTY;
     private String fpa01 = StringUtils.EMPTY;
-    private String fpa02 = StringUtils.EMPTY;
-    private String fpa03y = StringUtils.EMPTY;
-    private String fpa03m = StringUtils.EMPTY;
+    /*private String fpa02 = StringUtils.EMPTY;*/
+    /*private String fpa03y = StringUtils.EMPTY;
+    private String fpa03m = StringUtils.EMPTY;*/
     private String fpa03a = StringUtils.EMPTY;
     private String fpa03c = StringUtils.EMPTY;
     private String fpa04 = StringUtils.EMPTY;
@@ -258,10 +258,6 @@ public class Followup extends BaseObservable implements Observable {
         return fha09;
     }
 
-    @Bindable
-    public String getFha10() {
-        return fha10;
-    }
 
     @Bindable
     public String getFha11() {
@@ -293,20 +289,6 @@ public class Followup extends BaseObservable implements Observable {
         return fpa01;
     }
 
-    @Bindable
-    public String getFpa02() {
-        return fpa02;
-    }
-
-    @Bindable
-    public String getFpa03y() {
-        return fpa03y;
-    }
-
-    @Bindable
-    public String getFpa03m() {
-        return fpa03m;
-    }
 
     @Bindable
     public String getFpa03a() {
@@ -463,10 +445,6 @@ public class Followup extends BaseObservable implements Observable {
         notifyChange(BR.fha09);
     }
 
-    public void setFha10(String fha10) {
-        this.fha10 = fha10;
-        notifyChange(BR.fha10);
-    }
 
     public void setFha11(String fha11) {
         this.fha11 = fha11;
@@ -498,20 +476,6 @@ public class Followup extends BaseObservable implements Observable {
         notifyChange(BR.fpa01);
     }
 
-    public void setFpa02(String fpa02) {
-        this.fpa02 = fpa02;
-        notifyChange(BR.fpa02);
-    }
-
-    public void setFpa03y(String fpa03y) {
-        this.fpa03y = fpa03y;
-        notifyChange(BR.fpa03y);
-    }
-
-    public void setFpa03m(String fpa03m) {
-        this.fpa03m = fpa03m;
-        notifyChange(BR.fpa03m);
-    }
 
     public void setFpa03a(String fpa03a) {
         this.fpa03a = fpa03a;
@@ -526,6 +490,8 @@ public class Followup extends BaseObservable implements Observable {
 
     public void setFpa04(String fpa04) {
         this.fpa04 = fpa04;
+        setFpa03a(fpa04.equals("1") ? this.fpa03a : "");
+        setFpa03c(fpa04.equals("1") ? this.fpa03c : "");
         notifyChange(BR.fpa04);
     }
 
@@ -705,7 +671,6 @@ public class Followup extends BaseObservable implements Observable {
             this.fha01 = json.getString("fha01");
             this.fha02 = json.getString("fha02");
             this.fha09 = json.getString("fha09");
-            this.fha10 = json.getString("fha10");
             this.fha11 = json.getString("fha11");
             this.fha12 = json.getString("fha12");
             this.fha12a = json.getString("fha12a");
@@ -723,9 +688,6 @@ public class Followup extends BaseObservable implements Observable {
             json = new JSONObject(string);
             this.fpa01a = json.getString("fpa01a");
             this.fpa01 = json.getString("fpa01");
-            this.fpa02 = json.getString("fpa02");
-            this.fpa03y = json.getString("fpa03y");
-            this.fpa03m = json.getString("fpa03m");
             this.fpa03a = json.getString("fpa03a");
             this.fpa03c = json.getString("fpa03c");
             this.fpa04 = json.getString("fpa04");
@@ -774,7 +736,6 @@ public class Followup extends BaseObservable implements Observable {
         json.put("fha01", fha01)
                 .put("fha02", fha02)
                 .put("fha09", fha09)
-                .put("fha10", fha10)
                 .put("fha11", fha11)
                 .put("fha12", fha12)
                 .put("fha12a", fha12a)
@@ -790,9 +751,6 @@ public class Followup extends BaseObservable implements Observable {
 
         json.put("fpa01a", fpa01a)
                 .put("fpa01", fpa01)
-                .put("fpa02", fpa02)
-                .put("fpa03y", fpa03y)
-                .put("fpa03m", fpa03m)
                 .put("fpa03a", fpa03a)
                 .put("fpa03c", fpa03c)
                 .put("fpa04", fpa04);

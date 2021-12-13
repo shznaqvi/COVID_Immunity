@@ -39,14 +39,6 @@
             android:theme="@style/AppThemeUrdu"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".ui.sections.SectionFPCActivity"
-            android:theme="@style/AppThemeUrdu"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity
-            android:name=".ui.sections.SectionFPAActivity"
-            android:theme="@style/AppThemeUrdu"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity
             android:name=".ui.sections.SectionFHAActivity"
             android:exported="false"
             android:theme="@style/AppThemeUrdu"

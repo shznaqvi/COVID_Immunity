@@ -48,8 +48,6 @@ import edu.aku.hassannaqvi.covidimmunity.ui.lists.FormsReportCluster;
 import edu.aku.hassannaqvi.covidimmunity.ui.lists.FormsReportDate;
 import edu.aku.hassannaqvi.covidimmunity.ui.lists.FormsReportPending;
 import edu.aku.hassannaqvi.covidimmunity.ui.sections.SectionFHAActivity;
-import edu.aku.hassannaqvi.covidimmunity.ui.sections.SectionFPAActivity;
-import edu.aku.hassannaqvi.covidimmunity.ui.sections.SectionFPCActivity;
 import edu.aku.hassannaqvi.covidimmunity.ui.sections.SectionHAActivity;
 import edu.aku.hassannaqvi.covidimmunity.ui.sections.SectionPAActivity;
 import edu.aku.hassannaqvi.covidimmunity.ui.sections.SectionPBActivity;
@@ -289,7 +287,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, SectionFHAActivity.class));
                 break;
 
-            case R.id.secfpa:
+            /*case R.id.secfpa:
                 MainApp.followup = new Followup();
                 startActivity(new Intent(this, SectionFPAActivity.class));
                 break;
@@ -298,7 +296,7 @@ public class MainActivity extends AppCompatActivity {
                 MainApp.followup = new Followup();
                 startActivity(new Intent(this, SectionFPCActivity.class));
                 break;
-
+*/
             case R.id.dbManager:
                 startActivity(new Intent(this, AndroidDatabaseManager.class));
                 break;
