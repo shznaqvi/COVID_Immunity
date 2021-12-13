@@ -39,18 +39,18 @@ public class SectionFHAActivity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_fha);
         bi.setFollowup(followup);
         setSupportActionBar(bi.toolbar);
-        setTitle(R.string.sectionha_mainheading);
+        setTitle(R.string.sectionfha_mainheading);
         db = MainApp.appInfo.dbHelper;
 
         switch (followup.getFha09()) {
             case "1":
-                bi.fha09.setText(getString(R.string.fha0901));
+                bi.fha09.setText("Hala");
                 break;
             case "2":
-                bi.fha09.setText(getString(R.string.fha0902));
+                bi.fha09.setText("Mariari");
                 break;
             case "3":
-                bi.fha09.setText(getString(R.string.fha0903));
+                bi.fha09.setText("Saeedabad");
                 break;
         }
 

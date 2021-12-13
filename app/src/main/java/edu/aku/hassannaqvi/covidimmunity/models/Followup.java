@@ -44,8 +44,6 @@ public class Followup extends BaseObservable implements Observable {
 
     // SECTION VARIABLES
     private String sFHA = StringUtils.EMPTY;
-    private String sFPA = StringUtils.EMPTY;
-    private String sFPC = StringUtils.EMPTY;
 
 
     // Field Variables
@@ -171,14 +169,6 @@ public class Followup extends BaseObservable implements Observable {
         this.sFHA = sFHA;
     }
 
-    public void setsFPA(String sFPA) {
-        this.sFPA = sFPA;
-    }
-
-    public void setsFPC(String sFPC) {
-        this.sFPC = sFPC;
-    }
-
     public String getProjectName() {
         return projectName;
     }
@@ -234,13 +224,6 @@ public class Followup extends BaseObservable implements Observable {
         return sFHA;
     }
 
-    public String getsFPA() {
-        return sFPA;
-    }
-
-    public String getsFPC() {
-        return sFPC;
-    }
 
 
     @Bindable
@@ -656,8 +639,7 @@ public class Followup extends BaseObservable implements Observable {
         this.syncDate = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_SYNCED_DATE));
 
         sFHAHydrate(cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_SFHA)));
-        sFPAHydrate(cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_SFPA)));
-        sFPCHydrate(cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_SFPC)));
+
 
         return this;
     }
@@ -807,8 +789,7 @@ public class Followup extends BaseObservable implements Observable {
 
         // Followup
         json.put(TableContracts.FollowupTable.COLUMN_SFHA, new JSONObject(sFHAtoString()));
-        json.put(TableContracts.FollowupTable.COLUMN_SFPA, new JSONObject(sFPAtoString()));
-        json.put(TableContracts.FollowupTable.COLUMN_SFPC, new JSONObject(sFPCtoString()));
+
 
         return json;
     }

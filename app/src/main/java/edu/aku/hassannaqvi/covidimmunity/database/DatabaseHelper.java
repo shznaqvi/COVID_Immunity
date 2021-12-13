@@ -122,9 +122,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FollowupTable.COLUMN_USERNAME, followup.getUserName());
         values.put(FollowupTable.COLUMN_SYSDATE, followup.getSysDate());
         values.put(FollowupTable.COLUMN_SFHA, followup.sFHAtoString());
-        values.put(FollowupTable.COLUMN_SFPA, followup.sFPAtoString());
-        values.put(FollowupTable.COLUMN_SFPC, followup.sFPCtoString());
-
 
         values.put(FollowupTable.COLUMN_ISTATUS, followup.getiStatus());
 

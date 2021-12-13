@@ -61,9 +61,8 @@ object CreateTable {
             + FollowupTable.COLUMN_SYNCED + " TEXT,"
             + FollowupTable.COLUMN_SYNCED_DATE + " TEXT,"
             + FollowupTable.COLUMN_APPVERSION + " TEXT,"
-            + FollowupTable.COLUMN_SFHA + " TEXT,"
-            + FollowupTable.COLUMN_SFPA + " TEXT,"
-            + FollowupTable.COLUMN_SFPC + " TEXT"
+            + FollowupTable.COLUMN_SFHA + " TEXT"
+
             + " );"
             )
 
