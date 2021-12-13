@@ -49,14 +49,23 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVfpa01"
                     style="@style/cardView"
-                    android:layout_margin="20dp"
+                    android:layout_margin="24dp"
                     android:backgroundTint="@color/colorPrimary">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        >
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/jameel_noori_nastaleeq"
+                            android:text="@string/personInfo"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="24sp" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -67,27 +76,19 @@
                             android:layout_margin="2dp"
                             android:layout_marginTop="5dp">
 
+
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:text="@string/fpa01"
-                                android:textSize="20sp"
-                                android:textAlignment="center"
-                                android:textColor="@color/colorPrimary"
-                                android:background="@color/colorAccentLight"/>
+                                android:textAlignment="center" />
 
                             <TextView
-                                android:id="@+id/fpa01"
+                                style="@style/labelsHead"
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:layout_height="match_parent"
-                                android:textSize="20sp"
-                                android:textAlignment="center"
-                                android:background="@color/colorPrimaryLight"
-                                android:textColor="@color/black"
-                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                                android:hint="@string/fpa01"
                                 android:text="@={followup.fpa01}" />
                         </LinearLayout>
 
@@ -105,23 +106,14 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:text="@string/fpa01a"
-                                android:textSize="20sp"
-                                android:textAlignment="center"
-                                android:textColor="@color/colorPrimary"
-                                android:background="@color/colorAccentLight"/>
+                                android:textAlignment="center" />
 
                             <TextView
-                                android:id="@+id/fpa01a"
+                                style="@style/labelsHead"
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:layout_height="match_parent"
-                                android:textSize="20sp"
-                                android:textAlignment="center"
-                                android:background="@color/colorPrimaryLight"
-                                android:textColor="@color/black"
-                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                                android:hint="@string/fpa01a"
-                                android:text="@={followup.fpa01}" />
+                                android:text="@={followup.fpa01a}" />
                         </LinearLayout>
 
 
@@ -140,22 +132,13 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:text="@string/fha12"
-                                android:textSize="20sp"
-                                android:textAlignment="center"
-                                android:textColor="@color/colorPrimary"
-                                android:background="@color/colorAccentLight"/>
+                                android:textAlignment="center" />
 
                             <TextView
-                                android:id="@+id/fha12"
+                                style="@style/labelsHead"
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:layout_height="match_parent"
-                                android:textSize="20sp"
-                                android:textAlignment="center"
-                                android:background="@color/colorPrimaryLight"
-                                android:textColor="@color/black"
-                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                                android:hint="@string/fha12"
                                 android:text="@={followup.fha12}" />
                         </LinearLayout>
 
@@ -172,22 +155,13 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:text="@string/fha12a"
-                                android:textSize="20sp"
-                                android:textAlignment="center"
-                                android:textColor="@color/colorPrimary"
-                                android:background="@color/colorAccentLight"/>
+                                android:textAlignment="center" />
 
                             <TextView
-                                android:id="@+id/fha12a"
+                                style="@style/labelsHead"
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:layout_height="match_parent"
-                                android:textSize="20sp"
-                                android:textAlignment="center"
-                                android:background="@color/colorPrimaryLight"
-                                android:textColor="@color/black"
-                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                                android:hint="@string/fha12a"
                                 android:text="@={followup.fha12a}" />
                         </LinearLayout>
 
@@ -204,22 +178,13 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:text="@string/fha13"
-                                android:textSize="20sp"
-                                android:textAlignment="center"
-                                android:textColor="@color/colorPrimary"
-                                android:background="@color/colorAccentLight"/>
+                                android:textAlignment="center" />
 
                             <TextView
-                                android:id="@+id/fha13"
+                                style="@style/labelsHead"
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:layout_height="match_parent"
-                                android:textSize="20sp"
-                                android:textAlignment="center"
-                                android:background="@color/colorPrimaryLight"
-                                android:textColor="@color/black"
-                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                                android:hint="@string/fha13"
                                 android:text="@={followup.fha13}" />
                         </LinearLayout>
 
@@ -237,22 +202,14 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:text="@string/fha09"
-                                android:textSize="20sp"
-                                android:textAlignment="center"
-                                android:textColor="@color/colorPrimary"
-                                android:background="@color/colorAccentLight"/>
+                                android:textAlignment="center" />
 
                             <TextView
                                 android:id="@+id/fha09"
+                                style="@style/labelsHead"
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:layout_height="match_parent"
-                                android:textSize="20sp"
-                                android:textAlignment="center"
-                                android:background="@color/colorPrimaryLight"
-                                android:textColor="@color/black"
-                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                                android:hint="@string/fha09"
                                 />
                         </LinearLayout>
 
@@ -264,28 +221,18 @@
                             android:orientation="horizontal"
                             android:layoutDirection="rtl"
                             android:layout_margin="2dp">
-
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:text="@string/fha11"
-                                android:textSize="20sp"
-                                android:textAlignment="center"
-                                android:textColor="@color/colorPrimary"
-                                android:background="@color/colorAccentLight"/>
+                                android:textAlignment="center" />
 
                             <TextView
-                                android:id="@+id/fha11"
+                                style="@style/labelsHead"
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:layout_height="match_parent"
-                                android:textSize="20sp"
-                                android:textAlignment="center"
-                                android:background="@color/colorPrimaryLight"
-                                android:textColor="@color/black"
-                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                                android:hint="@string/fha11"
                                 android:text="@={followup.fha11}" />
                         </LinearLayout>
 

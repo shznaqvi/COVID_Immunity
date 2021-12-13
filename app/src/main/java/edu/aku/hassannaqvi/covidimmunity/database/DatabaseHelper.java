@@ -60,7 +60,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_FORMS);
         db.execSQL(SQL_CREATE_FOLLOWUPS);
         db.execSQL(SQL_CREATE_FOLLOWUPS_SCHE);
-
         db.execSQL(SQL_CREATE_VERSIONAPP);
 
     }
@@ -69,7 +68,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         switch (oldVersion) {
             case 1:
-            case 2:
+                db.execSQL(SQL_CREATE_FOLLOWUPS);
+                db.execSQL(SQL_CREATE_FOLLOWUPS_SCHE);
         }
     }
 

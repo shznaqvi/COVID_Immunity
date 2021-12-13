@@ -470,7 +470,7 @@
     <string name="fha0902">مٹیاری   </string>
     <string name="fha0903">سعید آباد  </string>
     <string name="fha10">شہر/گاؤں</string>
-    <string name="fha11">مقام،گھر کے قریب مشہور جگہ کے ساتھ مکمل پتہ</string>
+    <string name="fha11">مقام/ پتہ</string>
     <string name="fha12">گھرانے کا نمبر</string>
     <string name="fha12a">گھر کے سربراہ کا نام</string>
     <string name="fha13">گھر کے سربراہ کا موبائل نمبر </string>
@@ -625,6 +625,7 @@
     <string name="woman_child_info_missing">Please fill woman and child sections before entering this information</string>
     <string name="child_info_missing">Please fill child sections before entering this information</string>
     <string name="options">Options</string>
+    <string name="personInfo">منتخب شدہ فرد کی معلومات</string>
 
 
 </resources>
