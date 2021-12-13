@@ -45,6 +45,262 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVfpa01"
+                    style="@style/cardView"
+                    android:layout_margin="20dp"
+                    android:backgroundTint="@color/colorPrimary">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal"
+                            android:layoutDirection="rtl"
+                            android:layout_margin="2dp"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/fpa01"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorPrimary"
+                                android:background="@color/colorAccentLight"/>
+
+                            <TextView
+                                android:id="@+id/fpa01"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:background="@color/colorPrimaryLight"
+                                android:textColor="@color/black"
+                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                android:hint="@string/fpa01"
+                                android:text="@={followup.fpa01}" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal"
+                            android:layoutDirection="rtl"
+                            android:layout_margin="2dp"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/fpa01a"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorPrimary"
+                                android:background="@color/colorAccentLight"/>
+
+                            <TextView
+                                android:id="@+id/fpa01a"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:background="@color/colorPrimaryLight"
+                                android:textColor="@color/black"
+                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                android:hint="@string/fpa01a"
+                                android:text="@={followup.fpa01}" />
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal"
+                            android:layoutDirection="rtl"
+                            android:layout_margin="2dp"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/fha12"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorPrimary"
+                                android:background="@color/colorAccentLight"/>
+
+                            <TextView
+                                android:id="@+id/fha12"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:background="@color/colorPrimaryLight"
+                                android:textColor="@color/black"
+                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                android:hint="@string/fha12"
+                                android:text="@={followup.fha12}" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal"
+                            android:layoutDirection="rtl"
+                            android:layout_margin="2dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/fha12a"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorPrimary"
+                                android:background="@color/colorAccentLight"/>
+
+                            <TextView
+                                android:id="@+id/fha12a"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:background="@color/colorPrimaryLight"
+                                android:textColor="@color/black"
+                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                android:hint="@string/fha12a"
+                                android:text="@={followup.fha12a}" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal"
+                            android:layoutDirection="rtl"
+                            android:layout_margin="2dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/fha13"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorPrimary"
+                                android:background="@color/colorAccentLight"/>
+
+                            <TextView
+                                android:id="@+id/fha13"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:background="@color/colorPrimaryLight"
+                                android:textColor="@color/black"
+                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                android:hint="@string/fha13"
+                                android:text="@={followup.fha13}" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal"
+                            android:layoutDirection="rtl"
+                            android:layout_margin="2dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/fha09"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorPrimary"
+                                android:background="@color/colorAccentLight"/>
+
+                            <TextView
+                                android:id="@+id/fha09"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:background="@color/colorPrimaryLight"
+                                android:textColor="@color/black"
+                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                android:hint="@string/fha09"
+                                />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal"
+                            android:layoutDirection="rtl"
+                            android:layout_margin="2dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/fha11"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorPrimary"
+                                android:background="@color/colorAccentLight"/>
+
+                            <TextView
+                                android:id="@+id/fha11"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:background="@color/colorPrimaryLight"
+                                android:textColor="@color/black"
+                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                android:hint="@string/fha11"
+                                android:text="@={followup.fha11}" />
+                        </LinearLayout>
+
+
+
+
+
+                    </LinearLayout>
+
+
+
+                </androidx.cardview.widget.CardView>
+
+
+
                 <!-- fha01  Input   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVfha01"
@@ -129,7 +385,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <!-- fha09  Radio   -->
-                <androidx.cardview.widget.CardView
+                <!--<androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVfha09"
                     style="@style/cardView">
 
@@ -171,7 +427,8 @@
                                 android:layout_weight="1"
                                 android:checked="@{followup.fha09.equals(`1`)}"
                                 android:onClick="@{()->followup.setFha09(`1`)}"
-                                android:text="@string/fha0901" />
+                                android:text="@string/fha0901"
+                                />
 
                             <RadioButton
                                 android:id="@+id/fha0902"
@@ -180,7 +437,8 @@
                                 android:layout_weight="1"
                                 android:checked="@{followup.fha09.equals(`2`)}"
                                 android:onClick="@{()->followup.setFha09(`2`)}"
-                                android:text="@string/fha0902" />
+                                android:text="@string/fha0902"
+                                />
 
                             <RadioButton
                                 android:id="@+id/fha0903"
@@ -189,11 +447,12 @@
                                 android:layout_weight="1"
                                 android:checked="@{followup.fha09.equals(`3`)}"
                                 android:onClick="@{()->followup.setFha09(`3`)}"
-                                android:text="@string/fha0903" />
+                                android:text="@string/fha0903"
+                                />
                         </RadioGroup>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-
+-->
                 <!-- fha10  Input   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVfha10"
@@ -234,7 +493,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <!-- fha11  Input   -->
-                <androidx.cardview.widget.CardView
+                <!--<androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVfha11"
                     style="@style/cardView">
 
@@ -270,9 +529,9 @@
                             android:text="@={followup.fha11}" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-
+-->
                 <!-- fha12  Input   -->
-                <androidx.cardview.widget.CardView
+                <!--<androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVfha12"
                     style="@style/cardView">
 
@@ -307,10 +566,10 @@
                             android:hint="@string/fha12"
                             android:text="@={followup.fha12}" />
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>-->
 
                 <!-- fha12a  Input   -->
-                <androidx.cardview.widget.CardView
+                <!--<androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVfha12a"
                     style="@style/cardView">
 
@@ -348,8 +607,8 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- fha13  Input-Numeric   -->
-                <androidx.cardview.widget.CardView
+                --><!-- fha13  Input-Numeric   -->
+                <!--<androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVfha13"
                     style="@style/cardView">
 
@@ -357,8 +616,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-
-                        <LinearLayout
+-->
+                <!--        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bottom"
@@ -391,7 +650,9 @@
                             app:type="equal" />
 
                     </LinearLayout>
-                </androidx.cardview.widget.CardView><!--EndButton LinearLayout-->
+                </androidx.cardview.widget.CardView>
+                -->
+                <!--EndButton LinearLayout-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -46,8 +46,58 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- fpa01a  Input   -->
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVfpa01"
+                    style="@style/cardView"
+                    android:layout_margin="20dp"
+                    android:backgroundTint="@color/colorPrimary">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal"
+                            android:layoutDirection="rtl"
+                            android:layout_margin="2dp"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/fpa01"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorPrimary"
+                                android:background="@color/colorAccentLight"/>
+
+                            <TextView
+                                android:id="@+id/fpa01"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:background="@color/colorPrimaryLight"
+                                android:textColor="@color/black"
+                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                android:hint="@string/fpa01"
+                                android:text="@={followup.fpa01}" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- fpa01a  Input   -->
+                <!--<androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVfpa01a"
                     style="@style/cardView">
 
@@ -74,8 +124,8 @@
                                 android:layout_weight="1"
                                 android:text="@string/fpa01a" />
                         </LinearLayout>
-
-                        <EditText
+-->
+   <!--                     <EditText
                             android:id="@+id/fpa01a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -85,7 +135,7 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- fpa01  Input   -->
+                &lt;!&ndash; fpa01  Input   &ndash;&gt;
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVfpa01"
                     style="@style/cardView">
@@ -123,6 +173,8 @@
                             android:text="@={followup.fpa01}" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+-->
+
 
                 <!-- fpa02  Radio   -->
                 <androidx.cardview.widget.CardView

@@ -39,6 +39,20 @@ public class SectionFHAActivity extends AppCompatActivity {
         setTitle(R.string.sectionha_mainheading);
         db = MainApp.appInfo.dbHelper;
 
+        switch (followup.getFha09()) {
+            case "1":
+                bi.fha09.setText(getString(R.string.fha0901));
+                break;
+            case "2":
+                bi.fha09.setText(getString(R.string.fha0901));
+                break;
+            case "3":
+                bi.fha09.setText(getString(R.string.fha0903));
+                break;
+        }
+
+
+
     }
 
 
