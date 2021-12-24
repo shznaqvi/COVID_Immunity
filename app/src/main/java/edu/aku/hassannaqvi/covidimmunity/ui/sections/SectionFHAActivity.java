@@ -134,6 +134,10 @@ public class SectionFHAActivity extends AppCompatActivity {
         if (bi.fpc05q1.isChecked() && bi.fpc07.getText().toString().equals("")) {
             return Validator.emptyCustomTextBox(this, bi.fpc07, "Scan QR");
         }
+
+        if (bi.fpc05q0501.isChecked() && bi.fpc05c.getText().toString().equals("")) {
+            return Validator.emptyCustomTextBox(this, bi.fpc05c, "Scan QR");
+        }
         return true;
     }
 
@@ -167,10 +171,30 @@ public class SectionFHAActivity extends AppCompatActivity {
                 }
             }
 
+            if (pressedButton == bi.scanQrFPC05C.getId()) {
+                if (result.getContents() == null) {
+                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+                } else {
+                    String strResult = result.getContents();
+                    bi.fpc05c.setText(strResult);
+                }
+            } else {
+                if (result.getContents() == null) {
+                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+                } else {
+                    String strResult = result.getContents();
+                    bi.fpc05c.setText(strResult);
+                }
+            }
+
+
+
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
+
+
 
     public void scanQR(View view) {
         pressedButton = view.getId();

@@ -91,6 +91,9 @@ public class Followup extends BaseObservable implements Observable {
     private String fpc05 = StringUtils.EMPTY;
     private String fpc06 = StringUtils.EMPTY;
     private String fpc07 = StringUtils.EMPTY;
+    private String fpc05a = StringUtils.EMPTY;
+    private String fpc05b = StringUtils.EMPTY;
+    private String fpc05c = StringUtils.EMPTY;
     private String fpc08 = StringUtils.EMPTY;
     private String fpc0896x = StringUtils.EMPTY;
     private String fpa05 = StringUtils.EMPTY;
@@ -561,6 +564,7 @@ public class Followup extends BaseObservable implements Observable {
         this.fpc05 = fpc05;
         setFpc06(fpc05.equals("1") ? this.fpc06 : "");
         setFpc07(fpc05.equals("1") ? this.fpc07 : "");
+        setFpc05a(fpc05.equals("1") ? this.fpc05a : "");
         setFpc08(fpc05.equals("2") ? this.fpc08 : "");
         notifyChange(BR.fpc05);
     }
@@ -583,6 +587,39 @@ public class Followup extends BaseObservable implements Observable {
     public void setFpc07(String fpc07) {
         this.fpc07 = fpc07;
         notifyChange(BR.fpc07);
+    }
+
+    @Bindable
+    public String getFpc05a() {
+        return fpc05a;
+    }
+
+    @Bindable
+    public String getFpc05b() {
+        return fpc05b;
+    }
+
+    @Bindable
+    public String getFpc05c() {
+        return fpc05c;
+    }
+
+    public void setFpc05a(String fpc05a) {
+        this.fpc05a = fpc05a;
+        setFpc05b(fpc05a.equals("1") ? this.fpc05b : "");
+        setFpc05c(fpc05a.equals("1") ? this.fpc05c : "");
+
+        notifyChange(BR.fpc05a);
+    }
+
+    public void setFpc05b(String fpc05b) {
+        this.fpc05b = fpc05b;
+        notifyChange(BR.fpc05b);
+    }
+
+    public void setFpc05c(String fpc05c) {
+        this.fpc05c = fpc05c;
+        notifyChange(BR.fpc05c);
     }
 
     @Bindable
@@ -685,6 +722,9 @@ public class Followup extends BaseObservable implements Observable {
             this.fpc05 = json.getString("fpc05");
             this.fpc06 = json.getString("fpc06");
             this.fpc07 = json.getString("fpc07");
+            this.fpc05a = json.getString("fpc05a");
+            this.fpc05b = json.getString("fpc05b");
+            this.fpc05c = json.getString("fpc05c");
             this.fpc08 = json.getString("fpc08");
             this.fpc0896x = json.getString("fpc0896x");
             this.form_colid = json.getString("form_colid");
@@ -735,6 +775,9 @@ public class Followup extends BaseObservable implements Observable {
                 .put("fpc05", fpc05)
                 .put("fpc06", fpc06)
                 .put("fpc07", fpc07)
+                .put("fpc05a", fpc05a)
+                .put("fpc05b", fpc05b)
+                .put("fpc05c", fpc05c)
                 .put("fpc08", fpc08)
                 .put("fpc0896x", fpc0896x)
                 .put("form_colid", form_colid)

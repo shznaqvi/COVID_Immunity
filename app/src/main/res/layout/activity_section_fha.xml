@@ -1162,7 +1162,9 @@
                                 <RadioGroup
                                     android:id="@+id/fpc04q"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layoutDirection="rtl">
 
                                     <RadioButton
                                         android:id="@+id/fpc04q1"
@@ -1170,7 +1172,8 @@
                                         android:layout_height="wrap_content"
                                         android:checked="@{followup.fpc04q.equals(`1`)}"
                                         android:onClick="@{()->followup.setFpc04q(`1`)}"
-                                        android:text="@string/fpc04q1" />
+                                        android:text="@string/fpc04q1"
+                                        android:layout_weight="1"/>
 
                                     <RadioButton
                                         android:id="@+id/fpc04q2"
@@ -1178,7 +1181,8 @@
                                         android:layout_height="wrap_content"
                                         android:checked="@{followup.fpc04q.equals(`2`)}"
                                         android:onClick="@{()->followup.setFpc04q(`2`)}"
-                                        android:text="@string/fpc04q2" />
+                                        android:text="@string/fpc04q2"
+                                        android:layout_weight="1"/>
 
                                     <RadioButton
                                         android:id="@+id/fpc0496"
@@ -1186,7 +1190,8 @@
                                         android:layout_height="wrap_content"
                                         android:checked="@{followup.fpc04q.equals(`96`)}"
                                         android:onClick="@{()->followup.setFpc04q(`96`)}"
-                                        android:text="@string/fpc0496" />
+                                        android:text="@string/fpc0496"
+                                        android:layout_weight="1"/>
 
 
                                 </RadioGroup>
@@ -1247,7 +1252,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:checked="@{followup.fpc05.equals(`1`)}"
-                                    android:onClick="@{()->followup.setFpc05(`1`) + fpc08.clearCheck()}"
+                                    android:onClick="@{()->followup.setFpc05(`1`) + fpc05a.clearCheck() + fpc08.clearCheck()}"
                                     android:text="@string/fpc05q1" />
 
                                 <RadioButton
@@ -1366,6 +1371,173 @@
                             </LinearLayout>
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
+
+                    <!-- fpc05a  Radio   -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/fldGrpCVfpc05a"
+                        style="@style/cardView"
+                        android:visibility="@{followup.fpc05.equals(`1`) ? View.VISIBLE : View.GONE}">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bottom"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/quesNum"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/Q_fpc05a" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/fpc05a" />
+
+                            </LinearLayout>
+
+                            <RadioGroup
+                                android:id="@+id/fpc05a"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layoutDirection="rtl">
+
+                                <RadioButton
+                                    android:id="@+id/fpc05q0501"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{followup.fpc05a.equals(`1`)}"
+                                    android:onClick="@{()->followup.setFpc05a(`1`)}"
+                                    android:text="@string/fpc05q0501"
+                                    android:layout_weight="1"/>
+
+                                <RadioButton
+                                    android:id="@+id/fpc05q0502"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{followup.fpc05a.equals(`2`)}"
+                                    android:onClick="@{()->followup.setFpc05a(`2`)}"
+                                    android:text="@string/fpc05q0502"
+                                    android:layout_weight="1"/>
+                            </RadioGroup>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="@{followup.fpc05a.equals(`1`) ? View.VISIBLE : View.GONE}"
+                        >
+
+                    <!-- fpc05b  Input-Numeric   -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/fldGrpCVfpc05b"
+                        style="@style/cardView">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bottom"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/quesNum"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/Q_fpc05b" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/fpc05b" />
+
+                            </LinearLayout>
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/fpc05b"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/fpc05b"
+                                android:inputType="number"
+                                android:maxLength="1"
+                                android:text="@={followup.fpc05b}"
+                                app:maxValue="0"
+                                app:minValue="0"
+                                app:type="range" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- fpc05c  Input-Numeric   -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/fldGrpCVfpc05c"
+                        style="@style/cardView">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bottom"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/quesNum"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/Q_fpc05c" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/fpc05c" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/fpc05c"
+                                    style="@style/textInput"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@={followup.fpc05c}"
+                                    android:textColor="@color/redDark" />
+
+                                <ImageButton
+                                    android:id="@+id/scanQrFPC05C"
+                                    android:layout_width="56dp"
+                                    android:layout_height="56dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_margin="8dp"
+                                    android:onClick="scanQR"
+                                    android:src="@drawable/ic_qrcode" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    </LinearLayout>
 
                     <!-- fpc08  Radio   -->
                     <androidx.cardview.widget.CardView

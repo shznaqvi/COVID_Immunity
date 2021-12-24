@@ -416,6 +416,9 @@
     <string name='Q_fpc06'>fpc06</string>
     <string name='Q_fpc07'>fpc07</string>
     <string name='Q_fpc08'>fpc08</string>
+    <string name='Q_fpc05a'>fpc05a</string>
+    <string name='Q_fpc05b'>fpc05b</string>
+    <string name='Q_fpc05c'>fpc05c</string>
 
 
     <string name='Q_h101'>h101</string>
@@ -543,6 +546,13 @@
     <string name="fpc05">کیا خون کا نمونہ لیا گیا ہے؟</string>
     <string name="fpc05q1">ہاں  </string>
     <string name="fpc05q2">نہیں </string>
+
+    <string name="fpc05a">کیا خون کا نمونہ پی بی ایم سی کے لئے لیا گیا ہے؟</string>
+    <string name="fpc05q0501">ہاں  </string>
+    <string name="fpc05q0502">نہیں </string>
+    <string name="fpc05b">حاصل کئے گئے پی ایم سی کے خون کے نمونے کی مقدار</string>
+    <string name="fpc05c">پی ایم سی کے  لئے خون کےسیمپل کی آئی ڈی </string>
+
     <string name="fpc06">حاصل کئے گئے خون کے نمونے کی مقدار</string>
     <string name="fpc07">خون کےسیمپل کی آئی ڈی                               </string>
     <string name="fpc08">خون کا نمونہ نہ دینے کی وجہ </string>
