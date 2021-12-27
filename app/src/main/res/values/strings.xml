@@ -548,8 +548,8 @@
     <string name="fpc05q2">نہیں </string>
 
     <string name="fpc05a">کیا خون کا نمونہ پی بی ایم سی کے لئے لیا گیا ہے؟</string>
-    <string name="fpc05q0501">ہاں  </string>
-    <string name="fpc05q0502">نہیں </string>
+    <string name="fpc05a01">ہاں  </string>
+    <string name="fpc05a02">نہیں </string>
     <string name="fpc05b">حاصل کئے گئے پی ایم سی کے خون کے نمونے کی مقدار</string>
     <string name="fpc05c">پی ایم سی کے  لئے خون کےسیمپل کی آئی ڈی </string>
 

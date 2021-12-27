@@ -1410,21 +1410,21 @@
                                 android:layoutDirection="rtl">
 
                                 <RadioButton
-                                    android:id="@+id/fpc05q0501"
+                                    android:id="@+id/fpc05a01"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:checked="@{followup.fpc05a.equals(`1`)}"
                                     android:onClick="@{()->followup.setFpc05a(`1`)}"
-                                    android:text="@string/fpc05q0501"
+                                    android:text="@string/fpc05a01"
                                     android:layout_weight="1"/>
 
                                 <RadioButton
-                                    android:id="@+id/fpc05q0502"
+                                    android:id="@+id/fpc05a02"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:checked="@{followup.fpc05a.equals(`2`)}"
                                     android:onClick="@{()->followup.setFpc05a(`2`)}"
-                                    android:text="@string/fpc05q0502"
+                                    android:text="@string/fpc05a02"
                                     android:layout_weight="1"/>
                             </RadioGroup>
                         </LinearLayout>
@@ -1472,10 +1472,11 @@
                                 android:layout_height="wrap_content"
                                 android:hint="@string/fpc05b"
                                 android:inputType="number"
-                                android:maxLength="1"
                                 android:text="@={followup.fpc05b}"
-                                app:maxValue="0"
-                                app:minValue="0"
+                                app:mask="#.##"
+                                app:maxValue="9.00"
+                                app:minValue="1.00"
+                                app:pattern="^(\\d{1,1}\\.\\d{2,2})$"
                                 app:type="range" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>

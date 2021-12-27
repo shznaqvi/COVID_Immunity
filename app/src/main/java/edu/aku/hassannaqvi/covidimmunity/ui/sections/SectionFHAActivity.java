@@ -135,7 +135,7 @@ public class SectionFHAActivity extends AppCompatActivity {
             return Validator.emptyCustomTextBox(this, bi.fpc07, "Scan QR");
         }
 
-        if (bi.fpc05q0501.isChecked() && bi.fpc05c.getText().toString().equals("")) {
+        if (bi.fpc05a01.isChecked() && bi.fpc05c.getText().toString().equals("")) {
             return Validator.emptyCustomTextBox(this, bi.fpc05c, "Scan QR");
         }
         return true;
@@ -155,42 +155,19 @@ public class SectionFHAActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
-            if (pressedButton == bi.scanQrFPC07.getId()) {
-                if (result.getContents() == null) {
-                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
-                } else {
-                    String strResult = result.getContents();
-                    bi.fpc07.setText(strResult);
-                }
+            if (pressedButton == bi.scanQrFPC07.getId() && result.getContents() != null) {
+                String strResult = result.getContents();
+                bi.fpc07.setText(strResult);
+            } else if (pressedButton == bi.scanQrFPC05C.getId() && result.getContents() != null) {
+                String strResult = result.getContents();
+                bi.fpc05c.setText(strResult);
             } else {
-                if (result.getContents() == null) {
-                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
-                } else {
-                    String strResult = result.getContents();
-                    bi.fpc07.setText(strResult);
-                }
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
             }
-
-            if (pressedButton == bi.scanQrFPC05C.getId()) {
-                if (result.getContents() == null) {
-                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
-                } else {
-                    String strResult = result.getContents();
-                    bi.fpc05c.setText(strResult);
-                }
-            } else {
-                if (result.getContents() == null) {
-                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
-                } else {
-                    String strResult = result.getContents();
-                    bi.fpc05c.setText(strResult);
-                }
-            }
-
-
 
         } else {
             super.onActivityResult(requestCode, resultCode, data);
+            Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
         }
     }
 
