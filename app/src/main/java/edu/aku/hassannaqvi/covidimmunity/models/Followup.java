@@ -666,18 +666,18 @@ public class Followup extends BaseObservable implements Observable {
 
     @SuppressLint("Range")
     public Followup Hydrate(Cursor cursor) throws JSONException {
-        this.id = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_ID));
-        this.uid = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_UID));
-        this.userName = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_USERNAME));
-        this.sysDate = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_SYSDATE));
-        this.deviceId = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_DEVICEID));
-        this.deviceTag = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_DEVICETAGID));
-        this.appver = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_APPVERSION));
-        this.iStatus = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_ISTATUS));
-        this.synced = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_SYNCED));
-        this.syncDate = cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_SYNCED_DATE));
+        this.id = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupTable.COLUMN_ID));
+        this.uid = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupTable.COLUMN_UID));
+        this.userName = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupTable.COLUMN_USERNAME));
+        this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupTable.COLUMN_SYSDATE));
+        this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupTable.COLUMN_DEVICEID));
+        this.deviceTag = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupTable.COLUMN_DEVICETAGID));
+        this.appver = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupTable.COLUMN_APPVERSION));
+        this.iStatus = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupTable.COLUMN_ISTATUS));
+        this.synced = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupTable.COLUMN_SYNCED));
+        this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupTable.COLUMN_SYNCED_DATE));
 
-        sFHAHydrate(cursor.getString(cursor.getColumnIndex(TableContracts.FollowupTable.COLUMN_SFHA)));
+        sFHAHydrate(cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupTable.COLUMN_SFHA)));
 
 
         return this;

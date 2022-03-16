@@ -45,7 +45,6 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.security.spec.InvalidKeySpecException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -317,7 +316,6 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-            try {
 
                 if ((username.equals("dmu@aku") && password.equals("aku?dmu"))
                         || (username.equals("test1234") && password.equals("test1234"))
@@ -326,13 +324,13 @@ public class LoginActivity extends AppCompatActivity {
 
                     MainApp.user.setUserName(username);
                     MainApp.admin = username.contains("@") || username.contains("test1234");
-                    MainApp.superuser = MainApp.user.getDesignation().equals("Supervisor");
+                 //   MainApp.superuser = MainApp.user.getDesignation().equals("Supervisor");
                     Intent iLogin = null;
                     if (MainApp.admin) {
                         recordEntry("Successfull Login (Admin)");
                         iLogin = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(iLogin);
-                    } else if (MainApp.user.getEnabled().equals("1")) {
+                    } /*else if (MainApp.user.getEnabled().equals("1")) {
                         if (!MainApp.user.getNewUser().equals("1")) { // TODO: getEnabled().equals("1")
                             recordEntry("Successfull Login");
                             iLogin = new Intent(LoginActivity.this, MainActivity.class);
@@ -345,21 +343,14 @@ public class LoginActivity extends AppCompatActivity {
                     } else {
                         recordEntry("Inactive User (Disabled)");
                         Toast.makeText(this, "This user is inactive.", Toast.LENGTH_SHORT).show();
-                    }
+                    }*/
                 } else {
                     recordEntry("Failed Login: Incorrect username or password");
                     bi.password.setError(getString(R.string.incorrect_username_or_password));
                     bi.password.requestFocus();
                     //  Toast.makeText(LoginActivity.this, username + " " + password, Toast.LENGTH_SHORT).show();
                 }
-            } catch (InvalidKeySpecException e) {
-                e.printStackTrace();
-                Toast.makeText(this, "InvalidKeySpecException(UserAuth):" + e.getMessage(), Toast.LENGTH_SHORT).show();
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-                Toast.makeText(this, "NoSuchAlgorithmException(UserAuth):" + e.getMessage(), Toast.LENGTH_SHORT).show();
 
-            }
 
         }
     }

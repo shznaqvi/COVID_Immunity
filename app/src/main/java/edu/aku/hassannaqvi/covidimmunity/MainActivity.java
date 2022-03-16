@@ -42,7 +42,6 @@ import edu.aku.hassannaqvi.covidimmunity.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.covidimmunity.models.Followup;
 import edu.aku.hassannaqvi.covidimmunity.models.Form;
 import edu.aku.hassannaqvi.covidimmunity.models.VersionApp;
-import edu.aku.hassannaqvi.covidimmunity.ui.ChangePasswordActivity;
 import edu.aku.hassannaqvi.covidimmunity.ui.SyncActivity;
 import edu.aku.hassannaqvi.covidimmunity.ui.lists.FollowUpsListActivity;
 import edu.aku.hassannaqvi.covidimmunity.ui.lists.FormsReportCluster;
@@ -77,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
                 Cursor cursor = downloadManager.query(query);
                 if (cursor.moveToFirst()) {
-                    int colIndex = cursor.getColumnIndex(DownloadManager.COLUMN_STATUS);
+                    int colIndex = cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_STATUS);
                     if (DownloadManager.STATUS_SUCCESSFUL == cursor.getInt(colIndex)) {
 
                         editor.putBoolean("flag", true);
@@ -316,10 +315,10 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(MainActivity.this, SyncActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.changePassword:
-                intent = new Intent(MainActivity.this, ChangePasswordActivity.class);
+        /*    case R.id.changePassword:
+                intent = new Intent(MainActivity.this, *//**//*ChangePasswordActivity.class);
                 startActivity(intent);
-                break;
+                break;*/
             case R.id.checkPendingForms:
                 intent = new Intent(MainActivity.this, FormsReportPending.class);
                 startActivity(intent);

@@ -24,8 +24,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
 import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -37,9 +35,6 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.CertificateNotYetValidException;
 import java.security.cert.X509Certificate;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -48,7 +43,6 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManagerFactory;
 
 import edu.aku.hassannaqvi.covidimmunity.R;
-import edu.aku.hassannaqvi.covidimmunity.core.CipherSecure;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 
 
@@ -305,9 +299,11 @@ public class DataUpWorkerALL extends Worker {
 
 
                 //wr.writeBytes(URLEncoder.encode(jsonParam.toString(), "utf-8"));
-                wr.writeBytes(CipherSecure.encrypt(jsonParam.toString()));
+                // wr.writeBytes(CipherSecure.encrypt(jsonParam.toString()));
+                wr.writeBytes(jsonParam.toString());
 
-                String writeEnc = CipherSecure.encrypt(jsonParam.toString());
+                String writeEnc = jsonParam.toString();
+                // String writeEnc = CipherSecure.encrypt(jsonParam.toString());
 
                 longInfo("Encrypted: " + writeEnc);
 
@@ -364,7 +360,7 @@ public class DataUpWorkerALL extends Worker {
                     .build();
             return Result.failure(data);
 
-        } catch (IOException | JSONException | NoSuchPaddingException | NoSuchAlgorithmException | InvalidAlgorithmParameterException | InvalidKeyException | BadPaddingException | IllegalBlockSizeException e) {
+        } catch (IOException | JSONException e) {
             Log.d(TAG, "doWork (IO Error): " + e.getMessage());
             displayNotification(nTitle, "IO Error: " + e.getMessage());
             data = new Data.Builder()
@@ -377,19 +373,10 @@ public class DataUpWorkerALL extends Worker {
         } finally {
 //            urlConnection.disconnect();
         }
-        try {
-            result = new StringBuilder(CipherSecure.decrypt(result.toString()));
-        } catch (NoSuchPaddingException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | InvalidAlgorithmParameterException | InvalidKeyException e) {
-            Log.d(TAG, "doWork (Encryption Error): " + e.getMessage());
-            displayNotification(nTitle, "Encryption Error: " + e.getMessage());
-            data = new Data.Builder()
-                    .putString("error", e.getMessage())
-                    .putInt("position", this.position)
-                    .build();
 
-            return Result.failure(data);
+        result = new StringBuilder(result.toString());
+        //   result = new StringBuilder(CipherSecure.decrypt(result.toString()));
 
-        }
 
         //Do something with the JSON string
         if (result != null) {

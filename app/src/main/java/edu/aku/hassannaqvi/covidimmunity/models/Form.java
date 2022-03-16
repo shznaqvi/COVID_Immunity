@@ -289,21 +289,21 @@ public class Form extends BaseObservable implements Observable {
 
     @SuppressLint("Range")
     public Form Hydrate(Cursor cursor) throws JSONException {
-        this.id = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ID));
-        this.uid = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UID));
-        this.userName = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_USERNAME));
-        this.sysDate = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SYSDATE));
-        this.deviceId = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICEID));
-        this.deviceTag = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICETAGID));
-        this.appver = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_APPVERSION));
-        this.iStatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS));
-        this.synced = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SYNCED));
-        this.syncDate = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SYNCED_DATE));
+        this.id = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_ID));
+        this.uid = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_UID));
+        this.userName = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_USERNAME));
+        this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SYSDATE));
+        this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_DEVICEID));
+        this.deviceTag = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_DEVICETAGID));
+        this.appver = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_APPVERSION));
+        this.iStatus = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_ISTATUS));
+        this.synced = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SYNCED));
+        this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SYNCED_DATE));
 
-        sHAHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SHA)));
-        sPAHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SPA)));
-        sPBHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SPB)));
-        sPCHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SPC)));
+        sHAHydrate(cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SHA)));
+        sPAHydrate(cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SPA)));
+        sPBHydrate(cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SPB)));
+        sPCHydrate(cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SPC)));
 
         return this;
     }
