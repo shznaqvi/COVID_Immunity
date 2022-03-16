@@ -15,7 +15,9 @@
                 android:id="@+id/onSync"
                 android:title="Sync Data"
                 app:showAsAction="collapseActionView" />
-
+            <item
+                android:id="@+id/changePassword"
+                android:title="Change Password" />
             <item
                 android:id="@+id/checkPendingForms"
                 android:title="Pending Forms"

@@ -42,6 +42,7 @@ import edu.aku.hassannaqvi.covidimmunity.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.covidimmunity.models.Followup;
 import edu.aku.hassannaqvi.covidimmunity.models.Form;
 import edu.aku.hassannaqvi.covidimmunity.models.VersionApp;
+import edu.aku.hassannaqvi.covidimmunity.ui.ChangePasswordActivity;
 import edu.aku.hassannaqvi.covidimmunity.ui.SyncActivity;
 import edu.aku.hassannaqvi.covidimmunity.ui.lists.FollowUpsListActivity;
 import edu.aku.hassannaqvi.covidimmunity.ui.lists.FormsReportCluster;
@@ -313,6 +314,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.onSync:
                 intent = new Intent(MainActivity.this, SyncActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.changePassword:
+                intent = new Intent(MainActivity.this, ChangePasswordActivity.class);
                 startActivity(intent);
                 break;
             case R.id.checkPendingForms:

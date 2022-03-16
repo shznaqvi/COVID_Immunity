@@ -3,11 +3,17 @@ package edu.aku.hassannaqvi.covidimmunity.core;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 
 import com.edittextpicker.aliazaz.BuildConfig;
+
+import net.sqlcipher.database.SQLiteDatabase;
 
 import org.json.JSONArray;
 
@@ -28,12 +34,16 @@ public class MainApp extends Application {
     public static final String SYNC_LOGIN = "sync_login";
     public static final String _IP = "https://vcoe1.aku.edu";// .LIVE server
 
-    //public static final String _IP = "http://cls-pae-fp51764";// .TEST server
+    //public static final String _IP = "https://cls-pae-fp51764";// .TEST server
     public static final String _HOST_URL = MainApp._IP + "/" + PROJECT_NAME + "/api/";// .TEST server;
-    public static final String _SERVER_URL = "sync.php";
-    public static final String _SERVER_GET_URL = "getData.php";
+    public static final String _SERVER_URL = "syncEnc.php";
+    public static final String _SERVER_GET_URL = "getDataEnc.php";
     public static final String _PHOTO_UPLOAD_URL = _HOST_URL + "uploads.php";
     public static final String _UPDATE_URL = MainApp._IP + "/" + PROJECT_NAME + "/app/";
+    public static final String _EMPTY_ = "";
+    public static final String _USER_URL = "resetpassword.php";
+    private static final String TAG = "MainApp";
+    public static String IBAHC = "";
 
     //COUNTRIES
     public static int PAKISTAN = 1;
@@ -121,6 +131,13 @@ public class MainApp extends Application {
     public void onCreate() {
         super.onCreate();
 
+         /*
+        RootBeer rootBeer = new RootBeer(this);
+        if (rootBeer.isRooted()) {
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
+        }*/
+
         //Initiate DateTime
         //Initializ App info
         appInfo = new AppInfo(this);
@@ -128,6 +145,24 @@ public class MainApp extends Application {
         editor = sharedPref.edit();
         deviceid = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
 
+        initSecure();
+    }
+
+    private void initSecure() {
+        // Initialize SQLCipher library
+        SQLiteDatabase.loadLibs(this);
+
+        // Prepare encryption KEY
+        ApplicationInfo ai = null;
+        try {
+            ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            Bundle bundle = ai.metaData;
+            int TRATS = bundle.getInt("YEK_TRATS");
+            IBAHC = bundle.getString("YEK_REVRES").substring(TRATS, TRATS + 16);
+            Log.d(TAG, "onCreate: YEK_REVRES = " + IBAHC);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 }

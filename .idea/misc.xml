@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Office Work/COVID_Immunity/app/src/main/res/drawable/app_bg_effect.xml" value="0.221875" />
+        <entry key="..\:/Android Office Work/COVID_Immunity/app/src/main/res/layout/activity_change_password.xml" value="0.20572916666666666" />
         <entry key="..\:/Android Office Work/COVID_Immunity/app/src/main/res/layout/activity_identification.xml" value="0.371875" />
+        <entry key="..\:/Android Office Work/COVID_Immunity/app/src/main/res/layout/activity_login.xml" value="0.371875" />
         <entry key="..\:/Android Office Work/COVID_Immunity/app/src/main/res/layout/activity_main.xml" value="0.36615384615384616" />
         <entry key="..\:/Android Office Work/COVID_Immunity/app/src/main/res/layout/activity_section_c1.xml" value="0.36615384615384616" />
+        <entry key="..\:/Android Office Work/COVID_Immunity/app/src/main/res/layout/activity_section_fha.xml" value="0.30333333333333334" />
         <entry key="..\:/Android Office Work/COVID_Immunity/app/src/main/res/layout/activity_section_fpc.xml" value="0.35172413793103446" />
         <entry key="..\:/Android Office Work/COVID_Immunity/app/src/main/res/layout/activity_section_ha.xml" value="0.33" />
         <entry key="..\:/Android Office Work/COVID_Immunity/app/src/main/res/layout/activity_section_pa.xml" value="0.33" />

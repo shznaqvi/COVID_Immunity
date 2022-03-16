@@ -141,6 +141,16 @@ public class SyncActivity extends AppCompatActivity {
                     Toast.makeText(this, "JSONException(Folloup): " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
+
+                //Entry Log
+                uploadTables.add(new SyncModel(TableContracts.EntryLogTable.TABLE_NAME));
+                try {
+                    MainApp.uploadData.add(db.getUnsyncedEntryLog());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(SyncActivity.this, "JSONException(EntryLog)" + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+
                 MainApp.downloadData = new String[uploadData.size()];
 
                 setAdapter(uploadTables);
@@ -224,53 +234,71 @@ public class SyncActivity extends AppCompatActivity {
                         if (result.length() > 0) {
                             Log.d(TAG, "onChanged: result " + result);
                             System.out.println("SYSTEM onChanged: result" + result);
-                            try {
-                                JSONArray jsonArray = new JSONArray();
-                                int insertCount = 0;
-                                switch (tableName) {
-                                    case TableContracts.UsersTable.TABLE_NAME:
+
+                            DatabaseHelper db = new DatabaseHelper(SyncActivity.this);
+                            JSONArray jsonArray = new JSONArray();
+
+                            int insertCount = 0;
+                            switch (tableName) {
+                                case TableContracts.UsersTable.TABLE_NAME:
+                                    try {
                                         jsonArray = new JSONArray(result);
                                         insertCount = db.syncUser(jsonArray);
-                                        break;
-                                    case TableContracts.VersionTable.TABLE_NAME:
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                        downloadTables.get(position).setstatus("Process Failed");
+                                        downloadTables.get(position).setstatusID(1);
+                                        downloadTables.get(position).setmessage(e.getMessage());
+                                        syncListAdapter.updatesyncList(downloadTables);
+                                        return;
+                                    }
+                                    break;
+
+                                case TableContracts.VersionTable.TABLE_NAME:
+                                    try {
                                         insertCount = db.syncVersionApp(new JSONObject(result));
                                         if (insertCount == 1) jsonArray.put("1");
-                                        break;
-                                    case TableContracts.FollowupsScheTable.TABLE_NAME:
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                        downloadTables.get(position).setstatus("Process Failed");
+                                        downloadTables.get(position).setstatusID(1);
+                                        downloadTables.get(position).setmessage(e.getMessage());
+                                        syncListAdapter.updatesyncList(downloadTables);
+                                        return;
+                                    }
+                                    break;
+                                case TableContracts.FollowupsScheTable.TABLE_NAME:
+                                    try {
                                         jsonArray = new JSONArray(result);
                                         insertCount = db.syncFollowupsSche(new JSONArray(result));
-                                        break;
-                                }
-
-                                downloadTables.get(position).setmessage("Received: " + jsonArray.length() + ", Saved: " + insertCount);
-                                downloadTables.get(position).setstatus(insertCount == 0 ? "Unsuccessful" : "Successful");
-                                downloadTables.get(position).setstatusID(insertCount == 0 ? 1 : 3);
-                                syncListAdapter.updatesyncList(downloadTables);
-
-//                    pd.show();
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                                downloadTables.get(position).setstatus("Process Failed");
-                                downloadTables.get(position).setstatusID(1);
-                                downloadTables.get(position).setmessage(result);
-                                syncListAdapter.updatesyncList(downloadTables);
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                        downloadTables.get(position).setstatus("Process Failed");
+                                        downloadTables.get(position).setstatusID(1);
+                                        downloadTables.get(position).setmessage(e.getMessage());
+                                        syncListAdapter.updatesyncList(downloadTables);
+                                        return;
+                                    }
+                                    break;
                             }
+
+                            downloadTables.get(position).setmessage("Received: " + jsonArray.length() + ", Saved: " + insertCount);
+                            downloadTables.get(position).setstatus(insertCount == 0 ? "Unsuccessful" : "Successful");
+                            downloadTables.get(position).setstatusID(insertCount == 0 ? 1 : 3);
+                            syncListAdapter.updatesyncList(downloadTables);
                         } else {
                             downloadTables.get(position).setmessage("Received: " + result.length() + "");
                             downloadTables.get(position).setstatus("Successful");
                             downloadTables.get(position).setstatusID(3);
                             syncListAdapter.updatesyncList(downloadTables);
-//                pd.show();
                         }
                     } else {
                         downloadTables.get(position).setstatus("Process Failed");
                         downloadTables.get(position).setstatusID(1);
                         downloadTables.get(position).setmessage("Server not found!");
                         syncListAdapter.updatesyncList(downloadTables);
-//            pd.show();
                     }
                 }
-                //mTextView1.append("\n" + workInfo.getState().name());
                 if (workInfo.getState() != null &&
                         workInfo.getState() == WorkInfo.State.FAILED) {
                     String message = workInfo.getOutputData().getString("error");

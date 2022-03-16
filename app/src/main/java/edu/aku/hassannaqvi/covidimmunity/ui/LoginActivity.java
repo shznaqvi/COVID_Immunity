@@ -33,6 +33,8 @@ import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
+import net.sqlcipher.database.SQLiteException;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -43,6 +45,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -56,10 +59,12 @@ import javax.crypto.spec.SecretKeySpec;
 
 import edu.aku.hassannaqvi.covidimmunity.MainActivity;
 import edu.aku.hassannaqvi.covidimmunity.R;
+import edu.aku.hassannaqvi.covidimmunity.contracts.TableContracts;
 import edu.aku.hassannaqvi.covidimmunity.core.AppInfo;
 import edu.aku.hassannaqvi.covidimmunity.core.MainApp;
 import edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper;
 import edu.aku.hassannaqvi.covidimmunity.databinding.ActivityLoginBinding;
+import edu.aku.hassannaqvi.covidimmunity.models.EntryLog;
 import edu.aku.hassannaqvi.covidimmunity.models.Users;
 
 public class LoginActivity extends AppCompatActivity {
@@ -75,6 +80,8 @@ public class LoginActivity extends AppCompatActivity {
     ArrayAdapter<String> provinceAdapter;
     int attemptCounter = 0;
     private int countryCode;
+    String username = "";
+    String password = "";
 
     public static String encrypt(String plain) {
         try {
@@ -310,21 +317,49 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-            if ((username.equals("dmu@aku") && password.equals("aku?dmu"))
-                    || (username.equals("test1234") && password.equals("test1234"))
-                    || db.doLogin(username, password)
-            ) {
-                MainApp.admin = username.contains("@") || username.contains("test1234");
-                MainApp.user.setUserName(username);
+            try {
 
-                Intent iLogin = new Intent(edu.aku.hassannaqvi.covidimmunity.ui.LoginActivity.this, MainActivity.class);
-                startActivity(iLogin);
-            } else {
-                bi.password.setError(getString(R.string.incorrect_username_or_password));
-                bi.password.requestFocus();
-                Toast.makeText(edu.aku.hassannaqvi.covidimmunity.ui.LoginActivity.this, username + " " + password, Toast.LENGTH_SHORT).show();
+                if ((username.equals("dmu@aku") && password.equals("aku?dmu"))
+                        || (username.equals("test1234") && password.equals("test1234"))
+                        || db.doLogin(username, password)
+                ) {
+
+                    MainApp.user.setUserName(username);
+                    MainApp.admin = username.contains("@") || username.contains("test1234");
+                    MainApp.superuser = MainApp.user.getDesignation().equals("Supervisor");
+                    Intent iLogin = null;
+                    if (MainApp.admin) {
+                        recordEntry("Successfull Login (Admin)");
+                        iLogin = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(iLogin);
+                    } else if (MainApp.user.getEnabled().equals("1")) {
+                        if (!MainApp.user.getNewUser().equals("1")) { // TODO: getEnabled().equals("1")
+                            recordEntry("Successfull Login");
+                            iLogin = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(iLogin);
+                        } else if (MainApp.user.getNewUser().equals("1")) {
+                            recordEntry("First Login");
+                            iLogin = new Intent(LoginActivity.this, ChangePasswordActivity.class);
+                            startActivity(iLogin);
+                        }
+                    } else {
+                        recordEntry("Inactive User (Disabled)");
+                        Toast.makeText(this, "This user is inactive.", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    recordEntry("Failed Login: Incorrect username or password");
+                    bi.password.setError(getString(R.string.incorrect_username_or_password));
+                    bi.password.requestFocus();
+                    //  Toast.makeText(LoginActivity.this, username + " " + password, Toast.LENGTH_SHORT).show();
+                }
+            } catch (InvalidKeySpecException e) {
+                e.printStackTrace();
+                Toast.makeText(this, "InvalidKeySpecException(UserAuth):" + e.getMessage(), Toast.LENGTH_SHORT).show();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+                Toast.makeText(this, "NoSuchAlgorithmException(UserAuth):" + e.getMessage(), Toast.LENGTH_SHORT).show();
+
             }
-
 
         }
     }
@@ -433,6 +468,32 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         changeLanguage(Integer.parseInt(sharedPref.getString("lang", "0")));
+    }
+
+    private void recordEntry(String entryType) {
+
+        EntryLog entryLog = new EntryLog();
+        entryLog.setProjectName(PROJECT_NAME);
+        entryLog.setUserName(username);
+        entryLog.setEntryDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
+        entryLog.setAppver(MainApp.appInfo.getAppVersion());
+        entryLog.setEntryType(entryType);
+        entryLog.setDeviceId(MainApp.deviceid);
+        Long rowId = null;
+        try {
+            rowId = db.addEntryLog(entryLog);
+        } catch (SQLiteException e) {
+            Toast.makeText(this, "SQLiteException(EntryLog)" + entryLog, Toast.LENGTH_SHORT).show();
+        }
+        if (rowId != -1) {
+            entryLog.setId(String.valueOf(rowId));
+            entryLog.setUid(entryLog.getDeviceId() + entryLog.getId());
+            db.updatesEntryLogColumn(TableContracts.EntryLogTable.COLUMN_UID, entryLog.getUid(), entryLog.getId());
+        } else {
+            Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
+
+        }
+
     }
 }
 

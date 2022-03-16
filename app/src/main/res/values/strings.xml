@@ -593,6 +593,11 @@
     <string name="action_data_sync">Sync Data</string>
 
 
+    <string name="newPassword" translatable="false">New Password</string>
+    <string name="confirmPassword" translatable="false">Confirm Password</string>
+    <string name="btnResetPassword" translatable="false">Reset Password</string>
+
+
     <!--ERROR MESSAGES-->
     <string name="error_member_count">%1$s total does not match count of Male and Female</string>
     <string name="error_member_count_household">%1$s total does not match count of various members of different ages</string>

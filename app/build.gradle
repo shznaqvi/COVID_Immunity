@@ -136,4 +136,12 @@ dependencies {
     implementation('com.journeyapps:zxing-android-embedded:4.2.0') { transitive = false }
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.zxing:core:3.4.1'
+
+// Sqlcipher
+    implementation "net.zetetic:android-database-sqlcipher:4.5.0"
+    implementation "androidx.sqlite:sqlite-ktx:2.2.0"
+    implementation "androidx.sqlite:sqlite:2.2.0"
+
+    //Rooted
+    implementation 'com.scottyab:rootbeer-lib:0.1.0'
 }
