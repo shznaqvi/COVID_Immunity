@@ -1,5 +1,7 @@
 package edu.aku.hassannaqvi.covidimmunity.workers;
 
+import static edu.aku.hassannaqvi.covidimmunity.core.MainApp.PROJECT_NAME;
+
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
@@ -55,7 +57,7 @@ public class DataUpWorkerALL extends Worker {
     private final String uploadTable;
     private final JSONArray uploadData;
     private final URL serverURL = null;
-    private final String nTitle = MainApp.PROJECT_NAME + ": Data Upload";
+    private final String nTitle = PROJECT_NAME + ": Data Upload";
     private final int position;
     private final String uploadWhere;
     HttpsURLConnection urlConnection;
@@ -96,7 +98,7 @@ public class DataUpWorkerALL extends Worker {
 
             CertificateFactory cf = CertificateFactory.getInstance("X.509");
             AssetManager assetManager = context.getAssets();
-            InputStream caInput = assetManager.open("vcoe1_aku_edu.cer");
+            InputStream caInput = assetManager.open("star_aku_edu.crt");
             Certificate ca;
             try {
                 ca = cf.generateCertificate(caInput);
@@ -169,7 +171,7 @@ public class DataUpWorkerALL extends Worker {
         NotificationCompat.Builder notification = new NotificationCompat.Builder(getApplicationContext(), "scrlog")
                 .setContentTitle(title)
                 .setContentText(task)
-                .setSmallIcon(R.drawable.app_icon);
+                .setSmallIcon(R.mipmap.ic_launcher);
 
         final int maxProgress = 100;
         int curProgress = 0;
@@ -225,7 +227,7 @@ public class DataUpWorkerALL extends Worker {
         try {
             CertificateFactory cf = CertificateFactory.getInstance("X.509");
             AssetManager assetManager = mContext.getAssets();
-            caInput = assetManager.open("vcoe1_aku_edu.cer");
+            caInput = assetManager.open("star_aku_edu.crt");
 
 
             ca = cf.generateCertificate(caInput);
@@ -260,7 +262,7 @@ public class DataUpWorkerALL extends Worker {
             //HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
 
             urlConnection = (HttpsURLConnection) url.openConnection();
-            urlConnection.setSSLSocketFactory(buildSslSocketFactory(mContext));
+            // urlConnection.setSSLSocketFactory(buildSslSocketFactory(mContext));
             urlConnection.setReadTimeout(100000 /* milliseconds */);
             urlConnection.setConnectTimeout(150000 /* milliseconds */);
             urlConnection.setRequestMethod("POST");
@@ -270,15 +272,18 @@ public class DataUpWorkerALL extends Worker {
             urlConnection.setRequestProperty("charset", "utf-8");
             urlConnection.setUseCaches(false);
             urlConnection.connect();
+            Log.d(TAG, "doInBackground: " + urlConnection.getResponseCode());
+/*
 
             Certificate[] certs = urlConnection.getServerCertificates();
 
             if (certIsValid(certs, ca)) {
+*/
 
 
-                Log.d(TAG, "downloadURL: " + url);
+            Log.d(TAG, "downloadURL: " + url);
 
-                JSONArray jsonSync = new JSONArray();
+            JSONArray jsonSync = new JSONArray();
 
                 DataOutputStream wr = new DataOutputStream(urlConnection.getOutputStream());
 
@@ -299,11 +304,11 @@ public class DataUpWorkerALL extends Worker {
 
 
                 //wr.writeBytes(URLEncoder.encode(jsonParam.toString(), "utf-8"));
-                // wr.writeBytes(CipherSecure.encrypt(jsonParam.toString()));
                 wr.writeBytes(jsonParam.toString());
+            //wr.writeBytes(CipherSecure.encrypt(jsonParam.toString()));
 
                 String writeEnc = jsonParam.toString();
-                // String writeEnc = CipherSecure.encrypt(jsonParam.toString());
+            //String writeEnc = CipherSecure.encrypt(jsonParam.toString());
 
                 longInfo("Encrypted: " + writeEnc);
 
@@ -343,19 +348,19 @@ public class DataUpWorkerALL extends Worker {
                             .build();
                     return Result.failure(data);
                 }
-            } else {
+          /*  } else {
                 data = new Data.Builder()
                         .putString("error", "Invalid Certificate")
                         .putInt("position", this.position)
                         .build();
 
                 return Result.failure(data);
-            }
+            }*/
         } catch (java.net.SocketTimeoutException e) {
             Log.d(TAG, "doWork (Timeout): " + e.getMessage());
             displayNotification(nTitle, "Timeout Error: " + e.getMessage());
             data = new Data.Builder()
-                    .putString("error", e.getMessage())
+                    .putString("error", String.valueOf(e.getMessage()))
                     .putInt("position", this.position)
                     .build();
             return Result.failure(data);
@@ -364,7 +369,7 @@ public class DataUpWorkerALL extends Worker {
             Log.d(TAG, "doWork (IO Error): " + e.getMessage());
             displayNotification(nTitle, "IO Error: " + e.getMessage());
             data = new Data.Builder()
-                    .putString("error", e.getMessage())
+                    .putString("error", e.getClass().getSimpleName() + ": " + e.getMessage())
                     .putInt("position", this.position)
                     .build();
 
@@ -375,8 +380,6 @@ public class DataUpWorkerALL extends Worker {
         }
 
         result = new StringBuilder(result.toString());
-        //   result = new StringBuilder(CipherSecure.decrypt(result.toString()));
-
 
         //Do something with the JSON string
         if (result != null) {

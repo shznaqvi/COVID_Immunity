@@ -275,7 +275,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = UsersTable.COLUMN_ID + " ASC";
 
         Users loggedInUser = null;
-        try {
             c = db.query(
                     UsersTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -288,14 +287,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (c.moveToNext()) {
                 loggedInUser = new Users().hydrate(c);
             }
-        } finally {
-            if (c != null) {
+
                 c.close();
-            }
-            if (db != null) {
+
                 db.close();
-            }
-        }
+
         MainApp.user = loggedInUser;
         return c.getCount() > 0;
     }
@@ -320,7 +316,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
         String orderBy = FormsTable.COLUMN_ID + " ASC";
         ArrayList<Form> allForms = new ArrayList<>();
-        try {
             c = db.query(
                     FormsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -338,14 +333,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 forms.setUserName(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_USERNAME)));
                 allForms.add(forms);
             }
-        } finally {
-            if (c != null) {
+
                 c.close();
-            }
-            if (db != null) {
+
                 db.close();
-            }
-        }
+
         return allForms;
     }
 
@@ -368,7 +360,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = FormsTable.COLUMN_ID + " ASC";
 
         Form allFC = null;
-        try {
             c = db.query(
                     FormsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -381,14 +372,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (c.moveToNext()) {
                 allFC = new Form().Hydrate(c);
             }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
+
+        c.close();
+
+        db.close();
+
         return allFC;
     }
 
@@ -449,28 +437,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }*/
 
 
-    public int syncVersionApp(JSONObject VersionList) {
+    public int syncVersionApp(JSONObject VersionList) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
         db.delete(VersionTable.TABLE_NAME, null, null);
         long count = 0;
-        try {
-            JSONObject jsonObjectCC = ((JSONArray) VersionList.get(VersionTable.COLUMN_VERSION_PATH)).getJSONObject(0);
-            VersionApp Vc = new VersionApp();
-            Vc.sync(jsonObjectCC);
+        JSONObject jsonObjectCC = ((JSONArray) VersionList.get(VersionTable.COLUMN_VERSION_PATH)).getJSONObject(0);
+        VersionApp Vc = new VersionApp();
+        Vc.sync(jsonObjectCC);
 
-            ContentValues values = new ContentValues();
+        ContentValues values = new ContentValues();
 
-            values.put(VersionTable.COLUMN_PATH_NAME, Vc.getPathname());
+        values.put(VersionTable.COLUMN_PATH_NAME, Vc.getPathname());
             values.put(VersionTable.COLUMN_VERSION_CODE, Vc.getVersioncode());
             values.put(VersionTable.COLUMN_VERSION_NAME, Vc.getVersionname());
 
             count = db.insert(VersionTable.TABLE_NAME, null, values);
             if (count > 0) count = 1;
 
-        } catch (Exception ignored) {
-        } finally {
-            db.close();
-        }
+
+        db.close();
 
         return (int) count;
     }
@@ -490,7 +475,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = null;
 
         VersionApp versionApp = new VersionApp();
-        try {
             c = db.query(
                     VersionTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -503,30 +487,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (c.moveToNext()) {
                 versionApp.hydrate(c);
             }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
+
+        c.close();
+
+        db.close();
+
         return versionApp;
     }
 
 
-    public int syncUser(JSONArray userList) {
+    public int syncUser(JSONArray userList) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
         db.delete(UsersTable.TABLE_NAME, null, null);
         int insertCount = 0;
-        try {
-            for (int i = 0; i < userList.length(); i++) {
+        for (int i = 0; i < userList.length(); i++) {
 
-                JSONObject jsonObjectUser = userList.getJSONObject(i);
+            JSONObject jsonObjectUser = userList.getJSONObject(i);
 
-                Users user = new Users();
-                user.sync(jsonObjectUser);
-                ContentValues values = new ContentValues();
+            Users user = new Users();
+            user.sync(jsonObjectUser);
+            ContentValues values = new ContentValues();
 
                 values.put(UsersTable.COLUMN_USERNAME, user.getUserName());
                 values.put(UsersTable.COLUMN_PASSWORD, user.getPassword());
@@ -535,18 +515,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 if (rowID != -1) insertCount++;
             }
 
-        } catch (Exception e) {
-            Log.d(TAG, "syncUser(e): " + e);
-            db.close();
-        } finally {
-            db.close();
-        }
+
+        db.close();
+
+        db.close();
+
         return insertCount;
     }
 
 
     //get UnSyncedTables
-    public JSONArray getUnsyncedForms() {
+    public JSONArray getUnsyncedForms() throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = null;
@@ -564,7 +543,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = FormsTable.COLUMN_ID + " ASC";
 
         JSONArray allForms = new JSONArray();
-        try {
             c = db.query(
                     FormsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -584,18 +562,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Log.d(TAG, "getUnsyncedForms: getUnsyncedForms " + e.getMessage()
-            );
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
+
+
+        c.close();
+
+        db.close();
+
+
         Log.d(TAG, "getUnsyncedForms: " + allForms.toString().length());
         Log.d(TAG, "getUnsyncedForms: " + allForms);
         return allForms;
@@ -824,7 +797,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = FormsTable.COLUMN_ID + " DESC";
 
         Collection<Form> allFC = new ArrayList<>();
-        try {
             c = db.query(
                     FormsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -843,14 +815,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 fc.setSynced(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_SYNCED)));
                 allFC.add(fc);
             }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
+
+        c.close();
+
+        db.close();
+
         return allFC;
     }
 
@@ -870,7 +839,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = FormsTable.COLUMN_ID + " DESC";
 
         Collection<Form> allFC = new ArrayList<>();
-        try {
             c = db.query(
                     FormsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -889,14 +857,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 fc.setSynced(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_SYNCED)));
                 allFC.add(fc);
             }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
+
+        c.close();
+
+        db.close();
+
         return allFC;
     }
 
