@@ -95,11 +95,6 @@
             android:label="Forms Report"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".ui.ChangePasswordActivity"
-            android:exported="true"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustResize" />
 
         <service android:name=".DownloadFileService" />
 
