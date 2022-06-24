@@ -43,8 +43,8 @@ public class MainApp extends Application {
 
     //public static final String _IP = "https://cls-pae-fp51764";// .TEST server
     public static final String _HOST_URL = MainApp._IP + "/" + PROJECT_NAME + "/api/";// .TEST server;
-    public static final String _SERVER_URL = "sync.php";
-    public static final String _SERVER_GET_URL = "getData.php";
+    public static final String _SERVER_URL = "syncGCM.php";
+    public static final String _SERVER_GET_URL = "getDataGCM.php";
     public static final String _PHOTO_UPLOAD_URL = _HOST_URL + "uploads.php";
     public static final String _UPDATE_URL = MainApp._IP + "/" + PROJECT_NAME + "/app/";
     public static final String _APP_FOLDER = "../app/" + PROJECT_NAME;
