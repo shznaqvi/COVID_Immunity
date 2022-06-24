@@ -1,5 +1,8 @@
 package edu.aku.hassannaqvi.covidimmunity.core;
 
+import static edu.aku.hassannaqvi.covidimmunity.database.CreateTable.DATABASE_NAME;
+import static edu.aku.hassannaqvi.covidimmunity.database.DatabaseHelper.DATABASE_PASSWORD;
+
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -44,10 +47,12 @@ public class MainApp extends Application {
     public static final String _SERVER_GET_URL = "getData.php";
     public static final String _PHOTO_UPLOAD_URL = _HOST_URL + "uploads.php";
     public static final String _UPDATE_URL = MainApp._IP + "/" + PROJECT_NAME + "/app/";
+    public static final String _APP_FOLDER = "../app/" + PROJECT_NAME;
     private static final String TAG = "MainApp";
     public static String IBAHC = "";
     public static final String _EMPTY_ = "";
     public static final String _USER_URL = "resetpassword.php";
+    public static int TRATS = 8;
 
     //COUNTRIES
     public static int PAKISTAN = 1;
@@ -169,14 +174,18 @@ public class MainApp extends Application {
     private void initSecure() {
         // Initialize SQLCipher library
         SQLiteDatabase.loadLibs(this);
-
+        File databaseFile = getDatabasePath(DATABASE_NAME);
+       /* databaseFile.mkdirs();
+        databaseFile.delete();*/
+        SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(databaseFile, DATABASE_PASSWORD, null);
         // Prepare encryption KEY
         ApplicationInfo ai = null;
         try {
             ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
             Bundle bundle = ai.metaData;
-            int TRATS = bundle.getInt("YEK_TRATS");
-            IBAHC = bundle.getString("YEK_REVRES").substring(TRATS, TRATS + 16);
+            TRATS = bundle.getInt("YEK_TRATS");
+            //IBAHC = bundle.getString("YEK_REVRES").substring(TRATS, TRATS + 16);
+            IBAHC = bundle.getString("YEK_REVRES");
             Log.d(TAG, "onCreate: YEK_REVRES = " + IBAHC);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
